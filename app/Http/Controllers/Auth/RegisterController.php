@@ -7,8 +7,6 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -52,15 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'fname' => ['required', 'string', 'max:255'],
-            'lname' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'age' => ['required', 'integer'],
-            'address' => ['required', 'string', 'max:255'],
-            'bdate' => ['required', 'date'],
-            'contact' => ['required', 'integer', 'min:11', 'max:11'],
-            'password' => ['required','min:6','max:12'], 
-            'confirmation_password' => ['required'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -70,66 +62,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-   protected function create(array $data)
+    protected function create(array $data)
     {
         return User::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
-            'bdate' => $data['bdate'],
-            'address' => $data['address'],
-            'contact' => $data['contact'],
-            'age' => $data['age'],
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_id' => attachRole($data['role_id']), 
         ]);
-    } 
-    
-
-    /* function register(Request $request)
-    {
-        $request->validate
-        ([
-            'fname' => 'required', 'string', 'max:255',
-            'lname' => 'required', 'string', 'max:255',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'age' => 'required', 'integer',
-            'address' => 'required', 'string', 'max:255',
-            'bdate' => 'required', 'date',
-            'contact' => 'required', 'integer', 'min:11', 'max:11',
-            'password' => 'required|min:6|max:12', 
-            'confirmation_password' => 'required',
-        ]);
-        
-        //Insert data into database
-        $user = new User;
-        $user->fname = $request->fname;
-        $user->lname = $request->lname;
-        $user->age = $request->age;
-        $user->bdate = $request->bdate;
-        $user->address = $request->address;
-        $user->contact = $request->contact;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->attachRole($request->role_id); 
-        $save = $user->save();
-
-        if($save)
-        {
-            return redirect('/home');
-            //return back()->with('success', 'Successful!');   
-        }
-        else
-        {
-            return back()->with('fail', 'Failed!');
-        }
-
-
-        $data = $request->all();
-        $check = $this->create($data);
-         
-        return redirect("home")->withSuccess('You have signed-in');
-
-    } */
+    }
 }
-

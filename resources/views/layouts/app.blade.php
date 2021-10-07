@@ -7,34 +7,20 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>BHMS</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery-341.min.js"></script>  
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/font-awesome/css/all.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="css/mystyle_CSS.css">
-    <link rel="icon" href="images/macawayan logo.png">
-    
-    <style>
-        body{
-            background-image: url(images/bmhms-background.jpg);
-            background-size: cover;
-        }
-    </style>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    {{--laravel home layout---}}
-    {{-- <div id="app">
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -92,14 +78,6 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div> --}}
-    @yield('content')
-    @yield('scripts')
-
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery-341.min.js"></script>  
-
-
+    </div>
 </body>
 </html>

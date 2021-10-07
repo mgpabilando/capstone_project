@@ -40,6 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin_nurse' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'bhw' => [
+            'driver' => 'session',
+            'provider' => 'bhws',
+        ],
     ],
 
     /*
@@ -69,6 +79,15 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin_nurse::class,
+        ],
+        'bhws' => [
+            'driver' => 'eloquent',
+            'model' => App\Bhw::class,
+        ],
     ],
 
     /*

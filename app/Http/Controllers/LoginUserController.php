@@ -17,26 +17,29 @@ class LoginUserController extends Controller
 
     function customlogin (Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:6|max:12',
-        ]);
+        $email = $request->input('email');
+        $password = $request->input('password');
 
         
-        $userinfo = User::where('email', '=', $request->email)->first(); 
-
-        if (!$userinfo) {
+        /* $userinfo = Auth::where('email', '=', $request->email)->first();  */
+        $credential = User::where('email', '=', $request->email)->first();
+        if (!$credential) {
             //return redirect()->back()->withErrors($userinfo)->withInput($request->all());
             return back()->with('fail', 'We do not recognize your email address');
         }
         else {
-            if (Hash::check($request->password, $userinfo->password)) {
-                $request->session()->put('LoggedUser', $userinfo->id);
-                return redirect('/homepage');
+            if (Hash::check($password, optional($credential)->password))
+            {
+                $request->session()->put('success');
+                if (Auth::attempt(['email' => $email, 'password' => $password]))
+                    {
+                        return redirect()->intended(route('/dasboard'));
+                    }
             }
             else {
                 return back()->with('fail','Incorrect Password');
             }
+            
         }
     }
 
@@ -44,14 +47,13 @@ class LoginUserController extends Controller
 
     function homepage()
     {
-        /* if(Auth::check())
+        if(Auth::check())
         {
-            return view('homepage');
+            return view('dashboard');
         }
         
-        return redirect("login")->withSuccess('You are not allowed to access'); */
+        return redirect("login")->withSuccess('You are not allowed to access');
 
-        return view('homepage');
     }
 
     function signout() 
