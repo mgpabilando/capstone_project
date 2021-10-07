@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;800&display=swap');
+*  {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'poppins', sans-serif;
+  height: 100vh;
+  margin: 0px 0 0px 0;
+  /* background-image: url(images/bmhms-background.jpg); */
+  background: #3CB371;
+  background-size: cover;
+  
+}
+
+.Login_Section{
+  height: 30rem;
+  position: relative;
+  border-radius: 25%;
+
+}
+
+.log_content {
+  border-radius: 10px;
+  position: relative;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
+  
+}
+
+
+.hms-display #overlay {
+  position: absolute;
+  display:initial;
+  width: 384px;
+  height: 480px;
+  background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+  transform: translateY(0px);
+  border-radius: 10px 0px 0px 10px;
+}
+
+/* .hms-display h3{
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+  position: absolute;
+  color: #ffffff;
+} */
+
+.hms-display img{
+  width: 90%;
+  height: auto;
+}
+
+
+.hms-login{
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0px 10px 10px 0px;
+  height: 480px;
+}
+
+.alert {
+  display: flex;
+  font-size: 12px;
+  background-color: #f36d84;
+  position: absolute;
+  transform: translateX(-25px);
+  font-weight: bold;
+  width: 40%;
+
+}
+
+
+.hms-login .form-login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding:40px;
+	height: 680px;
+  margin-left: 0px;
+	text-align: center;
+  background-color: #ffffff;
+}
+
+.form-login .login-user-logo {
+  margin-bottom: 20px;
+  
+  
+}
+
+.form-login .input-group {
+  margin: 5px;
+}
+
+.form-login .form-control {
+  border-radius: 25px;
+  outline: none;
+  width: 80%;
+}
+
+.form-login .form-control:focus {
+  border: 2px solid linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;;
+  outline: none;
+} 
+
+.icon {
+  border-radius: 25px;
+  padding: 10px;
+  background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+  color: white;
+  text-align: center;
+  min-width: 20%;
+}
+
+.form-login .btn{
+  background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;;
+  border-radius: 25px;  
+  color: white;
+  margin-top: 15px;
+  padding: 5px 20px;
+  border: none;
+  cursor: pointer;
+  width: 55%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.form-login p {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.form-login .forgotpass{
+  font-size: 12px;
+  transform: translateX(50px);
+}
+
+.form-login .forgotpass a:hover{
+  color:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+}
+
+.form-login a.form-signup:hover{
+  color:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;;
+}
+
+@media (max-width: 768px){
+  body{
+    background-image: url(images/1-Smart-City-Health-ICES-770x578.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+  .Login_Section{
+    height: 100%;
+    position: relative;
+    background-color: rgba(0,0,0,0.1);
+  }
+
+  .log_content {
+    border-radius: 10px;
+    width: 100%;
+    min-height: 100%;
+    box-shadow: 0 0 0;
+    
+  }
+
+  .hms-display {
+    background-image: none;
+    background-color: none;
+    z-index: 5;
+    width: 100%;
+    background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+  }
+
+  .hms-display #overlay {
+    position: relative;
+    display: initial;
+    width: 80%;
+    height: 100px;
+    background: none;
+  }
+
+  .hms-display h3{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    position: relative;
+    
+  }
+
+  .hms-login{
+    background:none;
+  }
+
+  .hms-login .form-login {
+    transform: translateY(220px);
+    width: 450px;
+    height: 80%;
+    border-radius: 10px;
+  }
+
+  .form-login .login-user-logo {
+    transform: translateY(-230px);
+    margin-bottom: 0px;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+
+
+/*MODAL*/
+.modal-content {
+  margin: 25px auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 2px solid #888;
+  width: 45%; /* Could be more or less, depending on screen size */
+  font-size: 12px;
+  border-radius: 10px;
+   
+}
+
+.modal .modal-title{
+  color:#000000;  
+  font-weight: bold;
+  position: absolute;
+  margin: 10px;
+  width: 90%;
+}
+
+.modal-body {
+  margin: 0px 20px;
+  position: relative;
+
+}
+
+.modal-footer{
+  justify-content: center;
+  background-color: white;  
+  display: flex;
+}
+
+/* Full-width input fields */
+.modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
+  width: 100%;
+  padding: 5px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 25px;
+
+}
+
+
+/* Set a style for all buttons */
+.modal .modal-content .btn {
+  background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+  border-radius: 25px;  
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.modal-content .modal-body select{
+  width: 100%;
+  border-radius: 25px;
+  padding: 5px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+} 
+/* .modal .modal-content .btn-reg:hover {
+  opacity: 0.8;
+} */
+
+/* Extra styles for the cancel button */
+/* .cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+} */
+
+/* Center the image and position the close button */
+/* .imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+} */
+
+/* img.avatar {
+  width: 40%;
+  border-radius: 50%;
+} */
+
+/* span.psw {
+  float: right;
+  padding-top: 16px;
+} */
+
+
+
+
+
+
+/* .modal .modal-content .form-group{
+  padding-top: 5px;
+} */
+
+.modal .modal-content .control-label{
+  color: #000000;
+  
+}
+
+.row-space  {
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.modal .modal-content .info-head{
+  position: absolute;
+  transform: rotate(-90deg) translateX(-70px) translateY(-120px);
+  background-color: #2ae88a;
+  padding: 8px 10px; 
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+/* .modal .modal-content .in-col.col-end{
+  transform: translateX(20px);
+} */
+
+/* The Close Button (x) */
+/* .close {
+  position: fixed;
+  right: 250px;
+  top: 0;
+  color: rgb(255, 255, 255);
+  font-size: 35px;
+  font-weight: bold;
+} */
+
+/* .close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+} */
+
+/* Add Zoom Animation */
+/* .animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+} */
+
+/* Change styles for span and cancel button on extra small screens */
+/* @media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+@media (max-width: 576px){
+  .modal-content{
+    width: 90%;
+  }
+
+  .modal .modal-content .btn-reg{
+    width: 100%;
+  }
+}  */
