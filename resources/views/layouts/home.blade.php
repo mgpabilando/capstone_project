@@ -4,9 +4,9 @@
     <title>BHMS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="fonts/font-awesome/css/all.css">
+    <link rel="stylesheet" href="{{asset ('bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset ('bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/all.css') }}">
     <link href="{{ asset('css/style_dashboard.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
 </head>
