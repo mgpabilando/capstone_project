@@ -137,10 +137,6 @@
     display: flex;
 }
 
-#sidebar li a.active{
-    background: #415e5e;    
-}
-
 
 #sidebar li a:active{
     background: #415e5e;
