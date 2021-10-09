@@ -16,8 +16,8 @@ class ResidentController extends Controller
      */
     public function index()
     {
-        $resident = Residents::all();
-        return view('navigation_links.residentprofile')->with('resident', $resident);
+        $residentprofile = Residents::all();
+        return view('navigation_links.residentprofile')->with('resident', $residentprofile);
     }
 
     /**
@@ -49,7 +49,7 @@ class ResidentController extends Controller
             'sex' => 'required', 'string', 'max:255',
             'civil_status' => 'required', 'string', 'max:255',
             'phil_health_id' => 'string', 'max:255',
-            '4ps_id' => 'string', 'max:255',
+            'id_4ps' => 'string', 'max:255',
             'family_id' => 'required', 'string', 'max:255',
             'purok' => 'string', 'max:255',
         ]);
@@ -65,7 +65,7 @@ class ResidentController extends Controller
             'sex' => $request['sex'],
             'civil_status' => $request['civil_status'],
             'phil_health_id' => $request['phil_health_id'],
-            '4ps_id' => $request['4ps_id'],
+            'id_4ps' => $request['id_4ps'],
             'family_id' => $request['family_id'],
             'purok' => $request['purok'],
         ]);

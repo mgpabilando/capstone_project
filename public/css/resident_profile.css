@@ -22,17 +22,15 @@
   width: calc(100% - 60px);
 }
 
-.head-resprof .head-func{
-  margin: 0 10px 0 0;
+.head-resprof .form-search{
+  margin: 10px 0 0 0;
 }
 
 .head-resprof .form-search input{
-  margin-top: 10px;
-  margin-right: 5px;
   box-shadow: 1px 1px 5px grey;
-  border: 2px solid #ffffff;
+  border: 2px solid #08aeea;
   padding: 5px 8px;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
 }
 
 .head-resprof .form-search input:focus{
@@ -40,14 +38,13 @@
   border: 2px solid #08aeea;
 }
 
-.head-resprof .form-search button {
-  margin-top: 10px;
-  margin-right: 8px;
+.head-resprof .form-search .btn-search {
+  margin: 0px 8px 0 0px;
   box-shadow: 1px 1px 5px 0px grey;
   border: 2px solid #08aeea;
   background-color: #08aeea;
-  padding: 10px 10px;
-  border-radius: 10px;
+  padding: 9px 10px;
+  border-radius: 0 10px 10px 0;
   color: #ffffff;
 }
 
@@ -146,5 +143,32 @@ select {
 ******************************************/
 .res-view .modal-content{
   width: 120vh;
-  background-color: yellow;
+  margin-left: -100px;
+}
+
+.res-view .modal-content .name{
+  font-size: 24px;
+}
+
+.res-view .modal-content .name:nth-child(1){
+  text-transform: capitalize;
+}
+
+.res-view .head-info{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #6c757d;
+}
+
+.res-view .head-info .under-info strong{
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.res-view .com-info strong{
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.res-view .com-info .strong:nth-child(1){
+  text-transform: capitalize;
 }

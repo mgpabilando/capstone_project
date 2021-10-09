@@ -25,7 +25,7 @@ class CreateResidentsTable extends Migration
             $table->string('sex');
             $table->string('civil_status');
             $table->string('phil_health_id');
-            $table->string('4ps_id');
+            $table->string('id_4ps');
             $table->string('mobile');
             $table->string('purok');
             $table->rememberToken();

@@ -21,7 +21,7 @@ class Residents extends Model
         'sex',
         'civil_status',
         'phil_health_id',
-        '4ps_id',
+        'id_4ps',
         'purok',
     ];
 }
