@@ -1,0 +1,150 @@
+/*Resident Profile*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;800&display=swap');
+* , body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.content {
+  position: relative;
+  background: rgb(224, 248, 255);
+  left: 260px;
+  width: calc(100% - 260px);
+  height: calc(100vh - 80px);
+  transition: all 0.5s ease;
+  margin: 0;  
+}
+
+.content.close {
+  left: 60px;
+  width: calc(100% - 60px);
+}
+
+.head-resprof .head-func{
+  margin: 0 10px 0 0;
+}
+
+.head-resprof .form-search input{
+  margin-top: 10px;
+  margin-right: 5px;
+  box-shadow: 1px 1px 5px grey;
+  border: 2px solid #ffffff;
+  padding: 5px 8px;
+  border-radius: 10px;
+}
+
+.head-resprof .form-search input:focus{
+  outline: none;
+  border: 2px solid #08aeea;
+}
+
+.head-resprof .form-search button {
+  margin-top: 10px;
+  margin-right: 8px;
+  box-shadow: 1px 1px 5px 0px grey;
+  border: 2px solid #08aeea;
+  background-color: #08aeea;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.head-resprof .btn-add-res{
+  margin-top: 10px;
+  margin-right: 8px;
+  box-shadow: 1px 1px 5px 0px grey;
+  background-color: #2ae88a;
+  border: 2px solid #2ae88a;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #ffffff;
+  
+}
+
+/*******************************
+//Resident Table design
+*******************************/
+.content .list-of-res{
+  padding: 15px 0 0 0;
+}
+
+.list-of-res .table{
+  margin: 0 10px;
+  width: 98%;
+  background-color: #ffffff;
+}
+
+.list-of-res .view{
+  color: #007bff;
+}
+
+.list-of-res .edit{
+  color: #ffc107;
+}
+
+.list-of-res .delete{
+  color: #dc3545;
+}
+
+.list-of-res .btn-action:hover{
+  text-decoration: underline;
+}
+.list-of-res .btn-action .fas{
+  padding: 0 5px 0 10px;
+}
+
+/*******************************
+//Modal Design for Add Resident
+*******************************/  
+.add-resident-modal .btn-add-res {
+  text-transform: uppercase;
+  position: relative;
+  top: 15px;
+  width: 200px;
+  height: 50px;
+  background-color: #ffff;
+  border: 4px solid #01ab40;
+  color: #0e912f;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+  
+.add-resident-modal h5 {
+  font-size: 1.6rem;
+  color: #288048;
+}
+  
+.add-resident input,
+select {
+  box-sizing: border-box;
+  width: 150px;
+  height: 30px;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  border: 2px solid #02cc4c;
+  border-radius: 5px;
+  outline: none;
+}
+  
+.add-resident .date,
+select {
+  text-transform: uppercase;
+}
+
+.add-resident .details {
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+}
+
+/*****************************************
+//Modal Design for View Resident Profile
+******************************************/
+.res-view .modal-content{
+  width: 120vh;
+  background-color: yellow;
+}

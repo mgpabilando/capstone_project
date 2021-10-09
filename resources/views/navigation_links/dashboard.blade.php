@@ -1,5 +1,6 @@
 @extends('layouts.home')
-
+@include('layouts.navbar.sidebar')
+@include('layouts.navbar.topnavbar')
 @section('content')
 {{-- <div class="container-fluid">
  

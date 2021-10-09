@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="{{ asset ('bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/all.css') }}">
     <link href="{{ asset('css/style_dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/resident_profile.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
 </head>
 <body>
-        @include('layouts.navigation')
-        
+         
         @yield('content')
         
         <script src="{{ asset('js/app.js') }}"></script>
@@ -23,28 +23,23 @@
 
 <script>
     let sidebar = document.querySelector("#sidebar");
+    let content = document.querySelector(".content");
+    let hom_sec = document.querySelector(".home-section");
     let sidebarBtn = document.querySelector(".fa-bars");
     console.log(sidebarBtn);
     sidebarBtn.addEventListener("click", ()=>{
         sidebar.classList.toggle("close");
+        content.classList.toggle("close");
+        hom_sec.classList.toggle("close");
     });
+</script>
 
+<script>
     $("ul li").click(function() {
         $('li').removeClass("active");
         $(this).addClass("active");
         });
-
-        /* const linkColor = document.querySelectorAll('.link')
-
-        function colorLink(){
-        if(linkColor){
-        linkColor.forEach(l=> l.classList.remove('active'))
-        this.classList.add('active')
-        }
-        }
-        linkColor.forEach(l=> l.addEventListener('click', colorLink)) */
-});
-
+        
 </script>
 
 

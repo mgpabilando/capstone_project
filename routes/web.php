@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUsersController;
 use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ResidentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::resource('/register', RegisteredUsersController::class);
 
 //auth route for both 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/residentprofile', [DashboardController::class, 'residentprofile'])->name('dashboard.residentprofile');
+    //Route::get('/residentprofile', [DashboardController::class, 'residentprofile'])->name('dashboard.residentprofile');
     Route::get('/bhw', [DashboardController::class, 'bhw'])->name('dashboard.bhw');
     Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');
     Route::get('/familynumbering', [DashboardController::class, 'familynumbering'])->name('dashboard.familynumbering');
@@ -41,16 +42,4 @@ Route::resource('/register', RegisteredUsersController::class);
     Route::get('/purok', [DashboardController::class, 'purok'])->name('dashboard.purok');
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
 
-/* // for users
-Route::group(['middleware' => ['auth', 'role:bhw']], function() { 
-    Route::get('/dashboard/myprofile', 'App\Http\Controllers\DashboardController@myprofile')->name('dashboard.myprofile');
-});
-
-// for blogwriters
-Route::group(['middleware' => ['auth', 'role:blogwriter']], function() { 
-    Route::get('/dashboard/postcreate', 'App\Http\Controllers\DashboardController@postcreate')->name('dashboard.postcreate');
-}); */
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/residentprofile', ResidentController::class);
