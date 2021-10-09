@@ -26,11 +26,6 @@ class DashboardController extends Controller
      return view('navigation_links.bhw');
      }
 
-     public function events()
-     {
-     return view('navigation_links.events');
-     }
-
      public function activityevents()
      {
      return view('navigation_links.events');

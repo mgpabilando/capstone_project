@@ -1,8 +1,5 @@
 @extends('layouts.home')
 @section('content')
-    <container class="fluid">
-
-        
-    </container>
+    <div class="position-absolute"> bhw</div>
     
 @endsection

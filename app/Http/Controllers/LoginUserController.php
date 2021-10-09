@@ -33,7 +33,7 @@ class LoginUserController extends Controller
                 $request->session()->put('success');
                 if (Auth::attempt(['email' => $email, 'password' => $password]))
                     {
-                        return redirect()->intended(route('/dasboard'));
+                        return redirect()->intended(route('dashboard'));
                     }
             }
             else {
@@ -45,16 +45,21 @@ class LoginUserController extends Controller
 
 
 
-    function homepage()
+    /* function homepage()
     {
         if(Auth::check())
         {
-            return view('dashboard');
+            
+            if($user->hasRole('admin_nurse')){
+                return view('dashboard');
+           }elseif($user->hasRole('bhw')){
+                return view('navigation_links/bhwdashboard');
+           }
         }
         
         return redirect("login")->withSuccess('You are not allowed to access');
 
-    }
+    } */
 
     function signout() 
     {

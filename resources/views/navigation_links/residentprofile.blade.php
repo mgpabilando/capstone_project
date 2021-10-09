@@ -1,5 +1,5 @@
 @extends('layouts.home')
-{{-- @section('content')
+@section('content')
     <div class="col-md-9 content">
         <div class="d-flex flex-row justify-content-between align-items-center dbres-profile ">
         <div class="res-prof"><a href="dashboard.php"><i class="fas fa-chevron-left"></i></a>Resident Profile</div>
@@ -227,5 +227,5 @@
             </div>
         </div><!--col 3 end-->
     </div>
-@endsection --}}
+@endsection
 

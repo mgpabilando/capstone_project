@@ -12,9 +12,9 @@
 </head>
 <body>
         @include('layouts.navigation')
-        <div class="container">
+        
         @yield('content')
-        </div>
+        
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/jquery-341.min.js"></script>
@@ -28,6 +28,26 @@
     sidebarBtn.addEventListener("click", ()=>{
         sidebar.classList.toggle("close");
     });
+
+    $("ul li").click(function() {
+        $('li').removeClass("active");
+        $(this).addClass("active");
+        });
+
+        /* const linkColor = document.querySelectorAll('.link')
+
+        function colorLink(){
+        if(linkColor){
+        linkColor.forEach(l=> l.classList.remove('active'))
+        this.classList.add('active')
+        }
+        }
+        linkColor.forEach(l=> l.addEventListener('click', colorLink)) */
+});
+
 </script>
+
+
+</body>
 </html>
 

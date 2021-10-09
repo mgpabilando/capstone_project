@@ -28,11 +28,18 @@ Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout'
 
 Route::resource('/register', RegisteredUsersController::class);
 
-Route::get('/homepage', [LoginUserController::class, 'homepage'])->name('homepage');
+//Route::get('/dashboard', [LoginUserController::class, 'homepage'])->name('dashboard');
 
 //auth route for both 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/residentprofile', [DashboardController::class, 'residentprofile'])->name('dashboard.residentprofile');
+    Route::get('/residentprofile', [DashboardController::class, 'residentprofile'])->name('dashboard.residentprofile');
+    Route::get('/bhw', [DashboardController::class, 'bhw'])->name('dashboard.bhw');
+    Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');
+    Route::get('/familynumbering', [DashboardController::class, 'familynumbering'])->name('dashboard.familynumbering');
+    Route::get('/healthconsultation', [DashboardController::class, 'healthconsultation'])->name('dashboard.healthconsultation');
+    Route::get('/medicinerequest', [DashboardController::class, 'medicinerequest'])->name('dashboard.medicinerequest');
+    Route::get('/purok', [DashboardController::class, 'purok'])->name('dashboard.purok');
+    Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
 
 /* // for users
 Route::group(['middleware' => ['auth', 'role:bhw']], function() { 
