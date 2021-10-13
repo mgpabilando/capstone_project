@@ -84,8 +84,8 @@ class ResidentController extends Controller
     public function show($id)
     {
         //get the respondent
-        /* $residentprofile = Residents::find($id);
-        return view('navigation_links.residentprofile')->with('residents', $residentprofile); */
+        $residentprofile = Residents::find($id);
+        return view('navigation_links.residentprofile')->with($residentprofile, $id);
 
     }
 

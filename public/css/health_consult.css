@@ -1,0 +1,49 @@
+/*health consultation*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;800&display=swap');
+* , body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.content {
+  position: relative;
+  background: rgb(224, 248, 255);
+  left: 260px;
+  width: calc(100% - 260px);
+  height: calc(100vh - 80px);
+  transition: all 0.5s ease;
+  margin: 0;  
+  
+}
+
+.content.close{
+  left: 60px;
+  width: calc(100% - 60px);
+}
+
+.headconsul .msgandbtn .btn-add-consul{
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 120px;
+    display: flex;
+    box-shadow: 1px 1px 5px 0px grey;
+    background-color: #2ae88a !important;
+    border: 2px solid #2ae88a;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+/* .list-of-consultation .consul_view{
+    color: #007bff;
+}
+
+.list-of-consultation .consul_edit{
+    color: #ffc107;
+}
+
+.list-of-consultation .consul_delete{
+    color: #dc3545;
+} */
