@@ -42,4 +42,5 @@ Route::resource('/register', RegisteredUsersController::class);
     Route::get('/purok', [DashboardController::class, 'purok'])->name('dashboard.purok');
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
 
+//Route::get('/residentprofile/{id}', ResidentController::class, 'show')->name('residentprofile');
     Route::resource('/residentprofile', ResidentController::class);

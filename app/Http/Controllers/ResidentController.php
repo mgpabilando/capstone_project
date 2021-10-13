@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Residents;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -16,8 +17,9 @@ class ResidentController extends Controller
      */
     public function index()
     {
+        //RETRIEVE DATA FROM RESIDENTS DB
         $residentprofile = Residents::all();
-        return view('navigation_links.residentprofile')->with('resident', $residentprofile);
+        return view('navigation_links.residentprofile')->with('residents', $residentprofile);
     }
 
     /**
@@ -54,7 +56,7 @@ class ResidentController extends Controller
             'purok' => 'string', 'max:255',
         ]);
 
-        $resident = Residents::create([
+        $residentprofile = Residents::create([
             'fname' => $request['fname'],
             'mname' => $request['mname'],
             'lname' => $request['lname'],
@@ -69,11 +71,8 @@ class ResidentController extends Controller
             'family_id' => $request['family_id'],
             'purok' => $request['purok'],
         ]);
-        //$resident->{($request->purok)};
-
-        $resident->save();
-
-        return redirect('residentprofile')->with('success', 'Data Saved.');
+        $residentprofile->save();
+        return redirect()->route('residentprofile.index')->with('success', 'Added Successfully.');
     }
 
     /**
@@ -84,7 +83,10 @@ class ResidentController extends Controller
      */
     public function show($id)
     {
-        //
+        //get the respondent
+        /* $residentprofile = Residents::find($id);
+        return view('navigation_links.residentprofile')->with('residents', $residentprofile); */
+
     }
 
     /**
@@ -95,7 +97,10 @@ class ResidentController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $residentprofile = Residents::find($id);
+        return view('navigation_links.residentprofile')->with($residentprofile, $id);
+
     }
 
     /**
@@ -105,9 +110,48 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'fname' => 'required', 'string', 'max:255',
+            'mname' => 'string', 'max:255',
+            'lname' => 'required', 'string', 'max:255',
+            'age' => 'required', 'integer',
+            'placeofbirth' => 'required', 'string', 'max:255',
+            'bdate' => 'required', 'date',
+            'mobile' => 'required', 'string', 'max:11',
+            'sex' => 'required', 'string', 'max:255',
+            'civil_status' => 'required', 'string', 'max:255',
+            'phil_health_id' => 'string', 'max:255',
+            'id_4ps' => 'string', 'max:255',
+            'family_id' => 'required', 'string', 'max:255',
+            'purok' => 'string', 'max:255',
+        ]);
+
+        $residentprofile = array (
+            'fname' => $request->fname,
+            'mname' => $request->mname,
+            'lname' => $request->lname,
+            'bdate' => $request->bdate,
+            'placeofbirth' => $request->placeofbirth,
+            'mobile' => $request->mobile,
+            'age' => $request->age,
+            'sex' => $request->sex,
+            'civil_status' => $request->civil_status,
+            'phil_health_id' => $request->phil_health_id,
+            'id_4ps' => $request->id_4ps,
+            'family_id' => $request->family_id,
+            'purok' => $request->purok,
+        );
+
+        /* echo "<pre>"; print_r($residentprofile); die; */
+
+        Residents::findOrFail($request->resident_id)->update($residentprofile);
+        return redirect()->route('residentprofile.index')->with('success', 'Updated Successfully.');
+        
+        
+
+       
     }
 
     /**
@@ -116,8 +160,13 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $residentprofile)
     {
-        //
+        $delete = $residentprofile->all();
+
+        /* echo "<pre>"; print_r($delete); die; */
+        $deleteresident = Residents::findOrFail($residentprofile->resident_id);
+        $deleteresident->delete();
+        return redirect()->route('residentprofile.index')->with('success', 'Deleted Successfully.');
     }
 }

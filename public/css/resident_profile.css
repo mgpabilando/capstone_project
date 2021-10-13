@@ -15,6 +15,7 @@
   height: calc(100vh - 80px);
   transition: all 0.5s ease;
   margin: 0;  
+  
 }
 
 .content.close {
@@ -47,10 +48,14 @@
   border-radius: 0 10px 10px 0;
   color: #ffffff;
 }
-
+/*******************************
+//Add resident button
+*******************************/
 .head-resprof .btn-add-res{
   margin-top: 10px;
-  margin-right: 8px;
+  margin-right: 10px;
+  width: 120px;
+  display: flex;
   box-shadow: 1px 1px 5px 0px grey;
   background-color: #2ae88a;
   border: 2px solid #2ae88a;
@@ -60,6 +65,13 @@
   
 }
 
+.alert{
+  position: absolute;
+  width: 50%;
+  margin: 5px;
+  transform: translateX(-400px);
+}
+
 /*******************************
 //Resident Table design
 *******************************/
@@ -67,10 +79,15 @@
   padding: 15px 0 0 0;
 }
 
-.list-of-res .table{
-  margin: 0 10px;
-  width: 98%;
+.list-of-res #datatable{
+  margin: 0;
+  width: 100%;
   background-color: #ffffff;
+}
+
+div.dataTables_wrapper {
+  width: 1000px;
+  margin: 0 auto;
 }
 
 .list-of-res .view{
@@ -85,10 +102,10 @@
   color: #dc3545;
 }
 
-.list-of-res .btn-action:hover{
+.list-of-res .a-action:hover{
   text-decoration: underline;
 }
-.list-of-res .btn-action .fas{
+.list-of-res .a-action .fas{
   padding: 0 5px 0 10px;
 }
 
@@ -106,6 +123,7 @@
   color: #0e912f;
   font-family: sans-serif;
   font-weight: 700;
+  
 }
   
 .add-resident-modal h5 {
