@@ -7,25 +7,102 @@
     box-sizing: border-box;
 }
 
-.content {
-  position: relative;
-  background: rgb(224, 248, 255);
-  left: 260px;
-  width: calc(100% - 260px);
-  height: calc(100vh - 80px);
-  transition: all 0.5s ease;
-  margin: 0;  
+/* TOP NAVIGATION */
+.home-section .navbar {
+
+    justify-content: space-between;
+    padding: 20px 0px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
   
-}
-
-.content.close{
-  left: 60px;
-  width: calc(100% - 60px);
-}
-
-.headconsul .msgandbtn .btn-add-consul{
-    margin-top: 10px;
+  .home-section .navbar .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100vh;
+  }
+  
+  .home-section .navbar .topnav-link{
+    padding-left: 0px;
+    margin-bottom: 0px;
+    list-style: none;
+    display: flex;
+    
+  
+  }
+  
+  .home-section .navbar .topnav-link .fa-bars{
+    color: #ffffff;
+    font-size: 17px;
+    background: #5555;
+    padding: 10px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+  }
+  
+  .home-section .navbar .fa-bars{
+    margin: 0 0px;
+    cursor: pointer;
+  }
+  
+  .home-section .navbar .account {
+    list-style: none;
+    position: absolute;
+    right: 20px;
+  }
+  
+  .home-section a, 
+  .home-section a:hover, 
+  .home-section a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .dropdown-menu.profile {
+    padding: 0;
+    right: 30px;
+    left: auto;
+    min-width: 200px;
+  }   
+  
+  .dropdown-menu.profile h5 {
+    padding: 15px;
+    background: #555;
+    color: #fff;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+  }
+  
+  .home-section .navbar .account .img-profile{
+    border-radius: 50%;
+    border: 2px solid #f7f7f7;
+  }
+  
+  .home-section .navbar .account .dropdown-menu .dropdown-item i {
     margin-right: 10px;
+  }
+  
+  .home-section .navbar .account .dropdown-menu .dropdown-item .fa-power-off {
+    color: red;
+  }
+
+/*TOP NAVIGATION*/
+
+/*BLOCK TITLE .NO MARGIN PADDING*/
+.btn-add-consul{
+    margin-top: 10px, 10px;
     width: 120px;
     display: flex;
     box-shadow: 1px 1px 5px 0px grey;
@@ -36,14 +113,322 @@
     color: #ffffff;
 }
 
-/* .list-of-consultation .consul_view{
+h3.block-title {
+    font-size: 22px;
+    color: #fff;
+    background: transparent;
+}
+
+.block-title {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1.75rem;
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.no-margin-padding {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding: 5px 20px;
+    background: #2e2d2d;
+}
+
+
+/*BLOCK TITLE .NO MARGIN PADDING*/
+
+
+/*CONSULT DATATABLE*/
+.consulttable-title {
+  color: #007bff;
+}
+
+ .consul_view{
     color: #007bff;
 }
 
-.list-of-consultation .consul_edit{
+ .consul_edit{
     color: #ffc107;
 }
 
-.list-of-consultation .consul_delete{
+ .consul_delete{
     color: #dc3545;
+}
+
+.manage {
+  margin: 2px;
+}
+
+table.table tbody td, 
+table.table thead th {
+  font-size: 14px;
+}
+.consultation-list {
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+}
+.bhms-box-shadow {
+  border-radius: 0;
+  border: 0;
+  -webkit-box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  background: #fff;
+  margin-top: 20px;
+}
+
+.consultation-list #consultdatatable{
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/*ADD CONSULTATION MODAL*/
+.consul-add input[type=text], select{
+  width: 100%;
+  height: auto;
+  padding: 5px 20px;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+#addnewconsultation .modal-header {
+  background-color: #2ae88a;
+  color: #ffffff;
+}
+
+#addnewconsultation textarea {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 10px;
+  
+}
+
+#addnewconsultation textarea:focus {
+  height: 100%;
+}
+
+#addnewconsultation .details  {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+  font-size: 13px;
+}
+
+#addnewconsultation input[type=date]{
+  text-transform: uppercase;
+  width: 100%;
+  height: auto;
+  padding: 5px 20px;
+  margin: 2px 5px 5px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+.form-search{
+  margin: 10px 0 0 0;
+  position: relative;
+}
+
+.consul-add #hc-search-input{
+  box-shadow: 1px 1px 5px grey;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  border-radius: 10px;
+  width: 70%;
+}
+
+input:focus{
+  outline: none;
+  border: 2px solid #08aeea;
+}
+
+.hc-search-btn {
+  margin: 0px 8px 0 0px;
+  box-shadow: 1px 1px 5px 0px grey;
+  border: 2px solid #08aeea;
+  background-color: #08aeea;
+  padding: 9px 10px;
+  border-radius: 0 10px 10px 0;
+  color: #ffffff;
+}
+
+/* .consul-add .res_prof input{
+  box-sizing: border-box;
+  width: 150px;
+  height: 30px;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 5px;
+  outline: none;
 } */
+
+/*VIEW CONSULTATION MODAL*/
+.consul-view input[type=text], select{
+  width: 100%;
+  height: auto;
+  padding: 5px 20px;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+#viewnewconsultation .modal-header {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+#viewnewconsultation textarea {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 10px;
+  
+}
+
+#viewnewconsultation textarea:focus {
+  height: 100%;
+}
+
+#viewnewconsultation .details  {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+  font-size: 13px;
+}
+
+#viewnewconsultation input[type=date]{
+  text-transform: uppercase;
+  width: 100%;
+  height: auto;
+  padding: 5px 20px;
+  margin: 2px 5px 5px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+input:focus{
+  outline: none;
+  border: 2px solid #08aeea;
+}
+
+
+.consul-view .res_prof input{
+  box-sizing: border-box;
+  width: 150px;
+  height: 30px;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+/*EDIT CONSULTATION MODAL*/
+.consul-edit input[type=text], select{
+  width: 100%;
+  height: auto;
+  padding: 5px 20px;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+#editnewconsultation .modal-header {
+  background-color: #ffc107;
+  color: #ffffff;
+}
+
+#editnewconsultation textarea {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 10px;
+  
+}
+
+#editnewconsultation textarea:focus {
+  height: 100%;
+}
+
+#editnewconsultation .details  {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+  font-size: 13px;
+}
+
+#editnewconsultation input[type=date]{
+  text-transform: uppercase;
+  width: 100%;
+  height: auto;
+  padding: 5px 20px;
+  margin: 2px 5px 5px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+input:focus{
+  outline: none;
+  border: 2px solid #08aeea;
+}
+
+
+.consul-edit .res_prof input{
+  box-sizing: border-box;
+  width: 150px;
+  height: 30px;
+  margin: 2px 5px 5px 0px;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}

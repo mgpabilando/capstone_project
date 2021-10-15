@@ -5,7 +5,8 @@ use App\Http\Controllers\RegisteredUsersController;
 use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ResidentController;
-
+use App\Http\Controllers\HealthConsultationController;
+use App\Http\Controllers\ConsulController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,5 +43,11 @@ Route::resource('/register', RegisteredUsersController::class);
     Route::get('/purok', [DashboardController::class, 'purok'])->name('dashboard.purok');
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
 
-//Route::get('/residentprofile/{id}', ResidentController::class, 'show')->name('residentprofile');
     Route::resource('/residentprofile', ResidentController::class);
+    
+    Route::get('/healthconsultation', [ConsulController::class, 'index']);
+    Route::post('/healthconsultation/fetch', [ConsulController::class, 'fetch'])->name('Consul.fetch');
+
+    Route::resource('/healthconsultation', HealthConsultationController::class);
+
+    

@@ -11,6 +11,27 @@ body {
     font-weight: 400;
     line-height: 1.45;
     overflow-x: hidden;
-    background-color: #f8f8f8;
     height: 100%;
 }
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    background-color: #E7F3ED;
+}
+
+#content {
+    position: relative;
+    left: 260px;
+    width: calc(100% - 260px);
+    height: calc(100vh- 10px);
+    transition: all 0.5s ease;
+    margin: 0; 
+    background-color: #E7F3ED;
+  }
+  
+  #content.close{
+    left: 60px;
+    width: calc(100% - 60px);
+    background-color: #E7F3ED;
+  }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class PurokSeeder extends Seeder
+class FamilyNumberSeeder extends Seeder
 {
     /**
      * Run the database seeds.

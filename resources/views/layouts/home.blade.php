@@ -1,60 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-{{--     <title>BHMS</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset ('bootstrap/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset ('bootstrap/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/all.css') }}">
-    <link href="{{ asset('css/style_dashboard.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/resident_profile.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/health_consult.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{asset('https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css')}}">    
-    <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
- --}}    
-
-
-
-
-
-
-@include('layouts.includes.head')
-
+    @include('layouts.includes.head')
 </head>
 <body>
+    <div class="wrapper">
 
-    <div class="container">
+    @include('layouts.includes.sidebar')
 
-        @include('layouts.includes.sidebar')
-
-            @include('layouts.includes.topnavbar')
-
-        <div id="main" class="row">
-            @yield('content')
-        </div>
-
-
+    @yield('content')
+    
+    
     </div>
-         
         
     
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{asset('jquery-ui-1.13.0.custom/jquery-ui.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js')}}"></script>
-   
+
+    @yield('scripts')
+    
 <script>
     let sidebar = document.querySelector("#sidebar");
-    let content = document.querySelector(".content");
-    let hom_sec = document.querySelector(".home-section");
+    let content = document.querySelector("#content");
     let sidebarBtn = document.querySelector(".fa-bars");
-    /* console.log(sidebarBtn); */
     sidebarBtn.addEventListener("click", ()=>{
         sidebar.classList.toggle("close");
         content.classList.toggle("close");
-        hom_sec.classList.toggle("close");
     });
 </script>
 
@@ -69,11 +45,53 @@
 <script>
     $(document).ready(function() {
     $('#datatable').DataTable( {
-        "scrollY": 200,
-        "scrollX": true
     } );
 } );
 </script>
+
+<script>
+    $(document).ready(function() {
+    $('#consultdatatable').DataTable( {
+    } );
+} );
+</script>
+
+{{-- <script type="text/javascript">
+        $(document).ready(function() {
+            $('#hc-search-input').keyup(function() {
+                var query = $(this).val();
+                console.log(query);                
+                if (query !='')
+                    {
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        $.ajax({
+                            url:"{{ route('Consul.fetch') }}",
+                            method:"POST",
+                            data:{
+                                query : query 
+                                // '_token': 'X-CSRF-TOKEN',
+                                // _token : _token
+                            },
+                                success:function(data)
+                                {
+                                    $('#residentlist').fadeIn();
+                                    $('#residentlist').html(data);
+                                }
+                            })
+                        }
+                    });
+                $(document).on('click', 'li', function(){
+                    $('#fname').val($(this).text());
+                    $('#residentlist').fadeOut();
+                });
+            });
+</script> --}}
+
+<!-- Script -->
 
 
 

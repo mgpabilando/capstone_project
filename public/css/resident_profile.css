@@ -7,20 +7,125 @@
     box-sizing: border-box;
 }
 
-.content {
-  position: relative;
+/* body{
   background: rgb(224, 248, 255);
-  left: 260px;
-  width: calc(100% - 260px);
-  height: calc(100vh - 80px);
-  transition: all 0.5s ease;
-  margin: 0;  
+} */
+
+
+/* TOP NAVIGATION */
+
+.home-section .navbar {
+  justify-content: space-between;
+  padding: 20px 0px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  position: relative;
   
+
 }
 
-.content.close {
-  left: 60px;
-  width: calc(100% - 60px);
+ .container-fluid {
+  width: 100%;
+  height: 100vh;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.home-section .navbar .topnav-link{
+  padding-left: 0px;
+  margin-bottom: 0px;
+  list-style: none;
+  display: flex;
+  
+
+}
+
+.home-section .navbar .topnav-link .fa-bars{
+  color: #ffffff;
+  font-size: 17px;
+  background: #5555;
+  padding: 10px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+}
+
+.home-section .navbar .fa-bars{
+  margin: 0 0px;
+  cursor: pointer;
+}
+
+.home-section .navbar .account {
+  list-style: none;
+  position: absolute;
+  right: 20px;
+}
+
+.home-section a, 
+.home-section a:hover, 
+.home-section a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.dropdown-menu.profile {
+  padding: 0;
+  right: 30px;
+  left: auto;
+  min-width: 200px;
+}   
+
+.dropdown-menu.profile h5 {
+  padding: 15px;
+  background: #555;
+  color: #fff;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+.home-section .navbar .account .img-profile{
+  border-radius: 50%;
+  border: 2px solid #f7f7f7;
+}
+
+.home-section .navbar .account .dropdown-menu .dropdown-item i {
+  margin-right: 10px;
+}
+
+.home-section .navbar .account .dropdown-menu .dropdown-item .fa-power-off {
+  color: red;
+}
+
+h3.block-title {
+  font-size: 22px;
+  color: #fff;
+  background: transparent;
+}
+
+.block-title {
+-ms-flex: 1 1 auto;
+flex: 1 1 auto;
+min-height: 1.75rem;
+margin: 0;
+font-size: 1.125rem;
+font-weight: 400;
+line-height: 1.75;
+}
+
+.no-margin-padding {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding: 5px 20px;
+  background: #2e2d2d;
 }
 
 /* .head-resprof .form-search{
@@ -55,19 +160,20 @@ button {
 /*******************************
 //Add resident button
 *******************************/
-.head-resprof .btn-add-res{
-  margin-top: 10px;
-  margin-right: 10px;
+.btn-add-res{
+  margin-top: 10px, 10px;
   width: 120px;
   display: flex;
   box-shadow: 1px 1px 5px 0px grey;
-  background-color: #2ae88a;
+  background-color: #2ae88a !important;
   border: 2px solid #2ae88a;
-  padding: 5px 10px;
+  padding: 5px 5px;
   border-radius: 10px;
   color: #ffffff;
-  
-  
+}
+
+.fa-user-plus{
+  padding: 5px 0px;
 }
 
 .alert{
@@ -80,12 +186,33 @@ button {
 /*******************************
 //Resident Table design
 *******************************/
-.content .list-of-res{
-  padding: 15px 0 0 0;
+
+.container-title {
+  color: #007bff;
 }
 
+table.table tbody td, 
+table.table thead th {
+  font-size: 14px;
+}
+.list-of-res {
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+}
+.bhms-box-shadow {
+  border-radius: 0;
+  border: 0;
+  -webkit-box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  background: #fff;
+  margin-top: 20px;
+}
+
+
 .list-of-res #datatable{
-  margin: 0;
   width: 100%;
   background-color: #ffffff;
 }
@@ -113,6 +240,8 @@ div.dataTables_wrapper {
 .list-of-res .a-action .fas{
   padding: 0 5px 0 10px;
 }
+
+
 
 /*******************************
 //Modal Design for Add Resident

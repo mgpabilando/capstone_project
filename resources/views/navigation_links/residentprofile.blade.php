@@ -1,102 +1,141 @@
 @extends('layouts.home')
 @section('content')
-    <div class="content">
-        <div class="head-resprof">
-            <div class="head-func d-flex align-items-center justify-content-end">
-                {{-- <form class="form-search d-flex align-items-center">
-                    <input class="text-search" placeholder="Search...">
-                    <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
-                </form> --}}
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+<div id="content">
+    <section class="home-section">
+        <nav class="navbar navbar-default d-flex">
+            <div class="d-flex align-items-center">
+                <ul class="topnav-link">
+                    <li>
+                        <span class="fa fa-bars"></span>
+                    </li>
+                </ul>
 
-                @if (\Session::has('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ \Session::get('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
+                <div class="account">
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                            <img class="img-profile" width="40px" height="40px" src="{{asset ('images/profile.jpeg') }}" alt="">
+                        </a>   
+                        <div class="dropdown-menu profile">
+                            @auth <div>Hi! I'm<h5>{{ Auth::user()->fname }}</h5></div>@endauth
+                            <a class="dropdown-item" href=""><i class="fa fa-user-circle"></i><span class="usernav-link">User Profile</span></a>
+                            <a class="dropdown-item" href="/signout" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+                                <span class="usernav-link">Sign Out</span>
+                            </a>
+                            <form id="logout-form" action="signout" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+    
+                        </div>
+                    </li>
+                </div>
+                
+            </div>            
+        </nav>
 
-                <div type="button" class="btn-add-res" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                    <i class="fas fa-user-plus"></i>&nbsp;Add New</div>
+        <div class="row no-margin-padding">
+            <div class="col-md-12 d-flex flex-row justify-content-between">
+                <h3 class="block-title">Resident Profile</h3>
+                <div type="button" class="btn-add-res d-flex justify-content-center" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                    <i class="fas fa-user-plus"></i>&nbsp;Add New
+                </div>
             </div>
-            
         </div>
-                {{--RESIDENT PROFILE TABLE--}}
-        <div class="container list-of-res">
-            <table id="datatable" class="table table-bordered table-striped" style="width: 100%">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Family Number</th>
-                        <th scope="col">Purok</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Middle Name</th>
-                        <th scope="col">Date Added</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if($residents)
-                    @foreach($residents as $residentprofile)
-                        <tr>
-                            <th>{{ $residentprofile->id }}</th>
-                            <td>{{ $residentprofile->family_id }}</td>
-                            <td>{{ $residentprofile->purok }}</td>
-                            <td>{{ $residentprofile->lname }}</td>
-                            <td>{{ $residentprofile->fname }}</td>
-                            <td>{{ $residentprofile->mname }}</td>
-                            <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
-                            <td>
-                                {{-----***************************** SHOW BUTTON *******************************------}}
-                                <a data-bs-toggle="modal" type="button" class="btn-action view" 
-                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}" 
-                                data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
-                                data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
-                                data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
-                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}" 
-                                data-civil_status="{{ $residentprofile->civil_status }}"
-                                data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
-                                data-bs-target="#viewResidentModal">
-                                <i class="fas fa-eye"></i></a>
-
-                                {{-----***************************** EDIT BUTTON *******************************------}}
-                                <a data-bs-toggle="modal" type="button" class="btn-action edit" 
-                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}" 
-                                data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
-                                data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
-                                data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
-                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}" 
-                                data-civil_status="{{ $residentprofile->civil_status }}"
-                                data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
-                                data-bs-target="#editResidentModal">
-                                <i class="fas fa-edit"></i>
-                                </a>
-
-                                {{-----***************************** DELETE BUTTON *******************************------}}
-                                <a type="button" class="btn-action delete" data-bs-toggle="modal" 
-                                data-bs-target="#deleteResidentModal"
-                                data-resident_id="{{$residentprofile->id}}">
-                                <i class="fas fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    @endif
-                </tbody>
-            </table>
+    </section>
+    
+    <div class="head-resprof">
+        <div class="head-func d-flex align-items-center justify-content-end">
+            @if (\Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ \Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         </div>
-            
+    </div>
+
+    {{--RESIDENT PROFILE TABLE--}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container list-of-res bhms-box-shadow">
+                    <h3 class="container-title">Residents List</h3>
+                    <hr>
+                    
+                    <div class="table-responsive mb-3">
+                        <table id="datatable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr role="row">
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Family No</th>
+                                        <th scope="col">Purok</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Middle Name</th>
+                                        <th scope="col">Date Added</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if($residents)
+                                    @foreach($residents as $residentprofile)
+                                        <tr>
+                                            <th>{{ $residentprofile->id }}</th>
+                                            <td>{{ $residentprofile->family_id }}</td>
+                                            <td>{{ $residentprofile->purok }}</td>
+                                            <td>{{ $residentprofile->lname }}</td>
+                                            <td>{{ $residentprofile->fname }}</td>
+                                            <td>{{ $residentprofile->mname }}</td>
+                                            <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
+                                            <td>
+                                                {{-----***************************** SHOW BUTTON *******************************------}}
+                                                <a data-bs-toggle="modal" type="button" class="btn-action view" 
+                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}" 
+                                                data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
+                                                data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
+                                                data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
+                                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}" 
+                                                data-civil_status="{{ $residentprofile->civil_status }}"
+                                                data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
+                                                data-bs-target="#viewResidentModal">
+                                                <i class="fas fa-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                {{-----***************************** EDIT BUTTON *******************************------}}
+                                                <a data-bs-toggle="modal" type="button" class="btn-action edit" 
+                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}" 
+                                                data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
+                                                data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
+                                                data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
+                                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}" 
+                                                data-civil_status="{{ $residentprofile->civil_status }}"
+                                                data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
+                                                data-bs-target="#editResidentModal">
+                                                <i class="fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{-----***************************** DELETE BUTTON *******************************------}}
+                                                <a type="button" class="btn-action delete" data-bs-toggle="modal" 
+                                                data-bs-target="#deleteResidentModal"
+                                                data-resident_id="{{$residentprofile->id}}">
+                                                <i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!--******************************-------------- ADD RESIDENT MODAL ------------*************************************-->   
         <div class="res-add modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-notify">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">ADD RESIDENT</h5>
@@ -108,7 +147,7 @@
                                 <div class="d-flex flex-wrap identification">
                                     <div class="input-box">
                                         <div class="details">Purok No.:</div>
-                                        <select class="purok" name="purok" >
+                                        <select class="purok" name="purok" id="purok_id" >
                                             <option selected>Select</option>'
                                             <option value="1">UNO</option>'
                                             <option value="2">DOS</option>
@@ -449,6 +488,8 @@
         <!--**************************------------------- DELETE MODAL ENDS HERE-------------------****************************---------->   
 
     </div>
+
+</div>
 
 <br>
 @endsection
