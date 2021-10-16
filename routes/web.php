@@ -7,6 +7,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\HealthConsultationController;
 use App\Http\Controllers\ConsulController;
+use App\Http\Controllers\usersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,12 +32,8 @@ Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout'
 
 Route::resource('/register', RegisteredUsersController::class);
 
-//Route::get('/dashboard', [LoginUserController::class, 'homepage'])->name('dashboard');
-
-//auth route for both 
+Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    //Route::get('/residentprofile', [DashboardController::class, 'residentprofile'])->name('dashboard.residentprofile');
-    Route::get('/bhw', [DashboardController::class, 'bhw'])->name('dashboard.bhw');
     Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');
     Route::get('/familynumbering', [DashboardController::class, 'familynumbering'])->name('dashboard.familynumbering');
     Route::get('/healthconsultation', [DashboardController::class, 'healthconsultation'])->name('dashboard.healthconsultation');
@@ -48,6 +46,9 @@ Route::resource('/register', RegisteredUsersController::class);
     Route::get('/healthconsultation', [ConsulController::class, 'index']);
     Route::post('/healthconsultation/fetch', [ConsulController::class, 'fetch'])->name('Consul.fetch');
 
+    Route::resource('/bhw', usersController::class);
+
     Route::resource('/healthconsultation', HealthConsultationController::class);
 
-    
+});
+

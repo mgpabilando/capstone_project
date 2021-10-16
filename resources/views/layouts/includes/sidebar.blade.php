@@ -23,7 +23,7 @@
                     <span class="link-name">Resident Profile</span>
                 </a>
             </li>
-
+            @if (Auth::user()->hasRole('admin_nurse'))
             <li class="">
                 {{-- <div class="icon-link">
                     <i class="fas fa-chevron-down"></i>
@@ -33,15 +33,25 @@
                     <span class="link-name">BHWs</span>
                 </a>
             </li>
+            @endif
 
             <li class="">
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div> --}} {{--For drop down sub menu--}}
                 <a  class="{{ Request::is('healthconsultation') ? 'active' : '' }}" href="healthconsultation" >
                     <i class="fas fa-heartbeat"></i>
                     <span class="link-name">Health Consultation</span>
                 </a>
+                {{-- <div class="icon-link">
+                    <i class="fas fa-chevron-down"></i>
+                </div> 
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Pregnant</a></li>
+                    <li><a href="#">Deliveries</a></li>
+                    <li><a href="#">EPI</a></li>
+                    <li><a href="#">NTP</a></li>
+                    <li><a href="#">Family Planning</a></li>
+                    <li><a href="#">Control of Diarrheal Diseases</a></li>
+                    <li><a href="#">Other Services</a></li>
+                  </ul> --}}
             </li>
 
             <li class="">

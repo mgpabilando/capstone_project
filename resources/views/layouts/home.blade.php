@@ -21,7 +21,9 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js')}}"></script>
-
+    <script src="{{asset('js/print.js')}}"></script>
+    <script src="{{asset('js/MARprint.js')}}"></script>
+    <script src="{{asset('js/MVRprint.js')}}"></script>
     @yield('scripts')
     
 <script>
@@ -39,7 +41,6 @@
         $('li').removeClass("active");
         $(this).addClass("active");
         });
-        
 </script>
 
 <script>
@@ -91,7 +92,20 @@
             });
 </script> --}}
 
-<!-- Script -->
+<script>
+    function CheckPasswordMatch() {
+        var password = $("#password").val();
+        var confirmPassword = $("#password_confirmation").val();
+        if (password != confirmPassword)
+            $("#CheckPasswordMatch").html("Passwords does not match!").css('color', 'red');
+        else
+            $("#CheckPasswordMatch").html("Passwords match.").css('color', 'green');
+    }
+        $(document).ready(function () {
+            $("#password_confirmation").keyup(CheckPasswordMatch);
+        });
+
+    </script>
 
 
 

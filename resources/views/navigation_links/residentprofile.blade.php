@@ -148,8 +148,8 @@
                                     <div class="input-box">
                                         <div class="details">Purok No.:</div>
                                         <select class="purok" name="purok" id="purok_id" >
-                                            <option selected>Select</option>'
-                                            <option value="1">UNO</option>'
+                                            <option selected>Select</option>
+                                            <option value="1">UNO</option>
                                             <option value="2">DOS</option>
                                             <option value="3">TRES</option>
                                             <option value="4">KWATRO</option>

@@ -118,7 +118,7 @@
                         <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="add-consult" action="#{{-- {{route ('healthconsultation.store')}} --}}" method="POST">
+                    <form class="add-consult" action="{{route ('healthconsultation.store')}}" method="POST">
                         @csrf
                         <div class="modal-body">
                             <div class="form-search d-flex justify-content-center">
@@ -149,7 +149,16 @@
                             <div class="row">
                                 <div class="input-box col pb-3">
                                     <div class="details">TYPE OF CONSULTATION:</div>
-                                    <select type="text" id="consultation_type" placeholder="" required></select>
+                                    <select type="text" id="consultation_type" placeholder="" required>
+                                        <option selected>Select</option>
+                                        <option value="Pregnant">Pregnant</option>
+                                        <option value="Deliveries">Deliveries</option>
+                                        <option value="EPI">EPI</option>
+                                        <option value="NTP">NTP</option>
+                                        <option value="FamilyPlanning">Family Planning</option>
+                                        <option value="Diarrheal">Diarrheal</option>
+                                        <option value="Other">Select</option>
+                                    </select>
                                 </div>
 
                                 <div class="input-box col pb-3">

@@ -53,20 +53,20 @@ class HealthConsultationController extends Controller
             'treatment' => 'text',
         ]);
 
-        $residentprofile = Residents::create([
-            'resname' => $request['fname'],
-            'res_ID' => $request['resID'],
+        $consulationrecord = healthconsultation::create([
+            'res_id' => $request['resID'],
             'consultation_type' => $request['bdate'],
             'lmp' => $request['placeofbirth'],
-            'height_cm' => $request['mobile'],
-            'weight_kg' => $request['age'],
-            'complains' => $request['sex'],
-            'findings' => $request['civil_status'],
-            'diagnosis' => $request['phil_health_id'],
-            'treatment' => $request['id_4ps'],
+            'height_cm' => $request['height_cm'],
+            'weight_kg' => $request['weight_kg'],
+            'complains' => $request['complains'],
+            'findings' => $request['findings'],
+            'diagnosis' => $request['diagnosis'],
+            'treatment' => $request['treatment'],
         ]);
-        $residentprofile->save();
-        return redirect()->route('residentprofile.index')->with('success', 'Added Successfully.');
+
+        $consulationrecord->save();
+        return redirect()->route('healthconsultation.index')->with('success', 'Added Successfully.');
     }
 
     /**

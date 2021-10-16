@@ -1,6 +1,95 @@
 @extends('layouts.home')
 
 @section('content')
+
+<style>
+.modal-content {
+ margin: 25px auto; /* 5% from the top, 15% from the bottom and centered */
+ border: 2px solid #888;
+ width: 45%; /* Could be more or less, depending on screen size */
+ font-size: 12px;
+ border-radius: 10px;
+  
+}
+
+.modal .modal-title{
+ color:#000000;  
+ font-weight: bold;
+ position: absolute;
+ margin: 10px;
+ width: 90%;
+}
+
+.modal-body {
+ margin: 0px 20px;
+ position: relative;
+
+}
+
+/* Full-width input fields */
+.modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
+ width: 100%;
+ padding: 5px 20px;
+ margin: 5px 0;
+ display: inline-block;
+ border: 1px solid #ccc;
+ box-sizing: border-box;
+ font-size: 12px;
+ border-radius: 25px;
+
+}
+
+
+/* Set a style for all buttons */
+/* .modal .modal-content .btn {
+ background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+ border-radius: 25px;  
+ color: white;
+ padding: 5px 20px;
+ border: none;
+ cursor: pointer;
+ width: 50%;
+ opacity: 0.9;
+} */
+
+.modal-content .modal-body select{
+ width: 100%;
+ border-radius: 25px;
+ padding: 5px 20px;
+ margin: 0px 0;
+ display: inline-block;
+ border: 1px solid #ccc;
+ box-sizing: border-box;
+ font-size: 14px;
+}
+
+.modal .modal-content .control-label{
+    text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+ 
+}
+
+.row-space  {
+ justify-content: space-between;
+}
+
+.row {
+ display: flex;
+ justify-content: center;
+}
+
+.modal .modal-content .info-head{
+ position: absolute;
+ transform: rotate(-90deg) translateX(-45px) translateY(-120px);
+ background-color: #2ae88a;
+ padding: 8px 10px; 
+ border-radius: 5px;
+ color: #ffffff;
+}
+</style>
+
 <div id="content">
     <section class="home-section">
         <nav class="navbar navbar-default d-flex">
@@ -37,7 +126,7 @@
         <div class="row no-margin-padding">
             <div class="col-md-12 d-flex flex-row justify-content-between">
                 <h3 class="block-title">Manage Accounts</h3>
-                <div type="button" class="btn-add-res d-flex justify-content-center" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                <div type="button" class="btn-add-res d-flex justify-content-center" title="Add New User"  data-bs-toggle="modal" data-bs-target="#registerModal">
                     <i class="fas fa-user-plus"></i>&nbsp;Add New
                 </div>
             </div>
@@ -48,11 +137,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="consultation-list bhms-box-shadow">
-                    <h3 class="consulttable-title">Consultation List</h3>
+                    <h3 class="consulttable-title">BHWs</h3>
                     <hr>
                     <div class="table-responsive mb-3">
                         <table id="consultdatatable" class="table table-bordered table-striped">
                             <thead>
+
                                 <tr role="row">
                                     <th scope="col">ID</th>
                                     <th scope="col">Email Address</th>
@@ -60,7 +150,7 @@
                                     <th scope="col">First Name</th>
                                     <th scope="col">Birthdate</th>
                                     <th scope="col">Age</th>
-                                    <th scope="col">BirthPlace</th>
+                                    <th scope="col">Address</th>
                                     <th scope="col">ContactNo</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
@@ -68,15 +158,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if($users)
+                                @foreach ($users as $bhw)
                                 <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <th>{{$bhw->id}}</th>
+                                    <td>{{$bhw->email}}</td>
+                                    <td>{{$bhw->lname}}</td>
+                                    <td>{{$bhw->fname}}</td>
+                                    <td>{{$bhw->bdate}}</td>
+                                    <td>{{$bhw->age}}</td>
+                                    <td>{{$bhw->address}}</td>
+                                    <td>{{$bhw->contact}}</td>
                                     <td>
                                         {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
@@ -95,6 +187,10 @@
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
+                                @else
+                                <h1>hi</h1>
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -102,257 +198,107 @@
             </div>
         </div>
 
-        <!--******************************-------------- ADD CONSULTATION MODAL ------------*************************************-->   
-        <div class="consul-add modal fade" id="addnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog ">
+        <!--******************************-------------- ADD bhw MODAL ------------*************************************-->   
+        <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
                     </div>
-                    <form class="add-consult" action="#{{-- {{route ('healthconsultation.store')}} --}}" method="POST">
-                        @csrf
+                    <form method="POST" action=" {{route('bhw.store')}}">
+                        @csrf            
                         <div class="modal-body">
-                            <div class="form-search d-flex justify-content-center">
-                                
-                                <input type="text" id="hc-search-input" placeholder="Search...">
-                                {{-- <span class="hc-search-btn" type="submit"><i class="fas fa-search"></i></span> --}}
-                                <div id="residentlist"></div>
-                                {{ csrf_field() }}
+                            <div class="personal-info">
+                                <p class="info-head text-center fw-bold">Personal Information</p>
+        
+                                <div class="row row-space">               
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="fname">First Name:</label>
+                                        <input type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}">
+                                        <span class="text-danger">@error('firstname'){{ $message }} @enderror</span>
+                                    </div>
+        
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="lname">Last Name:</label>
+                                        <input type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}">
+                                        <span class="text-danger">@error('lastname'){{ $message }} @enderror</span>
+                                    </div>
+                                </div>
+        
+                                <div class="row row-space"> 
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="address">Address:</label>
+                                        <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address">
+                                        <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+                                    </div>
+        
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="contact">Contact Number:</label>
+                                        <input type="text" class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact">
+                                        <span class="text-danger">@error('contact'){{ $message }} @enderror</span>
+                                    </div>
+                                </div>
+        
+                                <div class="row row-space">
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="bdate">Birthdate:</label>
+                                        <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="bdate" name="bdate">
+                                        <span class="text-danger">@error('birthdate'){{ $message }} @enderror</span>
+                                    </div>
+                                    
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="age">Age:</label>
+                                        <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age">
+                                        <span class="text-danger">@error('age'){{ $message }} @enderror</span>
+                                    </div>
+                                </div>
                             </div>
+        
                             <hr>
-                            <div class="res_prof row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">NAME:</div>
-                                    <input type="text" id="resname" placeholder="" required>
-                                </div>                           
-                                <div class="input-box col pb-3">
-                                    <div class="details">RESIDENT ID NO.:</div>
-                                    <input type="text" id="resID" placeholder="" required>
+                            <div class="account-info">
+                                <p class="info-head text-center fw-bold">Account Information</p>
+                                <div class="form-group">
+                                    <label class="control-label" for="email">Email Address:</label>
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                                    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
                                 </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">FAMILY HEAD:</div>
-                                    <input type="text" id="resfamilyhead" placeholder="" required>
-                                </div>
-                                <hr>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">TYPE OF CONSULTATION:</div>
-                                    <select type="text" id="consultation_type" placeholder="" required></select>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">LMP:</div>
-                                    <input type="date" id="lmp" placeholder="">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">HEIGHT.:</div>
-                                    <input type="text" id="height_cm" placeholder="" required>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                <div class="details">WEIGHT:</div>
-                                <input type="text" id="weight_kg" placeholder="" required>
-                                </div>
-                            </div>    
-                            <hr>
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">COMPLAINS:</div>
-                                    <textarea class="comment" id="complains" placeholder="Type here..."></textarea>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">FINDINGS:</div>
-                                    <textarea class="comment" id="findings" placeholder="Type here..."></textarea>
-                                </div>
-                                <div class="input-box col pb-3">
-                                    <div class="details">DIAGNOSIS:</div>
-                                    <textarea class="comment" id="diagnosis" placeholder="Type here..."></textarea>
-                                </div>
-                                <div class="input-box col pb-3">
-                                    <div class="details">TREATMENT:</div>
-                                    <textarea class="comment" id="treatment" placeholder="Type here..."></textarea>
+        
+                                <div class="row row-space">
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="password">Password:</label>
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                                        <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label class="control-label" for="password_confirmation">Confirm Password:</label>
+                                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
+                                        <span class="text-danger">@error('password_confirmation'){{ $message }} @enderror</span>
+                                    </div> 
+        
+                                    <div class="registrationFormAlert d-flex justify-content-center" id="CheckPasswordMatch"></div>
                                 </div>
                             </div>
                         </div>
+        
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success">SAVE</button>
+                                <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-success">Add Resident</button>
                         </div>
                     </form>
+                          
                 </div>
             </div>
         </div>
         <!--*************************-------------------- ADD MODAL ENDS HERE -------------------********************---------------->  
 
         <!--**************************------------------- VIEW CONSULTATION MODAL -------------------****************************---------->   
-        <div class="consul-view modal fade" id="viewnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form class="add-consult" action="#{{-- {{route ('healthconsultation.store')}} --}}" method="POST">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="res_prof row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">NAME:</div>
-                                    <input type="text" id="resname" placeholder="" readonly>
-                                </div>                           
-                                <div class="input-box col pb-3">
-                                    <div class="details">RESIDENT ID NO.:</div>
-                                    <input type="text" id="resID" placeholder="" readonly>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">FAMILY HEAD:</div>
-                                    <input type="text" id="resfamilyhead" placeholder="" readonly>
-                                </div>
-                                <hr>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">TYPE OF CONSULTATION:</div>
-                                    <select type="text" id="consultation_type" placeholder="" readonly></select>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">LMP:</div>
-                                    <input type="date" id="lmp" placeholder="" readonly>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">HEIGHT.:</div>
-                                    <input type="text" id="height_cm" placeholder="" readonly>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                <div class="details">WEIGHT:</div>
-                                <input type="text" id="weight_kg" placeholder="" readonly>
-                                </div>
-                            </div>    
-                            <hr>
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">COMPLAINS:</div>
-                                    <textarea class="comment" id="complains" placeholder="" readonly></textarea>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">FINDINGS:</div>
-                                    <textarea class="comment" id="findings" placeholder="" readonly></textarea>
-                                </div>
-                                <div class="input-box col pb-3">
-                                    <div class="details">DIAGNOSIS:</div>
-                                    <textarea class="comment" id="diagnosis" placeholder="" readonly></textarea>
-                                </div>
-                                <div class="input-box col pb-3">
-                                    <div class="details">TREATMENT:</div>
-                                    <textarea class="comment" id="treatment" placeholder="" readonly></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
         <!--**************************------------------- VIEW CONSULTATION MODAL ENDS HERE -------------------****************************---------->   
 
         <!--**************************------------------- EDIT CONSULTATION MODAL -------------------****************************---------->   
-        <div class="consul-edit modal fade" id="editnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">EDIT HEALTH CONSULTATION</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form class="add-consult" action="#{{-- {{route ('healthconsultation.store')}} --}}" method="POST">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="res_prof row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">NAME:</div>
-                                    <input type="text" id="resname" placeholder="" readonly>
-                                </div>                           
-                                <div class="input-box col pb-3">
-                                    <div class="details">RESIDENT ID NO.:</div>
-                                    <input type="text" id="resID" placeholder="" readonly>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">FAMILY HEAD:</div>
-                                    <input type="text" id="resfamilyhead" placeholder="" readonly>
-                                </div>
-                                <hr>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">TYPE OF CONSULTATION:</div>
-                                    <select type="text" id="consultation_type" placeholder=""></select>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">LMP:</div>
-                                    <input type="date" id="lmp" placeholder="" >
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">HEIGHT.:</div>
-                                    <input type="text" id="height_cm" placeholder="">
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                <div class="details">WEIGHT:</div>
-                                <input type="text" id="weight_kg" placeholder="">
-                                </div>
-                            </div>    
-                            <hr>
-                            <div class="row">
-                                <div class="input-box col pb-3">
-                                    <div class="details">COMPLAINS:</div>
-                                    <textarea class="comment" id="complains" placeholder=""></textarea>
-                                </div>
-
-                                <div class="input-box col pb-3">
-                                    <div class="details">FINDINGS:</div>
-                                    <textarea class="comment" id="findings" placeholder=""></textarea>
-                                </div>
-                                <div class="input-box col pb-3">
-                                    <div class="details">DIAGNOSIS:</div>
-                                    <textarea class="comment" id="diagnosis" placeholder=""></textarea>
-                                </div>
-                                <div class="input-box col pb-3">
-                                    <div class="details">TREATMENT:</div>
-                                    <textarea class="comment" id="treatment" placeholder=""></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-warning waves-effect" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-warning">Update Data</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>
+   
 @endsection

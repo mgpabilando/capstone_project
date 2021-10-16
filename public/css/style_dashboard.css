@@ -72,6 +72,7 @@
 }
 
 
+
 #sidebar .nav-links {
     height: 100%;
     padding-left: 0px;
@@ -97,6 +98,12 @@
     background: #415e5e;
 }
 
+.sub-menu{
+    padding: 6px 6px 14px 80px;
+    margin-top: -10px;
+    background: #1d1b31;
+    display: none;
+  }
 
 #sidebar .nav-links li i{
     height: 50px;

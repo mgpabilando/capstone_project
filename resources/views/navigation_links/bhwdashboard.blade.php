@@ -37,9 +37,6 @@
         <div class="row no-margin-padding">
             <div class="col-md-12 d-flex flex-row justify-content-between">
                 <h3 class="block-title">Dashboard</h3>
-                <div type="button" class="btn-add-res d-flex justify-content-center" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                    <i class="fas fa-user-plus"></i>&nbsp;Add New
-                </div>
             </div>
         </div>
     </section>

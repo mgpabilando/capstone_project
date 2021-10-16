@@ -1,5 +1,4 @@
 @extends('layouts.home')
-
 @section('content')
 <div id="content">
     <section class="home-section">
