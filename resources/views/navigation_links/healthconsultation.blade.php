@@ -3,7 +3,7 @@
 
 <div id="content">
     <section class="home-section">
-        <nav class="navbar navbar-default d-flex">
+        <div id="navbarSticky" class="navbar navbar-default d-flex">
             <div class="d-flex align-items-center">
                 <ul class="topnav-link">
                     <li>
@@ -29,7 +29,7 @@
                     </li>
                 </div>
             </div>            
-        </nav>
+        </div>
         <div class="row no-margin-padding">
             <div class="col-md-12 d-flex flex-row justify-content-between">
                 <h3 class="block-title">Health Consultation</h3>
@@ -55,6 +55,50 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'pregnant')">PREGNANT</button>
+                    <button class="tablinks" onclick="openCity(event, 'deliveries')">DELIVERIES</button>
+                    <button class="tablinks" onclick="openCity(event, 'epi')">EPI</button>
+                    <button class="tablinks" onclick="openCity(event, 'ntp')">NTP</button>
+                    <button class="tablinks" onclick="openCity(event, 'fam-plan')">FAMILY PLANNING</button>
+                    <button class="tablinks" onclick="openCity(event, 'diarrheal')">DIARRHEAL</button>
+                    <button class="tablinks" onclick="openCity(event, 'other-services')">OTHERS</button>
+                  </div>
+                  
+                  <div id="pregnant" class="tabcontent">
+                    <h3>London</h3>
+                    <p>London is the capital city of England.</p>
+                  </div>
+                  
+                  <div id="deliveries" class="tabcontent">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p> 
+                  </div>
+                  
+                  <div id="epi" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                  </div>
+                  <div id="ntp" class="tabcontent">
+                    <h3>London</h3>
+                    <p>London is the capital city of England.</p>
+                  </div>
+                  
+                  <div id="fam-plan" class="tabcontent">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p> 
+                  </div>
+                  
+                  <div id="diarrheal" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                  </div>
+    
+                  <div id="other-services" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                  </div>
+                {{-- end-sample --}}
                 <div class="consultation-list bhms-box-shadow">
                     <h3 class="consulttable-title">Consultation List</h3>
                     <hr>
@@ -404,5 +448,20 @@
       });
     
     });
+
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
 </script>
+
 @endsection

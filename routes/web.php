@@ -20,14 +20,10 @@ use App\Http\Controllers\usersController;
 |
 */
 Route::get('/', function () {
-    return view('Auth.login');
+    return view('auth.login');
 });
-
-Auth::routes();
-
 Route::get('/login', [LoginUserController::class, 'index'])->name('userlogin');
 Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin'); 
-
 Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout');
 
 Route::resource('/register', RegisteredUsersController::class);
@@ -49,6 +45,5 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::resource('/bhw', usersController::class);
 
     Route::resource('/healthconsultation', HealthConsultationController::class);
-
 });
 

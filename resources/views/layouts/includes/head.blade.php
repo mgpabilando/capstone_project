@@ -11,6 +11,7 @@
     <link href="{{ asset('css/resident_profile.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/manageaccounts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/health_consult.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/purok.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{asset('https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css')}}">    
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
 

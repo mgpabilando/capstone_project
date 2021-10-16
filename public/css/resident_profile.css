@@ -17,7 +17,7 @@
 .home-section .navbar {
   justify-content: space-between;
   padding: 20px 0px;
-  background: #fff;
+  background-color: #08aeea !important;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #ddd;

@@ -7,15 +7,19 @@
             <div class="d-flex align-items-center">
                 <ul class="topnav-link">
                     <li>
-                        <span class="fa fa-bars"></span>
+                        <span class="fa fa-bars me-2"></span> 
                     </li>
+                    <li>
+                        <h2 style="color: white"> PUROK</h2>
+                    </li>
+                    
                 </ul>
 
                 <div class="account">
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                             <img class="img-profile" width="40px" height="40px" src="{{asset ('images/profile.jpeg') }}" alt="">
-                        </a>   
+                        </a>           
                         <div class="dropdown-menu profile">
                             @auth <div>Hi! I'm<h5>{{ Auth::user()->fname }}</h5></div>@endauth
                             <a class="dropdown-item" href=""><i class="fa fa-user-circle"></i><span class="usernav-link">User Profile</span></a>
@@ -40,9 +44,75 @@
             </div>
         </div>
 
-        <div class="col-md-9 content">
-            <div class="purok-list">
-              <!--modal start-->
+        <div class="purok-content"> 
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'uno')">PUROK 1</button>
+                <button class="tablinks" onclick="openCity(event, 'dos')">PUROK 2</button>
+                <button class="tablinks" onclick="openCity(event, 'tres')">PUROK 3</button>
+                <button class="tablinks" onclick="openCity(event, 'kwatro')">PUROK 4</button>
+                <button class="tablinks" onclick="openCity(event, 'singko')">PUROK 5</button>
+                <button class="tablinks" onclick="openCity(event, 'says')">PUROK 6</button>
+                <button class="tablinks" onclick="openCity(event, 'syete')">PUROK 7</button>
+              </div>
+              
+              <div id="uno" class="tabcontent">
+                <h3>London</h3>
+                <p>London is the capital city of England.</p>
+              </div>
+              
+              <div id="dos" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p> 
+              </div>
+              
+              <div id="tres" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+              </div>
+              <div id="kwatro" class="tabcontent">
+                <h3>London</h3>
+                <p>London is the capital city of England.</p>
+              </div>
+              
+              <div id="singko" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p> 
+              </div>
+              
+              <div id="says" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+              </div>
+
+              <div id="syete" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+              </div>
+        </div>
+             
+    
+    </section>
+</div>
+
+<script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+</script>
+@endsection
+
+
+ {{-- <!--modal start-->
             <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                 PUROK <br> UNO
             </button>
@@ -546,8 +616,4 @@
               </div>
           </div>
       </div>
-    </div>
-    <hr>
-    </section>
-</div>
-@endsection
+    </div> --}}
