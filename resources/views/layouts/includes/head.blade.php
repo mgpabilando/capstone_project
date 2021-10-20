@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('jquery-ui-1.13.0.custom\jquery-ui.min.css')}}">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/style_dashboard.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/resident_profile.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/manageaccounts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/health_consult.css') }}" rel="stylesheet" type="text/css">

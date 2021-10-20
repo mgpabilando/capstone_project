@@ -66,7 +66,7 @@ class LoginUserController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect()->route('login');
+        return Redirect()->route('userlogin');
     }
 
 }
