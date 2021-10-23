@@ -96,35 +96,6 @@ body {
     text-decoration: none;
     transition: all 0.3s;
   }
-  
-  .dropdown-menu.profile {
-    padding: 0;
-    right: 30px;
-    left: auto;
-    min-width: 200px;
-  }   
-  
-  .dropdown-menu.profile h5 {
-    padding: 15px;
-    background: #555;
-    color: #fff;
-    font-weight: lighter;
-    letter-spacing: 1px;
-    margin-bottom: 0;
-  }
-  
-  .home-section .navbar .account .img-profile{
-    border-radius: 50%;
-    border: 2px solid #f7f7f7;
-  }
-  
-  .home-section .navbar .account .dropdown-menu .dropdown-item i {
-    margin-right: 10px;
-  }
-  
-  .home-section .navbar .account .dropdown-menu .dropdown-item .fa-power-off {
-    color: red;
-  }
 
 /*TOP NAVIGATION*/
 

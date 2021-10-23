@@ -16,6 +16,11 @@ class DashboardController extends Controller
           }
      }
 
+     public function users_profile()
+     {
+     return view('navigation_links.users_profile');
+     }
+
      public function residentprofile()
      {
      return view('navigation_links.residentprofile');

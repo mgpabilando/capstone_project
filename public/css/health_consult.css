@@ -11,18 +11,6 @@
 
 
 /*BLOCK TITLE .NO MARGIN PADDING*/
-.btn-add-consul{
-    margin-top: 10px, 10px;
-    width: 120px;
-    display: flex;
-    box-shadow: 1px 1px 5px 0px grey;
-    background-color: #2ae88a !important;
-    border: 2px solid #2ae88a;
-    padding: 5px 10px;
-    border-radius: 10px;
-    color: #ffffff;
-}
-
 h3.block-title {
     font-size: 22px;
     color: #fff;
@@ -39,12 +27,22 @@ h3.block-title {
   line-height: 1.75;
 }
 
-.no-margin-padding {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    padding: 5px 20px;
-    background: #2e2d2d;
+.btn-add-consul{
+  margin-top: 10px, 10px;
+  width: 120px;
+  display: flex;
+  position: fixed;
+  transform: translateY(-40px);
+  right: 80px;
+  box-shadow: 1px 1px 5px 0px grey;
+  background-color: #2ae88a !important;
+  border: 2px solid #2ae88a;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #ffffff;
 }
+
+
 
 
 /*BLOCK TITLE .NO MARGIN PADDING*/

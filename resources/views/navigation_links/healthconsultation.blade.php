@@ -2,45 +2,14 @@
 @section('content')
 
 <div id="content">
-    <section class="home-section">
-        <div id="navbarSticky" class="navbar navbar-default d-flex">
-            <div class="d-flex align-items-center">
-                <ul class="topnav-link">
-                    <li>
-                        <i class="fa fa-bars"></i>
-                    </li>
-                </ul>
-                <div class="account">
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                            <img class="img-profile" width="40px" height="40px" src="{{asset ('images/profile.jpeg') }}" alt="">
-                        </a>   
-                        <div class="dropdown-menu profile">
-                            @auth <div>Hi! I'm<h5>{{ Auth::user()->fname }}</h5></div>@endauth
-                            <a class="dropdown-item" href=""><i class="fa fa-user-circle"></i><span class="usernav-link">User Profile</span></a>
-                            <a class="dropdown-item" href="/signout" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
-                                <span class="usernav-link">Sign Out</span>
-                            </a>
-                            <form id="logout-form" action="signout" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                </div>
-            </div>            
+    @include('layouts.includes.topnavbar')
+    <div class="row no-margin-padding">
+        <div class="col-md-12 d-flex flex-row justify-content-between">
+            <h3 class="block-title">Health Consultation</h3>
         </div>
-        <div class="row no-margin-padding">
-            <div class="col-md-12 d-flex flex-row justify-content-between">
-                <h3 class="block-title">Health Consultation</h3>
-                <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
-                    <i class="fas fa-user-plus"></i>Add New
-                </div>  
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <div class="hc-btn-add">
+    {{-- <div class="hc-btn-add">
         <div class="add-sec d-flex align-items-center justify-content-end">
             @if (\Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -49,24 +18,27 @@
                 </div>
             @endif
         </div>
-    </div>
+    </div> --}}
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'pregnant')">PREGNANT</button>
-                    <button class="tablinks" onclick="openCity(event, 'deliveries')">DELIVERIES</button>
-                    <button class="tablinks" onclick="openCity(event, 'epi')">EPI</button>
-                    <button class="tablinks" onclick="openCity(event, 'ntp')">NTP</button>
-                    <button class="tablinks" onclick="openCity(event, 'fam-plan')">FAMILY PLANNING</button>
-                    <button class="tablinks" onclick="openCity(event, 'diarrheal')">DIARRHEAL</button>
-                    <button class="tablinks" onclick="openCity(event, 'other-services')">OTHERS</button>
+                    <button class="tablinks active" onclick="openConsul(event, 'pregnant')">PREGNANT</button>
+                    <button class="tablinks" onclick="openConsul(event, 'deliveries')">DELIVERIES</button>
+                    <button class="tablinks" onclick="openConsul(event, 'epi')">EPI</button>
+                    <button class="tablinks" onclick="openConsul(event, 'ntp')">NTP</button>
+                    <button class="tablinks" onclick="openConsul(event, 'fam-plan')">FAMILY PLANNING</button>
+                    <button class="tablinks" onclick="openConsul(event, 'diarrheal')">DIARRHEAL</button>
+                    <button class="tablinks" onclick="openConsul(event, 'other-services')">OTHERS</button>
                   </div>
                   
-                  <div id="pregnant" class="tabcontent">
+                  <div id="pregnant" class="tabcontent" style="display:block">
                     <div class="consultation-list bhms-box-shadow">
-                        <h3 class="consulttable-title">Pregnancy Consultation</h3>
+                            <h3 class="consulttable-title">Pregnancy Consultation</h3>
+                            <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                                <i class="fas fa-user-plus"></i>Add New
+                            </div>  
                         <hr>
                         <div class="table-responsive mb-3">
                             <table id="consultdatatable" class="table table-bordered table-striped">
@@ -119,9 +91,12 @@
                     </div>
                   </div>
                   
-                  <div id="deliveries" class="tabcontent">
+                  <div id="deliveries" class="tabcontent" style="display:none">
                     <div class="consultation-list bhms-box-shadow">
                         <h3 class="consulttable-title">Deliveries Consultation</h3>
+                        <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                            <i class="fas fa-user-plus"></i>Add New
+                        </div>
                         <hr>
                         <div class="table-responsive mb-3">
                             <table id="consultdatatable" class="table table-bordered table-striped">
@@ -174,9 +149,12 @@
                     </div>
                   </div>
                   
-                  <div id="epi" class="tabcontent">
+                  <div id="epi" class="tabcontent" style="display:none">
                     <div class="consultation-list bhms-box-shadow">
                         <h3 class="consulttable-title">EPI Consultation</h3>
+                        <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                            <i class="fas fa-user-plus"></i>Add New
+                        </div>
                         <hr>
                         <div class="table-responsive mb-3">
                             <table id="consultdatatable" class="table table-bordered table-striped">
@@ -228,9 +206,13 @@
                         </div>
                     </div>
                   </div>
-                  <div id="ntp" class="tabcontent">
+
+                  <div id="ntp" class="tabcontent" style="display:none">
                     <div class="consultation-list bhms-box-shadow">
                         <h3 class="consulttable-title">NTP Consultation</h3>
+                        <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                            <i class="fas fa-user-plus"></i>Add New
+                        </div>
                         <hr>
                         <div class="table-responsive mb-3">
                             <table id="consultdatatable" class="table table-bordered table-striped">
@@ -283,9 +265,12 @@
                     </div>
                   </div>
                   
-                  <div id="fam-plan" class="tabcontent">
+                  <div id="fam-plan" class="tabcontent" style="display:none">
                     <div class="consultation-list bhms-box-shadow">
                         <h3 class="consulttable-title">Family Planning Consultation</h3>
+                        <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                            <i class="fas fa-user-plus"></i>Add New
+                        </div>
                         <hr>
                         <div class="table-responsive mb-3">
                             <table id="consultdatatable" class="table table-bordered table-striped">
@@ -338,9 +323,12 @@
                     </div>
                   </div>
                   
-                  <div id="diarrheal" class="tabcontent">
+                  <div id="diarrheal" class="tabcontent" style="display:none">
                     <div class="consultation-list bhms-box-shadow">
                         <h3 class="consulttable-title">Diarrheal Problem Consultation</h3>
+                        <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                            <i class="fas fa-user-plus"></i>Add New
+                        </div>
                         <hr>
                         <div class="table-responsive mb-3">
                             <table id="consultdatatable" class="table table-bordered table-striped">
@@ -393,9 +381,12 @@
                     </div>
                   </div>
     
-                  <div id="other-services" class="tabcontent">
+                  <div id="other-services" class="tabcontent" style="display:none">
                     <div class="consultation-list bhms-box-shadow">
                         <h3 class="consulttable-title">Other Consultation</h3>
+                        <div type="button" class="btn-add-consul" title="Add Consultation"  data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                            <i class="fas fa-user-plus"></i>Add New
+                        </div>
                         <hr>
                         <div class="table-responsive mb-3">
                             <table id="consultdatatable" class="table table-bordered table-striped">
@@ -718,36 +709,36 @@
 
 @section('scripts')
 <script type="text/javascript">
-    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-    $(document).ready(function(){
+    // var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    // $(document).ready(function(){
     
-      $( "#hc-search-input" ).autocomplete({
-        source: function( request, response ) {
-          // Fetch data
-          $.ajax({
-            url:"{{route('Consul.fetch')}}",
-            type: 'post',
-            dataType: "json",
-            data: {
-               _token: CSRF_TOKEN,
-               search: request.term
-            },
-            success: function( data ) {
-               response( data );
-            }
-          });
-        },
-        select: function (event, ui) {
-           // Set selection
-           $('#hc-search-input').val(ui.item.label); // display the selected text
-           $('#resname').val(ui.item.value); // save selected id to input
-           return false;
-        }
-      });
+    //   $( "#hc-search-input" ).autocomplete({
+    //     source: function( request, response ) {
+    //       // Fetch data
+    //       $.ajax({
+    //         url:"{{route('Consul.fetch')}}",
+    //         type: 'post',
+    //         dataType: "json",
+    //         data: {
+    //            _token: CSRF_TOKEN,
+    //            search: request.term
+    //         },
+    //         success: function( data ) {
+    //            response( data );
+    //         }
+    //       });
+    //     },
+    //     select: function (event, ui) {
+    //        // Set selection
+    //        $('#hc-search-input').val(ui.item.label); // display the selected text
+    //        $('#resname').val(ui.item.value); // save selected id to input
+    //        return false;
+    //     }
+    //   });
     
-    });
+    // });
 
-    function openCity(evt, cityName) {
+    function openConsul(evt, cityName) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {

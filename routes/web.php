@@ -8,7 +8,7 @@ use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\HealthConsultationController;
 use App\Http\Controllers\ConsulController;
 use App\Http\Controllers\usersController;
-
+use App\Http\Controllers\FullCalendarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +36,7 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/medicinerequest', [DashboardController::class, 'medicinerequest'])->name('dashboard.medicinerequest');
     Route::get('/purok', [DashboardController::class, 'purok'])->name('dashboard.purok');
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
+    Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
 
     Route::resource('/residentprofile', ResidentController::class);
     
@@ -45,5 +46,8 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::resource('/bhw', usersController::class);
 
     Route::resource('/healthconsultation', HealthConsultationController::class);
+
+    Route::get('/events', [FullCalendarController::class, 'index']);
+    Route::post('events/action', [FullCalendarController::class, 'action']);
 });
 

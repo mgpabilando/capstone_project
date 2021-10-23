@@ -7,7 +7,8 @@
     <div class="wrapper">
 
     @include('layouts.includes.sidebar')
-
+    
+    
     @yield('content')
     
     
@@ -21,11 +22,12 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('js/print.js')}}"></script>
+    {{-- <script src="{{asset('js/print.js')}}"></script>
     <script src="{{asset('js/MARprint.js')}}"></script>
-    <script src="{{asset('js/MVRprint.js')}}"></script>
+    <script src="{{asset('js/MVRprint.js')}}"></script> --}}
+    <script src="{{ asset('fullcalendar\dist\fullcalendar.js')}}"></script>
+    <script src="{{ asset('fullcalendar\dist\fullcalendar.min.js')}}"></script>
     @yield('scripts')
-    
 <script>
     let sidebar = document.querySelector("#sidebar");
     let content = document.querySelector("#content");
@@ -200,6 +202,127 @@
     })
     
 </script>
+
+<script>
+$(document).ready(function () {
+
+$.ajaxSetup({
+    headers:{
+        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+var calendar = $('#calendar').fullCalendar({
+    editable:true,
+    header:{
+        left:'prev,next today',
+        center:'title',
+        right:'month,agendaWeek,agendaDay'
+    },
+    events:'events',
+    selectable:true,
+    selectHelper: true,
+    select:function(start, end, allDay)
+    {
+        var title = prompt('Event Title:');
+
+        if(title)
+        {
+            var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
+
+            var end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
+
+            $.ajax({
+                url:"events/action",
+                type:"POST",
+                data:{
+                    title: title,
+                    start: start,
+                    end: end,
+                    type: 'add'
+                },
+                success:function(data)
+                {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Event Created Successfully");
+                }
+            })
+        }
+    },
+    editable:true,
+    eventResize: function(event, delta)
+    {
+        var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
+        var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
+        var title = event.title;
+        var id = event.id;
+        $.ajax({
+            url:"events/action",
+            type:"POST",
+            data:{
+                title: title,
+                start: start,
+                end: end,
+                id: id,
+                type: 'update'
+            },
+            success:function(response)
+            {
+                calendar.fullCalendar('refetchEvents');
+                alert("Event Updated Successfully");
+            }
+        })
+    },
+    eventDrop: function(event, delta)
+    {
+        var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
+        var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
+        var title = event.title;
+        var id = event.id;
+        $.ajax({
+            url:"events/action",
+            type:"POST",
+            data:{
+                title: title,
+                start: start,
+                end: end,
+                id: id,
+                type: 'update'
+            },
+            success:function(response)
+            {
+                calendar.fullCalendar('refetchEvents');
+                alert("Event Updated Successfully");
+            }
+        })
+    },
+
+    eventClick:function(event)
+    {
+        if(confirm("Are you sure you want to remove it?"))
+        {
+            var id = event.id;
+            $.ajax({
+                url:"events/action",
+                type:"POST",
+                data:{
+                    id:id,
+                    type:"delete"
+                },
+                success:function(response)
+                {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Event Deleted Successfully");
+                }
+            })
+        }
+    }
+});
+
+});
+
+  </script>
+
 </body>
 </html>
 
