@@ -25,9 +25,10 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@fullcalendar/core": "^5.10.0",
+        "@fullcalendar/daygrid": "^5.10.0",
         "datatables.net": "^1.11.3",
         "datatables.net-dt": "^1.11.3",
-        "debug": "^4.3.2",
-        "fullcalendar": "^3.10.3"
+        "debug": "^4.3.2"
     }
 }

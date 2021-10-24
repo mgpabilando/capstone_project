@@ -16,18 +16,15 @@
         
     
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{asset('jquery-ui-1.13.0.custom/jquery-ui.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js')}}"></script>
-    {{-- <script src="{{asset('js/print.js')}}"></script>
-    <script src="{{asset('js/MARprint.js')}}"></script>
-    <script src="{{asset('js/MVRprint.js')}}"></script> --}}
-    <script src="{{ asset('fullcalendar\dist\fullcalendar.js')}}"></script>
-    <script src="{{ asset('fullcalendar\dist\fullcalendar.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
     @yield('scripts')
+
 <script>
     let sidebar = document.querySelector("#sidebar");
     let content = document.querySelector("#content");

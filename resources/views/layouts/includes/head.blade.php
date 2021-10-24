@@ -14,5 +14,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css')}}">    
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    {{-- <link href="{{ asset ('fullcalendar/lib/main.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset ('fullcalendar/lib/main.min.css') }}" rel="stylesheet" type="text/css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
