@@ -40,9 +40,9 @@
             </ul>
 
             <div class="account d-flex justify-content-end">
-                <a class="me-3" href="myprofile"><i class="fa fa-user-circle text-primary pe-1 h5"></i><span class="usernav-link">User Profile</span></a>
-                <a href="/signout" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fa fa-power-off text-danger pe-1 h5"></i>
+                <a class="topnav me-2" href="myprofile"><i class="fa fa-user-circle pe-1 h5"></i><span class="usernav-link">User Profile</span></a>
+                <a class="topnav" href="/signout" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"><i class="fa fa-power-off pe-1 h5"></i>
                     <span class="usernav-link">Sign Out</span>
                 </a>
                 <form id="logout-form" action="signout" method="POST" style="display: none;">
