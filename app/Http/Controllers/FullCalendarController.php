@@ -9,7 +9,7 @@ class FullCalendarController extends Controller
     public function index (Request $request) {
         if($request->ajax())
     	{
-    		$data = Event::whereDate('start', '>=', $request->start)
+    		$data = events::whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
                        ->get(['id', 'title', 'start', 'end']);
             return response()->json($data);
@@ -23,7 +23,7 @@ class FullCalendarController extends Controller
     	{
     		if($request->type == 'add')
     		{
-    			$event = Event::create([
+    			$event = events::create([
     				'title'		=>	$request->title,
     				'start'		=>	$request->start,
     				'end'		=>	$request->end
@@ -34,7 +34,7 @@ class FullCalendarController extends Controller
 
     		if($request->type == 'update')
     		{
-    			$event = Event::find($request->id)->update([
+    			$event = events::find($request->id)->update([
     				'title'		=>	$request->title,
     				'start'		=>	$request->start,
     				'end'		=>	$request->end
@@ -45,7 +45,7 @@ class FullCalendarController extends Controller
 
     		if($request->type == 'delete')
     		{
-    			$event = Event::find($request->id)->delete();
+    			$event = events::find($request->id)->delete();
 
     			return response()->json($event);
     		}
