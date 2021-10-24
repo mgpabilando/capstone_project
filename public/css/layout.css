@@ -17,7 +17,7 @@ body {
 .wrapper {
     display: flex;
     align-items: stretch;
-    background-color: #E7F3ED;
+    background-color: #ffffff;
 }
 
 #content {
@@ -27,13 +27,13 @@ body {
     height: calc(100vh - 0px);
     transition: all 0.5s ease;
     margin: 0; 
-    background-color: #E7F3ED;
+    background-color: #ffffff;
   }
   
   #content.close{
     left: 60px;
     width: calc(100% - 60px);
-    background-color: #E7F3ED;
+    background-color: #ffffff;
   }
 
   .home-section .navbar {
