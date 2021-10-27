@@ -10,8 +10,9 @@
     <link href="{{ asset('css/resident_profile.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/manageaccounts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/health_consult.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/manage_acc.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/purok.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{asset('https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css')}}">    
+    <link rel="stylesheet" type="text/css" href="{{asset('https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css')}}">
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <link href="{{ asset ('fullcalendar/lib/main.css') }}" rel="stylesheet" type="text/css">
