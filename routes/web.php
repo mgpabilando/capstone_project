@@ -47,7 +47,7 @@ Route::group([ 'middleware' => ['auth']], function () {
 
     Route::resource('/healthconsultation', HealthConsultationController::class);
 
-    Route::get('/events', [FullCalendarController::class, 'index'])->name('eventsview');
-    Route::post('events/action', [FullCalendarController::class, 'action'])->name('eventsaction');
+    Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
+    Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
 });
 
