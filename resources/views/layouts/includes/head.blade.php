@@ -18,3 +18,8 @@
     {{-- <link href="{{ asset ('fullcalendar/lib/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('fullcalendar/lib/main.min.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="/FullCalendar/fullcalendar.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>
+    <link href="{{ asset('css/chart_style.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ asset('js/MARprint.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/MVRprint.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/print.js') }}" charset="utf-8"></script>

@@ -4,7 +4,7 @@
     border: 1px solid #ccc;
     background-color: #f1f1f1;
   }
-  
+
   /* Style the buttons inside the tab */
   .tab button {
     background-color: #ffff;
@@ -16,17 +16,17 @@
     transition: 0.3s;
     font-size: 17px;
   }
-  
+
   /* Change background color of buttons on hover */
   .tab button:hover {
     background-color: #ddd;
   }
-  
+
   /* Create an active/current tablink class */
   .tab button.active {
     background-color: #34e4ea;
   }
-  
+
   /* Style the tab content */
   .tabcontent {
     display: none;
@@ -34,3 +34,102 @@
     border: 0px solid #ccc;
     border-top: none;
   }
+
+
+  /*for reports style*/
+
+  .report-gen .btn-reportgen {
+  width: 50vh;
+}
+
+@media screen {
+  #printSection {
+    display: none;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printSection, #printSection * {
+    visibility: visible;
+  }
+
+  #printSection {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+  }
+}
+
+@page
+    {
+        size:  auto;
+        margin: 01mm;
+    }
+
+.btn-monthly-report{
+  height: 55px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 5px 5px 5px 5px;
+  width: 530px;
+  border-radius: 50px;
+  background-color: #ffff;
+  border: 2px solid;
+  border-color: #2ae88a;, //
+  transition: all, 1s;
+}
+
+.btn-monthly-report:hover{
+  background-color: #08aeea;
+  color: #fff;
+
+}
+
+.mar-report{
+  width: 100%;
+}
+.mar-report form{
+  padding: 0px;
+  line-height: normal;
+  width: 200px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+
+.mar-report form p{
+    margin-bottom: 0px;
+
+}
+
+.form-group-mar th{
+  padding: 0px;
+
+}
+
+.form-group-mar td{
+  padding: 0px;
+}
+
+.signature-by{
+  position: relative;
+  left: 10px;
+}
+
+.submitted-by{
+  width: 300px;
+}
+
+.noted-sign{
+   width: 300px;
+   margin-right: 100px;
+}
+
+.signature-by input{
+  width: 300px;
+  border-width: 0px 0px 1px 0px;
+}
