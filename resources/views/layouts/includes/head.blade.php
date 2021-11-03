@@ -16,13 +16,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/purok.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css')}}">
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="{{ asset ('FullCalendar/fullcalendar.css') }}">
-
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" /> --}}
-    {{-- <link href="{{ asset ('fullcalendar/lib/main.min.css') }}" rel="stylesheet" type="text/css"> --}}
-    {{-- <link rel="stylesheet" href="full_calendar/lib/main.css" /> --}}
-=======
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     {{-- <link href="{{ asset ('fullcalendar/lib/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('fullcalendar/lib/main.min.css') }}" rel="stylesheet" type="text/css"> --}}
@@ -32,4 +25,3 @@
     <script src="{{ asset('js/MARprint.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/MVRprint.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/print.js') }}" charset="utf-8"></script>
->>>>>>> origin/jkgerero_branch
