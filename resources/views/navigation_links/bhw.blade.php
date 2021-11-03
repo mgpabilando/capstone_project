@@ -202,10 +202,13 @@
                                         <span class="text-danger">@error('address'){{ $message }} @enderror</span>
                                     </div>
         
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-6" {{ $errors->get('contact') ? 'has-error' : '' }}>
                                         <label class="control-label" for="contact">Contact Number:</label>
                                         <input type="text" class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact">
                                         <span class="text-danger">@error('contact'){{ $message }} @enderror</span>
+                                        @foreach($errors->get('contact') as $error)
+                                            <span class="help-block">{{ $error }}</span>
+                                        @endforeach
                                     </div>
                                 </div>
         
@@ -252,7 +255,7 @@
         
                         <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-success">Add Resident</button>
+                                <button type="submit" class="btn btn-success">Add</button>
                         </div>
                     </form>
                           

@@ -6,3 +6,121 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
+/* Profile Image*/
+  .chooseprofile
+  {
+    height: 250px;
+    position: relative;
+    background-color: #ffff; 
+    margin: 100px 25px 25px 25px; 
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 5px 0px grey;
+  }
+
+  .rounded-circle
+  {
+    height: 120px; 
+    width: 120px;
+    align-self:center;
+    border: 2px solid white;
+    box-shadow: 1px 1px 5px 0px grey;
+  }
+
+  .profile-username
+  {
+    margin: 5px 0px 0px 0px; 
+    padding:0px;
+  }
+
+  .text-muted
+  {
+    margin: 0px 0px 10px 0px; 
+    padding:0px;
+  }
+
+  .btn-changepic
+  {
+    background-color:#2ae88a; 
+    color:white; 
+    font-size: 13px;
+  }
+  
+  .btn-changepic:hover
+  {
+    color: white;
+    background-color: #38c77f;
+  } 
+/* Profile image ends */
+
+/* User Profile information */
+.user-info
+  {
+    background-color: rgb(255, 255, 255);
+    margin-left: auto;
+    margin-top: 15px;
+    margin-right:30px; 
+    padding:10px; 
+    border-radius:10px;
+    box-shadow: 1px 1px 5px 0px grey;
+    height: auto;
+  }
+
+  .user-info .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #2ae88a;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+  .user-info .nav-link
+  {
+    color: #495057;
+  }
+  
+  .user-info .btn-edit
+  {
+    background-color: gold;
+    color: white;
+    width: 120px;
+    align-content: center;
+    box-shadow: 1px 1px 5px 0px grey;
+    border: 2px solid gold;
+    border-radius: 10px;
+    padding: 0px;
+  }
+
+  .user-info .btn-edit:focus
+  {
+    box-shadow: 1px 1px 5px 0px grey;
+    border-color: white;
+  }  
+
+  .tab-content input[type=text], .tab-content input[type=password], .tab-content input[type=date], .tab-content input[type=email]{
+    width: 100%;
+    padding: 5px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 12px;
+    border-radius: 25px;
+    text-align: center;
+    
+  }
+
+  .form-control:disabled, .form-control[readonly] {
+    background-color: #2ae8896c;
+    opacity: 1;
+}
+
+hr
+{
+  margin: 10px 0;
+}
+
+.control-label
+{
+  font-size: 14px;
+}
+
+  

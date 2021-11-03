@@ -154,7 +154,6 @@
             </div>  
     </section> 
     @include('auth.register')    
-    @yield('scripts')   
 @endsection
 
 

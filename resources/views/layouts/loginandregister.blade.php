@@ -9,10 +9,7 @@
 
     <title>BHMS</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery-341.min.js"></script>  
+    {{-- <script language="JavaScript" type="text/javascript" src="{{ asset ('js/app.js') }}" defer></script>  --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,12 +31,13 @@
 </head>
 <body>
     @yield('content')
-    @yield('scripts')
+    
 
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery-341.min.js"></script>  
+ <!-- Scripts -->
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ <script language="JavaScript" type="text/javascript" src="{{ asset ('/js/bootstrap.js') }}"></script>
 
+ @yield('scripts')
 
 </body>
 </html>

@@ -30,6 +30,36 @@
         </div>
     </nav>
 </section> --}}
+
+<style>
+.user-rounded-circle
+{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 1px 1px 5px 0px grey;
+}
+
+.fa-power-off
+{
+    padding: 5px;
+    margin: 0%;
+    align-self: center;
+    vertical-align: center;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 1px 1px 5px 0px grey;
+
+}
+
+.account .topnav .usernav-link
+{
+    align-items: center;
+}
+</style>
 <section class="home-section">
     <nav class="navbar navbar-default d-flex">
         <div class="d-flex align-items-center">
@@ -39,11 +69,14 @@
                 </li>
             </ul>
 
-            <div class="account d-flex justify-content-end">
-                <a class="topnav me-2" href="myprofile"><i class="fa fa-user-circle pe-1 h5"></i><span class="usernav-link">User Profile</span></a>
+            <div class="account d-flex justify-content-end align-items-center">
+                @auth <div style="font-size: 12px">Welcome! <br> <b style="font-size: 15px">{{ Auth::user()->fname }}</b></div>@endauth
+                <a class="topnav me-2" href="myprofile">
+                    <img src="images\profile.jpeg" class="user-rounded-circle" alt="admin-image" {{-- src="Auth::User()->picture "--}}>
+                </a>
                 <a class="topnav" href="/signout" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fa fa-power-off pe-1 h5"></i>
-                    <span class="usernav-link">Sign Out</span>
+                    document.getElementById('logout-form').submit();">
+                    <i class="fa fa-power-off"></i>
                 </a>
                 <form id="logout-form" action="signout" method="POST" style="display: none;">
                     @csrf

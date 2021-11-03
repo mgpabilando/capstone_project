@@ -91,24 +91,6 @@
             });
 </script> --}}
 
-<script>
-    function CheckPasswordMatch() {
-        var password = $("#password").val();
-        var confirmPassword = $("#password_confirmation").val();
-        if (password != confirmPassword)
-            $("#CheckPasswordMatch").html("Passwords does not match!").css('color', 'red');
-        else
-            $("#CheckPasswordMatch").html("Passwords match.").css('color', 'green');
-    }
-        $(document).ready(function () {
-            $("#password_confirmation").keyup(CheckPasswordMatch);
-        });
-
-    </script>
-
-
-
-
     {{-----------------------------EDIT RESIDENT SCRIPT--------------------------------}}
  <script>
      $('#editResidentModal').on('show.bs.modal', function(event) {

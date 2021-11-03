@@ -41,8 +41,17 @@
     font-weight: bold;
 }
 
+.fc-state-down, .fc-state-active {
+    background-color: #08aeea;
+    background-image: none;
+    box-shadow: none;
+    color: white;
+}
+
 
 </style>
+
+
 <div id="content">
     @include('layouts.includes.topnavbar')
     <div class="row no-margin-padding">
@@ -53,9 +62,9 @@
     </div>
 
     <div class="container m-2">
-        <div class="row">
+        <div class="row" style="justify-content: center;">
 
-            <div class="add-sec d-flex align-items-center justify-content-end">
+            <div class="add-sec d-flex">
                 @if (\Session::has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ \Session::get('success') }}
@@ -70,12 +79,12 @@
                         <div id='calendar'></div>
                     </div>
                 </div>
-                <br>
+                {{-- <br>
                 <div class="btnadd">
                     <button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#addevent">ADD EVENT</button>
                     <button type="button" class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#editevent">EDIT EVENT</button>
                     <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deleteevent    ">DELETE EVENT</button>
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -89,7 +98,7 @@
                 </div>
 
                 <form action=" {{route('events.action')}} " method="POST">
-                    {{ csrf_field() }}
+                    @csrf
                     <div class="modal-body">
                         <div class="input_event row pb-3">
                             <div class="label_event">Event Title:</div>
@@ -110,7 +119,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-success" id="submitButton">Save</button>
                     </div>
                 </form>
             </div>
@@ -200,19 +209,18 @@
 @section('scripts')
 <script>
     $(document).ready(function () {
-    
         $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        headers:{
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     
         var calendar = $('#calendar').fullCalendar({
             editable:true,
             header:{
                 left:'prev,next today',
                 center:'title',
-                right:'month,agendaWeek,agendaDay'
+                right:'month,agendaWeek,agendaDay',
             },
             events:'/events',
             selectable:true,
@@ -220,7 +228,8 @@
             select:function(start, end, allDay)
             {
                 var title = prompt('Event Title:');
-    
+                // $('#addevent').modal('show'); 
+
                 if(title)
                 {
                     var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
@@ -319,13 +328,4 @@
       
 </script>
 
-{{-- <script>
-document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
-      });
-</script> --}}
 @endsection

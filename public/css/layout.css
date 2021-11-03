@@ -118,11 +118,9 @@ body {
 .fa-power-off {
     color: red;
 }
-.home-section .account .topnav:hover>i{
-    color: white;
-}
-  
-  .home-section .account .topnav:hover{
+
+  .home-section .account .topnav:hover,
+  .profilesec:hover{
     background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
     color: white;
     border-radius: 25px;

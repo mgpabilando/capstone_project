@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use User;
 
 class DashboardController extends Controller
 {
@@ -18,7 +19,8 @@ class DashboardController extends Controller
 
      public function users_profile()
      {
-     return view('navigation_links.users_profile');
+     $user = Auth::User();
+     return view('navigation_links.users_profile')->with('user', $user);
      }
 
      public function residentprofile()

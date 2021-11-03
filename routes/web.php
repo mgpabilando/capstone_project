@@ -9,6 +9,7 @@ use App\Http\Controllers\HealthConsultationController;
 use App\Http\Controllers\ConsulController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\FullCalendarController;
+use App\Http\Controllers\MyProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +37,9 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/medicinerequest', [DashboardController::class, 'medicinerequest'])->name('dashboard.medicinerequest');
     Route::get('/purok', [DashboardController::class, 'purok'])->name('dashboard.purok');
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
-    Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
+    // Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
+
+    Route::resource('/myprofile', MyProfileController::class);
 
     Route::resource('/residentprofile', ResidentController::class);
     

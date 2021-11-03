@@ -7,7 +7,8 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "type": "module"
     },
     "devDependencies": {
         "axios": "^0.21",
@@ -27,6 +28,8 @@
     "dependencies": {
         "@fullcalendar/core": "^5.10.0",
         "@fullcalendar/daygrid": "^5.10.0",
+        "@fullcalendar/list": "^5.10.0",
+        "@fullcalendar/timegrid": "^5.10.0",
         "datatables.net": "^1.11.3",
         "datatables.net-dt": "^1.11.3",
         "debug": "^4.3.2"
