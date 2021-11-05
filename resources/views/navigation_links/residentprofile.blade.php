@@ -6,14 +6,11 @@
     <div class="row no-margin-padding">
         <div class="col-md-12 d-flex flex-row justify-content-between">
             <h3 class="block-title">Resident Profile</h3>
-            <div type="button" class="btn-add-res d-flex justify-content-center" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                <i class="fas fa-user-plus"></i>&nbsp;Add New
-            </div>
         </div>
     </div>
     
     <div class="head-resprof">
-        <div class="head-func d-flex align-items-center justify-content-end">
+        <div class="head-func d-flex justify-content-center">
             @if (\Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ \Session::get('success') }}
@@ -28,11 +25,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="container list-of-res bhms-box-shadow">
-                    <h3 class="container-title">Residents List</h3>
+                    <div class="tabletitle-and-button d-flex">
+                        <h3 class="restable-title col-9">List of Residents</h3>
+                        <div type="button" class="btn btn-add col-3" style="margin-left:auto;" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#registerresident">
+                            <i class="fa fa-user-plus"></i>&nbsp;Add
+                        </div>
+                    </div>
                     <hr>
-                    
                     <div class="table-responsive mb-3">
-                        <table id="datatable" class="table table-bordered table-striped">
+                        <table id="datatable" class="table table-bordered table-striped datatable-hover">
                                 <thead>
                                     <tr role="row">
                                         <th scope="col">ID</th>
@@ -103,7 +104,7 @@
         </div>
 
         <!--******************************-------------- ADD RESIDENT MODAL ------------*************************************-->   
-        <div class="res-add modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="res-add modal fade" id="registerresident" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -215,38 +216,6 @@
                     </div>
                     <form class="add-resident" action="{{route ('residentprofile.show', 'resident_id')}}" method="GET">
                         @csrf
-                        {{-- <div class="modal-body">
-                            <div class="row head-info">
-                                <div class="col-md-3 d-flex justify-content-center">
-                                    <img src="images/macawayan logo.png" alt="" width="100px" height="100px">
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="name" id="name"><strong>{{ $residentprofile->lname }}, {{ $residentprofile->fname }} {{ $residentprofile->mname }}</strong></div>
-                                    <hr>
-                                    <div class="under-info d-flex flex-row  justify-content-between">
-                                        <div class="fam-no" id="fam-no"><strong>FN-P2-000{{ $residentprofile->family_id }}-1999</strong></div>
-                                        <div class="purok" id="purok">Purok: <strong>Purok {{ $residentprofile->purok }}</strong></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row com-info">
-                                <div class="col-md-10">
-                                    <div class="str-row d-flex justify-content-between">
-                                        <div class="age" id="age">Age: <strong>{{ $residentprofile->age }}</strong></div>
-                                        <div class="sex">Sex: <strong>{{ $residentprofile->sex }}</strong></div>
-                                        <div class="civ-stat">Civil Status: <strong>{{ $residentprofile->civil_status }}</strong></div>
-                                    </div>
-                                    <div class="mid-row d-flex justify-content-between">
-                                        <div class="bdate">Birthdate: <strong>{{ $residentprofile->bdate }}</strong></div>
-                                        <div class="placeofbirth">Place Of Birth: <strong>{{ $residentprofile->placeofbirth }}</strong></div>
-                                    </div>
-                                    <div class="end-row d-flex justify-content-between">
-                                        <div class="philhealth_id">PhilHealth: <strong>{{ $residentprofile->phil_health_id }}</strong></div>
-                                        <div class="id_4ps">4p's: <strong>{{ $residentprofile->id_4ps }}</strong></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="modal-body">
                             <div class="d-flex flex-wrap identification">
                                 <div class="input-box">
@@ -459,8 +428,98 @@
     </div>
 
 </div>
-
-<br>
 @endsection
 
+@section('scripts')
+    
+    {{-----------------------------EDIT RESIDENT SCRIPT--------------------------------}}
+ <script>
+    $('#editResidentModal').on('show.bs.modal', function(event) {
+       var button = $(event.relatedTarget)
+       var resident_id = button.data('resident_id')
+       var fname = button.data('fname')
+       var lname = button.data('lname')
+       var mname = button.data('mname')
+       var purok = button.data('purok')
+       var age = button.data('age')
+       var bdate = button.data('bdate')
+       var placeofbirth = button.data('placeofbirth')
+       var family_id = button.data('family_id')
+       var phil_health_id = button.data('phil_health_id')
+       var id_4ps = button.data('id_4ps')
+       var mobile = button.data('mobile')
+       var sex = button.data('sex')
+       var civil_status = button.data('civil_status')
 
+       var modal = $(this)
+       modal.find('.modal-title').text('Edit Resident Profile');
+       modal.find('.modal-body #resident_id').val(resident_id);
+       modal.find('.modal-body #purok').val(purok);
+       modal.find('.modal-body #family_id').val(family_id);
+       modal.find('.modal-body #fname').val(fname);
+       modal.find('.modal-body #mname').val(mname);
+       modal.find('.modal-body #lname').val(lname);
+       modal.find('.modal-body #age').val(age);
+       modal.find('.modal-body #bdate').val(bdate);
+       modal.find('.modal-body #placeofbirth').val(placeofbirth);
+       modal.find('.modal-body #sex').val(sex);
+       modal.find('.modal-body #civil_status').val(civil_status);
+       modal.find('.modal-body #mobile').val(mobile);
+       modal.find('.modal-body #phil_health_id').val(phil_health_id);
+       modal.find('.modal-body #id_4ps').val(id_4ps);
+       }) 
+</script>
+
+   {{-----------------------------DELETE RESIDENT SCRIPT--------------------------------}}
+<script>
+   $('#deleteResidentModal').on('show.bs.modal', function(event) {
+       var button = $(event.relatedTarget)
+       var resident_id = button.data('resident_id')
+       
+
+       var modal = $(this)
+       modal.find('.modal-title').text(' Delete Resident Profile');
+       modal.find('.modal-body #resident_id').val(resident_id);
+   })
+   
+</script>
+
+   {{-----------------------------VIEW RESIDENT SCRIPT--------------------------------}}
+<script>
+   $('#viewResidentModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      var resident_id = button.data('resident_id')
+      var fname = button.data('fname')
+      var lname = button.data('lname')
+      var mname = button.data('mname')
+      var purok = button.data('purok')
+      var age = button.data('age')
+      var bdate = button.data('bdate')
+      var placeofbirth = button.data('placeofbirth')
+      var family_id = button.data('family_id')
+      var phil_health_id = button.data('phil_health_id')
+      var id_4ps = button.data('id_4ps')
+      var mobile = button.data('mobile')
+      var sex = button.data('sex')
+      var civil_status = button.data('civil_status')
+
+      var modal = $(this)
+      modal.find('.modal-title').text('RESIDENT PROFILE');
+      modal.find('.modal-body #resident_id').val(resident_id);
+      modal.find('.modal-body #purok').val(purok);
+      modal.find('.modal-body #family_id').val(family_id);
+      modal.find('.modal-body #fname').val(fname);
+      modal.find('.modal-body #mname').val(mname);
+      modal.find('.modal-body #lname').val(lname);
+      modal.find('.modal-body #age').val(age);
+      modal.find('.modal-body #bdate').val(bdate);
+      modal.find('.modal-body #placeofbirth').val(placeofbirth);
+      modal.find('.modal-body #sex').val(sex);
+      modal.find('.modal-body #civil_status').val(civil_status);
+      modal.find('.modal-body #mobile').val(mobile);
+      modal.find('.modal-body #phil_health_id').val(phil_health_id);
+      modal.find('.modal-body #id_4ps').val(id_4ps);
+   })
+   
+</script>
+@endsection

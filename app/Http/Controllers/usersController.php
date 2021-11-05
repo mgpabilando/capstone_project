@@ -19,8 +19,8 @@ class usersController extends Controller
      */
     public function index()
     {
-            $users = User::whereRoleIs('bhw')->get();
-            return view('navigation_links.bhw')->with('users', $users);
+            $bhws = User::whereRoleIs('bhw')->get();
+            return view('navigation_links.bhw')->with('bhws', $bhws);
     }
     /**
      * Show the form for creating a new resource.
@@ -65,7 +65,7 @@ class usersController extends Controller
         $user->attachRole('bhw');  
         event(new Registered($user));
 
-        return redirect()->route('users.index')->with('success', 'Added Successfully.');
+        return redirect()->route('bhw.index')->with('success', 'Added Successfully.');
     }
 
     /**
@@ -76,7 +76,8 @@ class usersController extends Controller
      */
     public function show($id)
     {
-        //
+        $bhws = User::find($id);
+        return view('navigation_links.bhw')->with($bhws, $id);
     }
 
     /**
@@ -87,7 +88,8 @@ class usersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bhws = User::find($id);
+        return view('navigation_links.bhw')->with($bhws, $id);
     }
 
     /**
@@ -97,9 +99,34 @@ class usersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'fname' => 'required', 'string', 'max:255',
+            'lname' => 'required', 'string', 'max:255',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
+            'age' => 'required', 'integer',
+            'address' => 'required', 'string', 'max:255',
+            'bdate' => 'required', 'date',
+            'contact' => 'required', 'string', 'max:11',
+            'password' => 'required', 'min:6', 'max:12', 
+            'password_confirmation' => 'required',
+        ]);
+
+        $bhws = array (
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'email' => $request->email,
+            'age' => $request->age,
+            'address' => $request->address,  
+            'bdate' => $request->bdate, 
+            'contact' => $request->contact,
+            'password' => $request->password,
+
+        );
+
+        User::findOrFail($request->user_id)->update($bhws);
+        return redirect()->route('bhw.index')->with('success', 'Updated Successfully.');
     }
 
     /**
@@ -108,8 +135,13 @@ class usersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $bhws)
     {
-        //
+        $delete = $bhws->all();
+
+        /* echo "<pre>"; print_r($delete); die; */
+        $deleteuser = User::findOrFail($bhws->user_id);
+        $deleteuser->delete();
+        return redirect()->route('bhw.index')->with('success', 'Deleted Successfully.');
     }
 }

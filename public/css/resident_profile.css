@@ -79,10 +79,9 @@ button {
 }
 
 .alert{
-  position: absolute;
-  width: 50%;
+  position: fixed;
+  width: auto;
   margin: 5px;
-  transform: translateX(-400px);
 }
 
 /*******************************
@@ -111,6 +110,11 @@ table.table thead th {
   box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
   background: #fff;
   margin-top: 20px;
+}
+
+.list-of-res .tabletitle-and-button .restable-title
+{
+  font-weight: bold;
 }
 
 
@@ -167,7 +171,15 @@ select {
   border-radius: 25px;
   
 }
-  
+.btn-success
+{
+  background-color: #2ae88a;
+}
+
+.btn-outline-success {
+  color: #2ae88a;
+  border-color: #2ae88a;
+}
 .add-resident .date,
 select {
   text-transform: uppercase;
@@ -188,10 +200,7 @@ select {
   color: #ffffff;
 }
 
-.btn-close {
-  color: #ffffff;
-  background-color: #ffffff;
-}
+
 .res-view .modal-content .name{
   font-size: 16px;
 }

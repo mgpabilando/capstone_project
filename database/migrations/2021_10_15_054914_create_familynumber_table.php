@@ -20,14 +20,14 @@ class CreateFamilynumberTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('FamilyNo_members', function (Blueprint $table) {
-            $table->unsignedBigInteger('familynumber');
-            $table->unsignedBigInteger('resident_id');
-            $table->string('user_type');
+        // Schema::create('FamilyNo_members', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('familynumber');
+        //     $table->unsignedBigInteger('resident_id');
+        //     $table->string('user_type');
 
-            $table->foreign('resident_id')->references('id')->on('residents')
-                ->onUpdate('cascade')->onDelete('cascade');
-        });
+        //     $table->foreign('resident_id')->references('id')->on('residents')
+        //         ->onUpdate('cascade')->onDelete('cascade');
+        // });
         
 
 

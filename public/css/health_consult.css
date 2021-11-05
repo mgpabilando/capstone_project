@@ -7,9 +7,6 @@
     box-sizing: border-box;
 }
 
-/* TOP NAVIGATION */
-
-
 /*BLOCK TITLE .NO MARGIN PADDING*/
 h3.block-title {
     font-size: 22px;
@@ -27,30 +24,44 @@ h3.block-title {
   line-height: 1.75;
 }
 
-.btn-add-consul{
-  margin-top: 10px, 10px;
-  width: 120px;
-  display: flex;
-  position: fixed;
-  transform: translateY(-40px);
-  right: 80px;
-  box-shadow: 1px 1px 5px 0px grey;
-  background-color: #2ae88a !important;
-  border: 2px solid #2ae88a;
+.btn-add{
+  width:100px;
+  position: relative;
+  background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
   padding: 5px 10px;
   border-radius: 10px;
   color: #ffffff;
 }
-
-
-
-
 /*BLOCK TITLE .NO MARGIN PADDING*/
 
+.consult-pane {
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  width: 95%;
+  padding:10px; 
+  box-shadow: 1px 1px 5px 0px grey;
+  height: auto;
+}
+
+
+.consult-pane .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #2ae88a;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+  font-weight: bolder;
+
+}
+
+.consult-pane .nav-link
+  {
+    color: #495057;
+    
+  }
 
 /*CONSULT DATATABLE*/
 .consulttable-title {
-  color: #007bff;
+  color: #2e2d2d;
+  text-align: start;
 }
 
  .consul_view{
@@ -69,16 +80,13 @@ h3.block-title {
   margin: 2px;
 }
 
-table.table tbody td, 
-table.table thead th {
-  font-size: 14px;
-}
 .consultation-list {
   background: #fff;
-  margin-top: 20px;
-  padding: 20px;
+  padding: 10px 10px 10px 0px;
   padding-bottom: 2px;
   border-radius: 2px;
+  width: 100%;
+
 }
 .bhms-box-shadow {
   border-radius: 0;
@@ -92,6 +100,24 @@ table.table thead th {
 .consultation-list #consultdatatable{
   width: 100%;
   background-color: #ffffff;
+}
+
+label {
+  font-size: 13px;
+}
+
+.consultation-list .dataTables_info
+{
+  font-size: 12px;
+}
+
+.consultation-list .pagination
+{
+  font-size: 12px;
+}
+
+table.table tbody td, table.table thead th {
+  font-size: 13px;
 }
 
 /*ADD CONSULTATION MODAL*/

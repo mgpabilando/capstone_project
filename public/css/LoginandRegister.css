@@ -141,7 +141,7 @@ body{
 }
 
 .form-login .btn{
-  background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;;
+  background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
   border-radius: 25px;  
   color: white;
   margin-top: 15px;

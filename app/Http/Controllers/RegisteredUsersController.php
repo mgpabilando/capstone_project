@@ -54,7 +54,7 @@ class RegisteredUsersController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]));
-        $user->attachRole($request->role_id);  
+        $user->attachRole('bhw');  
         event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);

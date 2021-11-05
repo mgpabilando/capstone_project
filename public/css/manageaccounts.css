@@ -14,7 +14,6 @@
     background-color: #ffff; 
     margin: 100px 25px 25px 25px; 
     padding: 10px;
-    border-radius: 25px;
     box-shadow: 1px 1px 5px 0px grey;
   }
 
@@ -61,21 +60,21 @@
     margin-top: 15px;
     margin-right:30px; 
     padding:10px; 
-    border-radius:10px;
     box-shadow: 1px 1px 5px 0px grey;
     height: auto;
   }
 
-  .user-info .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  .user-info .nav-tabs .nav-link.active, .nav-tabs .nav-item.show {
     color: #2ae88a;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
+    font-weight: bold;
 }
-
-  .user-info .nav-link
-  {
-    color: #495057;
-  }
+.nav-link 
+{
+  color: #2e2d2d;
+}
+  
   
   .user-info .btn-edit
   {
@@ -109,7 +108,7 @@
   }
 
   .form-control:disabled, .form-control[readonly] {
-    background-color: #2ae8896c;
+    background-color: #e8f0fe;
     opacity: 1;
 }
 

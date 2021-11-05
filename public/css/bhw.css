@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;800&display=swap');
+* , body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.bhw-list
+{
+    padding: 20px;
+}
+
+.bhw-list .tabletitle-and-button .bhwtable-title
+{
+    font-weight: bold;
+}
+
+.bhw-list .tabletitle-and-button .btn-add
+{
+    margin-left:auto;
+}
+
+.btn-add {
+    width: 100px;
+    position: relative;
+    background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+/* bhw-datatable */
+#bhw-datatable_info, #bhw-datatable_paginate, input[type=search]
+{
+    font-size: 12px;
+}
+
+.btn-view
+{
+    color: #007bff;
+}
+
+ .btn-edit{
+    color: #ffc107;
+}
+
+ .btn-delete{
+    color: #dc3545;
+}
+
+
+.modal-content {
+ margin: 25px auto;
+ border: 2px solid #888;
+ width: 45%; 
+ font-size: 12px;
+ border-radius: 10px;
+  
+}
+
+.modal .modal-title{
+ color:#000000;  
+ font-weight: bold;
+ position: absolute;
+ margin: 10px;
+ width: 90%;
+}
+
+.modal-body {
+ margin: 0px 20px;
+ position: relative;
+
+}
+
+.modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
+ width: 100%;
+ padding: 5px 20px;
+ margin: 5px 0;
+ display: inline-block;
+ border: 1px solid #ccc;
+ box-sizing: border-box;
+ font-size: 12px;
+ border-radius: 25px;
+
+}
+
+.modal input[readonly]{
+    background-color: #e8f0fe;
+   }
+
+.modal-content .modal-body select{
+ width: 100%;
+ border-radius: 25px;
+ padding: 5px 20px;
+ margin: 0px 0;
+ display: inline-block;
+ border: 1px solid #ccc;
+ box-sizing: border-box;
+ font-size: 14px;
+}
+
+.modal .modal-content .control-label{
+    text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+ 
+}
+
+.row-space  {
+ justify-content: space-between;
+}
+
+.row {
+ display: flex;
+ justify-content: center;
+}
+
+.modal .modal-content .info-head{
+ position: absolute;
+ transform: rotate(-90deg) translateX(-45px) translateY(-120px);
+ background-color: #2ae88a;
+ padding: 8px 10px; 
+ border-radius: 5px;
+ color: #ffffff;
+}

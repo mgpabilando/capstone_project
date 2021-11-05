@@ -19,14 +19,20 @@
       </div>
   </div>
 
-  <div class="container-fluid" style="height: auto">
+  <div class="container-fluid">
     <div class="row d-flex">  
       <!--PROFILE PICTURE-->
       <div class="chooseprofile col-sm-3 justify-content-center">       
         <div class="text-center">
-          <img src="images\profile.jpeg" class="rounded-circle" alt="admin-image" {{-- src="Auth::User()->picture "--}}>
-          <h3 class="profile-username text-center admin_name">{{Auth::User()->fname}}</h3>
+          @if(Auth::User()->profile_image)
+          <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::User()->profile_image)}}" alt="profile_image">
+          @endif
+          <h3 class="profile-username text-center admin_name" style="color: #2e2d2d">{{Auth::User()->fname}}</h3>
+          @if (Auth::User()->hasRole('admin_nurse'))
           <p class="text-muted text-center">Nurse</p>
+          @else
+          <p class="text-muted text-center">BHW</p>
+          @endif
           <input type="file" class="text-center center-block file-upload" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
           <a href="javascript:void(0)" class="btn btn-block btn-changepic" id="change_picture_btn"><b>Change picture</b></a>
         </div> 
@@ -34,11 +40,11 @@
 
       {{-- User Profile/Information --}}
       <div class="user-info col-sm-8 text-center">
-        <h4 style="text-align:center; font-weight:bold;">User Profile</h4>
+        <h4 style="text-align:center; font-weight:bold;  color:#2e2d2d">User Profile</h4>
         
           <hr>
 
-        <ul class="nav nav-tabs" id="tab-next-prev" role="tablist" style="font-weight: bold">
+        <ul class="nav nav-tabs" id="tab-next-prev" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" data-bs-toggle="tab" href="#personal_info">Personal Information</a>
           </li>

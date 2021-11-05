@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('jquery-ui-1.13.0.custom\jquery-ui.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/resident_profile.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bhw.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/manageaccounts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/health_consult.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/manageaccounts.css') }}">
