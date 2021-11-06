@@ -54,35 +54,19 @@
                 <div class="consultation-list align-items-center">
                     <div class="d-flex justify-content-between align-items-center">
                       <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Uno List</h4>
-                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewconsultation"><i class="fa fa-plus"></i> Create</button>
                     </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
                         <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
                             <thead>
                                 <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Family ID No.</th>
+                                    <th scope="col">Family Head</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
                                     <td></td>
                                     <td>
                                         {{-----***************************** SHOW BUTTON *******************************------}}
@@ -109,132 +93,93 @@
               </div>
 
               <div class="tab-pane" id="Deliveries_info">
-                <div class="consultation-list d-flex align-items-center">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">Deliveries</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
-                      <i class="fa fa-plus"></i>Create
-                    </div>
+                <div class="consultation-list  align-items-center">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Dos List</h4>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
                         <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                            <thead>
-                                <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                          <thead>
+                              <tr role="row">
+                                  <th scope="col">Family ID No.</th>
+                                  <th scope="col">Family Head</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th></th>
+                                  <td></td>
+                                  <td>
+                                      {{-----***************************** SHOW BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                      <i class="manage fas fa-eye"></i></a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** EDIT BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                      <i class="manage fas fa-edit"></i>
+                                      </a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** DELETE BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                      <i class="manage fas fa-trash"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                          </tbody>
                         </table>
                     </div>
                 </div>
               </div>
 
               <div class="tab-pane" id="EPI_info">
-                <div class="consultation-list d-flex align-items-center">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">EPI</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
-                      <i class="fa fa-plus"></i>Create
-                    </div>
+                <div class="consultation-list align-items-center">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Tres List</h4>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
                         <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                            <thead>
-                                <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                          <thead>
+                              <tr role="row">
+                                  <th scope="col">Family ID No.</th>
+                                  <th scope="col">Family Head</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th></th>
+                                  <td></td>
+                                  <td>
+                                      {{-----***************************** SHOW BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                      <i class="manage fas fa-eye"></i></a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** EDIT BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                      <i class="manage fas fa-edit"></i>
+                                      </a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** DELETE BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                      <i class="manage fas fa-trash"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                          </tbody>
                         </table>
                     </div>
                 </div>
               </div>
 
               <div class="tab-pane" id="NTP_info">
-                <div class="consultation-list d-flex align-items-center">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">NTP</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
-                      <i class="fa fa-plus"></i>Create
-                    </div>
+                <div class="consultation-list align-items-center">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Kwatro List</h4>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -289,180 +234,126 @@
               </div>
 
               <div class="tab-pane" id="Family-Planning_info">
-                <div class="consultation-list d-flex align-items-center">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">Family Planning</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
-                      <i class="fa fa-plus"></i>Create
-                    </div>
+                <div class="consultation-list align-items-center">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Singko List</h4>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
                         <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                            <thead>
-                                <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                          <thead>
+                              <tr role="row">
+                                  <th scope="col">Family ID No.</th>
+                                  <th scope="col">Family Head</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th></th>
+                                  <td></td>
+                                  <td>
+                                      {{-----***************************** SHOW BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                      <i class="manage fas fa-eye"></i></a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** EDIT BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                      <i class="manage fas fa-edit"></i>
+                                      </a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** DELETE BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                      <i class="manage fas fa-trash"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                          </tbody>
                         </table>
                     </div>
                 </div>
               </div>
 
               <div class="tab-pane" id="Diarrheal_info">
-                <div class="consultation-list d-flex align-items-center">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">Diarrheal</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
-                      <i class="fa fa-plus"></i>Create
-                    </div>
+                <div class="consultation-list align-items-center">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Sais List</h4>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
                         <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                            <thead>
-                                <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                          <thead>
+                              <tr role="row">
+                                  <th scope="col">Family ID No.</th>
+                                  <th scope="col">Family Head</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th></th>
+                                  <td></td>
+                                  <td>
+                                      {{-----***************************** SHOW BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                      <i class="manage fas fa-eye"></i></a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** EDIT BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                      <i class="manage fas fa-edit"></i>
+                                      </a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** DELETE BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                      <i class="manage fas fa-trash"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                          </tbody>
                         </table>
                     </div>
                 </div>
               </div>
 
               <div class="tab-pane" id="Others_info">
-                <div class="consultation-list d-flex align-items-center">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">Others</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
-                      <i class="fa fa-plus"></i>Create
-                    </div>
+                <div class="consultation-list align-items-center">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Syete List</h4>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
                         <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                            <thead>
-                                <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                          <thead>
+                              <tr role="row">
+                                  <th scope="col">Family ID No.</th>
+                                  <th scope="col">Family Head</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th></th>
+                                  <td></td>
+                                  <td>
+                                      {{-----***************************** SHOW BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                      <i class="manage fas fa-eye"></i></a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** EDIT BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                      <i class="manage fas fa-edit"></i>
+                                      </a>
+                                  </td>
+                                  <td>
+                                      {{-----***************************** DELETE BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                      <i class="manage fas fa-trash"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                          </tbody>
                         </table>
                     </div>
                 </div>

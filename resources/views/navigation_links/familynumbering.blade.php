@@ -22,31 +22,31 @@
                   <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px; width: 99%; ">
                       <thead>
                           <tr role="row">
-                              <th scope="col">Family ID No.</th>
-                              <th scope="col">Family Head</th>
-                              <th scope="col">Purok</th>
-                              <th scope="col"></th>
-                              <th scope="col"></th>
-                              <th scope="col"></th>
+                              <th class="text-center"scope="col">Family ID No.</th>
+                              <th class="text-center"scope="col">Family Head</th>
+                              <th class="text-center"scope="col">Purok</th>
+                              <th class="text-center"scope="col"></th>
+                              <th class="text-center"scope="col"></th>
+                              <th class="text-center"scope="col"></th>
                           </tr>
                       </thead>
                       <tbody>
                           <tr>
-                              <th></th>
-                              <td></td>
-                              <td></td>
-                              <td>
+                              <th class="text-center"></th>
+                              <td class="text-center"></td>
+                              <td class="text-center"></td>
+                              <td class="text-center">
                                   {{-----***************************** SHOW BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
                                   <i class="manage fas fa-eye"></i></a>
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{-----***************************** EDIT BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
                                   <i class="manage fas fa-edit"></i>
                                   </a>
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{-----***************************** DELETE BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
                                   <i class="manage fas fa-trash"></i>

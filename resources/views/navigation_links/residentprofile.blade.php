@@ -25,11 +25,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="container list-of-res bhms-box-shadow">
-                    <div class="tabletitle-and-button d-flex">
-                        <h3 class="restable-title col-9">List of Residents</h3>
-                        <div type="button" class="btn btn-add col-3" style="margin-left:auto;" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#registerresident">
-                            <i class="fa fa-user-plus"></i>&nbsp;Add
-                        </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Resident List</h4>
+                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident"><i class="fa fa-plus"></i> Create</button>
                     </div>
                     <hr>
                     <div class="table-responsive mb-3">
