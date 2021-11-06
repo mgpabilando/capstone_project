@@ -9,7 +9,25 @@
     </div>
 
     <div class="head-alert">
-      <div class="head-func d-flex align-items-center justify-content-end">
+      <div class="head-func d-flex justify-content-center">
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <ul>
+                @foreach($errors->all() as $error)
+                <li>
+                    {{$error}}
+                </li>
+                @endforeach
+                </ul>
+            </div>
+            @endif
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {{session('error')}}
+            </div>
+            @endif
           @if (\Session::has('success'))
               <div class="alert alert-success alert-dismissible fade show" role="alert">
                   {{ \Session::get('success') }}
@@ -61,7 +79,7 @@
               @method('PUT')
               <div class="personal-info" style="background-color: white; padding:10px;">
                 <div class="input-box">
-                  <input name="user_id" id="user_id" placeholder="" value="{{ $user->id }}">
+                  <input name="user_id" type="hidden" id="user_id" placeholder="" value="{{ $user->id }}">
                 </div>
 
                 <div class="row row-space">               
@@ -104,6 +122,12 @@
                         <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ $user->age }}" disabled>
                         <span class="text-danger">@error('age'){{ $message }} @enderror</span>
                     </div>
+
+                    <div class="form-group">
+                      <label class="control-label" for="email">Email Address:</label>
+                      <input type="email" class="form-control @error('email') is-invalid @enderror" id="changeemail" name="email" value="{{ $user->email }}" disabled>
+                      <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                    </div>
                 </div>
               </div>
               <button type="submit" id="save" class="btn btn-danger" style="display: none;">Save Changes</button>
@@ -113,18 +137,13 @@
  
            {{-- ACCOUNT INFO --}}
           <div class="tab-pane fade" id="account_info">
-            <form class="form-horizontal" action="" method="POST" id="changePasswordAdminForm">
+            <form class="form-horizontal" action="{{ route('adminchangepassword') }}" method="POST" id="changePasswordAdminForm">
+              @csrf
               <div class="account-info" style="background-color: white; padding:10px;">
                 <div class="form-group">
-                    <label class="control-label" for="email">Email Address:</label>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" disabled>
-                    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
-                </div>
-
-                <div class="form-group">
                   <label class="control-label" for="oldpass">Old Password:</label>
-                  <input type="password" class="form-control @error('oldpass') is-invalid @enderror" name="oldpass" disabled>
-                  <span class="text-danger">@error('oldpass'){{ $message }} @enderror</span>
+                  <input type="password" class="form-control @error('oldpassword') is-invalid @enderror" id="oldpassword" name="oldpassword" disabled>
+                  <span class="text-danger">@error('oldpassword'){{ $message }} @enderror</span>
                 </div>
 
                 <hr>
@@ -132,8 +151,8 @@
                 <div class="row row-space">
                   <div class="form-group col-6">
                       <label class="control-label" for="password">New Password:</label>
-                      <input type="password" class="form-control @error('password') is-invalid @enderror" id="newpassword" name="password" disabled>
-                      <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+                      <input type="password" class="form-control @error('newpassword') is-invalid @enderror" id="newpassword" name="newpassword" disabled>
+                      <span class="text-danger">@error('newpassword'){{ $message }} @enderror</span>
                   </div>
                   
                   <div class="form-group col-6">
@@ -162,23 +181,6 @@
 @section('scripts')
 <script>
 
-// function myFunction() {
-
-//   var x = document.getElementById("edit");
-//   var y = document.getElementById("save");
-//   if (x.innerHTML === "Edit") {
-//     x.innerHTML = "Cancel";
-//     $("form input[type=text],form input[type=email],form input[type=date]").removeAttr("disabled");
-//     y.style.display = "block";
-//   } 
-//   else {
-//     x.innerHTML = "Edit";
-//     y.style.display = "none";
-//   }
-
-  
-
-// }
 function myFunction() {
   $("form input[type=text],form input[type=email],form input[type=date]").prop("disabled",true);
 

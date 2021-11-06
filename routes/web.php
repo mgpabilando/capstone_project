@@ -10,6 +10,7 @@ use App\Http\Controllers\ConsulController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\ChangePasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,9 @@ Route::group([ 'middleware' => ['auth']], function () {
     // Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
 
     Route::resource('/myprofile', MyProfileController::class);
+    // Route::get('/myprofile/changepassword', 'MyProfileController@changePassword')->name('adminchangepassword');
+    Route::get('/profile', [ChangePasswordController::class, 'profile'])->name('yourprofile');
+    Route::post('/changepassword', [ChangePasswordController::class, 'changePassword'])->name('adminchangepassword');
 
     Route::resource('/residentprofile', ResidentController::class);
     

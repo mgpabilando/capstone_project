@@ -12,6 +12,24 @@
 
     <div class="head-resprof">
         <div class="head-func d-flex justify-content-center">
+            @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <ul>
+                @foreach($errors->all() as $error)
+                <li>
+                    {{$error}}
+                </li>
+                @endforeach
+                </ul>
+            </div>
+            @endif
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {{session('error')}}
+            </div>
+            @endif
             @if (\Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ \Session::get('success') }}
@@ -46,6 +64,7 @@
                                     <th scope="col">Address</th>
                                     <th scope="col">ContactNo</th>
                                     <th scope="col">Date Added</th>
+                                    <th scope="col">Date Updated</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
@@ -64,6 +83,7 @@
                                     <td>{{$bhw->address}}</td>
                                     <td>{{$bhw->contact}}</td>
                                     <td>{{ date('F d, Y h:i:s a',strtotime($bhw['created_at'])) }}</td>
+                                    <td>{{ date('F d, Y h:i:s a',strtotime($bhw['updated_at'])) }}</td>
                                     <td>
                                         {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn-view bhw_view" data-bs-target="#viewbhw"
@@ -131,13 +151,13 @@
                                 <div class="row row-space"> 
                                     <div class="form-group col-6">
                                         <label class="control-label" for="address">Address:</label>
-                                        <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address">
+                                        <input type="text" class="form-control @error('address') is-invalid @enderror" name="address">
                                         <span class="text-danger">@error('address'){{ $message }} @enderror</span>
                                     </div>
         
                                     <div class="form-group col-6" {{ $errors->get('contact') ? 'has-error' : '' }}>
                                         <label class="control-label" for="contact">Contact Number:</label>
-                                        <input type="text" class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact">
+                                        <input type="text" class="form-control @error('contact') is-invalid @enderror" name="contact">
                                         <span class="text-danger">@error('contact'){{ $message }} @enderror</span>
                                         @foreach($errors->get('contact') as $error)
                                             <span class="help-block">{{ $error }}</span>
@@ -148,13 +168,13 @@
                                 <div class="row row-space">
                                     <div class="form-group col-6">
                                         <label class="control-label" for="bdate">Birthdate:</label>
-                                        <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="bdate" name="bdate">
+                                        <input type="date" class="form-control @error('bdate') is-invalid @enderror" name="bdate">
                                         <span class="text-danger">@error('birthdate'){{ $message }} @enderror</span>
                                     </div>
                                     
                                     <div class="form-group col-6">
                                         <label class="control-label" for="age">Age:</label>
-                                        <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age">
+                                        <input type="text" class="form-control @error('age') is-invalid @enderror" name="age">
                                         <span class="text-danger">@error('age'){{ $message }} @enderror</span>
                                     </div>
                                 </div>
@@ -172,7 +192,7 @@
                                 <div class="row row-space">
                                     <div class="form-group col-6">
                                         <label class="control-label" for="password">Password:</label>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password">
                                         <span class="text-danger">@error('password'){{ $message }} @enderror</span>
                                     </div>
                                     <div class="form-group col-6">
@@ -212,41 +232,41 @@
                             <div class="personal-info">
                                 <p class="info-head text-center fw-bold">Personal Information</p>
                                 <div class="input-box">
-                                    <input name="user_id" id="user_id" type="text" placeholder="">
+                                    <input name="user_id" id="user_id" type="hidden" placeholder="">
                                 </div>
                                 <div class="row row-space">               
                                     <div class="form-group col-6">
                                         <label class="control-label" for="fname">First Name:</label>
-                                        <input class="name align-text-left" name="fname" id="fname" type="text" placeholder="" required readonly>
+                                        <input class="name align-text-left" id="fname" name="fname" type="text" placeholder="" required readonly>
                                     </div>
         
                                     <div class="form-group col-6">
                                         <label class="control-label" for="lname">Last Name:</label>
-                                        <input class="name align-text-left" name="lname" id="lname" type="text" placeholder="" required readonly>
+                                        <input class="name align-text-left" id="lname" name="lname" type="text" placeholder="" required readonly>
                                     </div>
                                 </div>
         
                                 <div class="row row-space"> 
                                     <div class="form-group col-6">
                                         <label class="control-label" for="address">Address:</label>
-                                        <input class="address align-text-left" name="address" id="address" type="text" placeholder="" required readonly>
+                                        <input class="address align-text-left" id="address" name="address" type="text" placeholder="" required readonly>
                                     </div>
         
                                     <div class="form-group col-6">
                                         <label class="control-label" for="contact">Contact Number:</label>
-                                        <input class="contact align-text-left" name="contact" id="contact" type="text" placeholder="" required readonly>
+                                        <input class="contact align-text-left" id="contact" name="contact" type="text" placeholder="" required readonly>
                                     </div>
                                 </div>
         
                                 <div class="row row-space">
                                     <div class="form-group col-6">
                                         <label class="control-label" for="bdate">Birthdate:</label>
-                                        <input class="bdate align-text-left" name="bdate" id="bdate" type="date" placeholder="" required readonly>
+                                        <input class="bdate align-text-left" id="bdate" name="bdate" type="date" placeholder="" required readonly>
                                     </div>
                                     
                                     <div class="form-group col-6">
                                         <label class="control-label" for="age">Age:</label>
-                                        <input class="age align-text-left" name="age" id="age" type="text" placeholder="" required readonly>
+                                        <input class="age align-text-left" id="age" name="age" type="text" placeholder="" required readonly>
                                     </div>
                                 </div>
                             </div>
@@ -256,11 +276,11 @@
                                 <p class="info-head text-center fw-bold">Account Information</p>
                                 <div class="form-group">
                                     <label class="control-label" for="email">Email Address:</label>
-                                    <input class="email align-text-left" name="email" id="email" type="email" placeholder="" required readonly>
+                                    <input class="email align-text-left" id="email" name="email" type="email" placeholder="" required readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="email">Password:</label>
-                                    <input class="password align-text-left" name="password" id="password" type="password" placeholder="" required readonly>
+                                    <label class="control-label" for="password">Password:</label>
+                                    <input class="password align-text-left" id="password" name="password" type="password" placeholder="" required readonly>
                                 </div>
                             </div>
                         </div>
@@ -276,7 +296,7 @@
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
+                        <h5 class="modal-title" id="editbhw">{{ __('CREATE ACCOUNT') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
@@ -287,18 +307,18 @@
                             <div class="personal-info">
                                 <p class="info-head text-center fw-bold">Personal Information</p>
                                 <div class="input-box">
-                                    <input name="user_id" id="user_id" type="text" placeholder="">
+                                    <input name="user_id" id="edituser_id" type="hidden" placeholder="">
                                 </div>
                                 <div class="row row-space">               
                                     <div class="form-group col-6">
                                         <label class="control-label" for="fname">First Name:</label>
-                                        <input type="text" class="form-control @error('fname') is-invalid @enderror" id="fname" name="fname" value="{{ old('fname') }}">
+                                        <input type="text" class="form-control @error('fname') is-invalid @enderror" id="editfname" name="fname" value="{{ old('fname') }}">
                                         <span class="text-danger">@error('firstname'){{ $message }} @enderror</span>
                                     </div>
         
                                     <div class="form-group col-6">
                                         <label class="control-label" for="lname">Last Name:</label>
-                                        <input type="text" class="form-control @error('lname') is-invalid @enderror" id="lname" name="lname" value="{{ old('lname') }}">
+                                        <input type="text" class="form-control @error('lname') is-invalid @enderror" id="editlname" name="lname" value="{{ old('lname') }}">
                                         <span class="text-danger">@error('lastname'){{ $message }} @enderror</span>
                                     </div>
                                 </div>
@@ -306,13 +326,13 @@
                                 <div class="row row-space"> 
                                     <div class="form-group col-6">
                                         <label class="control-label" for="address">Address:</label>
-                                        <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address">
+                                        <input type="text" class="form-control @error('address') is-invalid @enderror" id="editaddress" name="address">
                                         <span class="text-danger">@error('address'){{ $message }} @enderror</span>
                                     </div>
         
                                     <div class="form-group col-6" {{ $errors->get('contact') ? 'has-error' : '' }}>
                                         <label class="control-label" for="contact">Contact Number:</label>
-                                        <input type="text" class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact">
+                                        <input type="text" class="form-control @error('contact') is-invalid @enderror" id="editcontact" name="contact">
                                         <span class="text-danger">@error('contact'){{ $message }} @enderror</span>
                                         @foreach($errors->get('contact') as $error)
                                             <span class="help-block">{{ $error }}</span>
@@ -323,13 +343,13 @@
                                 <div class="row row-space">
                                     <div class="form-group col-6">
                                         <label class="control-label" for="bdate">Birthdate:</label>
-                                        <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="bdate" name="bdate">
+                                        <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="editbdate" name="bdate">
                                         <span class="text-danger">@error('birthdate'){{ $message }} @enderror</span>
                                     </div>
                                     
                                     <div class="form-group col-6">
                                         <label class="control-label" for="age">Age:</label>
-                                        <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age">
+                                        <input type="text" class="form-control @error('age') is-invalid @enderror" id="editage" name="age">
                                         <span class="text-danger">@error('age'){{ $message }} @enderror</span>
                                     </div>
                                 </div>
@@ -340,22 +360,22 @@
                                 <p class="info-head text-center fw-bold">Account Information</p>
                                 <div class="form-group">
                                     <label class="control-label" for="email">Email Address:</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="editemail" name="email" value="{{ old('email') }}">
                                     <span class="text-danger">@error('email'){{ $message }} @enderror</span>
                                     <label class="control-label" for="password">Old Password:</label>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="editpassword" name="password">
                                         <span class="text-danger">@error('password'){{ $message }} @enderror</span>
                                 </div>
         
                                 <div class="row row-space">
                                     <div class="form-group col-6">
                                         <label class="control-label" for="password">New Password:</label>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="newpassword" name="password">
-                                        <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+                                        <input type="password" class="form-control @error('newpassword') is-invalid @enderror" id="newpassword" name="newpassword">
+                                        <span class="text-danger">@error('newpassword'){{ $message }} @enderror</span>
                                     </div>
                                     <div class="form-group col-6">
                                         <label class="control-label" for="password_confirmation">Confirm Password:</label>
-                                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
+                                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="editpassword_confirmation" name="password_confirmation">
                                         <span class="text-danger">@error('password_confirmation'){{ $message }} @enderror</span>
                                     </div> 
         
@@ -388,7 +408,7 @@
                         @method('delete')
                         <div class="modal-body delete_res">
                             <div class="input-box">
-                                <input name="user_id" id="user_id" type="text" placeholder="">
+                                <input name="user_id" type="hidden" placeholder="">
                             </div>
                             <h5>Are you sure you want to delete this?</h5>
                         </div>
@@ -401,6 +421,7 @@
                 </div>
             </div>
         </div>
+        <!--**************************------------------- DELETE MODAL ENDS HERE-------------------****************************---------->
     </div>
 </div>
    
@@ -426,19 +447,17 @@
         var bdate = button.data('bdate')
         var address = button.data('address')
         var contact = button.data('contact')
-        var password = button.data('password')
 
         var modal = $(this)
         modal.find('.modal-title').text('Edit Profile');
-        modal.find('.modal-body #user_id').val(user_id);
-        modal.find('.modal-body #fname').val(fname);
-        modal.find('.modal-body #lname').val(lname);
-        modal.find('.modal-body #email').val(email);
-        modal.find('.modal-body #age').val(age);
-        modal.find('.modal-body #bdate').val(bdate);
-        modal.find('.modal-body #address').val(address);
-        modal.find('.modal-body #contact').val(contact);
-        modal.find('.modal-body #password').val(password);
+        modal.find('.modal-body #edituser_id').val(user_id);
+        modal.find('.modal-body #editfname').val(fname);
+        modal.find('.modal-body #editlname').val(lname);
+        modal.find('.modal-body #editemail').val(email);
+        modal.find('.modal-body #editage').val(age);
+        modal.find('.modal-body #editbdate').val(bdate);
+        modal.find('.modal-body #editaddress').val(address);
+        modal.find('.modal-body #editcontact').val(contact);
         }) ;
         </script>
 
@@ -484,5 +503,20 @@
         }) ;
     
 </script>
+
+<script>
+    function CheckPasswordMatch() {
+        var password = $("#newpassword").val();
+        var confirmPassword = $("#password_confirmation").val();
+        if (password != confirmPassword)
+            $("#CheckPasswordMatch").html("Passwords does not match!").css('color', 'red');
+        else
+            $("#CheckPasswordMatch").html("Passwords match.").css('color', 'green');
+    }
+        $(document).ready(function () {
+            $("#password_confirmation").keyup(CheckPasswordMatch);
+        });
+
+    </script>
 
 @endsection
