@@ -29,7 +29,7 @@ h3.block-title {
   position: relative;
   background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
   padding: 5px 10px;
-  border-radius: 10px;
+  border-radius: 3px;
   color: #ffffff;
 }
 /*BLOCK TITLE .NO MARGIN PADDING*/
@@ -134,12 +134,17 @@ table.table tbody td, table.table thead th {
   border-radius: 25px;
 }
 
-#addnewconsultation .modal-header {
+.consul-add .modal-content .modal-body #consultation_type
+{
+  width: 50%;
+}
+
+#addconsul .modal-header {
   background-color: #2ae88a;
   color: #ffffff;
 }
 
-#addnewconsultation textarea {
+#addconsul textarea {
   width: 100%;
   height: auto;
   padding: 0;
@@ -153,11 +158,11 @@ table.table tbody td, table.table thead th {
   
 }
 
-#addnewconsultation textarea:focus {
+#addconsul textarea:focus {
   height: 100%;
 }
 
-#addnewconsultation .details  {
+#addconsul .details  {
   text-transform: uppercase;
   font-weight: 600;
   margin-top: 3px;
@@ -165,7 +170,7 @@ table.table tbody td, table.table thead th {
   font-size: 13px;
 }
 
-#addnewconsultation input[type=date]{
+#addconsul input[type=date]{
   text-transform: uppercase;
   width: 100%;
   height: auto;
@@ -231,12 +236,12 @@ input:focus{
   border-radius: 25px;
 }
 
-#viewnewconsultation .modal-header {
+#viewconsul .modal-header {
   background-color: #007bff;
   color: #ffffff;
 }
 
-#viewnewconsultation textarea {
+#viewconsul textarea {
   width: 100%;
   height: auto;
   padding: 0;
@@ -250,11 +255,11 @@ input:focus{
   
 }
 
-#viewnewconsultation textarea:focus {
+#viewconsul textarea:focus {
   height: 100%;
 }
 
-#viewnewconsultation .details  {
+#viewconsul .details  {
   text-transform: uppercase;
   font-weight: 600;
   margin-top: 3px;
@@ -262,7 +267,7 @@ input:focus{
   font-size: 13px;
 }
 
-#viewnewconsultation input[type=date]{
+#viewconsul input[type=date]{
   text-transform: uppercase;
   width: 100%;
   height: auto;
@@ -306,12 +311,12 @@ input:focus{
   border-radius: 25px;
 }
 
-#editnewconsultation .modal-header {
+#editconsul .modal-header {
   background-color: #ffc107;
   color: #ffffff;
 }
 
-#editnewconsultation textarea {
+#editconsul textarea {
   width: 100%;
   height: auto;
   padding: 0;
@@ -325,11 +330,11 @@ input:focus{
   
 }
 
-#editnewconsultation textarea:focus {
+#editconsul textarea:focus {
   height: 100%;
 }
 
-#editnewconsultation .details  {
+#editconsul .details  {
   text-transform: uppercase;
   font-weight: 600;
   margin-top: 3px;
@@ -337,7 +342,7 @@ input:focus{
   font-size: 13px;
 }
 
-#editnewconsultation input[type=date]{
+#editconsul input[type=date]{
   text-transform: uppercase;
   width: 100%;
   height: auto;
@@ -365,4 +370,12 @@ input:focus{
   border: none;
   border-radius: 5px;
   outline: none;
+}
+
+.modal-content {
+  margin: 25px auto;
+  border: 2px solid #888;
+  width: auto;
+  font-size: 12px;
+  border-radius: 10px;
 }

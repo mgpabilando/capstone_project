@@ -82,9 +82,8 @@
     color: white;
     width: 120px;
     align-content: center;
-    box-shadow: 1px 1px 5px 0px grey;
     border: 2px solid gold;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 0px;
   }
 
