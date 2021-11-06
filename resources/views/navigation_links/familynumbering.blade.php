@@ -14,7 +14,7 @@
 
                 <div class="d-flex justify-content-between align-items-center">
                   <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Family Head List</h4>
-                  <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewconsultation"><i class="fa fa-plus"></i> Create</button>
+                  <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewconsultation"><i class="fas fa-users"></i> ADD</button>
                 </div>
 
                   <center>

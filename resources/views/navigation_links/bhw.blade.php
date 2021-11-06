@@ -46,9 +46,9 @@
 
                     <div class="d-flex justify-content-between align-items-center">
                       <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Resident List</h4>
-                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add New User" data-bs-toggle="modal" data-bs-target="#registerModal"><i class="fa fa-plus"></i> ADD</button>
+                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add New User" data-bs-toggle="modal" data-bs-target="#registerModal"><i class="fas fa-user-nurse"></i> ADD</button>
                     </div>
-                    
+
                     <hr>
                     <div class="table-responsive mb-3">
                         <table id="bhw-datatable" class="table table-bordered table-striped table-hover">

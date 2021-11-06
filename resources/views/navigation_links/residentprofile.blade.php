@@ -28,7 +28,7 @@
 
                     <div class="d-flex justify-content-between align-items-center">
                       <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Resident List</h4>
-                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident"><i class="fa fa-plus"></i> Create</button>
+                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident"><i class="fas fa-user-plus"></i> ADD</button>
                     </div>
                     <hr>
                     <div class="table-responsive mb-3">
