@@ -8,7 +8,7 @@
                 </li>
             </ul>
             <div class="account d-flex justify-content-end align-items-center">
-                <img class="img-profile" width="50px" height="50px" src="{{asset ('images/profile.jpeg') }}" alt="">
+                <img class="img-profile" width="40px" height="40px" src="{{ asset ('images/profile.jpeg')}} " alt="">
                 <a href=""><i class="fa fa-user-circle"></i><span class="usernav-link">User Profile</span></a>
                 <a href="/signout" onclick="event.preventDefault();
                 document.getElementById('logout-form').submi t();"><i class="fa fa-power-off"></i>
