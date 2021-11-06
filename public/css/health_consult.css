@@ -26,10 +26,11 @@ h3.block-title {
 
 .btn-add{
   width:100px;
+  height: 50px;
   position: relative;
   background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
   padding: 5px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #ffffff;
 }
 /*BLOCK TITLE .NO MARGIN PADDING*/
@@ -38,7 +39,7 @@ h3.block-title {
   background-color: rgb(255, 255, 255);
   margin: 10px;
   width: 95%;
-  padding:10px; 
+  padding:10px;
   box-shadow: 1px 1px 5px 0px grey;
   height: auto;
 }
@@ -55,7 +56,7 @@ h3.block-title {
 .consult-pane .nav-link
   {
     color: #495057;
-    
+
   }
 
 /*CONSULT DATATABLE*/
@@ -150,7 +151,7 @@ table.table tbody td, table.table thead th {
   box-sizing: border-box;
   font-size: 12px;
   border-radius: 10px;
-  
+
 }
 
 #addnewconsultation textarea:focus {
@@ -247,7 +248,7 @@ input:focus{
   box-sizing: border-box;
   font-size: 12px;
   border-radius: 10px;
-  
+
 }
 
 #viewnewconsultation textarea:focus {
@@ -322,7 +323,7 @@ input:focus{
   box-sizing: border-box;
   font-size: 12px;
   border-radius: 10px;
-  
+
 }
 
 #editnewconsultation textarea:focus {

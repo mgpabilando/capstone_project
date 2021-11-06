@@ -21,7 +21,7 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center">      
+        <div class="row d-flex justify-content-center">
           <div class="consult-pane text-center">
             <!--NAVIGATION TABS-->
             <ul class="nav nav-tabs" id="tab-next-prev" role="tablist">
@@ -47,7 +47,7 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#Others_info">Others</a>
               </li>
             </ul><!--/NAVIGATION TABS-->
-            
+
             {{-- TAB CONTENT --}}
             <div class="tab-content">
               <div class="tab-pane active" id="Pregnant_info">
@@ -56,7 +56,7 @@
                     <h4 class="consulttable-title" style="text-align: center">Pregnancy Consultation</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
                       <i class="fa fa-plus"></i>Create
-                    </div>  
+                    </div>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -116,7 +116,7 @@
                     <h4 class="consulttable-title" style="text-align: center">Deliveries</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
                       <i class="fa fa-plus"></i>Create
-                    </div>  
+                    </div>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -176,7 +176,7 @@
                     <h4 class="consulttable-title" style="text-align: center">EPI</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
                       <i class="fa fa-plus"></i>Create
-                    </div>  
+                    </div>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -236,7 +236,7 @@
                     <h4 class="consulttable-title" style="text-align: center">NTP</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
                       <i class="fa fa-plus"></i>Create
-                    </div>  
+                    </div>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -296,7 +296,7 @@
                     <h4 class="consulttable-title" style="text-align: center">Family Planning</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
                       <i class="fa fa-plus"></i>Create
-                    </div>  
+                    </div>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -356,7 +356,7 @@
                     <h4 class="consulttable-title" style="text-align: center">Diarrheal</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
                       <i class="fa fa-plus"></i>Create
-                    </div>  
+                    </div>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -416,7 +416,7 @@
                     <h4 class="consulttable-title" style="text-align: center">Others</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
                       <i class="fa fa-plus"></i>Create
-                    </div>  
+                    </div>
                   </div>
                   <hr>
                     <div class="table-responsive" style="border: 1px solid grey;">
@@ -470,7 +470,7 @@
                 </div>
               </div>
             </div>
-            
+
           </div><!--/consult-pane-->
         </div>
       </div>

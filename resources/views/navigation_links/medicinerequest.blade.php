@@ -3,131 +3,96 @@
 @section('content')
 <div id="content">
     @include('layouts.includes.topnavbar')
-   
+
     <div class="row no-margin-padding">
         <div class="col-md-12 d-flex flex-row justify-content-between">
             <h3 class="block-title">Requests</h3>
         </div>
     </div>
 
-    <div class="col-md-9 content">
-        <div class="d-flex flex-row justify-content-between align-items-center dbres-profile ">
-            <h3 class="mb-0">MEDICINE NEED TO BE REQUESTED</h3>
-            <form class="dbres-search">
-                <input class="dbres-input" placeholder="Search...">
-                <button class="dbres-searchbtn" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
+    <div class="col-md-12 d-flex  d-inline-flex justify-content-center content">
+              <div class="mt-2 table-responsive" style="border: 1px solid grey; width: 95%;">
 
-        <div class="container position-relative d-flex flex-row  resident-list">
-            <div class="col-9 res-list">
-                <div class="res-account">
-                    <div class="d-grid flex-columns res-info">
-                        <p class="acc-info">MEDICINE NAME: </p>
-                        <p class="acc-info">QUANTITY: </p>
-                        <div class="dlt-med d-flex justify-content-end me-1 mb-1">
-                            <button type="button" class="btn btn-danger badge">Delete</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-3 position-relative d-flex justify-content-center add-res-modal">
-                <div class="med_req position-relative d-flex flex-column align-items-center">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn col-12 btn-success fw-bold mt-3 " data-bs-toggle="modal" data-bs-target="#staticBackdropMed"><i class="fas fa-capsules"></i>
-                        ADD MEDICINE
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdropMed" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">ADD MEDICINE</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  <form class="add-resident">
-                                      <div class="d-grid flex-rows identification">
-                                          <div class="input-box">
-                                              <div class="details">Medicine Name:</div>
-                                              <input type="text" class="form-controll" placeholder="" required>
-                                          </div>
-                                          <div class="input-box">
-                                              <div class="details">Quantity:</div>
-                                              <input type="text" class="form-controll" placeholder="" required>
-                                          </div>
-                                      </div>
-                                  </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary">Add Medicine</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn col-12 fw-bold btn-success mt-3 " data-bs-toggle="modal" data-bs-target="#staticBackdropMedReq"> <i class="far fa-file-alt"></i>
-                        GENERATE REQUEST
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdropMedReq" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">GENERATE REQUEST REPORT</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  <form id="printThis" class="form-group">
-                                    <h5 class="text-center">MEDICINE REQUEST FORM</h5>
-                                    <br>
-                                    <div  class="request_form">
-                                    <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
-                                    <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date" name="" value=""></p>
-                                    <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
-                                    <p class="lh-sm fst-italic text-uppercase fw-bold req_name">Medicine Needed:</p>
-
-                                    <table class="table table-bordered border-dark">
-                                      <thead>
-                                        <tr>
-                                          <th scope="col">QUANTITY</th>
-                                          <th scope="col">MEDICINE NAME</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td>data1</td>
-                                          <td>data2</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                  <br>
-                                  <div class="d-flex flex-row-reverse signature-line ">
-                                  <p class="name_signature fw-bold mb-0 border-top ">Signature Over Printed Name</p>
-                                </div>
-                                
-                                  </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button id="btnPrint" type="button" class="btn btn-primary"><i <i class="fas fa-print"></i> PRINT</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Medicine Request List</h4>
+                  <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewmedicine"><i class="fa fa-plus"></i> Create</button>
                 </div>
 
-            </div>
-            <!--col 3 end-->
-
+                  <center>
+                    <hr style="width: 95%; ">
+                  <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px; width: 99%; ">
+                      <thead>
+                          <tr role="row">
+                              <th scope="col">ID No.</th>
+                              <th scope="col">Medicine Name</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col"></th>
+                              <th scope="col"></th>
+                              <th scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <th></th>
+                              <td></td>
+                              <td></td>
+                              <td>
+                                  {{-----***************************** SHOW BUTTON *******************************------}}
+                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                  <i class="manage fas fa-eye"></i></a>
+                              </td>
+                              <td>
+                                  {{-----***************************** EDIT BUTTON *******************************------}}
+                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                  <i class="manage fas fa-edit"></i>
+                                  </a>
+                              </td>
+                              <td>
+                                  {{-----***************************** DELETE BUTTON *******************************------}}
+                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                  <i class="manage fas fa-trash"></i>
+                                  </a>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </center>
+          </div>
         </div>
+      </div>
+
+      <!-- Button trigger modal -->
 
 
+<!-- Modal -->
+<div class="modal fade" id="addnewmedicine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add New Medicine</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="" action="index.html" method="post">
+
+          <div class="form-group">
+            <label for="">Medicine Name</label>
+            <input type="text" class="form-control" id="" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="">Quantity</label>
+            <input type="number" class="form-control" id="" placeholder="">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+        <button type="button" class="btn btn-primary">ADD</button>
+      </div>
     </div>
+  </div>
+</div>
 </div>
 @endsection

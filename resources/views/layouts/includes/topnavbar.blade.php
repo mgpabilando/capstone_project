@@ -8,7 +8,7 @@
                 </li>
             </ul>
             <div class="account d-flex justify-content-end align-items-center">
-                <img class="img-profile" width="40px" height="40px" src="{{asset ('images/profile.jpeg') }}" alt="">
+                <img class="img-profile" width="50px" height="50px" src="{{asset ('images/profile.jpeg') }}" alt="">
                 <a href=""><i class="fa fa-user-circle"></i><span class="usernav-link">User Profile</span></a>
                 <a href="/signout" onclick="event.preventDefault();
                 document.getElementById('logout-form').submi t();"><i class="fa fa-power-off"></i>
@@ -40,7 +40,7 @@
         border: 2px solid white;
         box-shadow: 1px 1px 5px 0px grey;
     }
-    
+
     .fa-power-off
     {
         padding: 5px;
@@ -52,9 +52,9 @@
         border-radius: 50%;
         border: 2px solid white;
         box-shadow: 1px 1px 5px 0px grey;
-    
+
     }
-    
+
     .account .topnav .usernav-link
     {
         align-items: center;
@@ -68,15 +68,15 @@
                         <span class="fa fa-bars"></span>
                     </li>
                 </ul>
-    
+
                 <div class="account d-flex justify-content-end align-items-center">
                     @auth <div style="font-size: 12px; color:#495057">Welcome! <br> <b style="font-size: 15px;  color:#2e2d2d">{{ Auth::user()->fname }}</b></div>@endauth
                     <a class="topnav me-2" href="myprofile" title="My Profile">
                         @if(Auth::User()->profile_image)
                         <img class="user-rounded-circle" src="{{asset('/storage/images/'.Auth::user()->profile_image)}}" alt="profile_image">
-                        @endif                
+                        @endif
                     </a>
-                    
+
                     <a class="topnav" title="Log Out" href="/signout" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         <i class="fa fa-power-off"></i>
@@ -85,11 +85,10 @@
                         @csrf
                     </form>
                 </div>
-    
+
             </div>
         </nav>
     </section>
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
-    

@@ -1,584 +1,476 @@
 @extends('layouts.home')
-
 @section('content')
+
 <div id="content">
-  @include('layouts.includes.topnavbar')
-        <div class="row no-margin-padding">
-            <div class="col-md-12 d-flex flex-row justify-content-between">
-                <h3 class="block-title">Purok</h3>
-            </div>
+    @include('layouts.includes.topnavbar')
+    <div class="row no-margin-padding">
+        <div class="col-md-12 d-flex flex-row justify-content-between">
+            <h3 class="block-title">Purok</h3>
         </div>
+    </div>
 
-        <div class="purok-content"> 
-            <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'uno')">PUROK 1</button>
-                <button class="tablinks" onclick="openCity(event, 'dos')">PUROK 2</button>
-                <button class="tablinks" onclick="openCity(event, 'tres')">PUROK 3</button>
-                <button class="tablinks" onclick="openCity(event, 'kwatro')">PUROK 4</button>
-                <button class="tablinks" onclick="openCity(event, 'singko')">PUROK 5</button>
-                <button class="tablinks" onclick="openCity(event, 'says')">PUROK 6</button>
-                <button class="tablinks" onclick="openCity(event, 'syete')">PUROK 7</button>
-              </div>
-              
-              <div id="uno" class="tabcontent">
-                <h3>London</h3>
-                <p>London is the capital city of England.</p>
-              </div>
-              
-              <div id="dos" class="tabcontent">
-                <h3>Paris</h3>
-                <p>Paris is the capital of France.</p> 
-              </div>
-              
-              <div id="tres" class="tabcontent">
-                <h3>Tokyo</h3>
-                <p>Tokyo is the capital of Japan.</p>
-              </div>
-              <div id="kwatro" class="tabcontent">
-                <h3>London</h3>
-                <p>London is the capital city of England.</p>
-              </div>
-              
-              <div id="singko" class="tabcontent">
-                <h3>Paris</h3>
-                <p>Paris is the capital of France.</p> 
-              </div>
-              
-              <div id="says" class="tabcontent">
-                <h3>Tokyo</h3>
-                <p>Tokyo is the capital of Japan.</p>
-              </div>
-
-              <div id="syete" class="tabcontent">
-                <h3>Tokyo</h3>
-                <p>Tokyo is the capital of Japan.</p>
-              </div>
+    <div class="head-alert">
+        <div class="head-func d-flex align-items-center justify-content-end">
+            @if (\Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ \Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         </div>
-             
-    
-    
-</div>
+    </div>
 
-<script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-</script>
-@endsection
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+          <div class="consult-pane text-center">
+            <!--NAVIGATION TABS-->
+            <ul class="nav nav-tabs" id="tab-next-prev" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#Pregnant_info">Purok 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#Deliveries_info">Purok 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#EPI_info">Purok 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#NTP_info">Purok 4</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#Family-Planning_info">Purok 5</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#Diarrheal_info">Purok 6</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#Others_info">Purok 7</a>
+              </li>
+            </ul><!--/NAVIGATION TABS-->
 
-
- {{-- <!--modal start-->
-            <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                PUROK <br> UNO
-            </button>
-    
-    
-            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">PUROK UNO LIST</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body d-block justify-content-center">
-                            <div class="purok-family">
-                                <p class="fam-no">FAMILY NO.:</p>
-                                <P class="fam-head">FAMILY HEAD:</p>
-                                <div class="text-end see-more">
-                                    <a type="button" class="mr-5 btn-seemore" data-bs-toggle="modal" data-bs-target="#staticBackdrop1SeeMore">
-                                        See more...
-                                    </a>
-                                    <div class="modal fade" id="staticBackdrop1SeeMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">FAMILY NO.:</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="purok-family-seemore">
-                                                        <p class="text-start fam-head">FAMILY HEAD:</p>
-                                                    </div>
-    
-                                                    <div class="purok-family-seemore">
-                                                        <p class="text-start fam-head">FAMILY MEMBER:</p>
-                                                        <center>
-                                                        <table class="table table-bordered border-success  justify-content-center">
-                                                          <thead class="bg-success">
-                                                            <tr class="d-flex">
-                                                              <th class="col">Resident ID. No</th>
-                                                              <th class="col">NAME</th>
-                                                            </tr>
-                                                          </thead>
-                                                          <tbody>
-                                                            <tr class="d-flex">
-                                                              <td class="col">data</td>
-                                                              <td class="col">data</td>
-                                                            </tr>
-                                                          </tbody>
-                                                        </table>
-                                                      </center>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">BACK</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
+            {{-- TAB CONTENT --}}
+            <div class="tab-content">
+              <div class="tab-pane active" id="Pregnant_info">
+                <div class="consultation-list align-items-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Uno List</h4>
+                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewconsultation"><i class="fa fa-plus"></i> Create</button>
+                    </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+              </div>
+
+              <div class="tab-pane" id="Deliveries_info">
+                <div class="consultation-list d-flex align-items-center">
+                  <div class="title-and-button" style="margin: 10px">
+                    <h4 class="consulttable-title" style="text-align: center">Deliveries</h4>
+                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                      <i class="fa fa-plus"></i>Create
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="EPI_info">
+                <div class="consultation-list d-flex align-items-center">
+                  <div class="title-and-button" style="margin: 10px">
+                    <h4 class="consulttable-title" style="text-align: center">EPI</h4>
+                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                      <i class="fa fa-plus"></i>Create
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="NTP_info">
+                <div class="consultation-list d-flex align-items-center">
+                  <div class="title-and-button" style="margin: 10px">
+                    <h4 class="consulttable-title" style="text-align: center">NTP</h4>
+                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                      <i class="fa fa-plus"></i>Create
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="Family-Planning_info">
+                <div class="consultation-list d-flex align-items-center">
+                  <div class="title-and-button" style="margin: 10px">
+                    <h4 class="consulttable-title" style="text-align: center">Family Planning</h4>
+                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                      <i class="fa fa-plus"></i>Create
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="Diarrheal_info">
+                <div class="consultation-list d-flex align-items-center">
+                  <div class="title-and-button" style="margin: 10px">
+                    <h4 class="consulttable-title" style="text-align: center">Diarrheal</h4>
+                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                      <i class="fa fa-plus"></i>Create
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="Others_info">
+                <div class="consultation-list d-flex align-items-center">
+                  <div class="title-and-button" style="margin: 10px">
+                    <h4 class="consulttable-title" style="text-align: center">Others</h4>
+                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addnewconsultation">
+                      <i class="fa fa-plus"></i>Create
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
             </div>
-    <!--modal end-->
-    
-    <!--modal start-->
-    <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-      PUROK <br> DOS
-    </button>
-    
-    
-    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">PUROK DOS LIST</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body d-block justify-content-center">
-                  <div class="purok-family">
-                      <p class="fam-no">FAMILY NO.:</p>
-                      <P class="fam-head">FAMILY HEAD:</p>
-                      <div class="text-end see-more">
-                          <a type="button" class="mr-5 btn-seemore" data-bs-toggle="modal" data-bs-target="#staticBackdrop2SeeMore">
-                              See more...
-                          </a>
-                          <div class="modal fade" id="staticBackdrop2SeeMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="staticBackdropLabel">FAMILY NO.:</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY HEAD:</p>
-                                          </div>
-    
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY MEMBER:</p>
-                                              <center>
-                                              <table class="table table-bordered border-success  justify-content-center">
-                                                <thead class="bg-success">
-                                                  <tr class="d-flex">
-                                                    <th class="col">Resident ID. No</th>
-                                                    <th class="col">NAME</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr class="d-flex">
-                                                    <td class="col">data</td>
-                                                    <td class="col">data</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </center>
-    
-                                          </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">BACK</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-    
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-          </div>
+
+          </div><!--/consult-pane-->
+        </div>
       </div>
-    </div>
-    <!--modal end-->
-    
-    
-    <!--modal start-->
-    <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-      PUROK <br> TRES
-    </button>
-    
-    
-    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">PUROK TRES LIST</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body d-block justify-content-center">
-                  <div class="purok-family">
-                      <p class="fam-no">FAMILY NO.:</p>
-                      <P class="fam-head">FAMILY HEAD:</p>
-                      <div class="text-end see-more">
-                          <a type="button" class="mr-5 btn-seemore" data-bs-toggle="modal" data-bs-target="#staticBackdrop3SeeMore">
-                              See more...
-                          </a>
-                          <div class="modal fade" id="staticBackdrop3SeeMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="staticBackdropLabel">FAMILY NO.:</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY HEAD:</p>
-                                          </div>
-    
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY MEMBER:</p>
-                                              <center>
-                                              <table class="table table-bordered border-success  justify-content-center">
-                                                <thead class="bg-success">
-                                                  <tr class="d-flex">
-                                                    <th class="col">Resident ID. No</th>
-                                                    <th class="col">NAME</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr class="d-flex">
-                                                    <td class="col">data</td>
-                                                    <td class="col">data</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </center>
-    
-                                          </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">BACK</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-    
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <!--modal end-->
-    
-    
-    <!--modal start-->
-    <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
-      PUROK <br> CUATRO
-    </button>
-    
-    
-    <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">PUROK CUATRO LIST</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body d-block justify-content-center">
-                  <div class="purok-family">
-                      <p class="fam-no">FAMILY NO.:</p>
-                      <P class="fam-head">FAMILY HEAD:</p>
-                      <div class="text-end see-more">
-                          <a type="button" class="mr-5 btn-seemore" data-bs-toggle="modal" data-bs-target="#staticBackdrop4SeeMore">
-                              See more...
-                          </a>
-                          <div class="modal fade" id="staticBackdrop4SeeMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="staticBackdropLabel">FAMILY NO.:</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY HEAD:</p>
-                                          </div>
-    
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY MEMBER:</p>
-                                              <center>
-                                              <table class="table table-bordered border-success  justify-content-center">
-                                                <thead class="bg-success">
-                                                  <tr class="d-flex">
-                                                    <th class="col">Resident ID. No</th>
-                                                    <th class="col">NAME</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr class="d-flex">
-                                                    <td class="col">data</td>
-                                                    <td class="col">data</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </center>
-    
-                                          </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">BACK</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-    
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <!--modal end-->
-    
-    
-    <!--modal start-->
-    <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
-      PUROK <br> CINCO
-    </button>
-    
-    
-    <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">PUROK CINCO LIST</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body d-block justify-content-center">
-                  <div class="purok-family">
-                      <p class="fam-no">FAMILY NO.:</p>
-                      <P class="fam-head">FAMILY HEAD:</p>
-                      <div class="text-end see-more">
-                          <a type="button" class="mr-5 btn-seemore" data-bs-toggle="modal" data-bs-target="#staticBackdrop5SeeMore">
-                              See more...
-                          </a>
-                          <div class="modal fade" id="staticBackdrop5SeeMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="staticBackdropLabel">FAMILY NO.:</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY HEAD:</p>
-                                          </div>
-    
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY MEMBER:</p>
-                                              <center>
-                                              <table class="table table-bordered border-success  justify-content-center">
-                                                <thead class="bg-success">
-                                                  <tr class="d-flex">
-                                                    <th class="col">Resident ID. No</th>
-                                                    <th class="col">NAME</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr class="d-flex">
-                                                    <td class="col">data</td>
-                                                    <td class="col">data</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </center>
-    
-                                          </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">BACK</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-    
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <!--modal end-->
-    
-    <!--modal start-->
-    <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop6">
-      PUROK <br> SAIS
-    </button>
-    
-    
-    <div class="modal fade" id="staticBackdrop6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">PUROK SAIS LIST</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body d-block justify-content-center">
-                  <div class="purok-family">
-                      <p class="fam-no">FAMILY NO.:</p>
-                      <P class="fam-head">FAMILY HEAD:</p>
-                      <div class="text-end see-more">
-                          <a type="button" class="mr-5 btn-seemore" data-bs-toggle="modal" data-bs-target="#staticBackdrop6SeeMore">
-                              See more...
-                          </a>
-                          <div class="modal fade" id="staticBackdrop6SeeMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="staticBackdropLabel">FAMILY NO.:</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY HEAD:</p>
-                                          </div>
-    
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY MEMBER:</p>
-                                              <center>
-                                              <table class="table table-bordered border-success  justify-content-center">
-                                                <thead class="bg-success">
-                                                  <tr class="d-flex">
-                                                    <th class="col">Resident ID. No</th>
-                                                    <th class="col">NAME</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr class="d-flex">
-                                                    <td class="col">data</td>
-                                                    <td class="col">data</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </center>
-    
-                                          </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">BACK</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-    
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <!--modal end-->
-    
-    
-    <!--modal start-->
-    <button type="button" class="btn-purok-list btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop7">
-      PUROK <br> SIETE
-    </button>
-    
-    
-    <div class="modal fade" id="staticBackdrop7" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">PUROK SIETE LIST</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body d-block justify-content-center">
-                  <div class="purok-family">
-                      <p class="fam-no">FAMILY NO.:</p>
-                      <P class="fam-head">FAMILY HEAD:</p>
-                      <div class="text-end see-more">
-                          <a type="button" class="mr-5 btn-seemore" data-bs-toggle="modal" data-bs-target="#staticBackdrop7SeeMore">
-                              See more...
-                          </a>
-                          <div class="modal fade" id="staticBackdrop7SeeMore" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="staticBackdropLabel">FAMILY NO.:</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY HEAD:</p>
-                                          </div>
-    
-                                          <div class="purok-family-seemore">
-                                              <p class="text-start fam-head">FAMILY MEMBER:</p>
-                                              <center>
-                                              <table class="table table-bordered border-success  justify-content-center">
-                                                <thead class="bg-success">
-                                                  <tr class="d-flex">
-                                                    <th class="col">Resident ID. No</th>
-                                                    <th class="col">NAME</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr class="d-flex">
-                                                    <td class="col">data</td>
-                                                    <td class="col">data</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </center>
-    
-                                          </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">BACK</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-    
-                      </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-          </div>
-      </div>
-    </div> --}}
+</div>
+@endsection
