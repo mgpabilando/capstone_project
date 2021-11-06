@@ -45,18 +45,101 @@
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
                                   <i class="manage fas fa-eye"></i></a>
                               </td>
+                                    <!-- Modal For Show -->
+                                    <div class="modal fade" id="viewnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form class="" action="index.html" method="post">
+
+                                              <div class="form-group">
+                                                <label for="">Medicine Name</label>
+                                                <input type="text" class="form-control" id="" placeholder="">
+                                              </div>
+
+                                              <div class="form-group">
+                                                <label for="">Quantity</label>
+                                                <input type="number" class="form-control" id="" placeholder="">
+                                              </div>
+
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
                               <td class="text-center">
                                   {{-----***************************** EDIT BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
                                   <i class="manage fas fa-edit"></i>
                                   </a>
                               </td>
+
+                              <!-- Modal for Edit -->
+                              <div class="modal fade" id="editnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form class="" action="index.html" method="post">
+
+                                        <div class="form-group">
+                                          <label for="">Medicine Name</label>
+                                          <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="">Quantity</label>
+                                          <input type="number" class="form-control" id="" placeholder="">
+                                        </div>
+
+                                      </form>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                      <button type="button" class="btn btn-primary">Update</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                               <td class="text-center">
                                   {{-----***************************** DELETE BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
                                   <i class="manage fas fa-trash"></i>
                                   </a>
                               </td>
+                              <!-- Modal for Delete -->
+                              <div class="modal fade" id="deletenewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form class="add-resident" action="" method="POST">
+                                          <div class="modal-body m-0 p-0">
+                                              <div class="input-box">
+                                                  <input name="resident_id" id="resident_id" type="hidden" placeholder="">
+                                              </div>
+                                              <h6 class="p-0 m-0">Are you sure you want to delete this?</h6>
+                                          </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
+                                      <button type="submit" class="btn btn-danger">Delete Resident</button>
+                                    </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
                           </tr>
                       </tbody>
                   </table>
