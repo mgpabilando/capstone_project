@@ -1,6 +1,7 @@
 @extends('layouts.home')
 
 @section('content')
+
 <div id="content">
     @include('layouts.includes.topnavbar')
 
@@ -11,11 +12,14 @@
     </div>
 
     <div class="col-md-12 d-flex  d-inline-flex justify-content-center content">
-              <div class="mt-2 table-responsive" style="border: 1px solid grey; width: 95%;">
+      <div class="mt-2 table-responsive" style="border: 1px solid grey; width: 95%;">
 
-                <div class="d-flex justify-content-between align-items-center">
-                  <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Medicine Request List</h4>
-                  <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewmedicine"><i class="fa fa-plus"></i> Create</button>
+        <div class="d-flex justify-content-between align-items-center">
+          <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Medicine Request List</h4>
+            <div class="button-add">
+              <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewmedicine"><i class="fa fa-plus"></i> Create</button>
+                <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#medrequest" style="width:200px;"><i class="fa fa-plus"></i> Generate Report</button>
+                </div>
                 </div>
 
                   <center>
@@ -23,31 +27,31 @@
                   <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px; width: 99%; ">
                       <thead>
                           <tr role="row">
-                              <th scope="col">ID No.</th>
-                              <th scope="col">Medicine Name</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col"></th>
-                              <th scope="col"></th>
-                              <th scope="col"></th>
+                              <th class="text-center"scope="col">ID No.</th>
+                              <th class="text-center"scope="col">Medicine Name</th>
+                              <th class="text-center"scope="col">Quantity</th>
+                              <th class="text-center"scope="col"></th>
+                              <th class="text-center"scope="col"></th>
+                              <th class="text-center"scope="col"></th>
                           </tr>
                       </thead>
                       <tbody>
                           <tr>
-                              <th></th>
-                              <td></td>
-                              <td></td>
-                              <td>
+                              <th class="text-center"></th>
+                              <td class="text-center"></td>
+                              <td class="text-center"></td>
+                              <td class="text-center">
                                   {{-----***************************** SHOW BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
                                   <i class="manage fas fa-eye"></i></a>
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{-----***************************** EDIT BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
                                   <i class="manage fas fa-edit"></i>
                                   </a>
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{-----***************************** DELETE BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
                                   <i class="manage fas fa-trash"></i>
@@ -94,5 +98,92 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="medrequest" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Generate Medicine Report</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="medrequestPrint" style="width:100%;" class="form-group-mar" method="post">
+          <div class="d-flex justify-content-center flex-column mar-report">
+          <h5 class="text-center">MEDICINE REQUEST FORM</h5>
+              <br>
+                <div  class="request_form">
+                  <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
+                  <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date" name="" value=""></p>
+                  <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
+                  <p class="lh-sm fst-italic text-uppercase fw-bold req_name">Medicine Needed:</p>
+
+                  <center>
+                    <table style="width:100%" class="table table-bordered border-dark">
+
+                      <thead>
+                        <tr>
+                        <th class="text-center"scope="col">QUANTITY</th>
+                        <th class="text-center"scope="col">MEDICINE NAME</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td>data1</td>
+                        <td>data2</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        </center>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row-reverse signature-line ">
+                        <p class="name_signature fw-bold mb-0 border-top ">Signature Over Printed Name</p>
+                </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+        <button id="medreqBtn" type="button" class="btn btn-primary"><i class="fas fa-print"></i> PRINT</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+</div>
+
+<script>document.getElementById("medreqBtn").onclick = function() {
+    printElement(document.getElementById("medrequestPrint"));
+    window.print();
+}
+
+function printElement(elem, append, delimiter) {
+    var domClone = elem.cloneNode(true);
+
+    var $printSection = document.getElementById("printSection");
+
+    if (!$printSection) {
+        var $printSection = document.createElement("div");
+        $printSection.id = "printSection";
+        document.body.appendChild($printSection);
+    }
+
+    if (append !== true) {
+        $printSection.innerHTML = "";
+    }
+
+    else if (append === true) {
+        if (typeof(delimiter) === "string") {
+            $printSection.innerHTML += delimiter;
+        }
+        else if (typeof(delimiter) === "object") {
+            $printSection.appendChlid(delimiter);
+        }
+    }
+
+    $printSection.appendChild(domClone);
+}
+
+</script>
 @endsection

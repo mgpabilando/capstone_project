@@ -25,4 +25,5 @@
     <link href="{{ asset('css/chart_style.css') }}" rel="stylesheet" type="text/css">
     <script src="{{ asset('js/MARprint.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/MVRprint.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/medrequestPrint.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/print.js') }}" charset="utf-8"></script>
