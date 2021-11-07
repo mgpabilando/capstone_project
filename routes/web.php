@@ -11,6 +11,7 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\MedRequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::get('/login', [LoginUserController::class, 'index'])->name('userlogin');
-Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin'); 
+Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin');
 Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout');
 
 Route::resource('/register', RegisteredUsersController::class);
@@ -46,7 +47,7 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::post('/changepassword', [ChangePasswordController::class, 'changePassword'])->name('adminchangepassword');
 
     Route::resource('/residentprofile', ResidentController::class);
-    
+
     Route::get('/healthconsultation', [ConsulController::class, 'index']);
     Route::post('/healthconsultation/fetch', [ConsulController::class, 'fetch'])->name('Consul.fetch');
 
@@ -56,5 +57,5 @@ Route::group([ 'middleware' => ['auth']], function () {
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
+    Route::resource('/medicinerequest', MedRequestController::class);
 });
-
