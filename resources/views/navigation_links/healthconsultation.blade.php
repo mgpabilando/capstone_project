@@ -21,7 +21,7 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center">      
+        <div class="row d-flex justify-content-center">
           <div class="consult-pane text-center">
             <!--NAVIGATION TABS-->
             <ul class="nav nav-tabs" id="tab-next-prev" role="tablist">
@@ -47,7 +47,7 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#Others_info">Others</a>
               </li>
             </ul><!--/NAVIGATION TABS-->
-            
+
             {{-- TAB CONTENT --}}
             <div class="tab-content">
               <div class="tab-pane active" id="Pregnant_info">
@@ -57,7 +57,10 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
+<<<<<<< HEAD
                     
+=======
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
                   </div>
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
@@ -122,7 +125,10 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddeliveriesconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
+<<<<<<< HEAD
                     @include('modals.deliveries.Add')
+=======
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
                   </div>
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
@@ -186,7 +192,10 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addepiconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
+<<<<<<< HEAD
                     @include('modals.EPI.Add')
+=======
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
                   </div>
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px;">
@@ -244,6 +253,59 @@
                     <h4 class="consulttable-title" style="text-align: center">NTP</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addntpconsul">
                       <i class="fa fa-plus"></i>Create
+<<<<<<< HEAD
+=======
+                    </div>
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient ID</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Middle Name</th>
+                                    <th scope="col">Type of Consultation</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Family No</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
+                                        <i class="manage fas fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
                     </div>
                     @include('modals.NTP.Add')
                   </div>  
@@ -306,10 +368,17 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addfpconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
+<<<<<<< HEAD
                     @include('modals.familyplanning.Add')
                   </div> 
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
+=======
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
                             <thead>
                                 <tr role="row">
                                   <th scope="col">Patient_ID</th>
@@ -365,10 +434,17 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddiarrhealconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
+<<<<<<< HEAD
                     @include('modals.diarrheal.Add')
                   </div> 
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
+=======
+                  </div>
+                  <hr>
+                    <div class="table-responsive" style="border: 1px solid grey;">
+                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -422,7 +498,10 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addotherconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
+<<<<<<< HEAD
                     @include('modals.othersconsul.Add')
+=======
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
                   </div>
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
@@ -465,11 +544,32 @@
                             </tbody>
                         </table>
                     </div>
+<<<<<<< HEAD
                 </div>  
               </div> 
             </div><!--/consult-pane-->
+=======
+                </div>
+              </div>
+            </div>
+
+          </div><!--/consult-pane-->
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
         </div>
       </div>
       @include('modals.pregnancy.Add')
 </div>
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+
+@section("scripts")
+<script>
+  $(document).ready(function() {
+  $('#consultdatatable').DataTable( {
+  } );
+} );
+</script>
+@endsection
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c

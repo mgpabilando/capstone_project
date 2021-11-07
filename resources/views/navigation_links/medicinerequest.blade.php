@@ -1,133 +1,318 @@
 @extends('layouts.home')
 
 @section('content')
+
 <div id="content">
     @include('layouts.includes.topnavbar')
-   
+
     <div class="row no-margin-padding">
         <div class="col-md-12 d-flex flex-row justify-content-between">
             <h3 class="block-title">Requests</h3>
         </div>
     </div>
 
-    <div class="col-md-9 content">
-        <div class="d-flex flex-row justify-content-between align-items-center dbres-profile ">
-            <h3 class="mb-0">MEDICINE NEED TO BE REQUESTED</h3>
-            <form class="dbres-search">
-                <input class="dbres-input" placeholder="Search...">
-                <button class="dbres-searchbtn" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
-
-        <div class="container position-relative d-flex flex-row  resident-list">
-            <div class="col-9 res-list">
-                <div class="res-account">
-                    <div class="d-grid flex-columns res-info">
-                        <p class="acc-info">MEDICINE NAME: </p>
-                        <p class="acc-info">QUANTITY: </p>
-                        <div class="dlt-med d-flex justify-content-end me-1 mb-1">
-                            <button type="button" class="btn btn-danger badge">Delete</button>
-                        </div>
-                    </div>
-
+    <div class="head-resprof">
+        <div class="head-func d-flex justify-content-center">
+            @if (\Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ \Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            </div>
-
-            <div class="col-3 position-relative d-flex justify-content-center add-res-modal">
-                <div class="med_req position-relative d-flex flex-column align-items-center">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn col-12 btn-success fw-bold mt-3 " data-bs-toggle="modal" data-bs-target="#staticBackdropMed"><i class="fas fa-capsules"></i>
-                        ADD MEDICINE
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdropMed" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">ADD MEDICINE</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  <form class="add-resident">
-                                      <div class="d-grid flex-rows identification">
-                                          <div class="input-box">
-                                              <div class="details">Medicine Name:</div>
-                                              <input type="text" class="form-controll" placeholder="" required>
-                                          </div>
-                                          <div class="input-box">
-                                              <div class="details">Quantity:</div>
-                                              <input type="text" class="form-controll" placeholder="" required>
-                                          </div>
-                                      </div>
-                                  </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary">Add Medicine</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn col-12 fw-bold btn-success mt-3 " data-bs-toggle="modal" data-bs-target="#staticBackdropMedReq"> <i class="far fa-file-alt"></i>
-                        GENERATE REQUEST
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdropMedReq" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">GENERATE REQUEST REPORT</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  <form id="printThis" class="form-group">
-                                    <h5 class="text-center">MEDICINE REQUEST FORM</h5>
-                                    <br>
-                                    <div  class="request_form">
-                                    <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
-                                    <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date" name="" value=""></p>
-                                    <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
-                                    <p class="lh-sm fst-italic text-uppercase fw-bold req_name">Medicine Needed:</p>
-
-                                    <table class="table table-bordered border-dark">
-                                      <thead>
-                                        <tr>
-                                          <th scope="col">QUANTITY</th>
-                                          <th scope="col">MEDICINE NAME</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td>data1</td>
-                                          <td>data2</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                  </div>
-                                  <br>
-                                  <div class="d-flex flex-row-reverse signature-line ">
-                                  <p class="name_signature fw-bold mb-0 border-top ">Signature Over Printed Name</p>
-                                </div>
-                                
-                                  </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button id="btnPrint" type="button" class="btn btn-primary"><i <i class="fas fa-print"></i> PRINT</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!--col 3 end-->
-
+            @endif
         </div>
-
-
     </div>
+
+    <div class="col-md-12 d-flex  d-inline-flex justify-content-center content">
+      <div class="mt-2 table-responsive" style="border: 1px solid grey; width: 95%;">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Medicine Request List</h4>
+            <div class="button-add">
+              <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewmedicine"><i class="fas fa-pills"></i> ADD</button>
+                <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#medrequest" style="width:200px;"><i class="fas fa-print"></i> GENERATE REPORT</button>
+                </div>
+                </div>
+
+                  <center>
+                    <hr style="width: 95%; ">
+                  <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px; width: 99%; ">
+                      <thead>
+                          <tr role="row">
+                              <th class="text-center"scope="col">ID No.</th>
+                              <th class="text-center"scope="col">Medicine Name</th>
+                              <th class="text-center"scope="col">Quantity</th>
+                              <th class="text-center"scope="col"></th>
+                              <th class="text-center"scope="col"></th>
+                              <th class="text-center"scope="col"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+                        @if($medicine_requests)
+                        @foreach($medicine_requests as $medrequest)
+                          <tr>
+
+                              <th class="text-center">{{$medrequest->id}}</th>
+                              <td class="text-center">{{$medrequest->medicine_name}}</td>
+                              <td class="text-center">{{$medrequest->med_quantity}}</td>
+                              <td class="text-center">
+                                  {{-----***************************** SHOW BUTTON *******************************------}}
+                                  <a data-bs-toggle="modal" type="button" class="btn-action view"
+                                  data-id="{{$medrequest->id}}"
+                                  data-medicine_name="{{$medrequest->lname}}"
+                                  data-med_quantity="{{$medrequest->mname}}"
+                                  data-bs-target="#viewResidentModal">
+                                  <i class="fas fa-eye"></i></a>
+                              </td>
+                                    <!-- Modal For Show -->
+                                    <div class="modal fade" id="viewnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">MEDICINE REQUEST</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form class="" action="{{route ('medrequest.show', 'id')}}" method="GET">
+                                              @csrf
+                                              <div class="input-box">
+                                                  <div class="details">ID No.:</div>
+                                                  <input class="name align-text-left" name="lname" id="med_id" type="text" placeholder="" readonly>
+                                              </div>
+                                              <div class="input-box">
+                                                  <div class="details">Medicine Name:</div>
+                                                  <input class="name align-text-left" name="lname" id="med_name" type="text" placeholder="" readonly>
+                                              </div>
+                                              <div class="input-box">
+                                                  <div class="details">Quantity:</div>
+                                                  <input class="name" name="fname" id="med_qnty" type="text" placeholder="" readonly>
+                                              </div>
+
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                              <td class="text-center">
+                                  {{-----***************************** EDIT BUTTON *******************************------}}
+                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                  <i class="manage fas fa-edit"></i>
+                                  </a>
+                              </td>
+
+                              <!-- Modal for Edit -->
+                              <div class="modal fade" id="editnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form class="" action="index.html" method="post">
+
+                                        <div class="form-group">
+                                          <label for="">Medicine Name</label>
+                                          <input type="text" class="form-control" id="" placeholder="">
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="">Quantity</label>
+                                          <input type="number" class="form-control" id="" placeholder="">
+                                        </div>
+
+                                      </form>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                      <button type="button" class="btn btn-primary">Update</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <td class="text-center">
+                                  {{-----***************************** DELETE BUTTON *******************************------}}
+                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                  <i class="manage fas fa-trash"></i>
+                                  </a>
+                              </td>
+                              <!-- Modal for Delete -->
+                              <div class="modal fade" id="deletenewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form class="add-resident" action="" method="POST">
+                                          <div class="modal-body m-0 p-0">
+                                              <div class="input-box">
+                                                  <input name="resident_id" id="resident_id" type="hidden" placeholder="">
+                                              </div>
+                                              <h6 class="p-0 m-0">Are you sure you want to delete this?</h6>
+                                          </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
+                                      <button type="submit" class="btn btn-danger">Delete Resident</button>
+                                    </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                          </tr>
+                          @endforeach
+                          @endif
+                      </tbody>
+                  </table>
+                </center>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="addnewmedicine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add New Medicine</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form class="" action="{{route ('medicinerequest.store')}}" method="POST">
+          @csrf
+          <div class="form-group">
+            <label for="">Medicine Name</label>
+            <input type="text" name="medicine_name" class="form-control" id="" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="">Quantity</label>
+            <input type="number" name="med_quantity" class="form-control" id="" placeholder="">
+          </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+        <button type="submit"   class="btn btn-primary">ADD</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="modal fade" id="medrequest" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Generate Medicine Report</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="medrequestPrint" style="width:100%;" class="form-group-mar" method="post">
+          <div class="d-flex justify-content-center flex-column mar-report">
+          <h5 class="text-center">MEDICINE REQUEST FORM</h5>
+              <br>
+                <div  class="request_form">
+                  <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
+                  <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date" name="" value=""></p>
+                  <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
+                  <p class="lh-sm fst-italic text-uppercase fw-bold req_name">Medicine Needed:</p>
+
+                  <center>
+                    <table style="width:100%" class="table table-bordered border-dark">
+
+                      <thead>
+                        <tr>
+                        <th class="text-center"scope="col">QUANTITY</th>
+                        <th class="text-center"scope="col">MEDICINE NAME</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td>data1</td>
+                        <td>data2</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        </center>
+                        </div>
+                        <br>
+                        <div class="d-flex flex-row-reverse signature-line ">
+                        <p class="name_signature fw-bold mb-0 border-top ">Signature Over Printed Name</p>
+                </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+        <button id="medreqBtn" type="button" class="btn btn-primary"><i class="fas fa-print"></i> PRINT</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>document.getElementById("medreqBtn").onclick = function() {
+    printElement(document.getElementById("medrequestPrint"));
+    window.print();
+}
+
+function printElement(elem, append, delimiter) {
+    var domClone = elem.cloneNode(true);
+
+    var $printSection = document.getElementById("printSection");
+
+    if (!$printSection) {
+        var $printSection = document.createElement("div");
+        $printSection.id = "printSection";
+        document.body.appendChild($printSection);
+    }
+
+    if (append !== true) {
+        $printSection.innerHTML = "";
+    }
+
+    else if (append === true) {
+        if (typeof(delimiter) === "string") {
+            $printSection.innerHTML += delimiter;
+        }
+        else if (typeof(delimiter) === "object") {
+            $printSection.appendChlid(delimiter);
+        }
+    }
+
+    $printSection.appendChild(domClone);
+}
+
+</script>
 @endsection
+
+@section('scripts')
+
+
+   {{-----------------------------VIEW RESIDENT SCRIPT--------------------------------}}
+<script>
+   $('#viewnewconsultation').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      var med_id = button.data('id')
+      var medname = button.data('medicine_name')
+      var medqnty = button.data('med_quantity')
+
+      var modal = $(this)
+      modal.find('.modal-title').text('RESIDENT PROFILE');
+      modal.find('.modal-body #med_id').val(med_id);
+      modal.find('.modal-body #med_name').val(medname);
+      modal.find('.modal-body #med_qnty').val(medqnty);
+   })
+
+</script>

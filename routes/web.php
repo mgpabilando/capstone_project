@@ -9,7 +9,11 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\ChangePasswordController;
+<<<<<<< HEAD
 use App\Http\Controllers\PregnantConsulController;
+=======
+use App\Http\Controllers\MedRequestController;
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +28,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::get('/login', [LoginUserController::class, 'index'])->name('userlogin');
-Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin'); 
+Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin');
 Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout');
 
 Route::resource('/register', RegisteredUsersController::class);
@@ -47,12 +51,19 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::post('/changepassword', [ChangePasswordController::class, 'changePassword'])->name('adminchangepassword');
 
     Route::resource('/residentprofile', ResidentController::class);
+<<<<<<< HEAD
     
     Route::resource('/healthconsultation', PregnantConsulController::class);
     
+=======
+
+    Route::get('/healthconsultation', [ConsulController::class, 'index']);
+    Route::post('/healthconsultation/fetch', [ConsulController::class, 'fetch'])->name('Consul.fetch');
+
+>>>>>>> b09f156786ce79d5a8b2ae0f3d94b097a591ae9c
     Route::resource('/bhw', usersController::class);
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
+    Route::resource('/medicinerequest', MedRequestController::class);
 });
-
