@@ -15,6 +15,6 @@ class pregnants extends Model
 
     public function residents()
     {
-        return $this->belongsTo(Residents::class);
+        return $this->belongsTo(pregnants::class);
     }
 }
