@@ -16,7 +16,7 @@
         
     
 
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css') }}"></script>
     <script src="{{asset('jquery-ui-1.13.0.custom/jquery-ui.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')}}"></script>
@@ -33,6 +33,10 @@
         sidebar.classList.toggle("close");
         content.classList.toggle("close");
     });
+</script>
+
+<script>
+    $(document).ready(function() { $('table.display').DataTable(); } );
 </script>
 
 <script>

@@ -123,11 +123,6 @@ table.table thead th {
   background-color: #ffffff;
 }
 
-div.dataTables_wrapper {
-  width: 1000px;
-  margin: 0 auto;
-}
-
 .list-of-res .view{
   color: #007bff;
 }

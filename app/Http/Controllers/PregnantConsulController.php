@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\healthconsultation;
-use App\Models\Residents;
-use DB;
+use App\Models\pregnants;
+use Illuminate\Support\Facades\Auth;
 
-class HealthConsultationController extends Controller
+class PregnantConsulController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class HealthConsultationController extends Controller
      */
     public function index()
     {
-        //RETRIEVE DATA FROM DBtable
-        $consultationrecord = DB::select('select * from healthconsultation');
-        return view('navigation_links.healthconsultation')->with('healthconsultation', $consultationrecord);
+        $consultationrecord = pregnants::all();
+        return view('navigation_links.healthconsultation')->with('pregnants',$consultationrecord);
+
     }
 
     /**
@@ -41,31 +40,20 @@ class HealthConsultationController extends Controller
     {
         $request->validate([
             'resname' => 'required', 'string', 'max:255',
-            'resID' => 'string', 'max:255',
-            'resfamilyhead' => 'required', 'string', 'max:255',
-            'consultation_type' => 'required', 'string', 'max:255',
-            'lmp' => 'required', 'date',
-            'height_cm' => 'float', 'max:11',
-            'weight_kg' => 'float', 'max:255',
-            'complains' => 'text',
-            'findings' => 'text',
-            'diagnosis' => 'text',
-            'treatment' => 'text',
+            'resID' => 'required',
+            'lmp' => 'required',
+            'age'=> 'required',
+            'pregnancyorder' => 'required',
         ]);
 
-        $consulationrecord = healthconsultation::create([
-            'res_id' => $request['resID'],
-            'consultation_type' => $request['bdate'],
-            'lmp' => $request['placeofbirth'],
-            'height_cm' => $request['height_cm'],
-            'weight_kg' => $request['weight_kg'],
-            'complains' => $request['complains'],
-            'findings' => $request['findings'],
-            'diagnosis' => $request['diagnosis'],
-            'treatment' => $request['treatment'],
+        $pregnants = pregnants::create([
+            'resident_id' => $request['resID'],
+            'res_name' => $request['resname'],
+            'res_age' => $request['age'],
+            'lmp' => $request['lmp'],
+            'pregnancyorder' => $request['pregnancyorder'],
         ]);
-
-        $consulationrecord->save();
+        $pregnants->save();
         return redirect()->route('healthconsultation.index')->with('success', 'Added Successfully.');
     }
 

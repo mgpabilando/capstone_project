@@ -51,16 +51,16 @@
             {{-- TAB CONTENT --}}
             <div class="tab-content">
               <div class="tab-pane active" id="Pregnant_info">
-                <div class="consultation-list d-flex">
+                <div class="consultation-list d-flex justify-content-end">
                   <div class="title-and-button">
                     <h4 class="consulttable-title" style="text-align: center">List of Pregnancy</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
-                    @include('modals.pregnancy.Add')
+                    
                   </div>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="pregnancy-datatable" class="table table-bordered table-striped" style="padding: 10px">
+                    <div class="table-responsive">
+                        <table id="" class="display" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -76,35 +76,39 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              @if ($pregnants)
+                                @foreach ($pregnants as $pregpatient)
                                 <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                  <th>{{ $pregpatient->id }}</th>
+                                  <td>{{ $pregpatient->resident_id }}</td>
+                                  <td>{{ $pregpatient->res_name }}</td>
+                                  <td>{{ $pregpatient->res_age }}</td>
+                                  <td>{{ $pregpatient->pregnancyorder }}</td>
+                                  <td>{{ $pregpatient->lmp }}</td>
+                                  <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
                                     <td>
                                         {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpregconsul">
                                         <i class="manage fas fa-eye"></i></a>
-                                        @include('modals.pregnancy.Show')
+                                        {{-- @include('modals.pregnancy.Show') --}}
                                     </td>
                                     <td>
                                         {{-----***************************** EDIT BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editpregconsul">
                                         <i class="manage fas fa-edit"></i>
                                         </a>
-                                        @include('modals.pregnancy.Edit')
+                                        {{-- @include('modals.pregnancy.Edit') --}}
                                     </td>
                                     <td>
                                         {{-----***************************** DELETE BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletepregconsul">
                                         <i class="manage fas fa-trash"></i>
                                         </a>
-                                        @include('modals.pregnancy.Delete')
+                                        {{-- @include('modals.pregnancy.Delete') --}}
                                     </td>
                                 </tr>
+                                @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -112,7 +116,7 @@
               </div>
 
               <div class="tab-pane" id="Deliveries_info">
-                <div class="consultation-list d-flex">
+                <div class="consultation-list d-flex justify-content-end">
                   <div class="title-and-button" style="margin: 10px">
                     <h4 class="consulttable-title" style="text-align: center">List of Deliveries</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddeliveriesconsul">
@@ -120,8 +124,8 @@
                     </div>
                     @include('modals.deliveries.Add')
                   </div>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="deliveries-datatable" class="table table-bordered table-striped" style="padding: 10px">
+                    <div class="table-responsive">
+                        <table id="" class="display" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -139,14 +143,15 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                  <th></th>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
                                     <td>
                                       {{-----***************************** SHOW BUTTON *******************************------}}
                                       <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewdeliveriesconsul">
@@ -175,16 +180,16 @@
               </div>
 
               <div class="tab-pane" id="EPI_info">
-                <div class="consultation-list d-flex">
-                  <div class="title-and-button" style="margin: 10px">
+                <div class="consultation-list d-flex justify-content-end">
+                  <div class="title-and-button align-items-center" style="margin: 10px">
                     <h4 class="consulttable-title" style="text-align: center">EPI</h4> 
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addepiconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
                     @include('modals.EPI.Add')
                   </div>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="epi-datatable" class="table table-bordered table-striped" style="padding: 10px">
+                    <div class="table-responsive">
+                        <table id="" class="display" style="padding: 10px;">
                             <thead>
                                 <tr role="row">
                                   <th scope="col">Patient_ID</th>
@@ -234,7 +239,7 @@
               </div>
 
               <div class="tab-pane" id="NTP_info">
-                <div class="consultation-list d-flex">
+                <div class="consultation-list d-flex justify-content-end">
                   <div class="title-and-button" style="margin: 10px">
                     <h4 class="consulttable-title" style="text-align: center">NTP</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addntpconsul">
@@ -242,8 +247,8 @@
                     </div>
                     @include('modals.NTP.Add')
                   </div>  
-                  <div class="table-responsive" style="border: 1px solid grey;">
-                      <table id="ntp-datatable" class="table table-bordered table-striped" style="padding: 10px">
+                  <div class="table-responsive">
+                      <table id="" class="display" style="padding: 10px">
                           <thead>
                               <tr role="row">
                                 <th scope="col">Patient_ID</th>
@@ -295,7 +300,7 @@
               </div>
 
               <div class="tab-pane" id="Family-Planning_info">
-                <div class="consultation-list d-flex">
+                <div class="consultation-list d-flex justify-content-end">
                   <div class="title-and-button" style="margin: 10px">
                     <h4 class="consulttable-title" style="text-align: center">Family Planning</h4> 
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addfpconsul">
@@ -303,8 +308,8 @@
                     </div>
                     @include('modals.familyplanning.Add')
                   </div> 
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="fp-datatable" class="table table-bordered table-striped" style="padding: 10px">
+                    <div class="table-responsive">
+                        <table id="" class="display" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                   <th scope="col">Patient_ID</th>
@@ -354,7 +359,7 @@
               </div>
 
               <div class="tab-pane" id="Diarrheal_info">
-                <div class="consultation-list d-flex">
+                <div class="consultation-list d-flex justify-content-end">
                   <div class="title-and-button" style="margin: 10px">
                     <h4 class="consulttable-title" style="text-align: center">Diarrheal</h4>  
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddiarrhealconsul">
@@ -362,8 +367,8 @@
                     </div>
                     @include('modals.diarrheal.Add')
                   </div> 
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="diarrheal-datatable" class="table table-bordered table-striped" style="padding: 10px">
+                    <div class="table-responsive">
+                        <table id="" class="display" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -411,7 +416,7 @@
               </div>
 
               <div class="tab-pane" id="Others_info">
-                <div class="consultation-list d-flex">
+                <div class="consultation-list d-flex justify-content-end">
                   <div class="title-and-button" style="margin: 10px">
                     <h4 class="consulttable-title" style="text-align: center">Others</h4>  
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addotherconsul">
@@ -419,8 +424,8 @@
                     </div>
                     @include('modals.othersconsul.Add')
                   </div>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="otherservices-datatable" class="table table-bordered table-striped" style="padding: 10px">
+                    <div class="table-responsive">
+                        <table id="" class="display" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">ID</th>
@@ -462,60 +467,9 @@
                     </div>
                 </div>  
               </div> 
-          
-                  </div><!--/consult-pane-->
+            </div><!--/consult-pane-->
         </div>
       </div>
+      @include('modals.pregnancy.Add')
 </div>
-@endsection
-
-@section("scripts")
-<script>
-  $(document).ready(function() {
-  $('#pregnancy-datatable').DataTable( {
-  } );
-} );
-</script>
-
-<script>
-  $(document).ready(function() {
-  $('#deliveries-datatable').DataTable( {
-  } );
-} );
-</script>
-
-<script>
-  $(document).ready(function() {
-  $('#epi-datatable').DataTable( {
-  } );
-} );
-</script>
-
-<script>
-  $(document).ready(function() {
-  $('#ntp-datatable').DataTable( {
-  } );
-} );
-</script>
-
-<script>
-  $(document).ready(function() {
-  $('#fp-datatable').DataTable( {
-  } );
-} );
-</script>
-
-<script>
-  $(document).ready(function() {
-  $('#diarrheal-datatable').DataTable( {
-  } );
-} );
-</script>
-<script>
-  $(document).ready(function() {
-  $('#otherservices-datatable').DataTable( {
-  } );
-} );
-</script>
-
 @endsection

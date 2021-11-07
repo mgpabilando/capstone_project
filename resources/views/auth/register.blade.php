@@ -186,9 +186,9 @@
                         <div class="form-group">
                             <label class="control-label" for="role-id">Register as:</label>
                             <select name="role_id">
-                                <option>Choose...</option>
+                                <option selected>Choose...</option>
                                 <option value="admin_nurse">Nurse</option>
-                                <option selected value="bhw">Barangay Health Worker</option>
+                                <option value="bhw">Barangay Health Worker</option>
                             </select>
                         </div>
                     </div>

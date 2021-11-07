@@ -46,7 +46,7 @@ class DashboardController extends Controller
      public function healthconsultation()
      {
      return view('navigation_links.healthconsultation');
-     }
+}
 
      public function medicinerequest()
      {

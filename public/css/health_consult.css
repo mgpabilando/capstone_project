@@ -101,9 +101,15 @@ h3.block-title {
   width: 100%;
   background-color: #ffffff;
 }
+.table-responsive
+{
+  border: 1px solid grey; 
+  margin-left:auto;
+}
 
 label {
   font-size: 13px;
+  display: inline-block;
 }
 
 .consultation-list .dataTables_info
@@ -117,7 +123,7 @@ label {
 }
 
 table.table tbody td, table.table thead th {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /*ADD CONSULTATION MODAL*/

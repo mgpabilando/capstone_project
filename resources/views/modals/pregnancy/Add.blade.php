@@ -5,63 +5,43 @@
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="add-consult" action="{{route ('healthconsultation.store')}}" method="POST">
+            <form class="add-consult" action="{{route('healthconsultation.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-search d-flex justify-content-center">
                         
-                        <input type="text" id="hc-search-input" placeholder="Search...">
-                        {{-- <span class="hc-search-btn" type="submit"><i class="fas fa-search"></i></span> --}}
+                        {{-- <input type="text" id="hc-search-input" placeholder="Search...">
+                        <span class="hc-search-btn" type="submit"><i class="fas fa-search"></i></span>
                         <div id="residentlist"></div>
-                        {{ csrf_field() }}
+                        {{ csrf_field() }} --}}
                     </div>
                     <hr>
                     <div class="res_prof row">
                         <div class="input-box col pb-3">
                             <div class="details">Name:</div>
-                            <input type="text" id="resname" placeholder="" required>
+                            <input type="text" name="resname" id="resname" placeholder="" required>
                         </div>                           
                         <div class="input-box col pb-3">
                             <div class="details">Resident ID:</div>
-                            <input type="text" id="resID" placeholder="" required>
-                        </div>
-
-                        <div class="input-box col pb-3">
-                            <div class="details">Family No:</div>
-                            <input type="text" id="resfamilyhead" placeholder="" required>
+                            <input type="text" name="resID" id="resID" placeholder="" required>
                         </div>
                         <hr>
                     </div>
 
                     <div class="row pregnancy-info">
                         <div class="input-box col pb-3">
+                            <div class="details">Age:</div>
+                            <input type="text" name="age" id="age" placeholder="">
+                        </div>
+                        <div class="input-box col pb-3">
                             <div class="details">LMP:</div>
-                            <input type="date" id="lmp" placeholder="">
+                            <input type="date" name="lmp" id="lmp" placeholder="">
                         </div>
                         <div class="input-box col pb-3">
                             <div class="details">Pregnancy Order:</div>
-                            <input type="text" id="lmp" placeholder="">
+                            <input type="text" name="pregnancyorder" id="pregnancyorder" placeholder="">
                         </div>
                     </div>
-                    {{-- <div class="row">
-                        <div class="input-box col pb-3">
-                            <div class="details">COMPLAINS:</div>
-                            <textarea class="comment" id="complains" placeholder="Type here..."></textarea>
-                        </div>
-
-                        <div class="input-box col pb-3">
-                            <div class="details">FINDINGS:</div>
-                            <textarea class="comment" id="findings" placeholder="Type here..."></textarea>
-                        </div>
-                        <div class="input-box col pb-3">
-                            <div class="details">DIAGNOSIS:</div>
-                            <textarea class="comment" id="diagnosis" placeholder="Type here..."></textarea>
-                        </div>
-                        <div class="input-box col pb-3">
-                            <div class="details">TREATMENT:</div>
-                            <textarea class="comment" id="treatment" placeholder="Type here..."></textarea>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>

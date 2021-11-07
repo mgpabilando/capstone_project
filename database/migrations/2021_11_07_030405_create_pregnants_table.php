@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePregnancyConsulTable extends Migration
+class CreatePregnantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreatePregnancyConsulTable extends Migration
      */
     public function up()
     {
-        Schema::create('pregnancy_consul', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pregnants', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('resident_id');
+            $table->string('res_name');
+            $table->integer('res_age');
+            $table->string('lmp');
+            $table->string('pregnancyorder');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreatePregnancyConsulTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pregnancy_consul');
+        Schema::dropIfExists('pregnants');
     }
 }
