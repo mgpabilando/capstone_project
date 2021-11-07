@@ -15,12 +15,15 @@ class CreatePregnantsTable extends Migration
     {
         Schema::create('pregnants', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('resident_id');
-            $table->string('res_name');
-            $table->integer('res_age');
+            $table->unsignedBigInteger('resident_id');
+            $table->float('height_cm');
+            $table->float('weight_kg');
             $table->string('lmp');
             $table->string('pregnancyorder');
             $table->timestamps();
+
+            $table->foreign('resident_id')->references('id')->on('residents')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

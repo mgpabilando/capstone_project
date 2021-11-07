@@ -8,7 +8,7 @@
             <h3 class="block-title">Resident Profile</h3>
         </div>
     </div>
-    
+
     <div class="head-resprof">
         <div class="head-func d-flex justify-content-center">
             @if (\Session::has('success'))
@@ -25,11 +25,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="container list-of-res bhms-box-shadow">
-                    <div class="tabletitle-and-button d-flex">
-                        <h3 class="restable-title col-9">List of Residents</h3>
-                        <div type="button" class="btn btn-add col-3" style="margin-left:auto;" title="Add New Resident"  data-bs-toggle="modal" data-bs-target="#registerresident">
-                            <i class="fa fa-user-plus"></i>&nbsp;Add
-                        </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Resident List</h4>
+                      <button type="submit" class="btn btn-add" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
+                          <i class="fas fa-user-plus"></i> Add</button>
                     </div>
                     <hr>
                     <div class="table-responsive mb-3">
@@ -61,12 +61,12 @@
                                             <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
                                             <td>
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn-action view" 
-                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}" 
+                                                <a data-bs-toggle="modal" type="button" class="btn-action view"
+                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
                                                 data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
-                                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}" 
+                                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}"
                                                 data-civil_status="{{ $residentprofile->civil_status }}"
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
                                                 data-bs-target="#viewResidentModal">
@@ -74,12 +74,12 @@
                                             </td>
                                             <td>
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn-action edit" 
-                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}" 
+                                                <a data-bs-toggle="modal" type="button" class="btn-action edit"
+                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
                                                 data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
-                                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}" 
+                                                data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}"
                                                 data-civil_status="{{ $residentprofile->civil_status }}"
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
                                                 data-bs-target="#editResidentModal">
@@ -88,7 +88,7 @@
                                             </td>
                                             <td>
                                                 {{-----***************************** DELETE BUTTON *******************************------}}
-                                                <a type="button" class="btn-action delete" data-bs-toggle="modal" 
+                                                <a type="button" class="btn-action delete" data-bs-toggle="modal"
                                                 data-bs-target="#deleteResidentModal"
                                                 data-resident_id="{{$residentprofile->id}}">
                                                 <i class="fas fa-trash"></i></a>
@@ -103,7 +103,7 @@
             </div>
         </div>
 
-        <!--******************************-------------- ADD RESIDENT MODAL ------------*************************************-->   
+        <!--******************************-------------- ADD RESIDENT MODAL ------------*************************************-->
         <div class="res-add modal fade" id="registerresident" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -203,10 +203,10 @@
                         </form>
                     </div>
                 </div>
-        </div>        
-        <!--*************************-------------------- ADD MODAL ENDS HERE -------------------********************---------------->   
+        </div>
+        <!--*************************-------------------- ADD MODAL ENDS HERE -------------------********************---------------->
 
-        <!--**************************------------------- VIEW RESIDENT MODAL -------------------****************************---------->   
+        <!--**************************------------------- VIEW RESIDENT MODAL -------------------****************************---------->
         <div class="res-view modal fade" id="viewResidentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -288,9 +288,9 @@
                 </div>
             </div>
         </div>
-        <!--**************************--------------------- VIEW MODAL ENDS HERE -------------------**********************************----->   
+        <!--**************************--------------------- VIEW MODAL ENDS HERE -------------------**********************************----->
 
-        <!--**************************------------------- EDIT RESIDENT MODAL -------------------****************************---------->   
+        <!--**************************------------------- EDIT RESIDENT MODAL -------------------****************************---------->
         <div class="res-edit modal fade" id="editResidentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -397,7 +397,7 @@
         </div>
         <!--**************************------------------- EDIT MODAL ENDS HERE-------------------****************************---------->
 
-        <!--**************************------------------- DELETE RESIDENT MODAL -------------------****************************---------->   
+        <!--**************************------------------- DELETE RESIDENT MODAL -------------------****************************---------->
         <div class="res-delete modal fade" id="deleteResidentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -414,7 +414,7 @@
                             </div>
                             <h5>Are you sure you want to delete this?</h5>
                         </div>
-                    
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-danger">Delete Resident</button>
@@ -423,7 +423,7 @@
                 </div>
             </div>
         </div>
-        <!--**************************------------------- DELETE MODAL ENDS HERE-------------------****************************---------->   
+        <!--**************************------------------- DELETE MODAL ENDS HERE-------------------****************************---------->
 
     </div>
 
@@ -431,7 +431,7 @@
 @endsection
 
 @section('scripts')
-    
+
     {{-----------------------------EDIT RESIDENT SCRIPT--------------------------------}}
  <script>
     $('#editResidentModal').on('show.bs.modal', function(event) {
@@ -467,7 +467,7 @@
        modal.find('.modal-body #mobile').val(mobile);
        modal.find('.modal-body #phil_health_id').val(phil_health_id);
        modal.find('.modal-body #id_4ps').val(id_4ps);
-       }) 
+       })
 </script>
 
    {{-----------------------------DELETE RESIDENT SCRIPT--------------------------------}}
@@ -475,13 +475,13 @@
    $('#deleteResidentModal').on('show.bs.modal', function(event) {
        var button = $(event.relatedTarget)
        var resident_id = button.data('resident_id')
-       
+
 
        var modal = $(this)
        modal.find('.modal-title').text(' Delete Resident Profile');
        modal.find('.modal-body #resident_id').val(resident_id);
    })
-   
+
 </script>
 
    {{-----------------------------VIEW RESIDENT SCRIPT--------------------------------}}
@@ -520,6 +520,6 @@
       modal.find('.modal-body #phil_health_id').val(phil_health_id);
       modal.find('.modal-body #id_4ps').val(id_4ps);
    })
-   
+
 </script>
 @endsection

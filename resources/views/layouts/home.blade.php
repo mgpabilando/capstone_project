@@ -14,15 +14,18 @@
     
     </div>
         
-    
-
-    <script src="{{ asset('https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css') }}"></script>
-    <script src="{{asset('jquery-ui-1.13.0.custom/jquery-ui.min.js')}}" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <script src="{{ asset('js/MARprint.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/MVRprint.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/medrequestPrint.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/print.js') }}" charset="utf-8"></script>
+
+
     @yield('scripts')
 
 <script>
@@ -36,7 +39,9 @@
 </script>
 
 <script>
-    $(document).ready(function() { $('table.display').DataTable(); } );
+    $(document).ready(function() 
+    { $('table.display').DataTable(); } 
+    );
 </script>
 
 <script>

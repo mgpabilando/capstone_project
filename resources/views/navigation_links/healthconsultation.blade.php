@@ -22,7 +22,7 @@
 
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-          <div class="consult-pane text-center">
+          <div class="consult-pane">
             <!--NAVIGATION TABS-->
             <ul class="nav nav-tabs" id="tab-next-prev" role="tablist">
               <li class="nav-item">
@@ -51,19 +51,17 @@
             {{-- TAB CONTENT --}}
             <div class="tab-content">
               <div class="tab-pane active" id="Pregnant_info">
-                <div class="consultation-list d-flex justify-content-end">
-                  <div class="title-and-button">
-                    <h4 class="consulttable-title" style="text-align: center">List of Pregnancy</h4>
+                <div class="consultation-list container bhms-box-shadow">
+                  <div class="title-and-button d-flex justify-content-between align-items-center">
+                    <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Pregnancy</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
-                      <i class="fa fa-plus"></i>Create
+                      <i class="fa fa-plus"></i>Add
                     </div>
-<<<<<<< HEAD
-                    
-=======
->>>>>>> origin/jkgerero_branch
+                    @include('modals.pregnancy.Add')
                   </div>
-                    <div class="table-responsive">
-                        <table id="" class="display" style="padding: 10px">
+                  <hr>
+                    <div class="table-responsive mb-3">
+                      <table id="example" class="display table table-bordered table-striped table-hover">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -84,8 +82,8 @@
                                 <tr>
                                   <th>{{ $pregpatient->id }}</th>
                                   <td>{{ $pregpatient->resident_id }}</td>
-                                  <td>{{ $pregpatient->res_name }}</td>
-                                  <td>{{ $pregpatient->res_age }}</td>
+                                  <td>{{ $pregpatient->fname }} {{ $pregpatient->mname }} {{ $pregpatient->lname }}</td>
+                                  <td>{{ $pregpatient->age }}</td>
                                   <td>{{ $pregpatient->pregnancyorder }}</td>
                                   <td>{{ $pregpatient->lmp }}</td>
                                   <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
@@ -125,10 +123,7 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddeliveriesconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
-<<<<<<< HEAD
                     @include('modals.deliveries.Add')
-=======
->>>>>>> origin/jkgerero_branch
                   </div>
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
@@ -192,10 +187,7 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addepiconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
-<<<<<<< HEAD
                     @include('modals.EPI.Add')
-=======
->>>>>>> origin/jkgerero_branch
                   </div>
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px;">
@@ -253,59 +245,6 @@
                     <h4 class="consulttable-title" style="text-align: center">NTP</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addntpconsul">
                       <i class="fa fa-plus"></i>Create
-<<<<<<< HEAD
-=======
-                    </div>
-                  </div>
-                  <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                            <thead>
-                                <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
->>>>>>> origin/jkgerero_branch
                     </div>
                     @include('modals.NTP.Add')
                   </div>  
@@ -368,17 +307,10 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addfpconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
-<<<<<<< HEAD
                     @include('modals.familyplanning.Add')
                   </div> 
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
-=======
-                  </div>
-                  <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
->>>>>>> origin/jkgerero_branch
                             <thead>
                                 <tr role="row">
                                   <th scope="col">Patient_ID</th>
@@ -434,17 +366,10 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddiarrhealconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
-<<<<<<< HEAD
                     @include('modals.diarrheal.Add')
                   </div> 
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
-=======
-                  </div>
-                  <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
->>>>>>> origin/jkgerero_branch
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -498,10 +423,7 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addotherconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
-<<<<<<< HEAD
                     @include('modals.othersconsul.Add')
-=======
->>>>>>> origin/jkgerero_branch
                   </div>
                     <div class="table-responsive">
                         <table id="" class="display" style="padding: 10px">
@@ -544,32 +466,11 @@
                             </tbody>
                         </table>
                     </div>
-<<<<<<< HEAD
                 </div>  
               </div> 
             </div><!--/consult-pane-->
-=======
-                </div>
-              </div>
-            </div>
-
-          </div><!--/consult-pane-->
->>>>>>> origin/jkgerero_branch
         </div>
       </div>
-      @include('modals.pregnancy.Add')
+      
 </div>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
-
-@section("scripts")
-<script>
-  $(document).ready(function() {
-  $('#consultdatatable').DataTable( {
-  } );
-} );
-</script>
-@endsection
->>>>>>> origin/jkgerero_branch

@@ -24,4 +24,9 @@ class Residents extends Model
         'id_4ps',
         'purok',
     ];
+
+    public function pregnants()
+    {
+        return $this->hasMany(pregnants::class);
+    }
 }

@@ -12,4 +12,9 @@ class pregnants extends Model
     protected $fillable = [
         'res_name', 'resident_id', 'res_age', 'lmp', 'pregnancyorder',
     ];
+
+    public function residents()
+    {
+        return $this->belongsTo(Residents::class);
+    }
 }

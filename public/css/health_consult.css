@@ -25,12 +25,17 @@ h3.block-title {
 }
 
 .btn-add{
-  width:100px;
+  width: 100px;
   position: relative;
   background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
   padding: 5px 10px;
   border-radius: 3px;
   color: #ffffff;
+}
+
+.consult-pane i
+{
+  padding-right: 5px;
 }
 /*BLOCK TITLE .NO MARGIN PADDING*/
 
@@ -38,7 +43,7 @@ h3.block-title {
   background-color: rgb(255, 255, 255);
   margin: 10px;
   width: 95%;
-  padding:10px; 
+  padding:10px;
   box-shadow: 1px 1px 5px 0px grey;
   height: auto;
 }
@@ -55,7 +60,7 @@ h3.block-title {
 .consult-pane .nav-link
   {
     color: #495057;
-    
+
   }
 
 /*CONSULT DATATABLE*/
@@ -97,33 +102,12 @@ h3.block-title {
   margin-top: 20px;
 }
 
-.consultation-list #consultdatatable{
-  width: 100%;
-  background-color: #ffffff;
-}
-.table-responsive
-{
-  border: 1px solid grey; 
-  margin-left:auto;
-}
-
-label {
-  font-size: 13px;
-  display: inline-block;
-}
-
-.consultation-list .dataTables_info
-{
-  font-size: 12px;
-}
-
-.consultation-list .pagination
-{
-  font-size: 12px;
+.consultation-list{
+  padding: 20px;
 }
 
 table.table tbody td, table.table thead th {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /*ADD CONSULTATION MODAL*/
@@ -138,11 +122,6 @@ table.table tbody td, table.table thead th {
   box-sizing: border-box;
   font-size: 12px;
   border-radius: 25px;
-}
-
-.consul-add .modal-content .modal-body #consultation_type
-{
-  width: 50%;
 }
 
 #addconsul .modal-header {
@@ -161,7 +140,7 @@ table.table tbody td, table.table thead th {
   box-sizing: border-box;
   font-size: 12px;
   border-radius: 10px;
-  
+
 }
 
 #addconsul textarea:focus {
@@ -258,7 +237,7 @@ input:focus{
   box-sizing: border-box;
   font-size: 12px;
   border-radius: 10px;
-  
+
 }
 
 #viewconsul textarea:focus {
@@ -333,7 +312,7 @@ input:focus{
   box-sizing: border-box;
   font-size: 12px;
   border-radius: 10px;
-  
+
 }
 
 #editconsul textarea:focus {

@@ -45,8 +45,11 @@
                 <div class="container bhw-list bhms-box-shadow">
 
                     <div class="d-flex justify-content-between align-items-center">
-                      <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Resident List</h4>
-                      <button type="submit" class="btn btn-add mt-2 me-2" title="Add New User" data-bs-toggle="modal" data-bs-target="#registerModal"><i class="fas fa-user-nurse"></i> ADD</button>
+                        <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Barangay Health Workers</h4>
+                        <button type="submit" class="btn btn-add" title="Add New User" data-bs-toggle="modal" data-bs-target="#registerModal">
+                            <i class="fas fa-user-nurse"></i> 
+                            Add
+                        </button>
                     </div>
 
                     <hr>
