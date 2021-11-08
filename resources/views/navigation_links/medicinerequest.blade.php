@@ -27,9 +27,9 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Medicine Request List</h4>
-            <div class="button-add">
+            <div class="button-add d-flex flex-wrap justify-content-end">
               <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#addnewmedicine"><i class="fas fa-pills"></i> ADD</button>
-                <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#medrequest" style="width:200px;"><i class="fas fa-print"></i> GENERATE REPORT</button>
+              <button type="submit" class="btn btn-add mt-2 me-2" title="Add FamilyHead" data-bs-toggle="modal" data-bs-target="#medrequest" style="width:200px;"><i class="fas fa-print"></i> GENERATE REPORT</button>
                 </div>
                 </div>
 
@@ -57,42 +57,46 @@
                               <td class="text-center">{{$medrequest->med_quantity}}</td>
                               <td class="text-center">
                                   {{-----***************************** SHOW BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action view">
+
+                                  <a data-bs-toggle="modal" type="button" class="btn-action view" 
+                                  data-medicine_name="{{ $medrequest->medicine_name }}"
+                                  data-med_quantity="{{ $medrequest->med_quantity }}"
+                                  data-bs-target="#viewNewConsultation">
                                   <i class="fas fa-eye"></i></a>
                               </td>
                                     <!-- Modal For Show -->
-                                    <div class="modal fade" id="viewnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                      <div class="modal-dialog">
+                                    <div class="modal fade" id="viewNewConsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                      <div class="modal-dialog modal-sm">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">MEDICINE REQUEST</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
+                                          <form class="add-resident" action="{{route ('medicinerequest.show', 'id')}}" method="GET">
+                                               @csrf
                                           <div class="modal-body">
-                                            <form class="" action="" method="GET">
 
                                               <div class="input-box">
-                                                  <div class="details">ID No.:</div>
-                                                  <input class="name align-text-left" name="lname" id="med_id" type="text" placeholder="" readonly>
+                                                  <div class="text-start details">Medicine Name</div>
+                                                  <input class="name align-text-left" name="medicine_name" id="medicine_name" type="text" placeholder="" readonly>
                                               </div>
                                               <div class="input-box">
-                                                  <div class="details">Medicine Name:</div>
-                                                  <input class="name align-text-left" name="lname" id="med_name" type="text" placeholder="" readonly>
+                                                  <div class="text-start details">Medicine Name</div>
+                                                  <input class="name align-text-left" name="med_quantity" id="med_quantity" type="text" placeholder="" readonly>
                                               </div>
-                                              <div class="input-box">
-                                                  <div class="details">Quantity:</div>
-                                                  <input class="name" name="fname" id="med_qnty" type="text" placeholder="" readonly>
-                                              </div>
-
-                                            </form>
+              
                                           </div>
+                                          </form>
                                         </div>
                                       </div>
                                     </div>
 
                               <td class="text-center">
                                   {{-----***************************** EDIT BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
+                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_edit"
+                                  data-medicine_name="{{ $medrequest->medicine_name }}"
+                                  data-med_quantity="{{ $medrequest->med_quantity }}"
+                                  data-bs-target="#editnewconsultation">
                                   <i class="manage fas fa-edit"></i>
                                   </a>
                               </td>
@@ -105,17 +109,19 @@
                                       <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <form class="add-resident" action="{{route ('medicinerequest.update', 'id')}}" method="POST">
+                                      @csrf
+                                      @method('PUT')
                                     <div class="modal-body">
                                       <form class="" action="index.html" method="post">
 
-                                        <div class="form-group">
-                                          <label for="">Medicine Name</label>
-                                          <input type="text" class="form-control" id="" placeholder="">
+                                        <div class="input-box">
+                                            <div class="text-start details">Medicine Name</div>
+                                            <input class="name align-text-left" name="medicine_name" id="medicine_name" type="text" placeholder="" readonly>
                                         </div>
-
-                                        <div class="form-group">
-                                          <label for="">Quantity</label>
-                                          <input type="number" class="form-control" id="" placeholder="">
+                                        <div class="input-box">
+                                            <div class="text-start details">Medicine Name</div>
+                                            <input class="name align-text-left" name="med_quantity" id="med_quantity" type="text" placeholder="" readonly>
                                         </div>
 
                                       </form>
@@ -171,7 +177,7 @@
       <!-- Button trigger modal -->
 
 
-<!-- Modal -->
+<!-- Adding new medicine Modal -->
 <div class="modal fade" id="addnewmedicine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -223,6 +229,8 @@
                   <p class="lh-sm fst-italic text-uppercase fw-bold req_name">Medicine Needed:</p>
 
                   <center>
+
+
                     <table style="width:100%" class="table table-bordered border-dark">
 
                       <thead>
@@ -289,6 +297,40 @@ function printElement(elem, append, delimiter) {
 
     $printSection.appendChild(domClone);
 }
+
+</script>
+
+{{-----------------------------VIEW RESIDENT SCRIPT--------------------------------}}
+<script>
+   $('#viewNewConsultation').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      var id = button.data('id')
+      var medicine_name = button.data('medicine_name')
+      var med_quantity = button.data('med_quantity')
+
+      var modal = $(this)
+      modal.find('.modal-title').text('MEDICINE REQUEST');
+      modal.find('.modal-body #id').val(id);
+      modal.find('.modal-body #medicine_name').val(medicine_name);
+      modal.find('.modal-body #med_quantity').val(med_quantity);
+   })
+
+</script>
+
+{{-----------------------------EDIT RESIDENT SCRIPT--------------------------------}}
+<script>
+   $('#editnewconsultation').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      var id = button.data('id')
+      var medicine_name = button.data('medicine_name')
+      var med_quantity = button.data('med_quantity')
+
+      var modal = $(this)
+      modal.find('.modal-title').text('MEDICINE REQUEST');
+      modal.find('.modal-body #id').val(id);
+      modal.find('.modal-body #medicine_name').val(medicine_name);
+      modal.find('.modal-body #med_quantity').val(med_quantity);
+   })
 
 </script>
 @endsection
