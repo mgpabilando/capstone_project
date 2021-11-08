@@ -1,0 +1,46 @@
+
+
+.counter{
+  box-sizing: border-box;
+  height: 100px;
+  width: 300px;
+  margin: 10px 0px 10px 10px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom right, #08aeea , #2ae88a);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.counter p{
+  padding: 5px 5px 5px 5px;
+  line-height: 1;
+  color: #ffff;
+}
+
+.counter i{
+  font-size: 30px;
+  color: #fff;
+}
+
+.counter .icon{
+  height: 65px;
+  width: 65px;
+  border: 1px solid;
+  border-radius: 50px;
+  margin: 0px 10px 0px 10px;
+  border-color: #fff;
+}
+.counter .total{
+  font-size: 40px;
+}
+
+.event-list{
+  width: 500px;
+}
+.event-upcomming{
+  border: 1px solid;
+  display: none;
+}
+//#2ae88a
+//#38c77f
+//#08aeea
+//#007bff

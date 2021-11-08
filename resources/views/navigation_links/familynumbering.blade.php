@@ -9,8 +9,8 @@
       </div>
     </div>
 
-    <div class="col-md-12 d-flex  d-inline-flex justify-content-center content">
-              <div class="mt-2 table-responsive" style="border: 1px solid grey; width: 95%;">
+    <div class="col-md-12 d-flex  d-flex justify-content-center content">
+              <div class="mt-2 ms-0 me-0 table-responsive" style="border: 1px solid grey; width: 95%;">
 
                 <div class="d-flex justify-content-between align-items-center">
                   <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Family Head List</h4>

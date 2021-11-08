@@ -23,7 +23,7 @@
     </div>
 
     <div class="col-md-12 d-flex  d-inline-flex justify-content-center content">
-      <div class="mt-2 table-responsive" style="border: 1px solid grey; width: 95%;">
+      <div class="mt-2 ms-0 me-0 table-responsive" style="border: 1px solid grey; width: 95%;">
 
         <div class="d-flex justify-content-between align-items-center">
           <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Medicine Request List</h4>
@@ -57,11 +57,7 @@
                               <td class="text-center">{{$medrequest->med_quantity}}</td>
                               <td class="text-center">
                                   {{-----***************************** SHOW BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action view"
-                                  data-id="{{$medrequest->id}}"
-                                  data-medicine_name="{{$medrequest->lname}}"
-                                  data-med_quantity="{{$medrequest->mname}}"
-                                  data-bs-target="#viewResidentModal">
+                                  <a data-bs-toggle="modal" type="button" class="btn-action view">
                                   <i class="fas fa-eye"></i></a>
                               </td>
                                     <!-- Modal For Show -->
@@ -73,8 +69,8 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
                                           <div class="modal-body">
-                                            <form class="" action="{{route ('medrequest.show', 'id')}}" method="GET">
-                                              @csrf
+                                            <form class="" action="" method="GET">
+
                                               <div class="input-box">
                                                   <div class="details">ID No.:</div>
                                                   <input class="name align-text-left" name="lname" id="med_id" type="text" placeholder="" readonly>
@@ -298,21 +294,3 @@ function printElement(elem, append, delimiter) {
 @endsection
 
 @section('scripts')
-
-
-   {{-----------------------------VIEW RESIDENT SCRIPT--------------------------------}}
-<script>
-   $('#viewnewconsultation').on('show.bs.modal', function(event) {
-      var button = $(event.relatedTarget)
-      var med_id = button.data('id')
-      var medname = button.data('medicine_name')
-      var medqnty = button.data('med_quantity')
-
-      var modal = $(this)
-      modal.find('.modal-title').text('RESIDENT PROFILE');
-      modal.find('.modal-body #med_id').val(med_id);
-      modal.find('.modal-body #med_name').val(medname);
-      modal.find('.modal-body #med_qnty').val(medqnty);
-   })
-
-</script>

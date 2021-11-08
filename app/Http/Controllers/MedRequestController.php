@@ -37,8 +37,6 @@ class MedRequestController extends Controller
 
     public function show($id){
 
-      $medrequest = Medicine_Request::find($id);
-      return view('navigation_links.medicinerequest')->with($medrequest, $id);
 
     }
 
