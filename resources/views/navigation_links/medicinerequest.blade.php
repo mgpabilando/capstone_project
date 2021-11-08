@@ -135,7 +135,7 @@
                               </td>
                               <!-- Modal for Delete -->
                               <div class="modal fade" id="deletenewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
+                                <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
@@ -173,7 +173,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="addnewmedicine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Add New Medicine</h5>
@@ -217,9 +217,9 @@
           <h5 class="text-center">MEDICINE REQUEST FORM</h5>
               <br>
                 <div  class="request_form">
-                  <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
-                  <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date" name="" value=""></p>
-                  <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
+                  <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" style="border-radius: 0px;" name="" value=""></p>
+                  <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date"  style="border-radius: 0px;" name="" value=""></p>
+                  <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name=""  style="border-radius: 0px;" value=""></p>
                   <p class="lh-sm fst-italic text-uppercase fw-bold req_name">Medicine Needed:</p>
 
                   <center>

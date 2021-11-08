@@ -14,7 +14,7 @@
 
         <div class="col-md-12 container mt-3 d-flex flex-wrap justify-content-center   ">
               <!-- Button trigger modal -->
-              <button type="button" class=" col-md-6 btn-monthly-report" data-bs-toggle="modal" data-bs-target="#staticBackdropMAR">
+              <button type="button" class=" col-md-6 me-2 btn-monthly-report" data-bs-toggle="modal" data-bs-target="#staticBackdropMAR">
                MONTHLY ACCOMPLISHED REPORTS
               </button>
 
@@ -212,7 +212,7 @@
               </div>
 
 
-              <button type="button" class=" col-md-6 btn-monthly-report" data-bs-toggle="modal" data-bs-target="#staticBackdropMVR">
+              <button type="button" class=" col-md-6 mt-1 m-0 btn-monthly-report" data-bs-toggle="modal" data-bs-target="#staticBackdropMVR">
                MONTHLY VISITORS REPORTS
               </button>
 

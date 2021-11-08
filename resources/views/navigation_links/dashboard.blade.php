@@ -60,7 +60,7 @@
     <div class="row">
 
       <div class="chart-container mt-3 col-md-6">
-        <canvas class="ms-4" id="myChart"></canvas>
+        <canvas class="ms-4" id="myChart" height="200"></canvas>
       </div>
 
       <div class="col-md-6">
@@ -75,6 +75,8 @@
 
 
 
+</div>
+
 
 
       <script>
@@ -83,7 +85,7 @@
         labels: labels,
         datasets: [{
           label: 'Health Consultation',
-          backgroundColor: '#01ab40',
+          backgroundColor: ['#08aeea', '#2ae88a' ],
           data: [39, 10, 5, 2, 20, 30, 45],
         }]
       };
@@ -101,5 +103,5 @@
       );
     </script>
 
-</div>
+
 @endsection
