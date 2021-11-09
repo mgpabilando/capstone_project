@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pregnants;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Residents;
+use Illuminate\Support\Facades\DB; 
 
 class PregnantConsulController extends Controller
 {
@@ -16,8 +18,9 @@ class PregnantConsulController extends Controller
     public function index()
     {
         $consultationrecord = pregnants::join('residents', 'residents.id', '=', 'pregnants.id')
-                                        ->get(['pregnants.id', 'residents.id', 'residents.fname', 'residents.mname', 'residents.lname', 'residents.age']);
-        return view('navigation_links.healthconsultation')->with('pregnants',$consultationrecord);
+                                        ->first(['pregnants.id', 'residents.id', 'residents.fname', 'residents.mname', 'residents.lname', 'residents.age']);
+        
+        return view('navigation_links.healthconsultation')->with('consultationrecord',$consultationrecord);
 
     }
 

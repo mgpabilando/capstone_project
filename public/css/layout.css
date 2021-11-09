@@ -57,14 +57,17 @@ body {
     margin-left: auto;
     height: 100vh;
   }
+
+  .container-fluid
+  {
+    padding-bottom: 15px;
+  }
   
   .home-section .navbar .topnav-link{
     padding-left: 0px;
     margin-bottom: 0px;
     list-style: none;
     display: flex;
-    
-  
   }
   
   .home-section .navbar .topnav-link .fa-bars{
@@ -262,4 +265,13 @@ body {
 #sidebar li a:active{
     background-color: #2e2d2d;
     text-decoration: none;
+}
+
+
+.head-resprof
+{
+    z-index: 999;
+    position: absolute;
+    width: auto;
+    transform: translateX(110vh);
 }

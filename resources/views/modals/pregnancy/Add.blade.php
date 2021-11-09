@@ -9,11 +9,14 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-search d-flex justify-content-center">
-                        
-                        {{-- <input type="text" id="hc-search-input" placeholder="Search...">
-                        <span class="hc-search-btn" type="submit"><i class="fas fa-search"></i></span>
-                        <div id="residentlist"></div>
-                        {{ csrf_field() }} --}}
+                        <form name="autocomplete-textbox" id="autocomplete-textbox" method="post" action="#">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Product Name</label>
+                                <input type="text" name="name" id="name" class="form-control" autocomplete="off">
+                                <div id="product_list"></div>
+                            </div>
+                           </form>
                     </div>
                     <hr>
                     <div class="res_prof row">
@@ -51,9 +54,26 @@
         </div>
     </div>
 </div>
-
 @section('scripts')
-    <script>
-        
-    </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#name').on('keyup',function () {
+            var query = $(this).val();
+            $.ajax({
+                url:'{{ route('search') }}',
+                type:'GET',
+                data:{'fname':query},
+                success:function (data) {
+                    $('#product_list').html(data);
+                }
+            })
+        });
+        $(document).on('click', 'li', function(){
+              
+                var value = $(this).text();
+                $('#name').val(value);
+                $('#product_list').html("");
+        });
+    });
+</script> 
 @endsection

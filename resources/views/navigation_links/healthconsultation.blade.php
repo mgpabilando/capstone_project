@@ -54,14 +54,14 @@
                 <div class="consultation-list container bhms-box-shadow">
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Pregnancy</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
+                    <a class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul" href="#addpregconsul">
                       <i class="fa fa-plus"></i>Add
-                    </div>
+                    </a>
                     @include('modals.pregnancy.Add')
                   </div>
                   <hr>
                     <div class="table-responsive mb-3">
-                      <table id="example" class="display table table-bordered table-striped table-hover">
+                      <table id="" class="display table table-bordered table-striped table-hover">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -77,8 +77,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              @if ($pregnants)
-                                @foreach ($pregnants as $pregpatient)
+                              @if ($consultationrecord)
+                                @foreach ($consultationrecord as $pregpatient)
                                 <tr>
                                   <th>{{ $pregpatient->id }}</th>
                                   <td>{{ $pregpatient->resident_id }}</td>
@@ -117,16 +117,17 @@
               </div>
 
               <div class="tab-pane" id="Deliveries_info">
-                <div class="consultation-list d-flex justify-content-end">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">List of Deliveries</h4>
+                <div class="consultation-list container bhms-box-shadow">
+                  <div class="title-and-button d-flex justify-content-between align-items-center">
+                    <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Deliveries</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddeliveriesconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
                     @include('modals.deliveries.Add')
                   </div>
-                    <div class="table-responsive">
-                        <table id="" class="display" style="padding: 10px">
+                    <hr>
+                    <div class="table-responsive mb-3">
+                        <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -145,7 +146,6 @@
                             <tbody>
                                 <tr>
                                   <th></th>
-                                  <td></td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
@@ -181,16 +181,17 @@
               </div>
 
               <div class="tab-pane" id="EPI_info">
-                <div class="consultation-list d-flex justify-content-end">
-                  <div class="title-and-button align-items-center" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">EPI</h4> 
+                <div class="consultation-list container bhms-box-shadow">
+                  <div class="title-and-button d-flex justify-content-between align-items-center">
+                    <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">EPI</h4> 
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addepiconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
                     @include('modals.EPI.Add')
                   </div>
-                    <div class="table-responsive">
-                        <table id="" class="display" style="padding: 10px;">
+                    <hr>
+                    <div class="table-responsive mb-3">
+                        <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px;">
                             <thead>
                                 <tr role="row">
                                   <th scope="col">Patient_ID</th>
@@ -240,16 +241,17 @@
               </div>
 
               <div class="tab-pane" id="NTP_info">
-                <div class="consultation-list d-flex justify-content-end">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">NTP</h4>
+                <div class="consultation-list container bhms-box-shadow">
+                  <div class="title-and-button d-flex justify-content-between align-items-center">
+                    <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">NTP</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addntpconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
                     @include('modals.NTP.Add')
                   </div>  
-                  <div class="table-responsive">
-                      <table id="" class="display" style="padding: 10px">
+                  <hr>
+                    <div class="table-responsive mb-3">
+                      <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
                           <thead>
                               <tr role="row">
                                 <th scope="col">Patient_ID</th>
@@ -301,16 +303,17 @@
               </div>
 
               <div class="tab-pane" id="Family-Planning_info">
-                <div class="consultation-list d-flex justify-content-end">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">Family Planning</h4> 
+                <div class="consultation-list container bhms-box-shadow">
+                  <div class="title-and-button d-flex justify-content-between align-items-center">
+                    <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Family Planning</h4> 
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addfpconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
                     @include('modals.familyplanning.Add')
                   </div> 
-                    <div class="table-responsive">
-                        <table id="" class="display" style="padding: 10px">
+                    <hr>
+                    <div class="table-responsive mb-3">
+                        <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                   <th scope="col">Patient_ID</th>
@@ -360,16 +363,17 @@
               </div>
 
               <div class="tab-pane" id="Diarrheal_info">
-                <div class="consultation-list d-flex justify-content-end">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">Diarrheal</h4>  
+                <div class="consultation-list container bhms-box-shadow">
+                  <div class="title-and-button d-flex justify-content-between align-items-center">
+                    <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Diarrheal</h4>  
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddiarrhealconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
                     @include('modals.diarrheal.Add')
                   </div> 
-                    <div class="table-responsive">
-                        <table id="" class="display" style="padding: 10px">
+                    <hr>
+                    <div class="table-responsive mb-3">
+                        <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Patient_ID</th>
@@ -417,16 +421,17 @@
               </div>
 
               <div class="tab-pane" id="Others_info">
-                <div class="consultation-list d-flex justify-content-end">
-                  <div class="title-and-button" style="margin: 10px">
-                    <h4 class="consulttable-title" style="text-align: center">Others</h4>  
+                <div class="consultation-list container bhms-box-shadow">
+                  <div class="title-and-button d-flex justify-content-between align-items-center">
+                    <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Others</h4>  
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addotherconsul">
                       <i class="fa fa-plus"></i>Create
                     </div>
                     @include('modals.othersconsul.Add')
                   </div>
-                    <div class="table-responsive">
-                        <table id="" class="display" style="padding: 10px">
+                    <hr>
+                    <div class="table-responsive mb-3">
+                        <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">ID</th>
@@ -474,3 +479,4 @@
       
 </div>
 @endsection
+

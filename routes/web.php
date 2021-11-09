@@ -10,6 +10,7 @@ use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\PregnantConsulController;
+use App\Http\Controllers\SearchAutoCompleteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,5 +55,8 @@ Route::group([ 'middleware' => ['auth']], function () {
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
+    
+    Route::get('search', [SearchAutoCompleteController::class, 'autosearch'])->name('search');
+
 });
 

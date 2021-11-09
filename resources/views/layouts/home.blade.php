@@ -13,7 +13,6 @@
     
     
     </div>
-        
     <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -24,7 +23,6 @@
     <script src="{{ asset('js/MVRprint.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/medrequestPrint.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/print.js') }}" charset="utf-8"></script>
-
 
     @yield('scripts')
 
@@ -57,43 +55,6 @@
     } );
 } );
 </script>
-
-
-
-{{-- <script type="text/javascript">
-        $(document).ready(function() {
-            $('#hc-search-input').keyup(function() {
-                var query = $(this).val();
-                console.log(query);                
-                if (query !='')
-                    {
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-                        $.ajax({
-                            url:"{{ route('Consul.fetch') }}",
-                            method:"POST",
-                            data:{
-                                query : query 
-                                // '_token': 'X-CSRF-TOKEN',
-                                // _token : _token
-                            },
-                                success:function(data)
-                                {
-                                    $('#residentlist').fadeIn();
-                                    $('#residentlist').html(data);
-                                }
-                            })
-                        }
-                    });
-                $(document).on('click', 'li', function(){
-                    $('#fname').val($(this).text());
-                    $('#residentlist').fadeOut();
-                });
-            });
-</script> --}}
 
 
 </body>

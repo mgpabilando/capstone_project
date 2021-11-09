@@ -17,12 +17,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/purok.css') }}">
 
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
-    <link rel="stylesheet" href="/FullCalendar/fullcalendar.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="{{asset ('/FullCalendar/fullcalendar.css') }}" >
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/chart_style.css') }}">
     {{-- <link href="{{ asset ('fullcalendar/lib/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset ('fullcalendar/lib/main.min.css') }}" rel="stylesheet" type="text/css"> --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>
-
+    
+    
 

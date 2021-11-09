@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('content')
-<div id="content">
+<div id="content" style="height: auto">
     @include('layouts.includes.topnavbar')
 
     <div class="row no-margin-padding">
@@ -10,7 +10,7 @@
     </div>
 
     <div class="head-resprof">
-        <div class="head-func d-flex justify-content-center">
+        <div class="head-func">
             @if (\Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ \Session::get('success') }}

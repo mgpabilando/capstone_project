@@ -55,22 +55,11 @@
  width: 45%;
  font-size: 12px;
  border-radius: 10px;
-
-}
-
-.modal .modal-title{
- color: #0000;
- font-weight: bold;
- position: absolute;
- margin: 10px;
- width: 90%;
- text-transform: uppercase;
 }
 
 .modal-body {
  margin: 0px 20px;
  position: relative;
-
 }
 
 .modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{

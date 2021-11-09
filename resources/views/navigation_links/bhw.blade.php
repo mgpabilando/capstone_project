@@ -123,8 +123,8 @@
         </div>
 
         <!--******************************-------------- ADD BHW MODAL ------------*************************************-->
-        <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
+        <div class="bhw-add modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
@@ -221,7 +221,7 @@
         <!--*************************-------------------- ADD MODAL ENDS HERE -------------------********************---------------->
 
         <!--**************************------------------- VIEW BHW MODAL -------------------****************************---------->
-        <div class="modal fade" id="viewbhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="viewbhw" aria-hidden="true">
+        <div class="bhw-view modal fade" id="viewbhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="viewbhw" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -295,7 +295,7 @@
         <!--**************************------------------- VIEW BHW MODAL ENDS HERE -------------------****************************---------->
 
         <!--**************************------------------- EDIT BHW MODAL -------------------****************************---------->
-        <div class="modal fade" id="editbhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="editbhw" aria-hidden="true">
+        <div class="bhw-edit modal fade" id="editbhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="editbhw" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -399,7 +399,7 @@
         <!--**************************------------------- EDIT MODAL ENDS HERE-------------------****************************---------->
 
         <!--**************************------------------- DELETE BHW MODAL -------------------****************************---------->
-        <div class="res-delete modal fade" id="deletebhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletebhw" aria-hidden="true">
+        <div class="bhw-delete modal fade" id="deletebhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletebhw" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
