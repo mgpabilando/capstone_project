@@ -61,8 +61,7 @@
                                             <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
                                             <td>
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn-action view"
-                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
+                                                <a data-bs-toggle="modal" type="button" class="btn-action view"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
                                                 data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"

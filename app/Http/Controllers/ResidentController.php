@@ -148,10 +148,10 @@ class ResidentController extends Controller
 
         Residents::findOrFail($request->resident_id)->update($residentprofile);
         return redirect()->route('residentprofile.index')->with('success', 'Updated Successfully.');
-        
-        
 
-       
+
+
+
     }
 
     /**

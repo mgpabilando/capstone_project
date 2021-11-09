@@ -11,6 +11,7 @@ use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\PregnantConsulController;
 use App\Http\Controllers\SearchAutoCompleteController;
+use App\Http\Controllers\MedRequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,13 +26,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::get('/login', [LoginUserController::class, 'index'])->name('userlogin');
-Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin'); 
+Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin');
 Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout');
 
 Route::resource('/register', RegisteredUsersController::class);
 
 Route::group([ 'middleware' => ['auth']], function () {
-    
+
     // route from dashboard //
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');
@@ -48,9 +49,11 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::post('/changepassword', [ChangePasswordController::class, 'changePassword'])->name('adminchangepassword');
 
     Route::resource('/residentprofile', ResidentController::class);
-    
+
     Route::resource('/healthconsultation', PregnantConsulController::class);
-    
+
+    Route::get('/healthconsultation', [ConsulController::class, 'index']);
+    Route::post('/healthconsultation/fetch', [ConsulController::class, 'fetch'])->name('Consul.fetch');
     Route::resource('/bhw', usersController::class);
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
@@ -58,5 +61,5 @@ Route::group([ 'middleware' => ['auth']], function () {
     
     Route::get('search', [SearchAutoCompleteController::class, 'autosearch'])->name('search');
 
+    Route::resource('/medicinerequest', MedRequestController::class);
 });
-

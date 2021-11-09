@@ -8,7 +8,7 @@
                 </li>
             </ul>
             <div class="account d-flex justify-content-end align-items-center">
-                <img class="img-profile" width="50px" height="50px" src="{{asset ('images/profile.jpeg') }}" alt="">
+                <img class="img-profile" width="40px" height="40px" src="{{ asset ('images/profile.jpeg')}} " alt="">
                 <a href=""><i class="fa fa-user-circle"></i><span class="usernav-link">User Profile</span></a>
                 <a href="/signout" onclick="event.preventDefault();
                 document.getElementById('logout-form').submi t();"><i class="fa fa-power-off"></i>
@@ -32,7 +32,7 @@
 </section> --}}
 
 <style>
-    .user-rounded-circle
+    .rounded-circle
     {
         width: 35px;
         height: 35px;
@@ -73,7 +73,7 @@
                     @auth <div style="font-size: 12px; color:#495057">Welcome! <br> <b style="font-size: 15px;  color:#2e2d2d">{{ Auth::user()->fname }}</b></div>@endauth
                     <a class="topnav me-2" href="myprofile" title="My Profile">
                         @if(Auth::User()->profile_image)
-                        <img class="user-rounded-circle" src="{{asset('/storage/images/'.Auth::user()->profile_image)}}" alt="profile_image">
+                        <img class="user rounded-circle" src="{{asset('/storage/images/'.Auth::user()->profile_image)}}" alt="profile_image">
                         @endif
                     </a>
 

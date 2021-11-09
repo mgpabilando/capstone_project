@@ -11,8 +11,19 @@
         </div>
     </div>
 
+    <div class="head-resprof">
+        <div class="head-func d-flex justify-content-center">
+            @if (\Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ \Session::get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        </div>
+    </div>
+
     <div class="col-md-12 d-flex  d-inline-flex justify-content-center content">
-      <div class="mt-2 table-responsive" style="border: 1px solid grey; width: 95%;">
+      <div class="mt-2 ms-0 me-0 table-responsive" style="border: 1px solid grey; width: 95%;">
 
         <div class="d-flex justify-content-between align-items-center">
           <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Medicine Request List</h4>
@@ -36,34 +47,41 @@
                           </tr>
                       </thead>
                       <tbody>
+
+                        @if($medicine_requests)
+                        @foreach($medicine_requests as $medrequest)
                           <tr>
-                              <th class="text-center"></th>
-                              <td class="text-center"></td>
-                              <td class="text-center"></td>
+
+                              <th class="text-center">{{$medrequest->id}}</th>
+                              <td class="text-center">{{$medrequest->medicine_name}}</td>
+                              <td class="text-center">{{$medrequest->med_quantity}}</td>
                               <td class="text-center">
                                   {{-----***************************** SHOW BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                  <i class="manage fas fa-eye"></i></a>
+                                  <a data-bs-toggle="modal" type="button" class="btn-action view">
+                                  <i class="fas fa-eye"></i></a>
                               </td>
                                     <!-- Modal For Show -->
                                     <div class="modal fade" id="viewnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                       <div class="modal-dialog">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel">MEDICINE REQUEST</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
                                           <div class="modal-body">
-                                            <form class="" action="index.html" method="post">
+                                            <form class="" action="" method="GET">
 
-                                              <div class="form-group">
-                                                <label for="">Medicine Name</label>
-                                                <input type="text" class="form-control" id="" placeholder="">
+                                              <div class="input-box">
+                                                  <div class="details">ID No.:</div>
+                                                  <input class="name align-text-left" name="lname" id="med_id" type="text" placeholder="" readonly>
                                               </div>
-
-                                              <div class="form-group">
-                                                <label for="">Quantity</label>
-                                                <input type="number" class="form-control" id="" placeholder="">
+                                              <div class="input-box">
+                                                  <div class="details">Medicine Name:</div>
+                                                  <input class="name align-text-left" name="lname" id="med_name" type="text" placeholder="" readonly>
+                                              </div>
+                                              <div class="input-box">
+                                                  <div class="details">Quantity:</div>
+                                                  <input class="name" name="fname" id="med_qnty" type="text" placeholder="" readonly>
                                               </div>
 
                                             </form>
@@ -117,7 +135,7 @@
                               </td>
                               <!-- Modal for Delete -->
                               <div class="modal fade" id="deletenewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
+                                <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
@@ -141,6 +159,8 @@
                                 </div>
                               </div>
                           </tr>
+                          @endforeach
+                          @endif
                       </tbody>
                   </table>
                 </center>
@@ -153,30 +173,32 @@
 
 <!-- Modal -->
 <div class="modal fade" id="addnewmedicine" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Add New Medicine</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="" action="index.html" method="post">
 
+        <form class="" action="{{route ('medicinerequest.store')}}" method="POST">
+          @csrf
           <div class="form-group">
             <label for="">Medicine Name</label>
-            <input type="text" class="form-control" id="" placeholder="">
+            <input type="text" name="medicine_name" class="form-control" id="" placeholder="">
           </div>
 
           <div class="form-group">
             <label for="">Quantity</label>
-            <input type="number" class="form-control" id="" placeholder="">
+            <input type="number" name="med_quantity" class="form-control" id="" placeholder="">
           </div>
 
-        </form>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
-        <button type="button" class="btn btn-primary">ADD</button>
+        <button type="submit"   class="btn btn-primary">ADD</button>
+        </form>
       </div>
     </div>
   </div>
@@ -195,9 +217,9 @@
           <h5 class="text-center">MEDICINE REQUEST FORM</h5>
               <br>
                 <div  class="request_form">
-                  <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
-                  <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date" name="" value=""></p>
-                  <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name="" value=""></p>
+                  <p class="mb-1 fw-bold req_name">Requested By: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" style="border-radius: 0px;" name="" value=""></p>
+                  <p class="mb-1 fw-bold req_name">Date Requested: <input type="date" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase req_date"  style="border-radius: 0px;" name="" value=""></p>
+                  <p class="lh-sm fw-bold req_name">Request No.: <input type="text" class="border-top-0 border-end-0 border-start-0 border-dark text-uppercase" name=""  style="border-radius: 0px;" value=""></p>
                   <p class="lh-sm fst-italic text-uppercase fw-bold req_name">Medicine Needed:</p>
 
                   <center>
@@ -270,3 +292,5 @@ function printElement(elem, append, delimiter) {
 
 </script>
 @endsection
+
+@section('scripts')

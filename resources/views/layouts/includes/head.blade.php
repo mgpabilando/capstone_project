@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/resident_profile.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bhw.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/manageaccounts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/health_consult.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/manageaccounts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/purok.css') }}">

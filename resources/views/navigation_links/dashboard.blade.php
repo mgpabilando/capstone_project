@@ -10,25 +10,82 @@
         </div>
     </div>
 
-    <div class="chart-container mt-3 ms-3 col-md-6">
-      <canvas id="myChart"></canvas>
+    <div class="row counter-row">
+        <div class="col-md-4">
+          <div class="d-flex justify-content-center">
+            <div class="counter d-flex align-items-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fas fa-user-nurse"></i>
+              </div>
+              <div class="total-data">
+                <p class="text-start m-0">Total BHW</p>
+                <p class="text-start total m-0">0</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+        <div class="col-md-4">
+            <div class="d-flex justify-content-center">
+          <div class="counter d-flex align-items-center">
+            <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fas fa-user-alt"></i>
+            </div>
+            <div class="total-data">
+              <p class="text-start m-0">Total Resident</p>
+              <p class="text-start total m-0">0</p>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="d-flex justify-content-center">
+          <div class="counter d-flex align-items-center">
+            <div class="icon d-flex align-items-center justify-content-center">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="total-data">
+              <p class="text-start m-0">Total Family Head</p>
+              <p class="text-start total m-0">0</p>
+            </div>
+          </div>
+        </div>
+        </div>
     </div>
 
-      <script>
+    <hr>
 
-      const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-      ];
+    <div class="row">
+
+      <div class="chart-container mt-3 col-md-6">
+        <canvas class="ms-4" id="myChart" height="200"></canvas>
+      </div>
+
+      <div class="col-md-6">
+          <div class="event-list">
+              <h3 class="mt-3 event-upcomming">Upcomming Event</h3>
+
+
+          </div>
+      </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+      <script>
+      const labels = ['Pregnant', 'Deliveries','EPI','NTP','Diarrheal','Other Services',];
       const data = {
         labels: labels,
         datasets: [{
           label: 'Health Consultation',
-          backgroundColor: '#01ab40',
+          backgroundColor: ['#08aeea', '#2ae88a' ],
           data: [39, 10, 5, 2, 20, 30, 45],
         }]
       };
@@ -46,6 +103,5 @@
       );
     </script>
 
-</div>
-@endsection
 
+@endsection
