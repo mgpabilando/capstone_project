@@ -113,7 +113,6 @@
                                       @csrf
                                       @method('PUT')
                                     <div class="modal-body">
-                                      <form class="" action="index.html" method="post">
 
                                         <div class="input-box">
                                             <div class="text-start details">Medicine Name</div>
@@ -124,14 +123,18 @@
                                             <input class="name align-text-left" name="med_quantity" id="med_quantity" type="text" placeholder="" readonly>
                                         </div>
 
-                                      </form>
+                                      
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                      <button type="button" class="btn btn-primary">Update</button>
+                                      <button type="submt" class="btn btn-primary">Update</button>
                                     </div>
+
+                                    </form>
                                   </div>
-                                </div>
-                              </div>
+                            
+                                  </div>
+
+                                </div> 
 
                               <td class="text-center">
                                   {{-----***************************** DELETE BUTTON *******************************------}}

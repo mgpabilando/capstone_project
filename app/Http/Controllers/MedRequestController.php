@@ -41,11 +41,27 @@ class MedRequestController extends Controller
 
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
+      $medrequest = Medicine_Request::find($id);
+        return view('navigation_links.medicinerequest')->with($medrequest, $id);
 
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
+      $request->validate([
+          'medicine_name' => 'required', 'string', 'max:255',
+          'med_quantity' => 'string', 'max:255',
+      ]);
+
+      $medrequest = array (
+          'medicine_name' => $request->medicine_name,
+          'med_quantity' => $request->med_quantity,
+      );
+
+      Medicine_Request::findOrFail($request->id)->update($medrequest);
+        return redirect()->route('medicinerequest.index')->with('success', 'Updated Successfully.');
 
     }
 
