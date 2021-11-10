@@ -48,18 +48,17 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/profile', [ChangePasswordController::class, 'profile'])->name('yourprofile');
     Route::post('/changepassword', [ChangePasswordController::class, 'changePassword'])->name('adminchangepassword');
 
+    Route::resource('/bhw', usersController::class);
+
     Route::resource('/residentprofile', ResidentController::class);
 
     Route::resource('/healthconsultation', PregnantConsulController::class);
-
-    Route::get('/healthconsultation', [ConsulController::class, 'index']);
-    Route::post('/healthconsultation/fetch', [ConsulController::class, 'fetch'])->name('Consul.fetch');
-    Route::resource('/bhw', usersController::class);
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
     
     Route::get('search', [SearchAutoCompleteController::class, 'autosearch'])->name('search');
+    Route::get('/getResidents/{id}', [SearchAutoCompleteController::class, 'getResidents'])->name('fetchData');
 
     Route::resource('/medicinerequest', MedRequestController::class);
 });

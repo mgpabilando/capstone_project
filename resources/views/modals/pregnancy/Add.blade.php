@@ -1,3 +1,10 @@
+<style>
+    li:hover
+    {
+        background-color: #e8f0fe;
+    }
+</style>
+
 <div class="consul-add modal fade" id="addpregconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content">
@@ -5,18 +12,15 @@
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="add-consult" action="{{route('healthconsultation.store')}}" method="POST">
+            <form id="searchResident" class="add-consult" action="{{route('healthconsultation.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-search d-flex justify-content-center">
-                        <form name="autocomplete-textbox" id="autocomplete-textbox" method="post" action="#">
-                            @csrf
                             <div class="form-group">
                                 <label for="name">Product Name</label>
                                 <input type="text" name="name" id="name" class="form-control" autocomplete="off">
                                 <div id="product_list"></div>
                             </div>
-                           </form>
                     </div>
                     <hr>
                     <div class="res_prof row">
@@ -62,7 +66,7 @@
             $.ajax({
                 url:'{{ route('search') }}',
                 type:'GET',
-                data:{'fname':query},
+                data:{'id':query},
                 success:function (data) {
                     $('#product_list').html(data);
                 }
@@ -71,9 +75,11 @@
         $(document).on('click', 'li', function(){
               
                 var value = $(this).text();
-                $('#name').val(value);
+                $('#resname').val(value);
                 $('#product_list').html("");
+
         });
     });
+
 </script> 
 @endsection

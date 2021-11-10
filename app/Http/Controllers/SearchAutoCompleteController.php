@@ -9,7 +9,7 @@ class SearchAutoCompleteController extends Controller
 {
     public function index()
     {
-        return view('modals.pregnancy.Add');
+            
 
 
     }
@@ -28,15 +28,16 @@ class SearchAutoCompleteController extends Controller
             if (count($data)>0) {
                 $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
                 foreach ($data as $row) {
-                    $output .= '<li class="list-group-item">'.$row->id.'</li>';
+                    $output .= '<li class="list-group-item">'.$row->fname." ".$row->lname.'</li>';
                 }
                 $output .= '</ul>';
+                
             }else {
                 $output .= '<li class="list-group-item">'.'No Data Found'.'</li>';
             }
             return $output;
         }
-        return view('autosearch');  
+        return view('modals.pregnancy.Add')->with($data);  
     }
     
 }
