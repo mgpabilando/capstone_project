@@ -29,6 +29,7 @@ class SearchAutoCompleteController extends Controller
                 $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
                 foreach ($data as $row) {
                     $output .= '<li class="list-group-item">'.$row->fname." ".$row->lname.'</li>';
+
                 }
                 $output .= '</ul>';
                 
@@ -37,7 +38,38 @@ class SearchAutoCompleteController extends Controller
             }
             return $output;
         }
-        return view('modals.pregnancy.Add')->with($data);  
+
+        $residents = Residents::all();
+
+        if (isset($residents))
+        {
+            $data = Residents::where('id','LIKE',$request->id.'%')->get();
+            $output = '';
+            $output = '<div class="res_prof row" id="details">
+            <div class="input-box col pb-3">
+                <div class="details">Name:</div>
+                <input type="text" name="resname" id="resname" placeholder="" required>
+            </div>                           
+            <div class="input-box col pb-3">
+                <div class="details">Resident ID:</div>
+                <input type="text" name="resID" id="resID" placeholder="" required>
+            </div>
+            <hr>';
+
+        foreach ($data as $row) {
+            $output .=
+            '<input type="text" name="resname" id="resname" placeholder="" required>'.$row->fname." ".$row->lname;
+            '<input type="text" name="resID" id="resID" placeholder="" required>'.$row->id;
+        }
+            $output .= '</div>';  
+            
+
+        }
+
+        
+
+       
+          
     }
     
 }

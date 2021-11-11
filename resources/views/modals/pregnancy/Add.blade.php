@@ -23,7 +23,7 @@
                             </div>
                     </div>
                     <hr>
-                    <div class="res_prof row">
+                    <div class="res_prof row" id="details">
                         <div class="input-box col pb-3">
                             <div class="details">Name:</div>
                             <input type="text" name="resname" id="resname" placeholder="" required>
@@ -69,14 +69,25 @@
                 data:{'id':query},
                 success:function (data) {
                     $('#product_list').html(data);
+
                 }
             })
         });
         $(document).on('click', 'li', function(){
               
-                var value = $(this).text();
-                $('#resname').val(value);
-                $('#product_list').html("");
+                // var value = $(data).text();
+                // $('#resname').val(value);
+                // $('#product_list').html("");
+                $.ajax({
+                url:'{{ route('search') }}',
+                type:'POST',
+                data:{'id':id},
+                success:function (data) {
+                    $('#details').html(data);
+
+                }
+            })
+
 
         });
     });
