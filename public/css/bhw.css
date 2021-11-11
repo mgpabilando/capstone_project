@@ -74,6 +74,7 @@
  box-sizing: border-box;
  font-size: 12px;
  border-radius: 25px;
+ text-transform: capitalize;
 
 }
 
