@@ -90,7 +90,7 @@
 
         {{-- -----------------------------------ADD MODAL---------------------------------- --}}
         <div class="modal fade" id="addevent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: seagreen; color:white">
                 <h5 class="modal-title" id="staticBackdropLabel">ADD EVENT</h5>
@@ -216,6 +216,7 @@
     });
     
         var calendar = $('#calendar').fullCalendar({
+            height: 480,
             editable:true,
             header:{
                 left:'prev,next today',

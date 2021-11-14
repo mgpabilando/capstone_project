@@ -63,9 +63,7 @@
         </div>
 
         <div class="col-md-6">
-            <div class="event-list">
-                <h3 class="mt-3 event-upcomming">Upcom  ing Event</h3>
-            </div>
+            zz
         </div>
       </div>
     </div>
