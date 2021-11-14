@@ -112,15 +112,20 @@
   });
   
       var calendar = $('.calendar2').fullCalendar({
-          defaultView: 'list',
+          defaultView: 'listWeek',
           events:'/events',
             header: true,
             views: {
-                list: {
-                    duration: { days: 90 },
-                    listDayAltFormat: 'dddd',
-                }
-            },
+              listDay: { buttonText: 'list day' },
+              listWeek: { buttonText: 'list week' },
+              listMonth: { buttonText: 'list month' }
+          },
+
+          header: {
+            left: 'title',
+            center: '',
+            right: 'listDay,listWeek,listMonth'
+          },
       });
   
   });
