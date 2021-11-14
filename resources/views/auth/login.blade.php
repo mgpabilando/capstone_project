@@ -120,22 +120,17 @@
                                     @enderror
                             </div>
 
-                            {{-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <div class="input-group">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div> --}}
-                            
-                                
-                            
-                                <div class="log-forpass d-flex justify-content-end pe-5">
-                                    <a class="forgotpass" {{-- href="{{ route('password.request') }}"--}}> 
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                </div> 
-                                            
+                                    <label class="form-check-label" for="remember" style="margin-right:auto;">
+                                        {{ __('Remember Me') }}
+                                    </label>
+
+                                    <label  class="form-check-label" for="reset">
+                                        <a href="{{ route('forget.password.get') }}">Reset Password</a>
+                                    </label>
+                            </div>
 
                             <button type="submit" class="btn">
                                 LOGIN

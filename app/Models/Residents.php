@@ -29,4 +29,7 @@ class Residents extends Model
     {
         return $this->hasMany(pregnants::class);
     }
+
+
+
 }

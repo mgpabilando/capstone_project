@@ -17,8 +17,8 @@ class PregnantConsulController extends Controller
      */
     public function index()
     {
-        $consultationrecord = pregnants::join('residents', 'residents.id', '=', 'pregnants.id')
-                                        ->first(['pregnants.id', 'residents.id', 'residents.fname', 'residents.mname', 'residents.lname', 'residents.age']);
+        $consultationrecord = pregnants::join('residents', 'pregnants.id', '=', 'residents.id')
+        ->get(['pregnants.*', 'residents.fname', 'residents.mname', 'residents.lname']);
         
         return view('navigation_links.healthconsultation')->with('consultationrecord',$consultationrecord);
 
@@ -43,17 +43,19 @@ class PregnantConsulController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'resname' => 'required', 'string', 'max:255',
             'resID' => 'required',
-            'lmp' => 'required',
+            'weight' => 'required',
+            'height' => 'required',
             'age'=> 'required',
+            'lmp' => 'required',
             'pregnancyorder' => 'required',
         ]);
 
         $pregnants = pregnants::create([
             'resident_id' => $request['resID'],
-            'res_name' => $request['resname'],
-            'res_age' => $request['age'],
+            'age' => $request['age'],
+            'height_cm'	=> $request['height'],
+            'weight_kg' => $request['weight'],
             'lmp' => $request['lmp'],
             'pregnancyorder' => $request['pregnancyorder'],
         ]);

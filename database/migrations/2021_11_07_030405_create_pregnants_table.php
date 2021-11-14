@@ -16,6 +16,7 @@ class CreatePregnantsTable extends Migration
         Schema::create('pregnants', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('resident_id');
+            $table->integer('age');
             $table->float('height_cm');
             $table->float('weight_kg');
             $table->string('lmp');

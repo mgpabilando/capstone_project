@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use User;
+use App\Models\User;
+use App\Models\Residents;
+use DB;
 
 class DashboardController extends Controller
 {
      public function index()
      {
           if(Auth::user()->hasRole('admin_nurse')){
-               return view('navigation_links/dashboard');
+               $bhw = User::whereRoleIs('bhw')->count();
+               $resident = DB::table('residents')->count();
+               return view('navigation_links/dashboard', compact('bhw', 'resident'));
           }elseif(Auth::user()->hasRole('bhw')){
                return view('navigation_links/bhwdashboard');
           }

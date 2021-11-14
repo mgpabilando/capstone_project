@@ -430,6 +430,11 @@
 @endsection
 
 @section('scripts')
+<script>
+    $('.modal').on('hidden.bs.modal', function () {
+        $('.modal form')[0].reset();
+        });
+</script>
 
     {{-----------------------------EDIT RESIDENT SCRIPT--------------------------------}}
  <script>

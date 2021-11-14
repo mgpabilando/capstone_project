@@ -8,18 +8,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>BHMS</title>
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     {{-- <script language="JavaScript" type="text/javascript" src="{{ asset ('js/app.js') }}" defer></script>  --}}
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/font-awesome/css/all.css">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="css/LoginandRegister.css">
+    <link rel="stylesheet" type="text/css" href="{{asset ('bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset ('css/LoginandRegister.css') }}">
     <link rel="icon" href="images/macawayan logo.png">
     
     <style>
@@ -34,7 +31,6 @@
     
 
  <!-- Scripts -->
- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  <script language="JavaScript" type="text/javascript" src="{{ asset ('/js/bootstrap.js') }}"></script>
 
  @yield('scripts')

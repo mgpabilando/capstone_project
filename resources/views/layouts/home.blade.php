@@ -13,16 +13,11 @@
     
     
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-    <script src="{{ asset('js/MARprint.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('js/MVRprint.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('js/medrequestPrint.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('js/print.js') }}" charset="utf-8"></script>
 
     @yield('scripts')
 

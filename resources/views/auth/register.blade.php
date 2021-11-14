@@ -205,6 +205,12 @@
 </div>
 @section ('scripts')
     <script>
+        $('#registerModal').on('hidden.bs.modal', function () {
+            $('#registerModal form')[0].reset();
+            });
+    </script>
+    
+    <script>
     function CheckPasswordMatch() {
         var password = $("#password").val();
         var confirmPassword = $("#password_confirmation").val();

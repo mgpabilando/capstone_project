@@ -3,6 +3,24 @@
     {
         background-color: #e8f0fe;
     }
+
+    .select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    user-select: none;
+    -webkit-user-select: none;
+    width:300px;
+    }
+
+    .select2-dropdown--below {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 13px;
+}
+}
 </style>
 
 <div class="consul-add modal fade" id="addpregconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -16,23 +34,28 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-search d-flex justify-content-center">
-                            <div class="form-group">
-                                <label for="name">Product Name</label>
-                                <input type="text" name="name" id="name" class="form-control" autocomplete="off">
-                                <div id="product_list"></div>
-                            </div>
+                        <select class="js-example-basic-single" id="selectresident" name="residents">
+                        <option value="0">--Select Resident--</option>
+                        </select>
                     </div>
                     <hr>
-                    <div class="res_prof row" id="details">
-                        <div class="input-box col pb-3">
-                            <div class="details">Name:</div>
-                            <input type="text" name="resname" id="resname" placeholder="" required>
-                        </div>                           
-                        <div class="input-box col pb-3">
+                    <div class="res_prof row justify-content-center" id="details">  
+                        <div class="input-box col-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
-                            <input type="text" name="resID" id="resID" placeholder="" required>
+                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
                         </div>
                         <hr>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-box col pb-3">
+                            <div class="details">Weight(kg):</div>
+                            <input type="text" name="weight" id="weight" placeholder="">
+                        </div>
+                        <div class="input-box col pb-3">
+                            <div class="details">Height(cm):</div>
+                            <input type="text" name="height" id="height" placeholder="">
+                        </div>
                     </div>
 
                     <div class="row pregnancy-info">
@@ -59,38 +82,49 @@
     </div>
 </div>
 @section('scripts')
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#name').on('keyup',function () {
-            var query = $(this).val();
-            $.ajax({
-                url:'{{ route('search') }}',
-                type:'GET',
-                data:{'id':query},
-                success:function (data) {
-                    $('#product_list').html(data);
-
-                }
-            })
+<script>
+    $('#addpregconsul').on('hidden.bs.modal', function () {
+        $('#addpregconsul form')[0].reset();
         });
-        $(document).on('click', 'li', function(){
-              
-                // var value = $(data).text();
-                // $('#resname').val(value);
-                // $('#product_list').html("");
-                $.ajax({
-                url:'{{ route('search') }}',
-                type:'POST',
-                data:{'id':id},
-                success:function (data) {
-                    $('#details').html(data);
+</script>
 
-                }
-            })
+   <!-- Script -->
+   <script type="text/javascript">
+   // CSRF Token
+   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+   $(document).ready(function(){
 
-        });
-    });
+     $( "#selectresident" ).select2({
+         dropdownParent: $('#addpregconsul'),
+        ajax: { 
+          url: "getResidents",
+          type: "post",
+          dataType: 'json',
+          delay: 250,
+          data: function (params) {
+            return {
+               _token: CSRF_TOKEN,
+               search: params.term // search term
+            };
+          },
+          processResults: function (response) {
+            return {
+                 results: response
+            };
+          },
+          cache: true
+        }
+     });
 
+     $("#selectresident").change(
+       function () {
+           $("#resID").val($(this).val());
+           
+       }
+   );
+   });
+   </script>
 </script> 
+   </script>
 @endsection

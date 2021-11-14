@@ -53,7 +53,7 @@
                 <div class="consultation-list container bhms-box-shadow">
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Pregnancy</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
+                    <div type="button"  class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
                       <i class="fa fa-plus"></i>Add
                     </div>
                     @include('modals.pregnancy.Add')
@@ -66,6 +66,8 @@
                                   <th scope="col">Patient_ID</th>
                                   <th scope="col">Resident_ID</th>
                                   <th scope="col">Name</th>
+                                  <th scope="col">Height(cm)</th>
+                                  <th scope="col">Weight(kg)</th>
                                   <th scope="col">Age</th>
                                   <th scope="col">Pregnancy Order</th>
                                   <th scope="col">Last Menstrual Period</th>
@@ -82,29 +84,31 @@
                                 <th>{{ $pregpatient->id }}</th>
                                 <td>{{ $pregpatient->resident_id }}</td>
                                 <td>{{ $pregpatient->fname }} {{ $pregpatient->mname }} {{ $pregpatient->lname }}</td>
+                                <td>{{ $pregpatient->height_cm }}</td>
+                                <td>{{ $pregpatient->weight_kg }}</td>
                                 <td>{{ $pregpatient->age }}</td>
                                 <td>{{ $pregpatient->pregnancyorder }}</td>
-                                <td>{{ $pregpatient->lmp }}</td>
+                                <td>{{ date('F d, Y',strtotime($pregpatient['lmp'])) }}</td>
                                 <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
                                   <td>
                                       {{-----***************************** SHOW BUTTON *******************************------}}
                                       <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpregconsul">
                                       <i class="manage fas fa-eye"></i></a>
-                                      {{-- @include('modals.pregnancy.Show') --}}
+                                      @include('modals.pregnancy.Show')
                                   </td>
                                   <td>
                                       {{-----***************************** EDIT BUTTON *******************************------}}
                                       <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editpregconsul">
                                       <i class="manage fas fa-edit"></i>
                                       </a>
-                                      {{-- @include('modals.pregnancy.Edit') --}}
+                                      @include('modals.pregnancy.Edit')
                                   </td>
                                   <td>
                                       {{-----***************************** DELETE BUTTON *******************************------}}
                                       <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletepregconsul">
                                       <i class="manage fas fa-trash"></i>
                                       </a>
-                                      {{-- @include('modals.pregnancy.Delete') --}}
+                                      @include('modals.pregnancy.Delete')
                                   </td>
                               </tr>
                               @endforeach
@@ -477,4 +481,5 @@
         </div> <!-- /row d-flex justify-content-center -->
     </div> <!--container-fluid -->
 @endsection
+
 

@@ -76,7 +76,7 @@
             <div class="col-9 d-flex">
                 <div class="panel panel-default" style="box-shadow: 0 0 10px gray; padding:10px">
                     <div class="panel-body justify-content-center">
-                        <div id='calendar'></div>
+                        <div id='calendar' class="calendar"></div>
                     </div>
                 </div>
                 {{-- <br>
@@ -220,7 +220,7 @@
             header:{
                 left:'prev,next today',
                 center:'title',
-                right:'month,agendaWeek,agendaDay',
+                right:'month,agendaWeek,agendaDay,listWeek',
             },
             events:'/events',
             selectable:true,

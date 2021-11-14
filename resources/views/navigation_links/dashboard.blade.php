@@ -20,7 +20,7 @@
                 </div>
                 <div class="total-data">
                   <p class="text-start m-0">Total BHW</p>
-                  <p class="text-start total m-0">0</p>
+                  <p class="text-start total m-0">{{ $bhw }}</p>
                 </div>
               </div>
             </div>
@@ -34,7 +34,7 @@
               </div>
               <div class="total-data">
                 <p class="text-start m-0">Total Resident</p>
-                <p class="text-start total m-0">0</p>
+                <p class="text-start total m-0">{{ $resident }}</p>
               </div>
             </div>
           </div>
@@ -61,18 +61,16 @@
         <div class="chart-container mt-3 col-md-6">
           <canvas class="ms-4" id="myChart" height="200"></canvas>
         </div>
-
-        <div class="col-md-6">
-            <div class="event-list">
-                <h3 class="mt-3 event-upcomming">Upcom  ing Event</h3>
-            </div>
-        </div>
       </div>
+
+      <div class="col-md-6">
+        <div class="event-list">
+          <div class="panel-body justify-content-center">
+            <div class="calendar2"></div>
+          </div>
+        </div>
+     </div>
     </div>
-
-
-
-
 </div>
 
 
@@ -102,4 +100,31 @@
     </script>
 
 
+@endsection
+
+@section('scripts')
+<script>
+  $(document).ready(function () {
+      $.ajaxSetup({
+      headers:{
+          'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+  
+      var calendar = $('.calendar2').fullCalendar({
+          defaultView: 'list',
+          events:'/events',
+            header: true,
+            views: {
+                list: {
+                    duration: { days: 90 },
+                    listDayAltFormat: 'dddd',
+                }
+            },
+      });
+  
+  });
+  
+    
+</script>
 @endsection

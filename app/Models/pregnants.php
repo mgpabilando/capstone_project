@@ -10,7 +10,7 @@ class pregnants extends Model
     use HasFactory;
 
     protected $fillable = [
-        'res_name', 'resident_id', 'res_age', 'lmp', 'pregnancyorder',
+        'resident_id', 'height_cm', 'weight_kg', 'age', 'lmp', 'pregnancyorder',
     ];
 
     public function residents()

@@ -12,6 +12,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\PregnantConsulController;
 use App\Http\Controllers\SearchAutoCompleteController;
 use App\Http\Controllers\MedRequestController;
+use App\Http\Controllers\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,11 @@ Route::get('/', function () {
 Route::get('/login', [LoginUserController::class, 'index'])->name('userlogin');
 Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customlogin');
 Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout');
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::resource('/register', RegisteredUsersController::class);
 
@@ -57,8 +63,7 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
     
-    Route::get('search', [SearchAutoCompleteController::class, 'autosearch'])->name('search');
-    Route::get('/getResidents/{id}', [SearchAutoCompleteController::class, 'getResidents'])->name('fetchData');
+    Route::post('/getResidents', [SearchAutoCompleteController::class, 'getResidents'])->name('getResidents');
 
     Route::resource('/medicinerequest', MedRequestController::class);
 });

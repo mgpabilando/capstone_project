@@ -17,7 +17,6 @@ body{
   /* background-image: url(images/bmhms-background.jpg); */
   background: #3CB371;
   background-size: cover;
-  
 }
 
 .Login_Section{
@@ -172,6 +171,12 @@ body{
 
 .form-login a.form-signup:hover{
   color:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;;
+}
+
+.form-check-input,
+.form-check-label
+{
+  font-size: 13px;
 }
 
 @media (max-width: 768px){
