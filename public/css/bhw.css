@@ -65,7 +65,7 @@
  position: relative;
 }
 
-.modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
+.modal input[type=text]{
  width: 100%;
  padding: 5px 20px;
  margin: 5px 0;
@@ -78,9 +78,33 @@
 
 }
 
+input[type=date]{
+width: 100%;
+ padding: 5px 20px;
+ margin: 5px 0;
+ display: inline-block;
+ border: 1px solid #ccc;
+ box-sizing: border-box;
+ font-size: 12px;
+ border-radius: 25px;
+text-transform: uppercase;
+}
+
+.modal input[type=password], .modal input[type=email]{
+width: 100%;
+ padding: 5px 20px;
+ margin: 5px 0;
+ display: inline-block;
+ border: 1px solid #ccc;
+ box-sizing: border-box;
+ font-size: 12px;
+ border-radius: 25px;
+}
+
 .modal input[readonly]{
     background-color: #e8f0fe;
    }
+
 
 .modal-content .modal-body select{
  width: 100%;
