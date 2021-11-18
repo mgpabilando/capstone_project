@@ -24,14 +24,19 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/health_consult.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/manageaccounts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/purok.css') }}">
+
+    <link href="{{asset ('/js/FullcalendarV5/lib/main.css') }}" rel='stylesheet' />
+    
+
+    <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
     <link rel="stylesheet" href="{{asset ('/FullCalendar/fullcalendar.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/chart_style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('select2\dist\css\select2.css')}}"/>
     <!---------------------------          SCRIPTS           ---------------------------->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>
-    <script src="{{ asset('js/MARprint.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('js/MVRprint.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('js/medrequestPrint.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('js/print.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('select2\dist\js\select2.js')}}" ></script>    
+    <script src="/js/FullcalendarV5/lib/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js">

@@ -52,7 +52,7 @@
           <p class="text-muted text-center">BHW</p>
           @endif
           <input type="file" class="text-center center-block file-upload" name="admin_image" id="admin_image" style="opacity: 0;height:1px;display:none">
-          <a href="javascript:void(0)" class="btn btn-block btn-changepic" id="change_picture_btn">Change picture</a>
+          <a href="javascript:void(0)" class="btn btn-block btn-changepic" id="change_picture_btn">Change Avatar</a>
         </div> 
       </div>
 

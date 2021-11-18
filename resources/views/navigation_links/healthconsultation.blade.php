@@ -124,7 +124,7 @@
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Deliveries</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddeliveriesconsul">
-                      <i class="fa fa-plus"></i>Add
+                      <i class="fas fa-file-medical"></i> ADD
                     </div>
                     @include('modals.deliveries.Add')
                   </div>
@@ -188,7 +188,7 @@
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">EPI</h4> 
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addepiconsul">
-                      <i class="fa fa-plus"></i>Create
+                      <i class="fas fa-file-medical"></i> ADD
                     </div>
                     @include('modals.EPI.Add')
                   </div>
@@ -248,7 +248,7 @@
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">NTP</h4>
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addntpconsul">
-                      <i class="fa fa-plus"></i>Add
+                      <i class="fas fa-file-medical"></i> ADD
                     </div>
                   </div> 
                   <hr>
@@ -309,7 +309,7 @@
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Family Planning</h4> 
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addfpconsul">
-                      <i class="fa fa-plus"></i>Create
+                      <i class="fas fa-file-medical"></i> ADD
                     </div>
                     @include('modals.familyplanning.Add')
                   </div> 
@@ -369,7 +369,7 @@
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Diarrheal</h4>  
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddiarrhealconsul">
-                      <i class="fa fa-plus"></i>Create
+                      <i class="fas fa-file-medical"></i> ADD
                     </div>
                     @include('modals.diarrheal.Add')
                   </div> 
@@ -427,7 +427,7 @@
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Others</h4>  
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addotherconsul">
-                      <i class="fa fa-plus"></i>Create
+                      <i class="fas fa-file-medical"></i> ADD
                     </div>
                     @include('modals.othersconsul.Add')
                   </div>

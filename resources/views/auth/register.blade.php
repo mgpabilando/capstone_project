@@ -29,7 +29,7 @@
 }
 
 /* Full-width input fields */
-.modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
+.modal input[type=text] {
   width: 100%;
   padding: 5px 20px;
   margin: 5px 0;
@@ -37,10 +37,33 @@
   border: 1px solid #ccc;
   box-sizing: border-box;
   font-size: 12px;
-  border-radius: 25px;
-
+  border-radius: 10px;
+  text-transform: capitalize;
 }
 
+ .modal input[type=password], .modal input[type=email]{
+  width: 100%;
+  padding: 5px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 10px;
+  text-transform: lowercase;
+ }
+
+ .modal input[type=date]{
+  width: 100%;
+  padding: 5px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 10px;
+  text-transform: uppercase;
+ }
 
 /* Set a style for all buttons */
 .modal .modal-content .btn {
@@ -56,7 +79,7 @@
 
 .modal-content .modal-body select{
   width: 100%;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 5px 20px;
   margin: 0px 0;
   display: inline-block;

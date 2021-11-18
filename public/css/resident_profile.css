@@ -249,3 +249,7 @@ select {
 .btn-warning {
   color: white;
 }
+
+td{
+  text-transform: capitalize;
+}
