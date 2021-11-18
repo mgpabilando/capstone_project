@@ -57,19 +57,20 @@
 
       <hr>
 
-      <div class="row">
+      <div class="row d-flex">
         <div class="chart-container mt-3 col-md-6">
           <canvas class="ms-4" id="myChart" height="200"></canvas>
         </div>
+    
+        <div class="col-md-6">
+          <div class="event-list">
+            <div class="panel-body mt-3 justify-content-center" style="border:1px solid;">
+              <div class="calendar2"></div>
+            </div>
+          </div>
+       </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="event-list">
-          <div class="panel-body justify-content-center">
-            <div class="calendar2"></div>
-          </div>
-        </div>
-     </div>
     </div>
 </div>
 
@@ -103,6 +104,8 @@
 @endsection
 
 @section('scripts')
+
+
 <script>
   $(document).ready(function () {
       $.ajaxSetup({
@@ -112,13 +115,14 @@
   });
   
       var calendar = $('.calendar2').fullCalendar({
+          height: 320,
           defaultView: 'listWeek',
           events:'/events',
             header: true,
             views: {
-              listDay: { buttonText: 'list day' },
-              listWeek: { buttonText: 'list week' },
-              listMonth: { buttonText: 'list month' }
+              listDay: { buttonText: 'DAY' },
+              listWeek: { buttonText: 'WEEK' },
+              listMonth: { buttonText: 'MONTH' }
           },
 
           header: {
