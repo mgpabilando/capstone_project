@@ -56,21 +56,21 @@
       </div>
 
       <hr>
-
-      <div class="row">
+<div class="row d-flex">
         <div class="chart-container mt-3 col-md-6">
           <canvas class="ms-4" id="myChart" height="200"></canvas>
         </div>
-
+    
         <div class="col-md-6">
-            
-        </div>
+          <div class="event-list">
+            <div class="panel-body mt-3 justify-content-center" style="border:1px solid;">
+              <div class="calendar2"></div>
+            </div>
+          </div>
+       </div>
       </div>
+
     </div>
-
-
-
-
 </div>
 
 
@@ -100,4 +100,39 @@
     </script>
 
 
+@endsection
+
+@section('scripts')
+
+
+<script>
+  $(document).ready(function () {
+      $.ajaxSetup({
+      headers:{
+          'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+  
+      var calendar = $('.calendar2').fullCalendar({
+          height: 320,
+          defaultView: 'listWeek',
+          events:'/events',
+            header: true,
+            views: {
+              listDay: { buttonText: 'DAY' },
+              listWeek: { buttonText: 'WEEK' },
+              listMonth: { buttonText: 'MONTH' }
+          },
+
+          header: {
+            left: 'title',
+            center: '',
+            right: 'listDay,listWeek,listMonth'
+          },
+      });
+  
+  });
+  
+    
+</script>
 @endsection
