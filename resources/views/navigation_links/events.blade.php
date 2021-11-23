@@ -217,6 +217,7 @@
     
         var calendar = $('#calendar').fullCalendar({
             height: 480,
+            defaultView: 'dayGridMonth',
             editable:true,
             header:{
                 left:'prev,next today',
@@ -227,6 +228,7 @@
             selectable:true,
             selectHelper: true,
             select:function(start, end, allDay)
+            display: bakc
             {
                 var title = prompt('Event Title:');
                 // $('#addevent').modal('show'); 

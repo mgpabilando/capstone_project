@@ -20,7 +20,7 @@
                 </div>
                 <div class="total-data">
                   <p class="text-start m-0">Total BHW</p>
-                  <p class="text-start total m-0">0</p>
+                  <p class="text-start total m-0">{{ $bhw }}</p>
                 </div>
               </div>
             </div>
@@ -34,7 +34,7 @@
               </div>
               <div class="total-data">
                 <p class="text-start m-0">Total Resident</p>
-                <p class="text-start total m-0">0</p>
+                <p class="text-start total m-0">{{ $resident }}</p>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@
         datasets: [{
           label: 'Health Consultation',
           backgroundColor: ['#08aeea', '#2ae88a' ],
-          data: [39, 10, 5, 2, 20, 30, 45],
+          data: [{{ $pregnant }}, {{ $deliveries }}, {{ $epi }}, {{ $ntp }}, {{ $diarrheal }}, {{ $other_services }}],
         }]
       };
 

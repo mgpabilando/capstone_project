@@ -83,7 +83,7 @@
         datasets: [{
           label: 'Health Consultation',
           backgroundColor: ['#08aeea', '#2ae88a' ],
-          data: [39, 10, 5, 2, 20, 30, 45],
+          data: [{{ $pregnant }}, {{ $deliveries }}, {{ $epi }}, {{ $ntp }}, {{ $diarrheal }}, {{ $other_services }}],
         }]
       };
 
