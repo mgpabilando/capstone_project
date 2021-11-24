@@ -9,7 +9,7 @@
     </div>
 
     <div class="head-alert">
-        <div class="head-func d-flex align-items-center justify-content-end">
+        <div class="head-func d-flex align-items-center justify-content-center">
             @if (\Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ \Session::get('success') }}
@@ -78,8 +78,8 @@
                               </tr>
                           </thead>
                           <tbody>
-                            @if ($consultationrecord)
-                              @foreach ($consultationrecord as $pregpatient)
+                            @if ($pregconsultationrecord)
+                              @foreach ($pregconsultationrecord as $pregpatient)
                               <tr>
                                 <th>{{ $pregpatient->id }}</th>
                                 <td>{{ $pregpatient->resident_id }}</td>
@@ -92,7 +92,10 @@
                                 <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
                                   <td>
                                       {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpregconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view"
+                                      data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-height_cm = "{{ $pregpatient->height_cm }}"
+                                        data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
+                                        data-lmp = "{{ $pregpatient->lmp }}"  data-bs-target="#viewpregconsul">
                                       <i class="manage fas fa-eye"></i></a>
                                       @include('modals.pregnancy.Show')
                                   </td>
@@ -483,3 +486,31 @@
 @endsection
 
 
+@section('scripts')
+       {{-----------------------------VIEW PREGNANCY RECORD SCRIPT--------------------------------}}
+<script>
+    $('#viewpregconsul').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var pregnant_id = button.data('pregnant_id')
+        var resident_id = button.data('resident_id')
+        // var fname = button.data('fname')
+        // var lname = button.data('lname')
+        // var mname = button.data('mname')
+        var height = button.data('height_cm')
+        var weight = button.data('weight_kg')
+        var age = button.data('age')
+        var lmp = button.data('lmp')
+        var pregnancyorder = button.data('pregnancyorder')
+    
+        var modal = $(this)
+        modal.find('.modal-body #pregnant_id').val(pregnant_id);
+        modal.find('.modal-body #resident_id').val(resident_id);
+        modal.find('.modal-body #height').val(height_cm);
+        modal.find('.modal-body #weight').val(weight_kg);
+        modal.find('.modal-body #age').val(age);
+        modal.find('.modal-body #lmp').val(lmp);
+        modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
+        })
+ 
+ </script>
+@endsection

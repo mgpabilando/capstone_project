@@ -17,10 +17,9 @@ class PregnantConsulController extends Controller
      */
     public function index()
     {
-        $consultationrecord = pregnants::join('residents', 'pregnants.id', '=', 'residents.id')
-        ->get(['pregnants.*', 'residents.fname', 'residents.mname', 'residents.lname']);
+        $pregconsultationrecord = pregnants::all();
         
-        return view('navigation_links.healthconsultation')->with('consultationrecord',$consultationrecord);
+        return view('navigation_links.healthconsultation')->with('pregconsultationrecord',$pregconsultationrecord);
 
     }
 
@@ -43,7 +42,7 @@ class PregnantConsulController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'resID' => 'required',
+            'resident_id' => 'required',
             'weight' => 'required',
             'height' => 'required',
             'age'=> 'required',
@@ -52,7 +51,7 @@ class PregnantConsulController extends Controller
         ]);
 
         $pregnants = pregnants::create([
-            'resident_id' => $request['resID'],
+            'resident_id' => $request['resident_id'],
             'age' => $request['age'],
             'height_cm'	=> $request['height'],
             'weight_kg' => $request['weight'],
@@ -71,7 +70,9 @@ class PregnantConsulController extends Controller
      */
     public function show($id)
     {
-        //
+         //get the pregnancyrecord
+         $pregconsultationrecord = pregnants::findOrFail($id);
+         return view('navigation_links.healthconsultation')->with($pregconsultationrecord, $id);    
     }
 
     /**
@@ -82,7 +83,9 @@ class PregnantConsulController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pregconsultationrecord = pregnants::find($id);
+        return view('navigation_links.healthconsultation')->with($pregconsultationrecord, $id);    
+
     }
 
     /**
@@ -92,9 +95,28 @@ class PregnantConsulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'resident_id' => 'required',
+            'weight' => 'required',
+            'height' => 'required',
+            'age'=> 'required',
+            'lmp' => 'required',
+            'pregnancyorder' => 'required',
+        ]);
+
+        $pregconsultationrecord = array (
+            'weight_kg' => $request->weight,
+            'height_cm' => $request->height,
+            'lmp' => $request->lmp,
+            'pregnancyorder' => $request->pregnancyorder,
+        );
+
+        pregnants::findOrFail($request->pregnant_id)->update($pregconsultationrecord);
+        return redirect()->route('healthconsultation.index')->with('success', 'Updated Successfully.');
+
+             
     }
 
     /**
