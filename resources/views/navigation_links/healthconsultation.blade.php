@@ -92,13 +92,23 @@
                                 <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
                                   <td>
                                       {{-----***************************** SHOW BUTTON *******************************------}}
+<<<<<<< Updated upstream
                                       <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpregconsul">
+=======
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpregconsul"
+                                      data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-height_cm = "{{ $pregpatient->height_cm }}"
+                                        data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
+                                        data-lmp = "{{ $pregpatient->lmp }}">
+>>>>>>> Stashed changes
                                       <i class="manage fas fa-eye"></i></a>
                                       @include('modals.pregnancy.Show')
                                   </td>
                                   <td>
                                       {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editpregconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editpregconsul"
+                                      data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-height_cm = "{{ $pregpatient->height_cm }}"
+                                      data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
+                                      data-lmp = "{{ $pregpatient->lmp }}">
                                       <i class="manage fas fa-edit"></i>
                                       </a>
                                       @include('modals.pregnancy.Edit')
@@ -483,3 +493,59 @@
 @endsection
 
 
+<<<<<<< Updated upstream
+=======
+@section('scripts')
+<script>
+  // {{-----------------------------VIEW PREGNANCY RECORD SCRIPT--------------------------------}}
+    $('#viewpregconsul').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var pregnant_id = button.data('pregnant_id')
+        var resident_id = button.data('resident_id')
+        // var fname = button.data('fname')
+        // var lname = button.data('lname')
+        // var mname = button.data('mname')
+        var height = button.data('height_cm')
+        var weight = button.data('weight_kg')
+        var age = button.data('age')
+        var lmp = button.data('lmp')
+        var pregnancyorder = button.data('pregnancyorder')
+    
+        var modal = $(this)
+        modal.find('.modal-title').text('View Consultation Record');
+        modal.find('.modal-body #pregnant_id').val(pregnant_id);
+        modal.find('.modal-body #resident_id').val(resident_id);
+        modal.find('.modal-body #height').val(height_cm);
+        modal.find('.modal-body #weight').val(weight_kg);
+        modal.find('.modal-body #age').val(age);
+        modal.find('.modal-body #lmp').val(lmp);
+        modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
+        });
+  //{{-----------------------------EDIT PREGNANCY RECORD SCRIPT--------------------------------}}
+        $('#editpregconsul').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var pregnant_id = button.data('pregnant_id')
+        var resident_id = button.data('resident_id')
+        // var fname = button.data('fname')
+        // var lname = button.data('lname')
+        // var mname = button.data('mname')
+        var height = button.data('height_cm')
+        var weight = button.data('weight_kg')
+        var age = button.data('age')
+        var lmp = button.data('lmp')
+        var pregnancyorder = button.data('pregnancyorder')
+    
+        var modal = $(this)
+        modal.find('.modal-title').text('Edit Consultation Record');
+        modal.find('.modal-body #pregnant_id').val(pregnant_id);
+        modal.find('.modal-body #resident_id').val(resident_id);
+        modal.find('.modal-body #height').val(height_cm);
+        modal.find('.modal-body #weight').val(weight_kg);
+        modal.find('.modal-body #age').val(age);
+        modal.find('.modal-body #lmp').val(lmp);
+        modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
+        });
+
+ </script>
+@endsection
+>>>>>>> Stashed changes

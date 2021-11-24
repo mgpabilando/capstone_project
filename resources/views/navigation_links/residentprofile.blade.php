@@ -297,7 +297,7 @@
                         <h5 class="modal-title" id="staticBackdropLabel">EDIT RESIDENT</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="add-resident" action="{{route ('residentprofile.update', 'resident_id')}}" method="POST">
+                    <form class="edit-resident" action="{{route ('residentprofile.update', 'resident_id')}}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
