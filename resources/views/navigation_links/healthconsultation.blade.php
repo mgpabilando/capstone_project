@@ -489,18 +489,9 @@
     </div> <!--container-fluid -->
 @endsection
 
-<<<<<<< HEAD
-
-<<<<<<< Updated upstream
-=======
 @section('scripts')
 <script>
   // {{-----------------------------VIEW PREGNANCY RECORD SCRIPT--------------------------------}}
-=======
-@section('scripts')
-       {{-----------------------------VIEW PREGNANCY RECORD SCRIPT--------------------------------}}
-<script>
->>>>>>> mg
     $('#viewpregconsul').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var pregnant_id = button.data('pregnant_id')
@@ -515,10 +506,7 @@
         var pregnancyorder = button.data('pregnancyorder')
     
         var modal = $(this)
-<<<<<<< HEAD
         modal.find('.modal-title').text('View Consultation Record');
-=======
->>>>>>> mg
         modal.find('.modal-body #pregnant_id').val(pregnant_id);
         modal.find('.modal-body #resident_id').val(resident_id);
         modal.find('.modal-body #height').val(height_cm);
@@ -526,39 +514,34 @@
         modal.find('.modal-body #age').val(age);
         modal.find('.modal-body #lmp').val(lmp);
         modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
-<<<<<<< HEAD
-        });
-  //{{-----------------------------EDIT PREGNANCY RECORD SCRIPT--------------------------------}}
-        $('#editpregconsul').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var pregnant_id = button.data('pregnant_id')
-        var resident_id = button.data('resident_id')
-        // var fname = button.data('fname')
-        // var lname = button.data('lname')
-        // var mname = button.data('mname')
-        var height = button.data('height_cm')
-        var weight = button.data('weight_kg')
-        var age = button.data('age')
-        var lmp = button.data('lmp')
-        var pregnancyorder = button.data('pregnancyorder')
-    
-        var modal = $(this)
-        modal.find('.modal-title').text('Edit Consultation Record');
-        modal.find('.modal-body #pregnant_id').val(pregnant_id);
-        modal.find('.modal-body #resident_id').val(resident_id);
-        modal.find('.modal-body #height').val(height_cm);
-        modal.find('.modal-body #weight').val(weight_kg);
-        modal.find('.modal-body #age').val(age);
-        modal.find('.modal-body #lmp').val(lmp);
-        modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
-        });
-
- </script>
-@endsection
->>>>>>> Stashed changes
-=======
         })
- 
- </script>
+</script>
+
+<script>
+   //{{-----------------------------EDIT PREGNANCY RECORD SCRIPT--------------------------------}}
+    $('#editpregconsul').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      var pregnant_id = button.data('pregnant_id')
+      var resident_id = button.data('resident_id')
+      // var fname = button.data('fname')
+      // var lname = button.data('lname')
+      // var mname = button.data('mname')
+      var height = button.data('height_cm')
+      var weight = button.data('weight_kg')
+      var age = button.data('age')
+      var lmp = button.data('lmp')
+      var pregnancyorder = button.data('pregnancyorder')
+  
+      var modal = $(this)
+      modal.find('.modal-title').text('Edit Consultation Record');
+      modal.find('.modal-body #pregnant_id').val(pregnant_id);
+      modal.find('.modal-body #resident_id').val(resident_id);
+      modal.find('.modal-body #height').val(height_cm);
+      modal.find('.modal-body #weight').val(weight_kg);
+      modal.find('.modal-body #age').val(age);
+      modal.find('.modal-body #lmp').val(lmp);
+      modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
+      })
+</script>
 @endsection
->>>>>>> mg
+

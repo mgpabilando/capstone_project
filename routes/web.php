@@ -58,7 +58,7 @@ Route::group([ 'middleware' => ['auth']], function () {
 
     Route::resource('/residentprofile', ResidentController::class);
 
-    Route::resource('/healthconsultation', PregnantConsulController::class);
+    Route::resource('healthconsultation', PregnantConsulController::class);
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
