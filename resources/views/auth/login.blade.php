@@ -121,10 +121,10 @@
                             </div>
 
                             <div class="input-group">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input" style="margin-right: 5px;" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember" style="margin-right:auto;">
-                                        {{ __('Remember Me') }}
+                                      {{ __('Remember Me') }}
                                     </label>
 
                                     <label  class="form-check-label" for="reset">

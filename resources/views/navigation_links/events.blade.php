@@ -118,6 +118,7 @@
             selectable:true,
             selectHelper: true,
             select:function(start, end, allDay)
+            display: bakc
             {
                 var title = prompt('Event Title:');
 

@@ -78,7 +78,7 @@
                                 @foreach ($bhws as $bhw)
                                 <tr>
                                     <th>{{$bhw->id}}</th>
-                                    <td>{{$bhw->email}}</td>
+                                    <td style="text-transform: lowercase;">{{$bhw->email}}</td>
                                     <td>{{$bhw->lname}}</td>
                                     <td>{{$bhw->fname}}</td>
                                     <td>{{$bhw->bdate}}</td>
@@ -124,7 +124,7 @@
 
         <!--******************************-------------- ADD BHW MODAL ------------*************************************-->
         <div class="bhw-add modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
@@ -222,7 +222,7 @@
 
         <!--**************************------------------- VIEW BHW MODAL -------------------****************************---------->
         <div class="bhw-view modal fade" id="viewbhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="viewbhw" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
@@ -296,7 +296,7 @@
 
         <!--**************************------------------- EDIT BHW MODAL -------------------****************************---------->
         <div class="bhw-edit modal fade" id="editbhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="editbhw" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <h5 class="modal-title" id="editbhw">{{ __('CREATE ACCOUNT') }}</h5>
@@ -400,7 +400,7 @@
 
         <!--**************************------------------- DELETE BHW MODAL -------------------****************************---------->
         <div class="bhw-delete modal fade" id="deletebhw" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletebhw" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Delete BHW Profile</h5>

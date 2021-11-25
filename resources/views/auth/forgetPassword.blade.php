@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 offset-md-4 pt-2">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn mt-1 btn-primary">
                                     Send Password Reset Link
                                 </button>
                             </div>
