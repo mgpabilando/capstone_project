@@ -99,11 +99,6 @@
         });
     
         var calendar = $('#calendar').fullCalendar({
-<<<<<<< HEAD
-=======
-            height: 480,
-            defaultView: 'dayGridMonth',
->>>>>>> origin/jkgerero_branch
             editable:true,
             displayEventTime: true,
             height: 500,
