@@ -17,8 +17,8 @@ class PregnantConsulController extends Controller
      */
     public function index()
     {
-        $pregconsultationrecord = pregnants::all();
-        
+        $pregconsultationrecord = pregnants::join('residents', 'pregnants.id', '=', 'residents.id')
+        ->get(['pregnants.*', 'residents.fname', 'residents.mname', 'residents.lname']);
         return view('navigation_links.healthconsultation')->with('pregconsultationrecord',$pregconsultationrecord);
 
     }
@@ -71,7 +71,7 @@ class PregnantConsulController extends Controller
     public function show($id)
     {
          //get the pregnancyrecord
-         $pregconsultationrecord = pregnants::findOrFail($id);
+         $pregconsultationrecord = pregnants::find($id);
          return view('navigation_links.healthconsultation')->with($pregconsultationrecord, $id);    
     }
 

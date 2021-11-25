@@ -92,11 +92,12 @@
                                 <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
                                   <td>
                                       {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view"
+                                      {{-- <a data-bs-toggle="modal" type="button" class="btn-action consul_view"
                                       data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-height_cm = "{{ $pregpatient->height_cm }}"
                                         data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
                                         data-lmp = "{{ $pregpatient->lmp }}"  data-bs-target="#viewpregconsul">
-                                      <i class="manage fas fa-eye"></i></a>
+                                      <i class="manage fas fa-eye"></i></a> --}}
+                                    <a href="javascript:void(0)"><i class="manage fas fa-eye"></i></a>
                                       @include('modals.pregnancy.Show')
                                   </td>
                                   <td>
@@ -484,7 +485,6 @@
         </div> <!-- /row d-flex justify-content-center -->
     </div> <!--container-fluid -->
 @endsection
-
 
 @section('scripts')
        {{-----------------------------VIEW PREGNANCY RECORD SCRIPT--------------------------------}}
