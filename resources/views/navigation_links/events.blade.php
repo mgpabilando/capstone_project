@@ -1,67 +1,71 @@
 @extends('layouts.home')
 
 @section('content')
-<style>
-#content {
-    width: calc(100% - 260px);
-    height: auto;
-    background-color: none;
-}
 
-#calendar {
-    width: 100%;
+<style>
+    #calendar {
+    max-width: 100%;
+    margin: 20px auto;
+    }
+
+    #calendar .fc-toolbar.fc-header-toolbar{
+    margin-bottom: 1em;
     font-size: 12px;
 }
+    #calendar .fc-toolbar.fc-header-toolbar h2{
+        font-size: 25px;
+    }
 
-.btnadd{
-    width: 100%;
-    transform: translateX(100px)
-}
+    #calendar .fc-head-container .fc-widget-header
+    {
+        font-size: 12px;
+    }
 
-.btn {
-    width: 200px;
-}
+    #calendar .fc-view-container
+    {
+        font-size: 11px;
+    }
 
-.btn-success:hover{
-    box-shadow: 0 0 10px gray;
-    font-weight: bold;
-}
+    #calendar .fc-event
+    {
+        background-color: #0bb3e2;
+    }
 
-.btn-warning{
-    color: white;
-}
-.btn-warning:hover{
-    box-shadow: 0 0 10px gray;
-    color: white;
-    font-weight: bold;
-}
+    #calendar a
+    {
+        color: #212529;
+        text-decoration: none;
+        font-size: 11px;
+    }
 
-.btn-danger:hover{
-    box-shadow: 0 0 10px gray;
-    font-weight: bold;
-}
+    #calendar .fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 11px;
+    }
 
-.fc-state-down, .fc-state-active {
-    background-color: #08aeea;
-    background-image: none;
-    box-shadow: none;
-    color: white;
-}
+    #calendar .fc-button-group
+    {
+        background-color: #212529;
+        color: white;
+    }
 
+    #content
+    {
+        height: auto;
+    }
 
 </style>
-
 
 <div id="content">
     @include('layouts.includes.topnavbar')
     <div class="row no-margin-padding">
         <div class="col-md-12 d-flex flex-row justify-content-between">
             <h3 class="block-title">Manage Events</h3>
-            
         </div>
     </div>
 
-    <div class="container m-2">
+    <div class="container">
         <div class="row" style="justify-content: center;">
 
             <div class="add-sec d-flex">
@@ -73,136 +77,15 @@
                 @endif
             </div>
 
-            <div class="col-9 d-flex">
-                <div class="panel panel-default" style="box-shadow: 0 0 10px gray; padding:10px">
+            <div class="calendarcontainer">
+                <div class="panel" style="box-shadow: 0 0 10px gray; padding:10px">
                     <div class="panel-body justify-content-center">
                         <div id='calendar' class="calendar"></div>
                     </div>
                 </div>
-                {{-- <br>
-                <div class="btnadd">
-                    <button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#addevent">ADD EVENT</button>
-                    <button type="button" class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#editevent">EDIT EVENT</button>
-                    <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deleteevent    ">DELETE EVENT</button>
-                </div> --}}
             </div>
         </div>
-
-        {{-- -----------------------------------ADD MODAL---------------------------------- --}}
-        <div class="modal fade" id="addevent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: seagreen; color:white">
-                <h5 class="modal-title" id="staticBackdropLabel">ADD EVENT</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <form action=" {{route('events.action')}} " method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Event Title:</div>
-                            <input type="text" class="form-control" id="title" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Choose a Color:</div>
-                            <input type="color" class="form-control" id="color" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Enter Start:</div>
-                            <input type="datetime-local" class="form-control" id="start" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Enter End:</div>
-                            <input type="datetime-local" class="form-control" id="end" placeholder="">
-                        </div>  
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="submitButton">Save</button>
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div>
-
-        {{-- -----------------------------------EDIT MODAL---------------------------------- --}}
-        <div class="modal fade" id="editevent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: gold; color:white">
-                <h5 class="modal-title" id="staticBackdropLabel">EDIT EVENT</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <form class="edit_event" action="" method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Event Title:</div>
-                            <input type="text" class="form-control" id="title" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Choose a Color:</div>
-                            <input type="color" class="form-control" id="color" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Enter Start:</div>
-                            <input type="datetime-local" class="form-control" id="start" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Enter End:</div>
-                            <input type="datetime-local" class="form-control" id="end" placeholder="">
-                        </div>  
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-warning waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Update</button>
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div>
-
-        {{-- -----------------------------------DELETE MODAL---------------------------------- --}}
-        <div class="modal fade" id="deleteevent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: crimson; color:white">
-                <h5 class="modal-title" id="staticBackdropLabel">DELETE EVENT</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <form class="delete_event" action="" method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Event Title:</div>
-                            <input type="text" class="form-control" id="title" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Choose a Color:</div>
-                            <input type="color" class="form-control" id="color" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Enter Start:</div>
-                            <input type="datetime-local" class="form-control" id="start" placeholder="">
-                        </div>  
-                        <div class="input_event row pb-3">
-                            <div class="label_event">Enter End:</div>
-                            <input type="datetime-local" class="form-control" id="end" placeholder="">
-                        </div>  
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger">Ok</button>
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div>
-        </div>
-
+    </div>
 </div>
 @endsection
 
@@ -213,23 +96,30 @@
         headers:{
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
         }
-    });
+        });
     
         var calendar = $('#calendar').fullCalendar({
-            height: 480,
             editable:true,
+            displayEventTime: true,
+            height: 500,
             header:{
                 left:'prev,next today',
                 center:'title',
-                right:'month,agendaWeek,agendaDay,listWeek',
+                right:'month,agendaWeek,agendaDay,listWeek'
             },
             events:'/events',
+            eventRender: function (event, element, view) {
+                    if (event.allDay === 'true') {
+                        event.allDay = true;
+                    } else {
+                        event.allDay = false;
+                    }
+                },
             selectable:true,
             selectHelper: true,
             select:function(start, end, allDay)
             {
                 var title = prompt('Event Title:');
-                // $('#addevent').modal('show'); 
 
                 if(title)
                 {
@@ -250,10 +140,12 @@
                         {
                             calendar.fullCalendar('refetchEvents');
                             alert("Event Created Successfully");
+                            
                         }
                     })
                 }
             },
+
             editable:true,
             eventResize: function(event, delta)
             {
@@ -324,9 +216,7 @@
             }
         });
     
-    });
-    
-      
+});
 </script>
 
 @endsection
