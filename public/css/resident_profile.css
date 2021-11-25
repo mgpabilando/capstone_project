@@ -171,6 +171,7 @@ select {
 .btn-success
 {
   background-color: #2ae88a;
+  border: 0px solid;
 }
 
 .btn-outline-success {
@@ -253,3 +254,5 @@ select {
 td{
   text-transform: capitalize;
 }
+
+

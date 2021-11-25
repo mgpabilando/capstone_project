@@ -216,8 +216,7 @@
     });
     
         var calendar = $('#calendar').fullCalendar({
-            height: 480,
-            defaultView: 'dayGridMonth',
+            height: 1080,
             editable:true,
             header:{
                 left:'prev,next today',

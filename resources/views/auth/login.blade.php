@@ -144,7 +144,10 @@
                                 </a>                            
                             </p>
                         </form>
-                    </div>                   
+                   
+                    </div>  
+                                        <!-- Button trigger modal -->
+                                   
                 </div>
             </div>  
     </section> 
