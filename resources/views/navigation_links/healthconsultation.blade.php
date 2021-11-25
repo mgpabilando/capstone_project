@@ -54,7 +54,7 @@
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Pregnancy</h4>
                     <div type="button"  class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
-                      <i class="fa fa-plus"></i>Add
+                      <i class="fas fa-file-medical"></i> ADD
                     </div>
                     @include('modals.pregnancy.Add')
                   </div>

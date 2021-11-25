@@ -15,9 +15,25 @@ class DashboardController extends Controller
           if(Auth::user()->hasRole('admin_nurse')){
                $bhw = User::whereRoleIs('bhw')->count();
                $resident = DB::table('residents')->count();
-               return view('navigation_links/dashboard', compact('bhw', 'resident'));
+               $pregnant = DB::table('pregnants')->count();
+               $deliveries = DB::table('deliveries_consul')->count();
+               $epi = DB::table('e_p_i_consul')->count();
+               $ntp = DB::table('n_t_p_consul')->count(); 
+               $diarrheal = DB::table('diarrheal_consul')->count();
+               $other_services = DB::table('other_consul')->count();
+
+               return view('navigation_links/dashboard', compact('bhw', 'resident', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
           }elseif(Auth::user()->hasRole('bhw')){
-               return view('navigation_links/bhwdashboard');
+               $bhw = User::whereRoleIs('bhw')->count();
+               $resident = DB::table('residents')->count();
+               $pregnant = DB::table('pregnants')->count();
+               $deliveries = DB::table('deliveries_consul')->count();
+               $epi = DB::table('e_p_i_consul')->count();
+               $ntp = DB::table('n_t_p_consul')->count(); 
+               $diarrheal = DB::table('diarrheal_consul')->count();
+               $other_services = DB::table('other_consul')->count();
+
+               return view('navigation_links/bhwdashboard', compact('bhw', 'resident', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
           }
      }
 

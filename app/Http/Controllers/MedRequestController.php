@@ -65,7 +65,13 @@ class MedRequestController extends Controller
 
     }
 
-    public function destroy($id){
+    public function destroy(Request $medicine_request){
+        $delete = $medicine_request->all();
+
+        /* echo "<pre>"; print_r($delete); die; */
+        $deleteresident = Residents::findOrFail($medicine_request->id);
+        $deleteresident->delete();
+        return redirect()->route('medicinerequest.index')->with('success', 'Deleted Successfully.');
 
     }
 

@@ -99,6 +99,11 @@
         });
     
         var calendar = $('#calendar').fullCalendar({
+<<<<<<< HEAD
+=======
+            height: 480,
+            defaultView: 'dayGridMonth',
+>>>>>>> origin/jkgerero_branch
             editable:true,
             displayEventTime: true,
             height: 500,
@@ -118,6 +123,7 @@
             selectable:true,
             selectHelper: true,
             select:function(start, end, allDay)
+            display: bakc
             {
                 var title = prompt('Event Title:');
 

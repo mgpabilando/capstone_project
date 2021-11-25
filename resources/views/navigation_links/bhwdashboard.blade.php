@@ -20,7 +20,7 @@
                 </div>
                 <div class="total-data">
                   <p class="text-start m-0">Total BHW</p>
-                  <p class="text-start total m-0">0</p>
+                  <p class="text-start total m-0">{{ $bhw }}</p>
                 </div>
               </div>
             </div>
@@ -34,7 +34,7 @@
               </div>
               <div class="total-data">
                 <p class="text-start m-0">Total Resident</p>
-                <p class="text-start total m-0">0</p>
+                <p class="text-start total m-0">{{ $resident }}</p>
               </div>
             </div>
           </div>
@@ -56,21 +56,21 @@
       </div>
 
       <hr>
-
-      <div class="row">
+<div class="row d-flex">
         <div class="chart-container mt-3 col-md-6">
           <canvas class="ms-4" id="myChart" height="200"></canvas>
         </div>
-
+    
         <div class="col-md-6">
-            
-        </div>
+          <div class="event-list">
+            <div class="panel-body mt-3 justify-content-center" style="border:1px solid;">
+              <div class="calendar2"></div>
+            </div>
+          </div>
+       </div>
       </div>
+
     </div>
-
-
-
-
 </div>
 
 
@@ -82,7 +82,7 @@
         datasets: [{
           label: 'Health Consultation',
           backgroundColor: ['#08aeea', '#2ae88a' ],
-          data: [39, 10, 5, 2, 20, 30, 45],
+          data: [{{ $pregnant }}, {{ $deliveries }}, {{ $epi }}, {{ $ntp }}, {{ $diarrheal }}, {{ $other_services }}],
         }]
       };
 
@@ -100,4 +100,39 @@
     </script>
 
 
+@endsection
+
+@section('scripts')
+
+
+<script>
+  $(document).ready(function () {
+      $.ajaxSetup({
+      headers:{
+          'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+  
+      var calendar = $('.calendar2').fullCalendar({
+          height: 320,
+          defaultView: 'listWeek',
+          events:'/events',
+            header: true,
+            views: {
+              listDay: { buttonText: 'DAY' },
+              listWeek: { buttonText: 'WEEK' },
+              listMonth: { buttonText: 'MONTH' }
+          },
+
+          header: {
+            left: 'title',
+            center: '',
+            right: 'listDay,listWeek,listMonth'
+          },
+      });
+  
+  });
+  
+    
+</script>
 @endsection
