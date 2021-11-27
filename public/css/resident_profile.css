@@ -153,21 +153,8 @@ table.table thead th {
 }
 
 
+ 
 
-.add-resident input,
-select {
-  width: 150px;
-  height: auto;
-  padding: 5px 20px;
-  margin: 2px 5px 5px 0px;
-  text-transform: capitalize;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  font-size: 12px;
-  border-radius: 25px;
-  
-}
 .btn-success
 {
   background-color: #2ae88a;
@@ -178,10 +165,7 @@ select {
   color: #2ae88a;
   border-color: #2ae88a;
 }
-.add-resident .date,
-select {
-  text-transform: uppercase;
-}
+ 
 
 .add-resident .details {
   text-transform: uppercase;
@@ -231,17 +215,7 @@ select {
   color: white;
 }
 
-.res-view input{
-  box-sizing: border-box;
-  width: 150px;
-  height: 30px;
-  margin: 2px 5px 5px 0px;
-  text-transform: capitalize;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-}
-
+ 
 .res-edit .modal-header{
   background-color: #ffc107;
   color: #ffffff;

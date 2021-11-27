@@ -53,13 +53,9 @@
   padding: 5px 20px;
   border: none;
   cursor: pointer;
-  width: 55%;
-  opacity: 0.9;
+  width: 55%; 
 }
 
-.btn-dtr:hover {
-  opacity: 1;
-}
 
 .dtr .tab-content input[type=time]{
   width: 100%;
