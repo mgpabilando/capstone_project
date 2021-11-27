@@ -7,7 +7,7 @@
     <div class="wrapper">
 
     @include('layouts.includes.sidebar')
-    
+    @include('sweetalert2::alert')
     
     @yield('content')
     

@@ -8,6 +8,7 @@
     <!---------------------------          STYLESHEET           ---------------------------->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset ('css/LoginandRegister.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/resident_profile.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bhw.css') }}">

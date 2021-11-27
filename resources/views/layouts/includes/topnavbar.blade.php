@@ -81,7 +81,7 @@
                         document.getElementById('logout-form').submit();">
                         <i class="fa fa-power-off"></i>
                     </a>
-                    <form id="logout-form" action="signout" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('signout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </div>
