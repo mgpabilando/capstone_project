@@ -5,9 +5,10 @@
  */
 
 require('./bootstrap');
+import Swal from 'sweetalert2';
 
 // window.Vue = require('vue').default;
-
+window.Swal =Swal;
 
 /**
  * The following block of code may be used to automatically register your

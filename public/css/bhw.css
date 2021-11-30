@@ -65,58 +65,11 @@
  position: relative;
 }
 
-.modal input[type=text]{
- width: 100%;
- padding: 5px 20px;
- margin: 5px 0;
- display: inline-block;
- border: 1px solid #ccc;
- box-sizing: border-box;
- font-size: 12px;
- border-radius: 25px;
- text-transform: capitalize;
-
-}
-
-input[type=date]{
-width: 100%;
- padding: 5px 20px;
- margin: 5px 0;
- display: inline-block;
- border: 1px solid #ccc;
- box-sizing: border-box;
- font-size: 12px;
- border-radius: 25px;
-text-transform: uppercase;
-}
-
-.modal input[type=password], .modal input[type=email]{
-width: 100%;
- padding: 5px 20px;
- margin: 5px 0;
- display: inline-block;
- border: 1px solid #ccc;
- box-sizing: border-box;
- font-size: 12px;
- border-radius: 25px;
-}
-
 .modal input[readonly]{
     background-color: #e8f0fe;
    }
 
-
-.modal-content .modal-body select{
- width: 100%;
- border-radius: 25px;
- padding: 5px 20px;
- margin: 0px 0;
- display: inline-block;
- border: 1px solid #ccc;
- box-sizing: border-box;
- font-size: 14px;
-}
-
+ 
 .modal .modal-content .control-label{
     text-transform: uppercase;
   font-weight: 600;
@@ -141,4 +94,8 @@ width: 100%;
  padding: 8px 10px;
  border-radius: 5px;
  color: #ffffff;
+}
+
+.bhw-modal input[type=text] {
+    text-transform: capitalize;
 }
