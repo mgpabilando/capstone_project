@@ -248,34 +248,8 @@ body{
 
 
 /*MODAL*/
-.modal-content {
-  margin: 25px auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 2px solid #888;
-  width: 45%; /* Could be more or less, depending on screen size */
-  font-size: 12px;
-  border-radius: 10px;
-   
-}
+ 
 
-.modal .modal-title{
-  color:#000000;  
-  font-weight: bold;
-  position: absolute;
-  margin: 10px;
-  width: 90%;
-}
-
-.modal-body {
-  margin: 0px 20px;
-  position: relative;
-
-}
-
-.modal-footer{
-  justify-content: center;
-  background-color: white;  
-  display: flex;
-}
 
 /* Full-width input fields */
 .modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
@@ -292,6 +266,7 @@ body{
 
 
 /* Set a style for all buttons */
+
 .modal .modal-content .btn {
   background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
   border-radius: 25px;  

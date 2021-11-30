@@ -8,6 +8,7 @@
     <!---------------------------          STYLESHEET           ---------------------------->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset ('css/LoginandRegister.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/resident_profile.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bhw.css') }}">
@@ -23,4 +24,11 @@
 
     <!---------------------------          SCRIPTS           ---------------------------->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>
+    
+    <script src="/js/FullcalendarV5/lib/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js">
+ 
     {{-- <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"> --}}

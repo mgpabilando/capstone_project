@@ -88,8 +88,8 @@
                     <div class="form-login p-2 d-flex justify-content-center">
                         <form method="POST" action="{{ route('customlogin') }}">   
                             @if (Session::get('fail'))  
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                {{Session::get('fail')}}
+                            <div class="alert alert-warning alert-dismissible fade show m-0 p-3" role="alert">
+                                <p class="m-0 p-0" style="color: #ffff;"><i class="fas fa-exclamation-triangle p-1"></i>{{Session::get('fail')}}</p>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                             @endif  
@@ -144,7 +144,10 @@
                                 </a>                            
                             </p>
                         </form>
-                    </div>                   
+                   
+                    </div>  
+                                        <!-- Button trigger modal -->
+                                   
                 </div>
             </div>  
     </section> 

@@ -123,7 +123,7 @@
                                             <input class="name align-text-left" name="med_quantity" id="med_quantity" type="text" placeholder="" readonly>
                                         </div>
 
-                                      
+                                      </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                       <button type="submt" class="btn btn-primary">Update</button>
@@ -138,7 +138,7 @@
 
                               <td class="text-center">
                                   {{-----***************************** DELETE BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
+                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation" data-id="{{$medrequest->id}}">
                                   <i class="manage fas fa-trash"></i>
                                   </a>
                               </td>
@@ -151,10 +151,12 @@
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                      <form class="add-resident" action="" method="POST">
+                                      <form class="add-resident" action="{{route ('medicinerequest.destroy', 'id')}}" method="POST">
+                                        @csrf
+                                        @method('delete')
                                           <div class="modal-body m-0 p-0">
                                               <div class="input-box">
-                                                  <input name="resident_id" id="resident_id" type="hidden" placeholder="">
+                                                  <input name="id" id="id" type="hidden" placeholder="">
                                               </div>
                                               <h6 class="p-0 m-0">Are you sure you want to delete this?</h6>
                                           </div>
@@ -322,14 +324,14 @@ function printElement(elem, append, delimiter) {
 
    {{-----------------------------DELETE RESIDENT SCRIPT--------------------------------}}
 <script>
-   $('#deleteResidentModal').on('show.bs.modal', function(event) {
+   $('#deletenewconsultation').on('show.bs.modal', function(event) {
        var button = $(event.relatedTarget)
-       var resident_id = button.data('resident_id')
+       var id = button.data('id')
 
 
        var modal = $(this)
-       modal.find('.modal-title').text(' Delete Resident Profile');
-       modal.find('.modal-body #resident_id').val(resident_id);
+       modal.find('.modal-title').text('Delete Medicine Request');
+       modal.find('.modal-body #id').val(id);
    })
 
 </script>

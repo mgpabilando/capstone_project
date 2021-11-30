@@ -8,9 +8,7 @@
    
 }
 
-.modal .modal-title{
-  color:#000000;  
-  font-weight: bold;
+.modal .modal-title{ 
   position: absolute;
   margin: 10px;
   width: 90%;
@@ -20,12 +18,6 @@
   margin: 0px 20px;
   position: relative;
 
-}
-
-.modal-footer{
-  justify-content: center;
-  background-color: white;  
-  display: flex;
 }
 
 /* Full-width input fields */
@@ -217,7 +209,7 @@
                     </div>
                 </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-block">SIGN UP</button>
                     
                 </div>
