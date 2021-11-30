@@ -19,8 +19,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     font-size: 13px;
-}
-}
+    }
 </style>
 
 <div class="consul-add modal fade" id="addpregconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -30,6 +29,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <form id="searchResident" class="add-consult" action="{{route('healthconsultation.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
@@ -82,49 +82,44 @@
     </div>
 </div>
 @section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $('#addpregconsul').on('hidden.bs.modal', function () {
         $('#addpregconsul form')[0].reset();
         });
 </script>
 
-   <!-- Script -->
-   <script type="text/javascript">
-   // CSRF Token
-   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+<script type="text/javascript">
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    $(document).ready(function(){
+        $( "#selectresident" ).select2({
+            dropdownParent: $('#addpregconsul'),
+            ajax: { 
+            url: "getResidents",
+            type: "post",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                _token: CSRF_TOKEN,
+                search: params.term // search term
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response
+                };
+            },
+            cache: true
+            }
+        });
 
-   $(document).ready(function(){
-
-     $( "#selectresident" ).select2({
-         dropdownParent: $('#addpregconsul'),
-        ajax: { 
-          url: "getResidents",
-          type: "post",
-          dataType: 'json',
-          delay: 250,
-          data: function (params) {
-            return {
-               _token: CSRF_TOKEN,
-               search: params.term // search term
-            };
-          },
-          processResults: function (response) {
-            return {
-                 results: response
-            };
-          },
-          cache: true
+        $("#selectresident").change(
+        function () {
+            $("#resID").val($(this).val());
+            
         }
-     });
-
-     $("#selectresident").change(
-       function () {
-           $("#resID").val($(this).val());
-           
-       }
-   );
-   });
-   </script>
-</script> 
-   </script>
+    );
+    });
+</script>
 @endsection
