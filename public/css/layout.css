@@ -275,3 +275,27 @@ body {
     width: auto;
     transform: translateX(110vh);
 }
+
+.modal-body select, input[type=text], input[type=date], input[type=number], input[type=password], input[type=email]{
+  width: 100%;
+  height: 35px;
+  padding: 5px 20px;
+  margin: 5px 5px 0px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.add-resident .input-box .details{
+    margin-top: 10px;
+}
+
+.add-resident .input-box input{
+    text-transform: capitalize;
+}
+
+.modal-body input[type=date]{
+    text-transform: uppercase;
+}

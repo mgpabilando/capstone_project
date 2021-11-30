@@ -25,7 +25,7 @@ class LoginUserController extends Controller
         $credential = User::where('email', '=', $request->email)->first();
         if (!$credential) {
             //return redirect()->back()->withErrors($userinfo)->withInput($request->all());
-            return back()->with('fail', 'We do not recognize your email address');
+            return back()->with('fail', 'Email and Password is Incorrect!');
         }
         else {
             if (Hash::check($password, optional($credential)->password))
@@ -37,7 +37,7 @@ class LoginUserController extends Controller
                     }
             }
             else {
-                return back()->with('fail','Incorrect Password');
+                return back()->with('fail','Email and Password is Incorrect!');
             }
             
         }

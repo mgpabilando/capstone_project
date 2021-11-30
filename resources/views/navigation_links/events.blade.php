@@ -99,6 +99,7 @@
         });
     
         var calendar = $('#calendar').fullCalendar({
+            height: 1080,
             editable:true,
             displayEventTime: true,
             height: 500,
