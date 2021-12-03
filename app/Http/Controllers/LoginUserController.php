@@ -37,7 +37,7 @@ class LoginUserController extends Controller
                     }
             }
             else {
-                return back()->with('fail','Email and Password is Incorrect!');
+                return back()->with('error','Email and Password is Incorrect!');
             }
             
         }
