@@ -7,6 +7,8 @@ use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class LoginUserController extends Controller
 {
@@ -20,12 +22,9 @@ class LoginUserController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        
-        /* $userinfo = Auth::where('email', '=', $request->email)->first();  */
         $credential = User::where('email', '=', $request->email)->first();
         if (!$credential) {
-            //return redirect()->back()->withErrors($userinfo)->withInput($request->all());
-            return back()->with('fail', 'Email and Password is Incorrect!');
+            return back()->with('toast_error', 'Email not recognized!');
         }
         else {
             if (Hash::check($password, optional($credential)->password))
@@ -33,11 +32,11 @@ class LoginUserController extends Controller
                 $request->session()->put('success');
                 if (Auth::attempt(['email' => $email, 'password' => $password]))
                     {
-                        return redirect()->intended(route('dashboard'));
+                        return redirect()->intended(route('dashboard'))->with('success', 'Login Successfully!');
                     }
             }
             else {
-                return back()->with('error','Email and Password is Incorrect!');
+                return back()->with('toast_error','Password is Incorrect!');
             }
             
         }

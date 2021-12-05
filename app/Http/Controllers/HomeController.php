@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Alert;
 
 class HomeController extends Controller
 {
@@ -13,21 +14,22 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('guest');
+        $this->middleware('guest');
 
-        $this->middleware(function($request,$next){
-            if (session('success')) {
-                Alert::success(session('success'));
-            }
+        // $this->middleware(function($request,$next){
+        //     if (session('success')) {
+        //         Alert::success(session('success'));
+        //     }
 
-            if (session('error')) {
-                Alert::error(session('error'));
-            }
+        //     if (session('error')) {
+        //         Alert::error(session('error'));
+        //     }
 
-            return $next($request);
-        });
+        //     return $next($request);
+        // });
 
     }
+
 
 
     /**

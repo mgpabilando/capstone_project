@@ -7,10 +7,9 @@
     <div class="wrapper">
 
     @include('layouts.includes.sidebar')
-    @include('sweetalert::alert')
     
     @yield('content')
-    
+    @include('sweetalert::alert')
     
     </div>
     <script src="{{ asset ('js/jquery-3.4.1.min.js') }}"></script>

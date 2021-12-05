@@ -13,6 +13,7 @@ use App\Http\Controllers\PregnantConsulController;
 use App\Http\Controllers\SearchAutoCompleteController;
 use App\Http\Controllers\MedRequestController;
 use App\Http\Controllers\ForgotPasswordController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

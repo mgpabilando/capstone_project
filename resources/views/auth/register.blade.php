@@ -113,17 +113,6 @@
                 </button>
             </div>
             <form method="POST" action="register" {{-- id="registerForm" --}}>
-                
-                @if(Session::has('successful'))
-                <div class="alert alert-success">
-                    {{ Session::get('successful') }}
-                    @php
-                        Session::forget('successful');
-                    @endphp
-                </div>
-                @endif
-
-                
                 @csrf            
                 <div class="modal-body">
                     <div class="personal-info">
@@ -132,42 +121,54 @@
                         <div class="row row-space">               
                             <div class="form-group col-6">
                                 <label class="control-label" for="fname">First Name:</label>
-                                <input type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}">
-                                <span class="text-danger">@error('firstname'){{ $message }} @enderror</span>
+                                <input type="text" class="form-control" name="fname" value="{{ old('fname') }}">
+                                <span class="invalid-feedback" role="alert" id="fnameError">
+                                    <strong></strong>
+                                </span>
                             </div>
 
                             <div class="form-group col-6">
                                 <label class="control-label" for="lname">Last Name:</label>
-                                <input type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}">
-                                <span class="text-danger">@error('lastname'){{ $message }} @enderror</span>
+                                <input type="text" class="form-control"name="lname" value="{{ old('lname') }}">
+                                <span class="invalid-feedback" role="alert" id="lnameError">
+                                    <strong></strong>
+                                </span>
                             </div>
                         </div>
 
                         <div class="row row-space"> 
                             <div class="form-group col-6">
                                 <label class="control-label" for="address">Address:</label>
-                                <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address">
-                                <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+                                <input type="text" class="form-control" id="address" name="address">
+                                <span class="invalid-feedback" role="alert" id="addressError">
+                                    <strong></strong>
+                                </span>
                             </div>
 
                             <div class="form-group col-6">
                                 <label class="control-label" for="contact">Contact Number:</label>
-                                <input type="text" class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact">
-                                <span class="text-danger">@error('contact'){{ $message }} @enderror</span>
+                                <input type="text" class="form-control" id="contact" name="contact">
+                                <span class="invalid-feedback" role="alert" id="contactError">
+                                    <strong></strong>
+                                </span>
                             </div>
                         </div>
 
                         <div class="row row-space">
                             <div class="form-group col-6">
                                 <label class="control-label" for="bdate">Birthdate:</label>
-                                <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="bdate" name="bdate">
-                                <span class="text-danger">@error('birthdate'){{ $message }} @enderror</span>
+                                <input type="date" class="form-control" id="bdate" name="bdate">
+                                <span class="invalid-feedback" role="alert" id="bdateError">
+                                    <strong></strong>
+                                </span>
                             </div>
                             
                             <div class="form-group col-6">
                                 <label class="control-label" for="age">Age:</label>
-                                <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age">
-                                <span class="text-danger">@error('age'){{ $message }} @enderror</span>
+                                <input type="number" class="form-control" id="age" name="age">
+                                <span class="invalid-feedback" role="alert" id="ageError">
+                                    <strong></strong>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -177,20 +178,26 @@
                         <p class="info-head text-center fw-bold">Account Information</p>
                         <div class="form-group">
                             <label class="control-label" for="email">Email Address:</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
-                            <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                            <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            <span class="invalid-feedback" role="alert" id="emailError">
+                                <strong></strong>
+                            </span>
                         </div>
 
                         <div class="row row-space">
                             <div class="form-group col-6">
                                 <label class="control-label" for="password">Password:</label>
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
-                                <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+                                <input type="password" class="form-control" id="password" name="password">
+                                <span class="invalid-feedback" role="alert" id="passwordError">
+                                    <strong></strong>
+                                </span>
                             </div>
                             <div class="form-group col-6">
                                 <label class="control-label" for="password_confirmation">Confirm Password:</label>
-                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation">
-                                <span class="text-danger">@error('password_confirmation'){{ $message }} @enderror</span>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                                <span class="invalid-feedback" role="alert" id="password_confirmationError">
+                                    <strong></strong>
+                                </span>
                             </div> 
 
                             <div class="registrationFormAlert d-flex justify-content-center" id="CheckPasswordMatch"></div>
@@ -239,4 +246,6 @@
         });
 
     </script>
+
+
 @endsection

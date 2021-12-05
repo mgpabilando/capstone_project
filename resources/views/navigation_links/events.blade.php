@@ -44,11 +44,11 @@
     font-size: 11px;
     }
 
-    #calendar .fc-button-group
+    /* #calendar .fc-button-group
     {
         background-color: #212529;
         color: white;
-    }
+    } */
 
     #content
     {
@@ -119,7 +119,6 @@
             selectable:true,
             selectHelper: true,
             select:function(start, end, allDay)
-            display: bakc
             {
                 var title = prompt('Event Title:');
 

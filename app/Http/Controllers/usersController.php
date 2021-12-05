@@ -101,12 +101,12 @@ class usersController extends Controller
      */
     public function update(Request $request)
     {
-        if(!(Hash::check($request->get('password'),Auth::user()->password))){
-            return back()->with('error','Your current password does not match what you provided');
-         }
-         if(strcmp($request->get('password'), $request->get('newpassword'))==0){
-            return back()->with('error','Your new password cant be same with your current password');
-         }
+        // if(!(Hash::check($request->get('password'),Auth::user()->password))){
+        //     return back()->with('error','Your current password does not match what you provided');
+        //  }
+        //  if(strcmp($request->get('password'), $request->get('newpassword'))==0){
+        //     return back()->with('error','Your new password cant be same with your current password');
+        //  }
         
         $request->validate([
             'fname' => 'required', 'string', 'max:255',
@@ -116,9 +116,6 @@ class usersController extends Controller
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
             'contact' => 'required', 'string', 'max:11',
-            'password' => 'required', 'min:6', 'max:12', 
-            'password_confirmation' => 'required',
-            'newpassword' => 'required|same:password_confirmation|min:6',
         ]);
 
         $bhws = array (
@@ -132,7 +129,7 @@ class usersController extends Controller
         );    
     
         $user = Auth::User();
-        $user->password = bcrypt($request->get('newpassword'));
+        // $user->password = bcrypt($request->get('newpassword'));
         User::findOrFail($request->user_id)->update($bhws);
         // $user->save();
         return redirect()->route('bhw.index')->with('success', 'Updated Successfully.');
