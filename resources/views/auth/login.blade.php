@@ -3,23 +3,18 @@
 @section('content')
     <section class="Login_Section">
         <div class="container log_content">
-            <div class="row">           
+            <div class="row d-flex justify-content-center">           
                 <div class="hms-display col-md-6 d-flex align-items-center justify-content-center">
+                    <h3 class="title-hms">BRGY HEALTH MANAGEMNENT SYSTEM</h3>
                     <div class="d-flex align-items-center justify-content-center" id="overlay">
-                        <img src="images/HMS1.png" alt="">
-                        {{-- <h3 style="text-align:center">Barangay Macawayan Health Management System</h3>   --}}
+                        <img class="logo" src="images/HMS1.png" alt=""> 
                     </div>   
                 </div>
                 
                 <div class="hms-login col-md-6 d-flex align-items-center">
                     <div class="form-login p-2 d-flex justify-content-center">
                         <form method="POST" action="{{ route('customlogin') }}">   
-                            {{-- @if (Session::get('error'))  
-                            <div class="alert alert-warning alert-dismissible fade show m-0 p-3" role="alert">
-                                <p class="m-0 p-0" style="color: #ffff;"><i class="fas fa-exclamation-triangle p-1"></i>{{Session::get('error')}}</p>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            @endif   --}}
+                           
                             @csrf
                             <div class="brgy-logo d-flex align-items-start justify-content-center">
                                 <img class="login-user-logo" src="images/macawayan logo.png" alt="Login" width="150" height="150">
@@ -54,7 +49,7 @@
                                     </label>
 
                                     <label  class="form-check-label" for="reset">
-                                        <a href="{{ route('forget.password.get') }}">Reset Password</a>
+                                        <a href="{{ route('forget.password.get') }}">Forgot password?</a>
                                     </label>
                             </div>
 
@@ -66,16 +61,16 @@
                                 <a class="form-signup"
                                     style="cursor: pointer"
                                     data-bs-toggle="modal" 
-                                    data-bs-target="#registerModal">{{ __('Register') }}
+                                    data-bs-target="#registerModal">{{ __('Register here.') }}
                                 </a>                            
                             </p>
                         </form>
                    
-                    </div>  
-                                        <!-- Button trigger modal -->
-                                   
-                </div>
+                    </div>                       <!-- Button trigger modal -->
+                
             </div>  
+        </div>
+    </div>
     </section> 
     
     @include('auth.register')       

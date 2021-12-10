@@ -1,10 +1,10 @@
  <style>
      .modal-content {
   margin: 25px auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 2px solid #888;
-  width: 45%; /* Could be more or less, depending on screen size */
+  border: 2px solid #888; /* Could be more or less, depending on screen size */
   font-size: 12px;
   border-radius: 10px;
+  width:  80%;
    
 }
 
@@ -33,7 +33,7 @@
   text-transform: capitalize;
 }
 
- .modal input[type=password], .modal input[type=email]{
+ .modal input[type=password], .modal input[type=email], .modal input[type=number]{
   width: 100%;
   padding: 5px 20px;
   margin: 5px 0;
@@ -69,8 +69,7 @@
   opacity: 0.9;
 }
 
-.modal-content .modal-body select{
-  width: 100%;
+.modal-content .modal-body select{ 
   border-radius: 10px;
   padding: 5px 20px;
   margin: 0px 0;
@@ -85,15 +84,11 @@
   
 }
 
-.row-space  {
+.  {
   justify-content: space-between;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-}
-
+ 
 .modal .modal-content .info-head{
   position: absolute;
   transform: rotate(-90deg) translateX(-70px) translateY(-120px);
@@ -102,10 +97,13 @@
   border-radius: 5px;
   color: #ffffff;
 }
+
+ 
+
  </style>
 
 <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
@@ -114,12 +112,12 @@
             </div>
             <form method="POST" action="register" {{-- id="registerForm" --}}>
                 @csrf            
-                <div class="modal-body">
-                    <div class="personal-info">
+                <div class="modal-body m-2">
+                    <div class="personal-info d-flex flex-wrap">
                         <p class="info-head text-center fw-bold">Personal Information</p>
 
-                        <div class="row row-space">               
-                            <div class="form-group col-6">
+                        <div class="row d-flex flex-wrap">               
+                            <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="fname">First Name:</label>
                                 <input type="text" class="form-control" name="fname" value="{{ old('fname') }}">
                                 <span class="invalid-feedback" role="alert" id="fnameError">
@@ -127,7 +125,7 @@
                                 </span>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="lname">Last Name:</label>
                                 <input type="text" class="form-control"name="lname" value="{{ old('lname') }}">
                                 <span class="invalid-feedback" role="alert" id="lnameError">
@@ -136,8 +134,8 @@
                             </div>
                         </div>
 
-                        <div class="row row-space"> 
-                            <div class="form-group col-6">
+                        <div class="row d-flex flex-wrap "> 
+                            <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="address">Address:</label>
                                 <input type="text" class="form-control" id="address" name="address">
                                 <span class="invalid-feedback" role="alert" id="addressError">
@@ -145,7 +143,7 @@
                                 </span>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="contact">Contact Number:</label>
                                 <input type="text" class="form-control" id="contact" name="contact">
                                 <span class="invalid-feedback" role="alert" id="contactError">
@@ -154,8 +152,8 @@
                             </div>
                         </div>
 
-                        <div class="row row-space">
-                            <div class="form-group col-6">
+                        <div class="row ">
+                            <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="bdate">Birthdate:</label>
                                 <input type="date" class="form-control" id="bdate" name="bdate">
                                 <span class="invalid-feedback" role="alert" id="bdateError">
@@ -163,7 +161,7 @@
                                 </span>
                             </div>
                             
-                            <div class="form-group col-6">
+                            <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="age">Age:</label>
                                 <input type="number" class="form-control" id="age" name="age">
                                 <span class="invalid-feedback" role="alert" id="ageError">
@@ -174,9 +172,9 @@
                     </div>
 
                     <hr>
-                    <div class="account-info">
+                    <div class="account-info d-flex flex-wrap">
                         <p class="info-head text-center fw-bold">Account Information</p>
-                        <div class="form-group">
+                        <div class=" d-flex flex-wrap col-12">
                             <label class="control-label" for="email">Email Address:</label>
                             <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                             <span class="invalid-feedback" role="alert" id="emailError">
@@ -184,15 +182,15 @@
                             </span>
                         </div>
 
-                        <div class="row row-space">
-                            <div class="form-group col-6">
+                        <div class="row d-flex flex-wrap ">
+                            <div class="col-md-6">
                                 <label class="control-label" for="password">Password:</label>
                                 <input type="password" class="form-control" id="password" name="password">
                                 <span class="invalid-feedback" role="alert" id="passwordError">
                                     <strong></strong>
                                 </span>
                             </div>
-                            <div class="form-group col-6">
+                            <div class="col-md-6">
                                 <label class="control-label" for="password_confirmation">Confirm Password:</label>
                                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
                                 <span class="invalid-feedback" role="alert" id="password_confirmationError">
@@ -204,14 +202,15 @@
                         </div>
 
                         
-
-                        <div class="form-group">
-                            <label class="control-label" for="role-id">Register as:</label>
-                            <select name="role_id">
-                                <option selected>Choose...</option>
-                                <option value="admin_nurse">Nurse</option>
-                                <option value="bhw">Barangay Health Worker</option>
-                            </select>
+                        <div class="row d-flex flex-wrap">
+                            <div class="col-12">
+                                <label class="control-label" for="role-id">Register as:</label>
+                                <select name="role_id">
+                                    <option selected>Choose...</option>
+                                    <option value="admin_nurse">Nurse</option>
+                                    <option value="bhw">Barangay Health Worker</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
