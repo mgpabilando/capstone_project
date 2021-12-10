@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/chart_style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('select2/dist/css/select2.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('FullCalendar/fullcalendar.css')}}"/>
 
     <!---------------------------          SCRIPTS           ---------------------------->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>

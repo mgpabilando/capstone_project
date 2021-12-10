@@ -118,7 +118,7 @@
         <div class="col-md-6">
           <div class="event-list">
             <div class="panel-body mt-3 justify-content-center" style="border:1px solid;">
-              <div class="calendar2"></div>
+              <div class="calendar2 col-md-12"></div>
             </div>
           </div>
        </div>
