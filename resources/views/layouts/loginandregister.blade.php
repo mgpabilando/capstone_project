@@ -27,11 +27,11 @@
 </head>
 <body>
     @yield('content')
-    @include('sweetalert::alert')
-
+    
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script language="JavaScript" type="text/javascript" src="{{ asset ('/js/bootstrap.js') }}"></script>
+@include('sweetalert::alert')
 @yield('scripts')
 
 </body>

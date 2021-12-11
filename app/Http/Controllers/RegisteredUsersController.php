@@ -9,7 +9,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Validator;
+use Illuminate\Support\Facades\Validator;
+use Alert;
 
 class RegisteredUsersController extends Controller
 {
@@ -32,7 +33,7 @@ class RegisteredUsersController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'fname' => 'required', 'string', 'max:255',
             'lname' => 'required', 'string', 'max:255',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
@@ -41,24 +42,28 @@ class RegisteredUsersController extends Controller
             'bdate' => 'required', 'date',
             'contact' => 'required', 'string', 'max:11',
             'password' => 'required', 'min:6', 'max:12', 
-            'password_confirmation' => 'required',
+            'password_confirmation' => 'required'
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors('Dont leave the form empty')->withInput();
+        }
+
         Auth::login($user = User::create([
-            'fname' => $request['fname'],
-            'lname' => $request['lname'],
-            'bdate' => $request['bdate'],
-            'address' => $request['address'],
-            'contact' => $request['contact'],
-            'age' => $request['age'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]));
-        $user->attachRole($request->role_id);  
-        event(new Registered($user));
-
-        return redirect(RouteServiceProvider::HOME);
-
+                'fname' => $request['fname'],
+                'lname' => $request['lname'],
+                'bdate' => $request['bdate'],
+                'address' => $request['address'],
+                'contact' => $request['contact'],
+                'age' => $request['age'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]));
+            $user->attachRole($request->role_id);  
+            event(new Registered($user));
+    
+            return redirect()->intended(route('dashboard'))->with('success', 'Login Successfully!');
+        
         
     }
 

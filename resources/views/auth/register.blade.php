@@ -147,7 +147,7 @@
 
                             <div class="form-group col-6">
                                 <label class="control-label" for="contact">Contact Number:</label>
-                                <input type="text" class="form-control" id="contact" name="contact">
+                                <input type="number" class="form-control" id="contact" name="contact">
                                 <span class="invalid-feedback" role="alert" id="contactError">
                                     <strong></strong>
                                 </span>

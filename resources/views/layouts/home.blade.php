@@ -9,7 +9,6 @@
     @include('layouts.includes.sidebar')
     
     @yield('content')
-    @include('sweetalert::alert')
     
     </div>
     <script src="{{ asset ('js/jquery-3.4.1.min.js') }}"></script>
@@ -21,7 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script> 
     {{-- <link href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js"> --}}
+    @include('sweetalert::alert')
     @yield('scripts')
+    
 
 <script>
     let sidebar = document.querySelector("#sidebar");

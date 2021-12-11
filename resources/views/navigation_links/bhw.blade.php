@@ -38,7 +38,7 @@
             @endif
         </div>
     </div> --}}
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -77,7 +77,7 @@
                                 @if($bhws)
                                 @foreach ($bhws as $bhw)
                                 <tr>
-                                    <th>{{$bhw->id}}</th>
+                                    <th id="sid">{{$bhw->id}}</th>
                                     <td style="text-transform: lowercase;">{{$bhw->email}}</td>
                                     <td>{{$bhw->lname}}</td>
                                     <td>{{$bhw->fname}}</td>
@@ -109,7 +109,7 @@
                                         data-user_id="{{$bhw->id}}">
                                         <i class="manage fas fa-trash"></i>
                                         </a> --}}
-                                        <a href="" class="btn-delete" data-id="{{$bhw->id}}">Delete</a>
+                                        <a href="{{ route('bhw.destroy', $bhw->id) }}" type="button" class="btn btn-danger bhwDeletebtn" data-user_id="{{$bhw->id}}"><i class="manage fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -521,27 +521,39 @@
     //     modal.find('.modal-body #deleteuser_id').val(user_id);
     // });
 
-    $(document).on('click', '.btn-delete', function (e) {
-    e.preventDefault();
-    var id = $(this).data('id');
-    swal({
-            title: "Are you sure!",
-            type: "error",
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes!",
-            showCancelButton: true,
-        },
-        function() {
-            $.ajax({
-                type: "POST",
-                url: "{{url('bhw.destroy')}}",
-                data: {id:id},
-                success: function (data) {
-                              //
-                    }         
+        $('.bhwDeletebtn').click(function ()
+        {
+            var id = $(this).data("user_id");
+
+            swal({
+                title: 'Are you sure?',
+                text: 'This record and it`s details will be permanently deleted!' + id,
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            })
+            .then ((willDelete) => {
+                if (willDelete) {
+
+                    $.ajax({
+                        method: 'POST',
+                        url: "bhw/" + id,
+                        data: {
+                            type: 'DELETE'
+                        },
+                        success: function (response) {
+                            swal("Poof!!, Your Data Has Been Deleted", {
+                            icon:"success",
+                            });
+                        }
+                    });
+                }
+
+                else {
+                    swal("Cancelled");
+                }
             });
-    });
-});
+        });
 
 </script>
 
