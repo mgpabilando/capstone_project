@@ -24,7 +24,7 @@ class LoginUserController extends Controller
 
         $credential = User::where('email', '=', $request->email)->first();
         if (!$credential) {
-            return back()->with('toast_error', 'Email not recognized!');
+            return back()->with('toast_error', 'Email Not Recognized!');
         }
         else {
             if (Hash::check($password, optional($credential)->password))
@@ -36,7 +36,7 @@ class LoginUserController extends Controller
                     }
             }
             else {
-                return back()->with('toast_error','Password is Incorrect!');
+                return back()->with('toast_error','Password Is Incorrect!');
             }
             
         }

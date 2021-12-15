@@ -75,18 +75,6 @@ body{
   height: 480px;
 }
 
-.alert {
-  display: flex;
-  font-size: 12px;
-  background-color: #f36d84;
-  position: absolute;
-  transform: translateX(-25px);
-  font-weight: bold;
-  width: 40%;
-
-}
-
-
 .hms-login .form-login {
 	display: flex;
 	align-items: center;
