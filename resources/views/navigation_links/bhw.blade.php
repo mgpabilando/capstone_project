@@ -68,16 +68,14 @@
                                     <th scope="col">ContactNo</th>
                                     <th scope="col">Date Added</th>
                                     <th scope="col">Date Updated</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 @if($bhws)
                                 @foreach ($bhws as $bhw)
                                 <tr>
-                                    <th id="sid">{{$bhw->id}}</th>
+                                    <th>{{$bhw->id}}</th>
                                     <td style="text-transform: lowercase;">{{$bhw->email}}</td>
                                     <td>{{$bhw->lname}}</td>
                                     <td>{{$bhw->fname}}</td>
@@ -87,29 +85,27 @@
                                     <td>{{$bhw->contact}}</td>
                                     <td>{{ date('F d, Y h:i:s a',strtotime($bhw['created_at'])) }}</td>
                                     <td>{{ date('F d, Y h:i:s a',strtotime($bhw['updated_at'])) }}</td>
-                                    <td>
+                                    <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                         {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-view bhw_view" data-bs-target="#viewbhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-primary bhw_view" data-bs-target="#viewbhw"
                                             data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
                                             data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
                                             data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
                                         <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
+                                    
                                         {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-edit bhw_edit" data-bs-target="#editbhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-warning bhw_edit" data-bs-target="#editbhw"
                                             data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
                                             data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
-                                            data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">                                        <i class="manage fas fa-edit"></i>
+                                            data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">                                        
+                                        <i class="manage fas fa-edit"></i>
                                         </a>
-                                    </td>
-                                    <td>
+                                    
                                         {{-----***************************** DELETE BUTTON *******************************------}}
-                                        {{-- <a data-bs-toggle="modal" type="button" class="btn-delete bhw_delete" data-bs-target="#deletebhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-danger bhw_delete" data-bs-target="#deletebhw"
                                         data-user_id="{{$bhw->id}}">
                                         <i class="manage fas fa-trash"></i>
-                                        </a> --}}
-                                        <a href="{{ route('bhw.destroy', $bhw->id) }}" type="button" class="btn btn-danger bhwDeletebtn" data-user_id="{{$bhw->id}}"><i class="manage fas fa-trash"></i></a>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -127,7 +123,8 @@
         <div class="bhw-add modal fade" id="addbhwModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="addbhwModal" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                    <div class="modal-header text-center">
+                    <div class="modal-header text-center"  style="background-color: #2ae88a;
+                    color: #ffffff">
                         <h5 class="modal-title" id="addbhwModal">{{ __('CREATE ACCOUNT') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
@@ -435,10 +432,10 @@
                         <h5 class="modal-title" id="staticBackdropLabel">Delete BHW Profile</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="bhw-modal"  class="add-resident" action="{{route ('bhw.destroy', 'user_id')}}" method="POST">
+                    <form class="bhw-modal"  class="delete_bhw" action="{{route ('bhw.destroy', 'user_id')}}" method="POST">
                         @csrf
                         @method('delete')
-                        <div class="modal-body delete_res">
+                        <div class="modal-body">
                             <div class="input-box">
                                 <input name="user_id" id="deleteuser_id" type="hidden" placeholder="">
                             </div>
@@ -511,50 +508,15 @@
 
     {{-----------------------------DELETE BHW SCRIPT--------------------------------}}
 <script>
-    // $('#deletebhw').on('show.bs.modal', function(event) {
-    //     var button = $(event.relatedTarget)
-    //     var user_id = button.data('user_id')
+    $('#deletebhw').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var user_id = button.data('user_id')
 
 
-    //     var modal = $(this)
-    //     modal.find('.modal-title').text(' Delete Profile');
-    //     modal.find('.modal-body #deleteuser_id').val(user_id);
-    // });
-
-        $('.bhwDeletebtn').click(function ()
-        {
-            var id = $(this).data("user_id");
-
-            swal({
-                title: 'Are you sure?',
-                text: 'This record and it`s details will be permanently deleted!' + id,
-                icon: 'warning',
-                buttons: true,
-                dangerMode: true,
-            })
-            .then ((willDelete) => {
-                if (willDelete) {
-
-                    $.ajax({
-                        method: 'POST',
-                        url: "bhw/" + id,
-                        data: {
-                            type: 'DELETE'
-                        },
-                        success: function (response) {
-                            swal("Poof!!, Your Data Has Been Deleted", {
-                            icon:"success",
-                            });
-                        }
-                    });
-                }
-
-                else {
-                    swal("Cancelled");
-                }
-            });
-        });
-
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Profile');
+        modal.find('.modal-body #deleteuser_id').val(user_id);
+    });
 </script>
 
     {{-----------------------------VIEW BHW SCRIPT--------------------------------}}

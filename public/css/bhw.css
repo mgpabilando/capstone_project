@@ -31,27 +31,6 @@
 }
 
 
-
-/* bhw-datatable */
-/* #bhw-datatable_info, #bhw-datatable_paginate, input[type=search]
-{
-    font-size: 12px;
-} */
-
-.btn-view
-{
-    color: #007bff;
-}
-
- .btn-edit{
-    color: #ffc107;
-}
-
- .btn-delete{
-    color: #dc3545;
-}
-
-
 .modal-content {
  margin: 25px auto;
  border: 2px solid #888;

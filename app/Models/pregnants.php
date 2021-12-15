@@ -10,11 +10,11 @@ class pregnants extends Model
     use HasFactory;
 
     protected $fillable = [
-        'resident_id', 'height_cm', 'weight_kg', 'age', 'lmp', 'pregnancyorder',
+        'resident_id', 'name', 'height_cm', 'weight_kg', 'age', 'lmp', 'pregnancyorder',
     ];
 
-    public function residents()
-    {
-        return $this->belongsTo(pregnants::class);
-    }
+    // public function residents()
+    // {
+    //     return $this->belongsTo(Residents::class);
+    // }
 }

@@ -9,17 +9,6 @@
         </div>
     </div>
 
-    <div class="head-resprof">
-        <div class="head-func">
-            @if (\Session::has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ \Session::get('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-        </div>
-    </div>
-
     {{--RESIDENT PROFILE TABLE--}}
     <div class="container-fluid">
         <div class="row">
@@ -43,9 +32,7 @@
                                         <th scope="col">First Name</th>
                                         <th scope="col">Middle Name</th>
                                         <th scope="col">Date Added</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Date Updated</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,9 +46,10 @@
                                             <td>{{ $residentprofile->fname }}</td>
                                             <td>{{ $residentprofile->mname }}</td>
                                             <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
-                                            <td>
+                                            <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['updated_at'])) }}</td>
+                                            <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn-action view"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
+                                                <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
                                                 data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
@@ -70,10 +58,9 @@
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
                                                 data-bs-target="#viewResidentModal">
                                                 <i class="fas fa-eye"></i></a>
-                                            </td>
-                                            <td>
+                                            
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn-action edit"
+                                                <a data-bs-toggle="modal" type="button" class="btn btn-warning resedit"
                                                 data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
@@ -84,10 +71,9 @@
                                                 data-bs-target="#editResidentModal">
                                                 <i class="fas fa-edit"></i>
                                                 </a>
-                                            </td>
-                                            <td>
+                                            
                                                 {{-----***************************** DELETE BUTTON *******************************------}}
-                                                <a type="button" class="btn-action delete" data-bs-toggle="modal"
+                                                <a type="button" class="btn btn-danger resdelete" data-bs-toggle="modal"
                                                 data-bs-target="#deleteResidentModal"
                                                 data-resident_id="{{$residentprofile->id}}">
                                                 <i class="fas fa-trash"></i></a>
@@ -149,7 +135,7 @@
                                 <div class="d-flex flex-wrap identification row ">
                                     <div class="col-4 input-box">
                                         <div class="details">Age:</div>
-                                        <input name="age" type="text" placeholder="" required>
+                                        <input name="age" type="number" placeholder="" required>
                                     </div>
                                     <div class="col-4 input-box">
                                         <div class="details">Birthdate:</div>
@@ -181,7 +167,7 @@
                                     </div>
                                     <div class="col-4 input-box">
                                         <div class="details">Contact Number:</div>
-                                        <input name="mobile" type="text" placeholder="" required>
+                                        <input name="mobile" type="number" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-wrap identification row ">
@@ -248,7 +234,7 @@
                             <div class="d-flex flex-wrap identification row ">
                                 <div class="col-4 input-box">
                                     <div class="details">Age:</div>
-                                    <input name="age" id="age" type="text" placeholder="" required readonly>
+                                    <input name="age" id="age" type="number" placeholder="" required readonly>
                                 </div>
                                 <div class="col-4 input-box">
                                     <div class="details">Birthdate:</div>
@@ -270,7 +256,7 @@
                                 </div>
                                 <div class="col-4 input-box">
                                     <div class="details">Contact Number:</div>
-                                    <input name="mobile" id="mobile" type="text" placeholder="" required readonly>
+                                    <input name="mobile" id="mobile" type="number" placeholder="" required readonly>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
@@ -341,7 +327,7 @@
                             <div class="d-flex flex-wrap identification row ">
                                 <div class="col-4 input-box">
                                     <div class="details">Age:</div>
-                                    <input name="age" id="age" type="text" placeholder="" required>
+                                    <input name="age" id="age" type="number" placeholder="" required>
                                 </div>
                                 <div class="col-4 input-box">
                                     <div class="details">Birthdate:</div>
@@ -373,7 +359,7 @@
                                 </div>
                                 <div class="col-4 input-box">
                                     <div class="details">Contact Number:</div>
-                                    <input name="mobile" id="mobile" type="text" placeholder="" required>
+                                    <input name="mobile" id="mobile" type="number" placeholder="" required>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
@@ -399,16 +385,16 @@
 
         <!--**************************------------------- DELETE RESIDENT MODAL -------------------****************************---------->
         <div class="res-delete modal fade" id="deleteResidentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog modal-lg-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Delete Resident Profile</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="add-resident" action="{{route ('residentprofile.destroy', 'resident_id')}}" method="POST">
+                    <form class="delete-resident" action="{{route ('residentprofile.destroy', 'resident_id')}}" method="POST">
                         @csrf
                         @method('delete')
-                        <div class="modal-body delete_res">
+                        <div class="modal-body">
                             <div class="input-box">
                                 <input name="resident_id" id="resident_id" type="hidden" placeholder="">
                             </div>

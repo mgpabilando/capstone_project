@@ -1,4 +1,5 @@
 @extends('layouts.home')
+
 @section('content')
 <div id="content">
     @include('layouts.includes.topnavbar')
@@ -6,18 +7,7 @@
         <div class="col-md-12 d-flex flex-row justify-content-between">
             <h3 class="block-title">Health Consultation</h3>
         </div>
-    </div>
-
-    <div class="head-alert">
-        <div class="head-func d-flex align-items-center justify-content-center">
-            @if (\Session::has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ \Session::get('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-        </div>
-    </div>
+      </div>
 
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
@@ -72,9 +62,7 @@
                                   <th scope="col">Pregnancy Order</th>
                                   <th scope="col">Last Menstrual Period</th>
                                   <th scope="col">Date Added</th>
-                                  <th scope="col"></th>
-                                  <th scope="col"></th>
-                                  <th scope="col"></th>
+                                  <th scope="col">Date Updated</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -83,36 +71,37 @@
                               <tr>
                                 <th>{{ $pregpatient->id }}</th>
                                 <td>{{ $pregpatient->resident_id }}</td>
-                                <td>{{ $pregpatient->fname }} {{ $pregpatient->mname }} {{ $pregpatient->lname }}</td>
+                                <td>{{ $pregpatient->name }}</td>
                                 <td>{{ $pregpatient->height_cm }}</td>
                                 <td>{{ $pregpatient->weight_kg }}</td>
                                 <td>{{ $pregpatient->age }}</td>
                                 <td>{{ $pregpatient->pregnancyorder }}</td>
                                 <td>{{ date('F d, Y',strtotime($pregpatient['lmp'])) }}</td>
                                 <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
-                                  <td>
-                                      {{-----***************************** SHOW BUTTON *******************************------}}
-                                      {{-- <a data-bs-toggle="modal" type="button" class="btn-action consul_view"
-                                      data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-height_cm = "{{ $pregpatient->height_cm }}"
-                                        data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
-                                        data-lmp = "{{ $pregpatient->lmp }}"  data-bs-target="#viewpregconsul">
-                                      <i class="manage fas fa-eye"></i></a> --}}
-                                    <a href="javascript:void(0)"><i class="manage fas fa-eye"></i></a>
+                                <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['updated_at'])) }}</td>
+                                <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                  {{-----***************************** SHOW BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewpregconsul"
+                                        data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-name = "{{ $pregpatient->name }}" 
+                                        data-height_cm = "{{ $pregpatient->height_cm }}" data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" 
+                                        data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
+                                        data-lmp = "{{ $pregpatient->lmp }}">
+                                      <i class="manage fas fa-eye"></i></a>
                                       @include('modals.pregnancy.Show')
-                                  </td>
-                                  <td>
+                                  
                                       {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editpregconsul"
-                                      data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-height_cm = "{{ $pregpatient->height_cm }}"
-                                      data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
-                                      data-lmp = "{{ $pregpatient->lmp }}">
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editpregconsul"
+                                        data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-name = "{{ $pregpatient->name }}" 
+                                        data-height_cm = "{{ $pregpatient->height_cm }}" data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" 
+                                        data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
+                                        data-lmp = "{{ $pregpatient->lmp }}">
                                       <i class="manage fas fa-edit"></i>
                                       </a>
                                       @include('modals.pregnancy.Edit')
-                                  </td>
-                                  <td>
+                                  
                                       {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletepregconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletepregconsul"
+                                      data-pregnant_id="{{$pregpatient->id}}">
                                       <i class="manage fas fa-trash"></i>
                                       </a>
                                       @include('modals.pregnancy.Delete')
@@ -130,7 +119,7 @@
                 <div class="consultation-list container bhms-box-shadow">
                   <div class="title-and-button d-flex justify-content-between align-items-center">
                     <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Deliveries</h4>
-                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddeliveriesconsul">
+                    <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addDeliveriesconsul">
                       <i class="fas fa-file-medical"></i> ADD
                     </div>
                     @include('modals.deliveries.Add')
@@ -148,9 +137,8 @@
                                     <th scope="col">Outcome</th>
                                     <th scope="col">Place</th>
                                     <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Date Updated</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -163,22 +151,21 @@
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                    <td>
-                                      {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewdeliveriesconsul">
+                                  <td></td>
+                                  <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewdeliveriesconsul">
                                       <i class="manage fas fa-eye"></i></a>
                                       @include('modals.deliveries.Show')
-                                  </td>
-                                  <td>
+                                
                                       {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editdeliveriesconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editdeliveriesconsul">
                                       <i class="manage fas fa-edit"></i>
                                       </a>
                                       @include('modals.deliveries.Edit')
-                                  </td>
-                                  <td>
+                                  
                                       {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletedeliveriesconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletedeliveriesconsul">
                                       <i class="manage fas fa-trash"></i>
                                       </a>
                                       @include('modals.deliveries.Delete')
@@ -225,20 +212,20 @@
                                     <td></td>
                                     <td>
                                       {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewepiconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewepiconsul">
                                       <i class="manage fas fa-eye"></i></a>
                                       @include('modals.EPI.Show')
                                   </td>
                                   <td>
                                       {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editepiconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editepiconsul">
                                       <i class="manage fas fa-edit"></i>
                                       </a>
                                       @include('modals.EPI.Edit')
                                   </td>
                                   <td>
                                       {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deleteepiconsul">
+                                      <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deleteepiconsul">
                                       <i class="manage fas fa-trash"></i>
                                       </a>
                                       @include('modals.EPI.Delete')
@@ -286,20 +273,20 @@
                                   <td></td>
                                   <td>
                                     {{-----***************************** SHOW BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewntpconsul">
+                                    <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewntpconsul">
                                     <i class="manage fas fa-eye"></i></a>
                                     @include('modals.NTP.Show')
                                 </td>
                                 <td>
                                     {{-----***************************** EDIT BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editntpconsul">
+                                    <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editntpconsul">
                                     <i class="manage fas fa-edit"></i>
                                     </a>
                                     @include('modals.NTP.Edit')
                                 </td>
                                 <td>
                                     {{-----***************************** DELETE BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletentpconsul">
+                                    <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletentpconsul">
                                     <i class="manage fas fa-trash"></i>
                                     </a>
                                     @include('modals.NTP.Delete')
@@ -346,20 +333,20 @@
                                     <td></td>
                                     <td>
                                         {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewfpconsul">
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfpconsul">
                                         <i class="manage fas fa-eye"></i></a>
                                         @include('modals.familyplanning.Show')
                                     </td>
                                     <td>
                                         {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editfpconsul">
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editfpconsul">
                                         <i class="manage fas fa-edit"></i>
                                         </a>
                                         @include('modals.familyplanning.Edit')
                                     </td>
                                     <td>
                                         {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletefpconsul">
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletefpconsul">
                                         <i class="manage fas fa-trash"></i>
                                         </a>
                                         @include('modals.familyplanning.Delete')
@@ -404,20 +391,20 @@
                               <td></td>
                               <td>
                                   {{-----***************************** SHOW BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewdiarrhealconsul">
+                                  <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewdiarrhealconsul">
                                   <i class="manage fas fa-eye"></i></a>
                                   @include('modals.diarrheal.Show')
                               </td>
                               <td>
                                   {{-----***************************** EDIT BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editdiarrhealconsul">
+                                  <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editdiarrhealconsul">
                                   <i class="manage fas fa-edit"></i>
                                   </a>
                                   @include('modals.diarrheal.Edit')
                               </td>
                               <td>
                                   {{-----***************************** DELETE BUTTON *******************************------}}
-                                  <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletediarrhealconsul">
+                                  <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletediarrhealconsul">
                                   <i class="manage fas fa-trash"></i>
                                   </a>
                                   @include('modals.diarrheal.Delete')
@@ -458,20 +445,20 @@
                                     <td></td>
                                     <td>
                                         {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewotherconsul">
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewotherconsul">
                                         <i class="manage fas fa-eye"></i></a>
                                         @include('modals.othersconsul.Show')
                                     </td>
                                     <td>
                                         {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editotherconsul">
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editotherconsul">
                                         <i class="manage fas fa-edit"></i>
                                         </a>
                                         @include('modals.othersconsul.Edit')
                                     </td>
                                     <td>
                                         {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deleteotherconsul">
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deleteotherconsul">
                                         <i class="manage fas fa-trash"></i>
                                         </a>
                                         @include('modals.othersconsul.Delete')
@@ -487,61 +474,5 @@
           </div><!--/consult-pane-->
         </div> <!-- /row d-flex justify-content-center -->
     </div> <!--container-fluid -->
-@endsection
-
-@section('scripts')
-<script>
-  // {{-----------------------------VIEW PREGNANCY RECORD SCRIPT--------------------------------}}
-    $('#viewpregconsul').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var pregnant_id = button.data('pregnant_id')
-        var resident_id = button.data('resident_id')
-        // var fname = button.data('fname')
-        // var lname = button.data('lname')
-        // var mname = button.data('mname')
-        var height = button.data('height_cm')
-        var weight = button.data('weight_kg')
-        var age = button.data('age')
-        var lmp = button.data('lmp')
-        var pregnancyorder = button.data('pregnancyorder')
-    
-        var modal = $(this)
-        modal.find('.modal-title').text('View Consultation Record');
-        modal.find('.modal-body #pregnant_id').val(pregnant_id);
-        modal.find('.modal-body #resident_id').val(resident_id);
-        modal.find('.modal-body #height').val(height_cm);
-        modal.find('.modal-body #weight').val(weight_kg);
-        modal.find('.modal-body #age').val(age);
-        modal.find('.modal-body #lmp').val(lmp);
-        modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
-        })
-</script>
-
-<script>
-   //{{-----------------------------EDIT PREGNANCY RECORD SCRIPT--------------------------------}}
-    $('#editpregconsul').on('show.bs.modal', function(event) {
-      var button = $(event.relatedTarget)
-      var pregnant_id = button.data('pregnant_id')
-      var resident_id = button.data('resident_id')
-      // var fname = button.data('fname')
-      // var lname = button.data('lname')
-      // var mname = button.data('mname')
-      var height = button.data('height_cm')
-      var weight = button.data('weight_kg')
-      var age = button.data('age')
-      var lmp = button.data('lmp')
-      var pregnancyorder = button.data('pregnancyorder')
-  
-      var modal = $(this)
-      modal.find('.modal-title').text('Edit Consultation Record');
-      modal.find('.modal-body #pregnant_id').val(pregnant_id);
-      modal.find('.modal-body #resident_id').val(resident_id);
-      modal.find('.modal-body #height').val(height_cm);
-      modal.find('.modal-body #weight').val(weight_kg);
-      modal.find('.modal-body #age').val(age);
-      modal.find('.modal-body #lmp').val(lmp);
-      modal.find('.modal-body #pregnacyorder').val(pregnacyorder);
-      })
-</script>
 @endsection
 

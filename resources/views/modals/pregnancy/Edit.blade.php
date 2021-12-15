@@ -30,24 +30,24 @@
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="edit-consult" action="{{route('healthconsultation.update', 'pregnant_id')}}" method="POST">
+            <form class="edit-consult" action="{{route('healthconsultation.update', 'id')}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
                     <div class="res_prof row justify-content-center" id="details">  
                         <div class="input-box">
-                            <input name="pregnant_id" id="pregnant_id" type="block" placeholder="">
+                            <input name="Epregnant_id" id="Epregnant_id" type="block" placeholder="" hidden>
                         </div>
                         <div class="input-box col-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
-                            <input type="text" name="resident_id" id="resident_id" placeholder="" required style="width:auto" readonly>
+                            <input type="text" name="Eresident_id" id="Eresident_id" placeholder="" required style="width:auto" readonly>
                         </div>
                         <hr>
                     </div>
                     <div class="res_prof row justify-content-center" id="details">  
-                        <div class="input-box col-6 pb-3 align-self-center">
+                        <div class="input-box pb-3">
                             <div class="details">Name:</div>
-                            <input type="text" name="name" id="name" placeholder="" required style="width:auto" readonly>
+                            <input type="text" name="Ename" id="Ename" placeholder="" required readonly>
                         </div>
                         <hr>
                     </div>
@@ -55,26 +55,26 @@
                     <div class="row">
                         <div class="input-box col pb-3">
                             <div class="details">Weight(kg):</div>
-                            <input type="text" name="weight" id="weight" placeholder="">
+                            <input type="text" name="Eweight" id="Eweight" placeholder="">
                         </div>
                         <div class="input-box col pb-3">
                             <div class="details">Height(cm):</div>
-                            <input type="text" name="height" id="height" placeholder="">
+                            <input type="text" name="Eheight" id="Eheight" placeholder="">
                         </div>
                     </div>
 
                     <div class="row pregnancy-info">
                         <div class="input-box col pb-3">
                             <div class="details">Age:</div>
-                            <input type="text" name="age" id="age" placeholder="">
+                            <input type="text" name="Eage" id="Eage" placeholder="">
                         </div>
                         <div class="input-box col pb-3">
                             <div class="details">LMP:</div>
-                            <input type="date" name="lmp" id="lmp" placeholder="">
+                            <input type="date" name="Elmp" id="Elmp" placeholder="">
                         </div>
                         <div class="input-box col pb-3">
                             <div class="details">Pregnancy Order:</div>
-                            <input type="text" name="pregnancyorder" id="pregnancyorder" placeholder="">
+                            <input type="text" name="Epregnancyorder" id="Epregnancyorder" placeholder="">
                         </div>
                     </div>
                 </div>

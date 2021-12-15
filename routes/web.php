@@ -13,6 +13,7 @@ use App\Http\Controllers\PregnantConsulController;
 use App\Http\Controllers\SearchAutoCompleteController;
 use App\Http\Controllers\MedRequestController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\DeliveriesConsulController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,7 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::resource('/residentprofile', ResidentController::class);
 
     Route::resource('healthconsultation', PregnantConsulController::class);
+    //Route::resource('healthconsultation/deliveries', DeliveriesConsulController::class);
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');

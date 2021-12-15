@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePregnantsTable extends Migration
+class CreateDeliveriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreatePregnantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pregnants', function (Blueprint $table) {
+        Schema::create('deliveries', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('resident_id');
             $table->string('name');
             $table->integer('age');
-            $table->float('height_cm');
-            $table->float('weight_kg');
-            $table->string('lmp');
-            $table->string('pregnancyorder');
+            $table->string('date_delivered');
+            $table->string('outcome');
+            $table->string('place');
             $table->timestamps();
 
             $table->foreign('resident_id')->references('id')->on('residents')
@@ -36,6 +35,6 @@ class CreatePregnantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pregnants');
+        Schema::dropIfExists('deliveries');
     }
 }
