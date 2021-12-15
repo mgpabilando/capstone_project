@@ -14,9 +14,11 @@ body{
   font-family: 'poppins', sans-serif;
   height: 100vh;
   margin: 0px 0 0px 0;
-  /* background-image: url(images/bmhms-background.jpg); */
+  background-image: url(images/bmhms-background.jpg); 
   background: #3CB371;
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .Login_Section{

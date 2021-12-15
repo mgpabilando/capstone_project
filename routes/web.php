@@ -67,4 +67,5 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::post('/getResidents', [SearchAutoCompleteController::class, 'getResidents'])->name('getResidents');
 
     Route::resource('/medicinerequest', MedRequestController::class);
+    Route::post('/users_profile', 'App\Http\Controllers\MyProfileController@upload');
 });

@@ -14,20 +14,14 @@
 
             </li>
 
-            <li class="">
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div> --}} {{--For drop down sub menu--}}
+            <li class=""> 
                 <a class="link {{ Request::is('residentprofile') ? 'active' : '' }}" href="residentprofile">
                     <i class="fas fa-id-badge"></i>
                     <span class="link-name">Resident Profile</span>
                 </a>
             </li>
             @if (Auth::user()->hasRole('admin_nurse'))
-            <li class="">
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div> --}} {{--For drop down sub menu--}}
+            <li class=""> 
                 <a class="{{ Request::is('bhw') ? 'active' : '' }}" href="bhw">
                     <i class="fa fa-address-card"></i>
                     <span class="link-name">BHWs</span>
@@ -40,24 +34,10 @@
                     <i class="fas fa-heartbeat"></i>
                     <span class="link-name">Health Consultation</span>
                 </a>
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Pregnant</a></li>
-                    <li><a href="#">Deliveries</a></li>
-                    <li><a href="#">EPI</a></li>
-                    <li><a href="#">NTP</a></li>
-                    <li><a href="#">Family Planning</a></li>
-                    <li><a href="#">Control of Diarrheal Diseases</a></li>
-                    <li><a href="#">Other Services</a></li>
-                  </ul> --}}
+                 
             </li>
 
             <li class="">
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div> --}} {{--For drop down sub menu--}}
                 <a class="{{ Request::is('events') ? 'active' : '' }}" href="events">
                     <i class="fas fa-calendar-alt"></i>
                     <span class="link-name">Events</span>

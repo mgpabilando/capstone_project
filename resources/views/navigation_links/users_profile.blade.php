@@ -8,39 +8,17 @@
         </div>
     </div>
 
-    <div class="head-alert">
-      <div class="head-func d-flex justify-content-center">
-        @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <ul>
-                @foreach($errors->all() as $error)
-                <li>
-                    {{$error}}
-                </li>
-                @endforeach
-                </ul>
-            </div>
-            @endif
-            @if(session('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                {{session('error')}}
-            </div>
-            @endif
-          @if (\Session::has('success'))
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                  {{ \Session::get('success') }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-          @endif
-      </div>
-  </div>
 
   <div class="container-fluid">
-    <div class="row d-flex">  
+    <div class="row mng-acc align-items-center d-flex"> 
+
+      <form action="/users_profile" method="POST" enctype="multipart/form-data">
+          @csrf
+          <input type="file" name="image">
+          <input type="submit" value="Upload"></input>
+      </form>
       <!--PROFILE PICTURE-->
-      <div class="chooseprofile col-sm-3 justify-content-center">       
+      <div class="chooseprofile col-md-4 m-2 justify-content-center">       
         <div class="text-center">
           @if(Auth::User()->profile_image)
           <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::User()->profile_image)}}" alt="profile_image">
@@ -57,16 +35,13 @@
       </div>
 
       {{-- User Profile/Information --}}
-      <div class="user-info col-sm-8 text-center">
-        <h4 style="text-align:center; font-weight:bold;  color:#2e2d2d">User Profile</h4>
-        
-          <hr>
+      <div class="user-info col-md-8 m-2 text-center">
 
-        <ul class="nav nav-tabs" id="tab-next-prev" role="tablist">
-          <li class="nav-item">
+        <ul class="nav nav-tabs justify-content-center" id="tab-next-prev" role="tablist">
+          <li class="nav-item col-md-6">
             <a class="nav-link active" data-bs-toggle="tab" href="#personal_info">Personal Information</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item col-md-6">
             <a class="nav-link" data-bs-toggle="tab" href="#account_info">Account Information</a>
           </li>
         </ul>
@@ -83,13 +58,13 @@
                 </div>
 
                 <div class="row row-space">               
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label class="control-label" for="fname">First Name:</label>
                         <input type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ $user->fname }}" disabled>
                         <span class="text-danger">@error('firstname'){{ $message }} @enderror</span>
                     </div>
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label class="control-label" for="lname">Last Name:</label>
                         <input type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ $user->lname }}" disabled>
                         <span class="text-danger">@error('lastname'){{ $message }} @enderror</span>
@@ -97,13 +72,13 @@
                 </div>
 
                 <div class="row row-space"> 
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label class="control-label" for="address">Address:</label>
                         <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address" value="{{ $user->address }}" disabled>
                         <span class="text-danger">@error('address'){{ $message }} @enderror</span>
                     </div>
 
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label class="control-label" for="contact">Contact Number:</label>
                         <input type="text" class="form-control @error('contact') is-invalid @enderror" id="contact" name="contact" value="{{ $user->contact }}" disabled>
                         <span class="text-danger">@error('contact'){{ $message }} @enderror</span>
@@ -111,13 +86,13 @@
                 </div>
 
                 <div class="row row-space">
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label class="control-label" for="bdate">Birthdate:</label>
                         <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="bdate" name="bdate" value="{{ $user->bdate }}" disabled>
                         <span class="text-danger">@error('birthdate'){{ $message }} @enderror</span>
                     </div>
                     
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label class="control-label" for="age">Age:</label>
                         <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ $user->age }}" disabled>
                         <span class="text-danger">@error('age'){{ $message }} @enderror</span>
@@ -130,9 +105,11 @@
                     </div>
                 </div>
               </div>
-              <button type="submit" id="save" class="btn btn-danger" style="display: none;">Save Changes</button>
+              <div class="d-flex justify-content-end">
+                <button type="submit" id="save" class="btn btn-primary m-2" style="display: none;">Save Changes</button>
+              </div>
             </form>
-            <button class="btn btn-edit" onclick="myFunction()" id="edit">Edit</button>
+            <button class="btn btn-success m-2" style="width: 300px;" onclick="myFunction()" id="edit">Edit</button>
           </div> <!--/PERSONAL INFO-->
  
            {{-- ACCOUNT INFO --}}
@@ -149,13 +126,13 @@
                 <hr>
 
                 <div class="row row-space">
-                  <div class="form-group col-6">
+                  <div class="form-group col-md-6">
                       <label class="control-label" for="password">New Password:</label>
                       <input type="password" class="form-control @error('newpassword') is-invalid @enderror" id="newpassword" name="newpassword" disabled>
                       <span class="text-danger">@error('newpassword'){{ $message }} @enderror</span>
                   </div>
                   
-                  <div class="form-group col-6">
+                  <div class="form-group col-md-6">
                       <label class="control-label" for="password_confirmation">Confirm New Password:</label>
                       <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation" disabled>
                       <span class="text-danger">@error('password_confirmation'){{ $message }} @enderror</span>
@@ -173,6 +150,7 @@
           </div><!---tab-content-->
         
       </div><!--/user-info-->
+    </div>
     </div>
   </div>
 </div>

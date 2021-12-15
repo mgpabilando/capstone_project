@@ -299,3 +299,9 @@ body {
 .modal-body input[type=date]{
     text-transform: uppercase;
 }
+
+  @media (max-width: 768px){
+    .name-usr, .email-usr{
+        display: none;
+    }
+}

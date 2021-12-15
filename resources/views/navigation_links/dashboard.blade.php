@@ -5,7 +5,7 @@
     @include('layouts.includes.topnavbar')
 
     <div class="row no-margin-padding">
-        <div class="col-md-12 d-flex flex-row justify-content-between">
+        <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
             <h3 class="block-title">Nurse Dashboard</h3>
             <button type="button" class="btn-dtr m-0" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       DAILY TIME RECORD
@@ -116,9 +116,9 @@
         </div>
     
         <div class="col-md-6">
-          <div class="event-list">
+          <div class="event-list d-flex justify-content-center">
             <div class="panel-body mt-3 justify-content-center" style="border:1px solid;">
-              <div class="calendar2 col-md-12"></div>
+              <div class="calendar2"></div>
             </div>
           </div>
        </div>
