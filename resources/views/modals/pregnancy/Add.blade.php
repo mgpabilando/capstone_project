@@ -30,7 +30,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form id="searchResident" class="add-consult" action="{{route('healthconsultation.store')}}" method="POST">
+            <form id="searchResident" class="add-consult" action="{{route('pregnancy.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-search d-flex justify-content-center">

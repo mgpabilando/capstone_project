@@ -50,20 +50,17 @@
                     <i class="fas fa-chevron-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="{{ Request::is('healthconsultation') ? 'active' : '' }}" href="healthconsultation">Pregnant</a></li>
-                    <li><a href="#">Deliveries</a></li>
-                    <li><a href="#">EPI</a></li>
-                    <li><a href="#">NTP</a></li>
-                    <li><a href="#">Family Planning</a></li>
-                    <li><a href="#">Control of Diarrheal <br> Disease</a></li>
-                    <li><a href="#">Other Services</a></li>
+                    <li><a href="pregnancy">Pregnant</a></li>
+                    <li><a href="deliveries">Deliveries</a></li>
+                    <li><a href="epi">EPI</a></li>
+                    <li><a href="ntp">NTP</a></li>
+                    <li><a href="familyplanning">Family Planning</a></li>
+                    <li><a href="diarrheal">Control of Diarrheal <br> Disease</a></li>
+                    <li><a href="other">Other Services</a></li>
                 </ul>
             </li>
 
             <li class="">
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div> --}} {{--For drop down sub menu--}}
                 <a class="{{ Request::is('events') ? 'active' : '' }}" href="events">
                     <i class="fas fa-calendar-alt"></i>
                     <span class="link-name">Events</span>

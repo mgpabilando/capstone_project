@@ -6,7 +6,7 @@
                         <h5 class="modal-title" id="staticBackdropLabel">Delete Pregnancy Record</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="pregconsul-modal"  class="delete_pregconsul" action="{{route ('healthconsultation.destroy', 'id')}}" method="POST">
+                    <form class="pregconsul-modal"  class="delete_pregconsul" action="{{route ('pregnancy.destroy', 'id')}}" method="POST">
                         @csrf
                         @method('delete')
                         <div class="modal-body">

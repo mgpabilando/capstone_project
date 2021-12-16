@@ -30,7 +30,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="edit-consult" action="{{route('healthconsultation.update', 'id')}}" method="POST">
+            <form class="edit-consult" action="{{route('pregnancy.update', 'id')}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">

@@ -31,7 +31,7 @@
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="show-consult" method="GET" action=" {{route('healthconsultation.show', 'id')}}">
+            <form class="show-consult" method="GET" action=" {{route('pregnancy.show', 'id')}}">
                 @csrf
                 <div class="modal-body">
                     <div class="res_prof row justify-content-center" id="details">  
