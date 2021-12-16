@@ -70,7 +70,7 @@
                                   <th scope="col">Weight(kg)</th>
                                   <th scope="col">Age</th>
                                   <th scope="col">Pregnancy Order</th>
-                                  <th scope="col">Last Menstrual Period</th>
+                                  <th scope="col">LMP</th>
                                   <th scope="col">Date Added</th>
                                   <th scope="col"></th>
                                   <th scope="col"></th>

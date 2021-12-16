@@ -12,11 +12,11 @@
   <div class="container-fluid">
     <div class="row mng-acc align-items-center d-flex"> 
 
-      <form action="/users_profile" method="POST" enctype="multipart/form-data">
+      {{-- <form action="/users_profile" method="POST" enctype="multipart/form-data">
           @csrf
           <input type="file" name="image">
           <input type="submit" value="Upload"></input>
-      </form>
+      </form> --}}
       <!--PROFILE PICTURE-->
       <div class="chooseprofile col-md-4 m-2 justify-content-center">       
         <div class="text-center">

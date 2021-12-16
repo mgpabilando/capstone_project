@@ -100,10 +100,19 @@
                                           <input type="text" class="form-control" id="" placeholder="">
                                         </div>
 
-                                        <div class="form-group">
-                                          <label for="">Purok</label>
-                                          <input type="text" class="form-control" id="" placeholder="">
-                                        </div>
+                                         <div class="form-group">
+                                           <div class="details">Purok No.:</div>
+                                               <select class="purok" name="purok" id="purok_id" >
+                                                   <option selected>Select</option>
+                                                   <option value="1">UNO</option>
+                                                   <option value="2">DOS</option>
+                                                   <option value="3">TRES</option>
+                                                   <option value="4">KWATRO</option>
+                                                   <option value="5">SINGKO</option>
+                                                   <option value="6">SAIS</option>
+                                                   <option value="7">SYETE</option>
+                                                </select>
+                                            </div>
 
                                       </form>
                                     </div>
@@ -157,40 +166,49 @@
       <!-- Button trigger modal -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="addnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Add Family Head</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="" action="index.html" method="post">
+            <!-- Modal -->
+            <div class="modal fade" id="addnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Family Head</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" action="index.html" method="post">
 
-          <div class="form-group">
-            <label for="">Family ID No.</label>
-            <input type="text" class="form-control" id="" placeholder="">
-          </div>
+                      <div class="form-group">
+                        <label for="">Family ID No.</label>
+                        <input type="text" class="form-control" id="" placeholder="">
+                      </div>
 
-          <div class="form-group">
-            <label for="">Family Head Name</label>
-            <input type="text" class="form-control" id="" placeholder="">
-          </div>
+                      <div class="form-group">
+                        <label for="">Family Head Name</label>
+                        <input type="text" class="form-control" id="" placeholder="">
+                      </div>
 
-          <div class="form-group">
-            <label for="">Purok</label>
-            <input type="text" class="form-control" id="" placeholder="">
-          </div>
+                      <div class="form-group">
+                         <div class="details">Purok No.:</div>
+                             <select class="purok" name="purok" id="purok_id" >
+                                 <option selected>Select</option>
+                                 <option value="1">UNO</option>
+                                 <option value="2">DOS</option>
+                                <option value="3">TRES</option>
+                                 <option value="4">KWATRO</option>
+                                 <option value="5">SINGKO</option>
+                                  <option value="6">SAIS</option>
+                                  <option value="7">SYETE</option>
+                              </select>
+                          </div>
 
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
-        <button type="button" class="btn btn-primary">ADD</button>
-      </div>
-    </div>
-  </div>
-</div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
+                    <button type="button" class="btn btn-primary">ADD</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 @endsection
