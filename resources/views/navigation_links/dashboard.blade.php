@@ -73,7 +73,7 @@
                 </div>
                 <div class="total-data">
                   <p class="text-start m-0">Total BHW</p>
-                  <p class="text-start total m-0">{{ $bhw }}</p>
+                  <p class="text-start cnt total m-0">{{ $bhw }}</p>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@
               </div>
               <div class="total-data">
                 <p class="text-start m-0">Total Resident</p>
-                <p class="text-start total m-0">{{ $resident }}</p>
+                <p class="text-start cnt total m-0">{{ $resident }}</p>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@
               </div>
               <div class="total-data">
                 <p class="text-start m-0">Total Family Head</p>
-                <p class="text-start total m-0">0</p>
+                <p class="text-start cnt total m-0">0</p>
               </div>
             </div>
           </div>
@@ -112,14 +112,13 @@
 
       <div class="row d-flex">
         <div class="chart-container mt-3 col-md-6">
-          <canvas class="ms-4" id="myChart" height="200"></canvas>
+          <canvas class="ms-4" id="myChart" height="190"></canvas>
         </div>
     
-        <div class="col-md-6">
-          <div class="event-list d-flex justify-content-center">
-            <div class="panel-body mt-3 justify-content-center" style="border:1px solid;">
+        <div class="col-md-6"> 
+            <div class="panel-body ms-4 mt-3 justify-content-center" style="border:1px solid;">
               <div class="calendar2"></div>
-            </div>
+          
           </div>
        </div>
       </div>
@@ -168,7 +167,7 @@
   });
   
       var calendar = $('.calendar2').fullCalendar({
-          height: 320,
+          height: 365,
           defaultView: 'listWeek', 
           events:'/events',
             header: true,

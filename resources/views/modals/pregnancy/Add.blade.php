@@ -30,11 +30,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form id="searchResident" class="add-consult" action="{{route('healthconsultation.store')}}" method="POST">
+            <form id="searchResident" class="add-consult" action="{{route('pregnancy.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-search d-flex justify-content-center">
-                        <select class="js-example-basic-single" id="selectresident" name="residents">
+                        <select class="js-example-basic-single" id="selectresident" name="selectresident">
                         <option value="0">--Select Resident--</option>
                         </select>
                     </div>
@@ -43,6 +43,7 @@
                         <div class="input-box col-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
                             <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
+                            <input type="text" name="resname" id="resname" hidden>
                         </div>
                         <hr>
                     </div>
@@ -115,9 +116,12 @@
         });
 
         $("#selectresident").change(
+        // function () {
+        //    $("#resID").val($(this).val());
+        // }
         function () {
-            $("#resID").val($(this).val());
-            
+            $("#resID").val($("#selectresident option:last-child").val());
+            $("#resname").val($("#selectresident option:last-child").text());
         }
     );
     });

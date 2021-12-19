@@ -43,8 +43,7 @@ class SearchAutoCompleteController extends Controller
       {
          $response[] = array(
                "id"=>$resident->id,
-               "text"=>$resident->id."-".$resident->fname." ".$resident->lname,
-                
+               "text"=>$resident->fname." ".$resident->lname,   
          );
       }
     

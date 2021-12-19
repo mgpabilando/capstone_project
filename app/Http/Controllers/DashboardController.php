@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Residents;
 use DB;
+use App\Models\pregnants;
 
 class DashboardController extends Controller
 {
@@ -63,10 +64,42 @@ class DashboardController extends Controller
      return view('navigation_links.familynumbering');
      }
 
-     public function healthconsultation()
+// HEALTH CONSULTATION
+     public function pregnancy()
      {
-     return view('navigation_links.healthconsultation');
-}
+          return view('navigation_links.healthconsultation.pregnancy');
+     }
+
+     public function deliveries()
+     {
+     return view('navigation_links.healthconsultation.deliveries');
+     }
+
+     public function ntp()
+     {
+     return view('navigation_links.healthconsultation.ntp');
+     }
+
+     public function epi()
+     {
+     return view('navigation_links.healthconsultation.epi');
+     }
+
+     public function diarrheal()
+     {
+     return view('navigation_links.healthconsultation.diarrheal');
+     }
+
+     public function familyplanning()
+     {
+     return view('navigation_links.healthconsultation.familyplanning');
+     }
+
+     public function other()
+     {
+     return view('navigation_links.healthconsultation.other');
+     }
+//END HEALTH CONSULTATION
 
      public function medicinerequest()
      {

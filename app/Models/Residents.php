@@ -25,10 +25,10 @@ class Residents extends Model
         'purok',
     ];
 
-    public function pregnants()
-    {
-        return $this->hasMany(pregnants::class);
-    }
+    // public function pregnants()
+    // {
+    //     return $this->hasMany(pregnants::class);
+    // }
 
 
 

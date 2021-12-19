@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Deliveries;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Residents;
+use Illuminate\Support\Facades\DB; 
 
 class DeliveriesConsulController extends Controller
 {
@@ -13,7 +17,8 @@ class DeliveriesConsulController extends Controller
      */
     public function index()
     {
-        //
+        $deliverconsulrecord = Deliveries::all();
+        return view('navigation_links.healthconsultation')->with('deliverconsulrecord',$deliverconsulrecord);
     }
 
     /**
@@ -23,7 +28,7 @@ class DeliveriesConsulController extends Controller
      */
     public function create()
     {
-        //
+        return view('navigation_links.healthconsultation');
     }
 
     /**
@@ -34,7 +39,27 @@ class DeliveriesConsulController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'resID' => 'required',
+            'resname' => 'required',
+            'age'=> 'required',
+            'date_delivered' => 'required',
+            'outcome' => 'required',
+            'place' => 'required',
+        ]);
+
+        $deliveries = Deliveries::create([
+            'resident_id' => $request['resID'],
+            'name' => $request['resname'],
+            'age' => $request['age'],
+            'date_delivered'	=> $request['date_delivered'],
+            'outcome' => $request['outcome'],
+            'place' => $request['place'],
+        ]);
+        
+        // return dd($deliveries);
+        $deliveries->save();
+        return redirect()->route('healthconsultation.index')->with('success', 'Added Successfully.');
     }
 
     /**
@@ -45,7 +70,8 @@ class DeliveriesConsulController extends Controller
      */
     public function show($id)
     {
-        //
+        $deliverconsulrecord = pregnants::find($id);
+        return view('navigation_links.healthconsultation')->with($deliverconsulrecord, $id); 
     }
 
     /**
@@ -56,7 +82,9 @@ class DeliveriesConsulController extends Controller
      */
     public function edit($id)
     {
-        //
+        $deliverconsulrecord = pregnants::find($id);
+        return view('navigation_links.healthconsultation')->with($deliverconsulrecord, $id); 
+
     }
 
     /**
@@ -68,7 +96,25 @@ class DeliveriesConsulController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'EresID' => 'required',
+            'Eresname' => 'required',
+            'Eage'=> 'required',
+            'Edate_delivered' => 'required',
+            'Eoutcome' => 'required',
+            'Eplace' => 'required',
+        ]);
+
+        $deliverconsulrecord = array (
+            'date_delivered' => $request->Edate_delivered,
+            'outcome' => $request->Eoutcome,
+            'place' => $request->Eplace,
+        );
+
+        Deliveries::findOrFail($request->Edeliveries_id)->update($deliverconsulrecord);
+        return redirect()->route('healthconsultation.index')->with('success', 'Updated Successfully.');
+
+
     }
 
     /**
@@ -79,6 +125,8 @@ class DeliveriesConsulController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deliverrecordDelete = pregnants::findOrFail($deliverconsulrecord->Ddeliveries_id);
+        $deliverrecordDelete->delete();
+        return redirect()->route('healthconsultation.index')->with('success', 'Deleted Successfully.');
     }
 }

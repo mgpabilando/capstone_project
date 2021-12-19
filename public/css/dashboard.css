@@ -102,32 +102,41 @@
 }
 
 
-@media only screen and (max-width: 426px){
+@media only screen and (max-width: 498px){
  
 
   .block-title{
-    font-size: 12px !important; 
-    visibility: hidden;
+    font-size: 15px;
   }
 
-  .block-title:before{
-    font-size: 12px !important;
-    content: 'Dashboard';
-    display: block;
-    position: absolute;
-    visibility: visible;
-    padding: 5px;
-    top: 2;
-  }
-
-  .btn-dtr{
+  .btn-dtr{ 
     height: 30px;
-    width: 30px;
+    width: 100%;
     font-size: 12px;
 
-
   }
+
+  .total-data .text-start{
+    font-size: 12px;
+  }
+
+  .total-data .cnt{
+    font-size: 25px;
+  }
+
+
+.counter{
+  box-sizing: border-box;
+  height: 80px;
+  width: 225px;
+  margin: 10px 0px 10px 10px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom right, #08aeea , #2ae88a);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+}
+
+
 
 
 

@@ -17,10 +17,8 @@ class PregnantConsulController extends Controller
      */
     public function index()
     {
-        $pregconsultationrecord = pregnants::join('residents', 'pregnants.id', '=', 'residents.id')
-        ->get(['pregnants.*', 'residents.fname', 'residents.mname', 'residents.lname']);
-        return view('navigation_links.healthconsultation')->with('pregconsultationrecord',$pregconsultationrecord);
-
+        $pregconsultationrecord = pregnants::all();
+        return view('navigation_links.healthconsultation.pregnancy')->with('pregconsultationrecord',$pregconsultationrecord);
     }
 
     /**
@@ -30,7 +28,7 @@ class PregnantConsulController extends Controller
      */
     public function create()
     {
-        return view('navigation_links.healthconsultation');
+        return view('navigation_links.healthconsultation.pregnancy');
     }
 
     /**
@@ -42,7 +40,8 @@ class PregnantConsulController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'resident_id' => 'required',
+            'resID' => 'required',
+            'resname' => 'required',
             'weight' => 'required',
             'height' => 'required',
             'age'=> 'required',
@@ -51,15 +50,18 @@ class PregnantConsulController extends Controller
         ]);
 
         $pregnants = pregnants::create([
-            'resident_id' => $request['resident_id'],
+            'resident_id' => $request['resID'],
+            'name' => $request['resname'],
             'age' => $request['age'],
             'height_cm'	=> $request['height'],
             'weight_kg' => $request['weight'],
             'lmp' => $request['lmp'],
             'pregnancyorder' => $request['pregnancyorder'],
         ]);
+        
+        // return dd($pregnants);
         $pregnants->save();
-        return redirect()->route('healthconsultation.index')->with('success', 'Added Successfully.');
+        return redirect()->route('pregnancy.index')->with('success', 'Added Successfully.');
     }
 
     /**
@@ -72,7 +74,7 @@ class PregnantConsulController extends Controller
     {
          //get the pregnancyrecord
          $pregconsultationrecord = pregnants::find($id);
-         return view('navigation_links.healthconsultation')->with($pregconsultationrecord, $id);    
+         return view('navigation_links.pregnancy.pregnancy')->with($pregconsultationrecord, $id);    
     }
 
     /**
@@ -84,7 +86,7 @@ class PregnantConsulController extends Controller
     public function edit($id)
     {
         $pregconsultationrecord = pregnants::find($id);
-        return view('navigation_links.healthconsultation')->with($pregconsultationrecord, $id);    
+        return view('navigation_links.pregnancy.pregnancy')->with($pregconsultationrecord, $id);    
 
     }
 
@@ -98,23 +100,23 @@ class PregnantConsulController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'resident_id' => 'required',
-            'weight' => 'required',
-            'height' => 'required',
-            'age'=> 'required',
-            'lmp' => 'required',
-            'pregnancyorder' => 'required',
+            'Eresident_id' => 'required',
+            'Eweight' => 'required',
+            'Eheight' => 'required',
+            'Eage'=> 'required',
+            'Elmp' => 'required',
+            'Epregnancyorder' => 'required',
         ]);
 
         $pregconsultationrecord = array (
-            'weight_kg' => $request->weight,
-            'height_cm' => $request->height,
-            'lmp' => $request->lmp,
-            'pregnancyorder' => $request->pregnancyorder,
+            'weight_kg' => $request->Eweight,
+            'height_cm' => $request->Eheight,
+            'lmp' => $request->Elmp,
+            'pregnancyorder' => $request->Epregnancyorder,
         );
 
-        pregnants::findOrFail($request->pregnant_id)->update($pregconsultationrecord);
-        return redirect()->route('healthconsultation.index')->with('success', 'Updated Successfully.');
+        pregnants::findOrFail($request->Epregnant_id)->update($pregconsultationrecord);
+        return redirect()->route('pregnancy.index')->with('success', 'Updated Successfully.');
 
              
     }
@@ -125,8 +127,11 @@ class PregnantConsulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    
+    public function destroy(Request $pregconsultationrecord)
     {
-        //
+        $pregrecordDelete = pregnants::findOrFail($pregconsultationrecord->Dpregnant_id);
+        $pregrecordDelete->delete();
+        return redirect()->route('pregnancy.index')->with('success', 'Deleted Successfully.');
     }
 }

@@ -59,57 +59,43 @@
                             <thead>
                                 <tr role="row">
                                     <th scope="col">ID</th>
+                                    <th scope="col">Full Name</th>
                                     <th scope="col">Email Address</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Birthdate</th>
                                     <th scope="col">Age</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">ContactNo</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col">Date Updated</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Contact No.</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if($bhws)
                                 @foreach ($bhws as $bhw)
                                 <tr>
-                                    <th id="sid">{{$bhw->id}}</th>
-                                    <td style="text-transform: lowercase;">{{$bhw->email}}</td>
-                                    <td>{{$bhw->lname}}</td>
-                                    <td>{{$bhw->fname}}</td>
-                                    <td>{{$bhw->bdate}}</td>
-                                    <td>{{$bhw->age}}</td>
-                                    <td>{{$bhw->address}}</td>
-                                    <td>{{$bhw->contact}}</td>
-                                    <td>{{ date('F d, Y h:i:s a',strtotime($bhw['created_at'])) }}</td>
-                                    <td>{{ date('F d, Y h:i:s a',strtotime($bhw['updated_at'])) }}</td>
-                                    <td>
+                                    <td data-label="ID">{{$bhw->id}}</td>
+                                    <td data-label="Full Name"><p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{$bhw->fname}} {{$bhw->lname}}</p></td>
+                                    <td data-label="E-mail" style="text-transform: lowercase;">{{$bhw->email}}</td>
+                                    <td data-label="Age">{{$bhw->age}}</td>
+                                    <td data-label="Contact No.">{{$bhw->contact}}</td>
+                                    <td style="white-space:nowrap; text-align:center;">
                                         {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-view bhw_view" data-bs-target="#viewbhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_view" data-bs-target="#viewbhw"
                                             data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
                                             data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
                                             data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
+                                        <i class="manage fas text-success fa-eye"></i></a>
+                                    
                                         {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-edit bhw_edit" data-bs-target="#editbhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_edit" data-bs-target="#editbhw"
                                             data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
                                             data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
-                                            data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">                                        <i class="manage fas fa-edit"></i>
+                                            data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">                                        
+                                        <i class="manage fas text-warning fa-edit"></i>
                                         </a>
-                                    </td>
-                                    <td>
+                                    
                                         {{-----***************************** DELETE BUTTON *******************************------}}
-                                        {{-- <a data-bs-toggle="modal" type="button" class="btn-delete bhw_delete" data-bs-target="#deletebhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_delete" data-bs-target="#deletebhw"
                                         data-user_id="{{$bhw->id}}">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a> --}}
-                                        <a href="{{ route('bhw.destroy', $bhw->id) }}" type="button" class="btn btn-danger bhwDeletebtn" data-user_id="{{$bhw->id}}"><i class="manage fas fa-trash"></i></a>
+                                        <i class="manage text-danger fas fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -127,7 +113,8 @@
         <div class="bhw-add modal fade" id="addbhwModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="addbhwModal" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                    <div class="modal-header text-center">
+                    <div class="modal-header text-center"  style="background-color: #2ae88a;
+                    color: #ffffff">
                         <h5 class="modal-title" id="addbhwModal">{{ __('CREATE ACCOUNT') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
@@ -140,7 +127,7 @@
                                 <p class="info-head text-center fw-bold">Personal Information</p>
                         
                                 <div class="row row-space">               
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="fname">First Name:</label>
                                         <input type="text" class="form-control" name="fname" value="{{ old('fname') }}">
                                         <span class="invalid-feedback" role="alert" id="fnameError">
@@ -148,7 +135,7 @@
                                         </span>
                                     </div>
         
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="lname">Last Name:</label>
                                         <input type="text" class="form-control"name="lname" value="{{ old('lname') }}">
                                         <span class="invalid-feedback" role="alert" id="lnameError">
@@ -158,7 +145,7 @@
                                 </div>
         
                                 <div class="row row-space"> 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="address">Address:</label>
                                         <input type="text" class="form-control" name="address">
                                         <span class="invalid-feedback" role="alert" id="addressError">
@@ -166,7 +153,7 @@
                                         </span>
                                     </div>
         
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="contact">Contact Number:</label>
                                         <input type="text" class="form-control" name="contact">
                                         <span class="invalid-feedback" role="alert" id="contactError">
@@ -176,7 +163,7 @@
                                 </div>
         
                                 <div class="row row-space">
-                                    <div class="col-6">
+                                    <div class="col-md-6">
                                         <label class="control-label" for="bdate">Birthdate:
                                         <input type="date" class="form-control" name="bdate"></label>
                                         <span class="invalid-feedback" role="alert" id="bdateError">
@@ -184,7 +171,7 @@
                                         </span>
                                     </div>
                                     
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="age">Age:</label>
                                         <input type="number" class="form-control" name="age">
                                         <span class="invalid-feedback" role="alert" id="ageError">
@@ -206,14 +193,14 @@
                                 </div>
         
                                 <div class="row row-space">
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="password">Password:</label>
                                         <input type="password" class="form-control" name="password" id="newpass">
                                         <span class="invalid-feedback" role="alert" id="passwordError">
                                             <strong></strong>
                                         </span>
                                     </div>
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="password_confirmation">Confirm Password:</label>
                                         <input type="password" class="form-control" name="password_confirmation" id="newpass_confirm">
                                         <span class="invalid-feedback" role="alert" id="password_confirmationError">
@@ -256,36 +243,36 @@
                                     <input name="user_id" id="user_id" type="hidden" placeholder="">
                                 </div>
                                 <div class="row row-space">
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="fname">First Name:</label><br>
                                         <input class="name align-text-left" id="fname" name="fname" type="text" placeholder="" required readonly>
                                     </div>
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="lname">Last Name:</label><br>
                                         <input class="name align-text-left" id="lname" name="lname" type="text" placeholder="" required readonly>
                                     </div>
                                 </div>
 
                                 <div class="row row-space">
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="address">Address:</label><br>
                                         <input class="address align-text-left" id="address" name="address" type="text" placeholder="" required readonly>
                                     </div>
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="contact">Contact Number:</label><br>
                                         <input class="contact align-text-left" id="contact" name="contact" type="text" placeholder="" required readonly>
                                     </div>
                                 </div>
 
                                 <div class="row row-space">
-                                    <div class="col-6">
+                                    <div class="col-md-6">
                                         <label class="control-label" for="bdate">Birthdate:</label><br>
                                         <input class="bdate align-text-left" id="bdate" name="bdate" type="date" placeholder="" required readonly>
                                     </div>
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="age">Age:</label><br>
                                         <input class="age align-text-left" id="age" name="age" type="text" placeholder="" required readonly>
                                     </div>
@@ -331,7 +318,7 @@
                                     <input name="user_id" id="edituser_id" type="hidden" placeholder="">
                                 </div>
                                 <div class="row row-space">
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="fname">First Name:</label><br>
                                         <input type="text" class="form-control" id="editfname" name="fname" value="{{ old('fname') }}">
                                         <span class="invalid-feedback" role="alert" id="bhwfnameError">
@@ -339,7 +326,7 @@
                                         </span>
                                     </div>
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="lname">Last Name:</label><br>
                                         <input type="text" class="form-control" id="editlname" name="lname" value="{{ old('lname') }}">
                                         <span class="invalid-feedback" role="alert" id="bhwlnameError">
@@ -349,7 +336,7 @@
                                 </div>
 
                                 <div class="row row-space">
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="address">Address:</label><br>
                                         <input type="text" class="form-control" id="editaddress" name="address">
                                         <span class="invalid-feedback" role="alert" id="bhwaddressError">
@@ -357,7 +344,7 @@
                                         </span>
                                     </div>
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="contact">Contact Number:</label><br>
                                         <input type="number" class="form-control" id="editcontact" name="contact">
                                         <span class="invalid-feedback" role="alert" id="bhwcontactError">
@@ -367,7 +354,7 @@
                                 </div>
 
                                 <div class="row row-space">
-                                    <div class="col-6">
+                                    <div class="col-md-6">
                                         <label class="control-label" for="bdate">Birthdate:</label><br>
                                         <input type="date" class="form-control" id="editbdate" name="bdate">
                                         <span class="invalid-feedback" role="alert" id="bhwbdateError">
@@ -375,7 +362,7 @@
                                         </span>
                                     </div>
 
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="age">Age:</label><br>
                                         <input type="number" class="form-control" id="editage" name="age">
                                         <span class="invalid-feedback" role="alert" id="bhwageError">
@@ -400,12 +387,12 @@
                                 </div>
 
                                 {{-- <div class="row row-space">
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="password">New Password:</label><br>
                                         <input type="password" class="form-control @error('newpassword') is-invalid @enderror" id="newpassword" name="newpassword">
                                         <span class="text-danger">@error('newpassword'){{ $message }} @enderror</span>
                                     </div>
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label" for="password_confirmation">Confirm Password:</label><br>
                                         <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="editpassword_confirmation" name="password_confirmation">
                                         <span class="text-danger">@error('password_confirmation'){{ $message }} @enderror</span>
@@ -435,10 +422,10 @@
                         <h5 class="modal-title" id="staticBackdropLabel">Delete BHW Profile</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="bhw-modal"  class="add-resident" action="{{route ('bhw.destroy', 'user_id')}}" method="POST">
+                    <form class="bhw-modal"  class="delete_bhw" action="{{route ('bhw.destroy', 'user_id')}}" method="POST">
                         @csrf
                         @method('delete')
-                        <div class="modal-body delete_res">
+                        <div class="modal-body">
                             <div class="input-box">
                                 <input name="user_id" id="deleteuser_id" type="hidden" placeholder="">
                             </div>
@@ -511,50 +498,15 @@
 
     {{-----------------------------DELETE BHW SCRIPT--------------------------------}}
 <script>
-    // $('#deletebhw').on('show.bs.modal', function(event) {
-    //     var button = $(event.relatedTarget)
-    //     var user_id = button.data('user_id')
+    $('#deletebhw').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var user_id = button.data('user_id')
 
 
-    //     var modal = $(this)
-    //     modal.find('.modal-title').text(' Delete Profile');
-    //     modal.find('.modal-body #deleteuser_id').val(user_id);
-    // });
-
-        $('.bhwDeletebtn').click(function ()
-        {
-            var id = $(this).data("user_id");
-
-            swal({
-                title: 'Are you sure?',
-                text: 'This record and it`s details will be permanently deleted!' + id,
-                icon: 'warning',
-                buttons: true,
-                dangerMode: true,
-            })
-            .then ((willDelete) => {
-                if (willDelete) {
-
-                    $.ajax({
-                        method: 'POST',
-                        url: "bhw/" + id,
-                        data: {
-                            type: 'DELETE'
-                        },
-                        success: function (response) {
-                            swal("Poof!!, Your Data Has Been Deleted", {
-                            icon:"success",
-                            });
-                        }
-                    });
-                }
-
-                else {
-                    swal("Cancelled");
-                }
-            });
-        });
-
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Profile');
+        modal.find('.modal-body #deleteuser_id').val(user_id);
+    });
 </script>
 
     {{-----------------------------VIEW BHW SCRIPT--------------------------------}}

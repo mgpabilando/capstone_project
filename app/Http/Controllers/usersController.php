@@ -144,7 +144,7 @@ class usersController extends Controller
      */
     public function destroy(Request $bhws)
     {
-        $delete = $bhws->all();
+        // $delete = $bhws->all();
 
         /* echo "<pre>"; print_r($delete); die; */
         $deleteuser = User::findOrFail($bhws->user_id);

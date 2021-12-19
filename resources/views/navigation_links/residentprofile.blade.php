@@ -9,17 +9,6 @@
         </div>
     </div>
 
-    <div class="head-resprof">
-        <div class="head-func">
-            @if (\Session::has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ \Session::get('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-        </div>
-    </div>
-
     {{--RESIDENT PROFILE TABLE--}}
     <div class="container-fluid">
         <div class="row">
@@ -27,41 +16,32 @@
                 <div class="container list-of-res bhms-box-shadow">
 
                     <div class="d-flex justify-content-between align-items-center">
-                      <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Resident List</h4>
+                      <h4 class="fw-bold head-title">Resident List</h4>
                       <button type="submit" class="btn btn-add" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
-                          <i class="fas fa-user-plus"></i> Add</button>
+                        <i class="fas fa-user-plus"></i> Add</button>
                     </div>
+
                     <hr>
                     <div class="table-responsive mb-3">
                         <table id="datatable" class="table table-bordered table-striped datatable-hover">
                                 <thead>
                                     <tr role="row">
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Family No</th>
+                                        <th scope="col">ID</th> 
+                                        <th scope="col">Full Name</th>
                                         <th scope="col">Purok</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Middle Name</th>
-                                        <th scope="col">Date Added</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
+                                        <th scope="col-md-1">Action</th> 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @if($residents)
                                     @foreach($residents as $residentprofile)
                                         <tr>
-                                            <th>{{ $residentprofile->id }}</th>
-                                            <td>{{ $residentprofile->family_id }}</td>
-                                            <td>{{ $residentprofile->purok }}</td>
-                                            <td>{{ $residentprofile->lname }}</td>
-                                            <td>{{ $residentprofile->fname }}</td>
-                                            <td>{{ $residentprofile->mname }}</td>
-                                            <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
-                                            <td>
+                                            <td data-label="ID">{{ $residentprofile->id }}</td>
+                                            <td data-label="Full Name"><p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{ $residentprofile->lname }}, {{ $residentprofile->fname }} {{ $residentprofile->mname }}.</p></td> 
+                                            <td data-label="Purok">{{ $residentprofile->purok }}</td>                                         
+                                            <td data-label="Action" style="white-space:nowrap; text-align: center;">
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn-action view"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
+                                                <a data-bs-toggle="modal" type="button" class="btn resview"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
                                                 data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
@@ -69,11 +49,10 @@
                                                 data-civil_status="{{ $residentprofile->civil_status }}"
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
                                                 data-bs-target="#viewResidentModal">
-                                                <i class="fas fa-eye"></i></a>
-                                            </td>
-                                            <td>
+                                                <i class="fas text-success fa-eye"></i></a>
+                                            
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn-action edit"
+                                                <a data-bs-toggle="modal" type="button" class="btn  resedit"
                                                 data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
@@ -82,15 +61,14 @@
                                                 data-civil_status="{{ $residentprofile->civil_status }}"
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
                                                 data-bs-target="#editResidentModal">
-                                                <i class="fas fa-edit"></i>
+                                                <i class="fas text-warning fa-edit"></i>
                                                 </a>
-                                            </td>
-                                            <td>
+                                            
                                                 {{-----***************************** DELETE BUTTON *******************************------}}
-                                                <a type="button" class="btn-action delete" data-bs-toggle="modal"
+                                                <a type="button" class="btn resdelete" data-bs-toggle="modal"
                                                 data-bs-target="#deleteResidentModal"
                                                 data-resident_id="{{$residentprofile->id}}">
-                                                <i class="fas fa-trash"></i></a>
+                                                <i class="fas text-danger fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -114,7 +92,7 @@
                             @csrf
                             <div class="modal-body">
                                 <div class="d-flex flex-wrap identification row ">
-                                    <div class="col-6 input-box">
+                                    <div class="col-md-6 input-box">
                                         <div class="details">Purok No.:</div>
                                         <select class="purok" name="purok" id="purok_id" >
                                             <option selected>Select</option>
@@ -127,41 +105,41 @@
                                             <option value="7">SYETE</option>
                                         </select>
                                     </div>
-                                    <div class="col-6 input-box">
+                                    <div class="col-md-6 input-box">
                                         <div class="details">Family ID No.:</div>
                                         <input name="family_id" type="text" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-wrap identification row ">
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">First Name:</div>
                                         <input name="fname" type="text" placeholder="" required>
                                     </div>
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Middle Name:</div>
                                         <input name="mname" type="text" placeholder="" required>
                                     </div>
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Last Name:</div>
                                         <input name="lname" type="text" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-wrap identification row ">
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Age:</div>
-                                        <input name="age" type="text" placeholder="" required>
+                                        <input name="age" type="number" placeholder="" required>
                                     </div>
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Birthdate:</div>
                                         <input name="bdate" type="date" class="date" placeholder="" required>
                                     </div>
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Place of Birth:</div>
                                         <input name="placeofbirth" type="text" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-wrap identification row ">
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Sex:</div>
                                         <select class="gender" name="sex">
                                         <option selected>Select</option>'
@@ -169,7 +147,7 @@
                                         <option value="Female">Female</option>
                                         </select>
                                     </div>
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Civil Status:</div>
                                         <select class="civil-status" name="civil_status">
                                             <option selected>Select</option>'
@@ -179,17 +157,17 @@
                                             <option value="Widowed">Widowed</option>
                                         </select>
                                     </div>
-                                    <div class="col-4 input-box">
+                                    <div class="col-md-4 input-box">
                                         <div class="details">Contact Number:</div>
-                                        <input name="mobile" type="text" placeholder="" required>
+                                        <input name="mobile" type="number" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-wrap identification row ">
-                                    <div class="col-6 input-box">
+                                    <div class="col-md-6 input-box">
                                         <div class="details">PhilHealth ID No:</div>
                                         <input name="phil_health_id" type="text" placeholder="" required>
                                     </div>
-                                    <div class="col-6 input-box">
+                                    <div class="col-md-6 input-box">
                                         <div class="details">4PS ID No:</div>
                                         <input name="id_4ps" type="text" placeholder="" required>
                                     </div>
@@ -217,68 +195,68 @@
                         @csrf
                         <div class="modal-body">
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Last Name:</div>
                                     <input class="name align-text-left" name="lname" id="lname" type="text" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">First Name:</div>
                                     <input class="name" name="fname" id="fname" type="text" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Middle Name:</div>
                                     <input class="name" name="mname" id="mname" type="text" placeholder="" required readonly>
                                 </div>
                             </div>
                             <hr>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Resident ID No.:</div>
                                     <input name="resident_id" id="resident_id" type="text" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Purok No.:</div>
                                     <input name="purok" id="purok" type="text" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Family ID No.:</div>
                                     <input name="family_id" id="family_id" type="text" placeholder="" required readonly>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Age:</div>
-                                    <input name="age" id="age" type="text" placeholder="" required readonly>
+                                    <input name="age" id="age" type="number" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Birthdate:</div>
                                     <input name="bdate" id="bdate" type="date" class="date" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Place of Birth:</div>
                                     <input name="placeofbirth" id="placeofbirth" type="text" placeholder="" required readonly>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Sex:</div>
                                     <input name="sex" id="sex" type="text" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Civil Status:</div>
                                     <input name="civil_status" id="civil_status" type="text" placeholder="" required readonly>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Contact Number:</div>
-                                    <input name="mobile" id="mobile" type="text" placeholder="" required readonly>
+                                    <input name="mobile" id="mobile" type="number" placeholder="" required readonly>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-6 input-box">
+                                <div class="col-md-6 input-box">
                                     <div class="details">PhilHealth ID No:</div>
                                     <input name="phil_health_id" id="phil_health_id" type="text" placeholder="" required readonly>
                                 </div>
-                                <div class="col-6 input-box">
+                                <div class="col-md-6 input-box">
                                     <div class="details">4PS ID No:</div>
                                     <input name="id_4ps" id="id_4ps" type="text" placeholder="" required readonly>
                                 </div>
@@ -306,7 +284,7 @@
                                 <div class="input-box">
                                     <input name="resident_id" id="resident_id" type="hidden" placeholder="">
                                 </div>
-                                <div class="col-6 input-box">
+                                <div class="col-md-6 input-box">
                                     <div class="details">Purok No.:</div>
                                     <select class="purok" name="purok" id="purok">
                                         <option selected>Select</option>
@@ -319,41 +297,41 @@
                                         <option value="7">SYETE</option>
                                     </select>
                                 </div>
-                                <div class="col-6 input-box">
+                                <div class="col-md-6 input-box">
                                     <div class="details">Family ID No.:</div>
                                     <input name="family_id" id="family_id" type="text" placeholder="" required>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">First Name:</div>
                                     <input name="fname" id="fname" type="text" placeholder="" required>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Middle Name:</div>
                                     <input name="mname" id="mname" type="text" placeholder="" required>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Last Name:</div>
                                     <input name="lname" id="lname" type="text" placeholder="" required>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Age:</div>
-                                    <input name="age" id="age" type="text" placeholder="" required>
+                                    <input name="age" id="age" type="number" placeholder="" required>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Birthdate:</div>
                                     <input name="bdate" id="bdate" type="date" class="date" placeholder="" required>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Place of Birth:</div>
                                     <input name="placeofbirth" id="placeofbirth" type="text" placeholder="" required>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Sex:</div>
                                     <select class="gender" name="sex" id="sex">
                                     <option selected>Select</option>
@@ -361,7 +339,7 @@
                                     <option value="Female">Female</option>
                                     </select>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Civil Status:</div>
                                     <select class="civil-status" name="civil_status" id="civil_status">
                                         <option selected>Select</option>
@@ -371,17 +349,17 @@
                                         <option value="Widowed">Widowed</option>
                                     </select>
                                 </div>
-                                <div class="col-4 input-box">
+                                <div class="col-md-4 input-box">
                                     <div class="details">Contact Number:</div>
-                                    <input name="mobile" id="mobile" type="text" placeholder="" required>
+                                    <input name="mobile" id="mobile" type="number" placeholder="" required>
                                 </div>
                             </div>
                             <div class="d-flex flex-wrap identification row ">
-                                <div class="col-6 input-box mr-3">
+                                <div class="col-md-6 input-box mr-3">
                                     <div class="details">PhilHealth ID No:</div>
                                     <input name="phil_health_id" id="phil_health_id" type="text" placeholder="" required>
                                 </div>
-                                <div class="col-6 input-box">
+                                <div class="col-md-6 input-box">
                                     <div class="details">4PS ID No:</div>
                                     <input name="id_4ps" id="id_4ps" type="text" placeholder="" required>
                                 </div>
@@ -399,16 +377,16 @@
 
         <!--**************************------------------- DELETE RESIDENT MODAL -------------------****************************---------->
         <div class="res-delete modal fade" id="deleteResidentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog modal-lg-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Delete Resident Profile</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form class="add-resident" action="{{route ('residentprofile.destroy', 'resident_id')}}" method="POST">
+                    <form class="delete-resident" action="{{route ('residentprofile.destroy', 'resident_id')}}" method="POST">
                         @csrf
                         @method('delete')
-                        <div class="modal-body delete_res">
+                        <div class="modal-body">
                             <div class="input-box">
                                 <input name="resident_id" id="resident_id" type="hidden" placeholder="">
                             </div>
