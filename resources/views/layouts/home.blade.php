@@ -20,7 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script> 
     {{-- <link href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js"> --}}
-    <script src="{{ asset('js/pregnancy.js') }}"></script>
+    <script src="{{ asset('js/healthconsultation.js') }}"></script>
+    
     @include('sweetalert::alert')
     @yield('scripts')
     

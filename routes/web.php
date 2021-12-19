@@ -10,7 +10,7 @@ use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\PregnantConsulController;
-// use App\Http\Controllers\DeliveriesConsulController;
+use App\Http\Controllers\DeliveriesConsulController;
 // use App\Http\Controllers\EpiConsulController;
 // use App\Http\Controllers\NtpConsulController;
 // use App\Http\Controllers\FamilyplanningConsulController;
@@ -80,12 +80,12 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::resource('/residentprofile', ResidentController::class);
 
     Route::resource('/pregnancy', PregnantConsulController::class);
-    //Route::resource('healthconsultation/deliveries', DeliveriesConsulController::class);
-    //Route::resource('healthconsultation/epi', EpiConsulController::class);
-    //Route::resource('healthconsultation/ntp', NtpConsulController::class);
-    //Route::resource('healthconsultation/familyplanning', FamilyplanningConsulController::class);
-    //Route::resource('healthconsultation/diarrheal', DiarrhealConsulController::class);
-    //Route::resource('healthconsultation/other', OtherConsulController::class);
+    Route::resource('/deliveries', DeliveriesConsulController::class);
+    //Route::resource('epi', EpiConsulController::class);
+    //Route::resource('ntp', NtpConsulController::class);
+    //Route::resource('familyplanning', FamilyplanningConsulController::class);
+    //Route::resource('diarrheal', DiarrhealConsulController::class);
+    //Route::resource('other', OtherConsulController::class);
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');

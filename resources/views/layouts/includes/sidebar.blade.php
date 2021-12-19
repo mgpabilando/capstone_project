@@ -50,13 +50,13 @@
                     <i class="fas fa-chevron-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a href="pregnancy">Pregnant</a></li>
-                    <li><a href="deliveries">Deliveries</a></li>
-                    <li><a href="epi">EPI</a></li>
-                    <li><a href="ntp">NTP</a></li>
-                    <li><a href="familyplanning">Family Planning</a></li>
-                    <li><a href="diarrheal">Control of Diarrheal <br> Disease</a></li>
-                    <li><a href="other">Other Services</a></li>
+                    <li class=""><a href="pregnancy">Pregnant</a></li>
+                    <li class=""><a href="deliveries">Deliveries</a></li>
+                    <li class=""><a href="epi">EPI</a></li>
+                    <li class=""><a href="ntp">NTP</a></li>
+                    <li class=""><a href="familyplanning">Family Planning</a></li>
+                    <li class=""><a href="diarrheal">Control of Diarrheal <br> Disease</a></li>
+                    <li class=""><a href="other">Other Services</a></li>
                 </ul>
             </li>
 

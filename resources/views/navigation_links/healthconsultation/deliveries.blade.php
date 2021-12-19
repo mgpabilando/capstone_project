@@ -37,35 +37,46 @@
                         </tr>
                     </thead>
                     <tbody>
+                      @if ($deliverconsulrecord)
+                        @foreach ($deliverconsulrecord as $deliveriesRec)
                         <tr>
-                          <th></th>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <th>{{ $deliveriesRec->id }}</th>
+                          <td>{{ $deliveriesRec->resident_id }}</td>
+                          <td>{{ $deliveriesRec->name }}</td>
+                          <td>{{ $deliveriesRec->age }}</td>
+                          <td>{{ date('F d, Y',strtotime($deliveriesRec['date_delivered'])) }}</td>
+                          <td>{{ $deliveriesRec->outcome }}</td>
+                          <td>{{ $deliveriesRec->place }}</td>
+                          <td>{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['created_at'])) }}</td>
+                          <td>{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['updated_at'])) }}</td>
                           <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                             {{-----***************************** SHOW BUTTON *******************************------}}
-                              <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewdeliveriesconsul">
+                              <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewdeliveriesconsul"
+                              data-deliveries_id="{{ $deliveriesRec->id }}" data-resident_id = "{{ $deliveriesRec->resident_id }}" data-name = "{{ $deliveriesRec->name }}"
+                              data-age="{{ $deliveriesRec->age }}" data-date_delivered="{{ $deliveriesRec->date_delivered }}"
+                              date-Voutcome="{{ $deliveriesRec->outcome }}"  date-Vplace="{{ $deliveriesRec->place }}">
                               <i class="manage fas fa-eye"></i></a>
                               @include('modals.deliveries.Show')
                         
                               {{-----***************************** EDIT BUTTON *******************************------}}
-                              <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editdeliveriesconsul">
+                              <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editdeliveriesconsul"
+                              data-deliveries_id="{{ $deliveriesRec->id }}" data-resident_id = "{{ $deliveriesRec->resident_id }}" data-name = "{{ $deliveriesRec->name }}"
+                              data-age="{{ $deliveriesRec->age }}" data-date_delivered="{{ $deliveriesRec->date_delivered }}"
+                              date-outcome="{{ $deliveriesRec->outcome }}"  date-place="{{ $deliveriesRec->place }}">
                               <i class="manage fas fa-edit"></i>
                               </a>
                               @include('modals.deliveries.Edit')
                           
                               {{-----***************************** DELETE BUTTON *******************************------}}
-                              <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletedeliveriesconsul">
+                              <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletedeliveriesconsul"
+                              data-deliveries_id="{{ $deliveriesRec->id }}">
                               <i class="manage fas fa-trash"></i>
                               </a>
                               @include('modals.deliveries.Delete')
                           </td>
                         </tr>
+                        @endforeach
+                      @endif                        
                     </tbody>
                 </table>
             </div>
