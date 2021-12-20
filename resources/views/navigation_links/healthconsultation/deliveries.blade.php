@@ -54,7 +54,7 @@
                               <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewdeliveriesconsul"
                               data-deliveries_id="{{ $deliveriesRec->id }}" data-resident_id = "{{ $deliveriesRec->resident_id }}" data-name = "{{ $deliveriesRec->name }}"
                               data-age="{{ $deliveriesRec->age }}" data-date_delivered="{{ $deliveriesRec->date_delivered }}"
-                              date-Voutcome="{{ $deliveriesRec->outcome }}"  date-Vplace="{{ $deliveriesRec->place }}">
+                              data-outcome="{{ $deliveriesRec->outcome }}"  data-place="{{ $deliveriesRec->place }}">
                               <i class="manage fas fa-eye"></i></a>
                               @include('modals.deliveries.Show')
                         
@@ -62,7 +62,7 @@
                               <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editdeliveriesconsul"
                               data-deliveries_id="{{ $deliveriesRec->id }}" data-resident_id = "{{ $deliveriesRec->resident_id }}" data-name = "{{ $deliveriesRec->name }}"
                               data-age="{{ $deliveriesRec->age }}" data-date_delivered="{{ $deliveriesRec->date_delivered }}"
-                              date-outcome="{{ $deliveriesRec->outcome }}"  date-place="{{ $deliveriesRec->place }}">
+                              data-outcome="{{ $deliveriesRec->outcome }}"  data-place="{{ $deliveriesRec->place }}">
                               <i class="manage fas fa-edit"></i>
                               </a>
                               @include('modals.deliveries.Edit')
