@@ -15,10 +15,12 @@
             <div class="col-md-12">
                 <div class="container list-of-res bhms-box-shadow">
 
-                    <div class="d-flex justify-content-between align-items-center">
-                      <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Resident List</h4>
-                      <button type="submit" class="btn btn-add" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
-                          <i class="fas fa-user-plus"></i> Add</button>
+                    <div class="d-flex">
+                        <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Resident List</h4>
+                        <button type="submit" class="btn btn-add me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
+                            <i class="fas fa-user-plus"></i> Add</button>
+                        <a href="{{ route('residentprofile.index', ['view_deleted' => 'DeletedRecords']) }}"
+                        class="btn btn-danger">View Deleted Records </a>
                     </div>
                     <hr>
                     <div class="table-responsive mb-3">
@@ -32,7 +34,6 @@
                                         <th scope="col">First Name</th>
                                         <th scope="col">Middle Name</th>
                                         <th scope="col">Date Added</th>
-                                        <th scope="col">Date Updated</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,7 +47,6 @@
                                             <td>{{ $residentprofile->fname }}</td>
                                             <td>{{ $residentprofile->mname }}</td>
                                             <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
-                                            <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['updated_at'])) }}</td>
                                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
@@ -71,12 +71,15 @@
                                                 data-bs-target="#editResidentModal">
                                                 <i class="fas fa-edit"></i>
                                                 </a>
-                                            
-                                                {{-----***************************** DELETE BUTTON *******************************------}}
-                                                <a type="button" class="btn btn-danger resdelete" data-bs-toggle="modal"
-                                                data-bs-target="#deleteResidentModal"
-                                                data-resident_id="{{$residentprofile->id}}">
-                                                <i class="fas fa-trash"></i></a>
+                                                @if (request()->has('view_deleted'))
+                                                    <a href="{{ route('residentprofile.restore', '$residentprofile->id') }}" class="btn btn-success">Restore</a>
+                                                @else
+                                                    {{-----***************************** DELETE BUTTON *******************************------}}
+                                                    <a type="button" class="btn btn-danger resdelete" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteResidentModal"
+                                                    data-resident_id="{{$residentprofile->id}}">
+                                                    <i class="fas fa-trash"></i></a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

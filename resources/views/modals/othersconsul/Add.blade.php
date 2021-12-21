@@ -5,13 +5,17 @@
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="add-consult" action="{{route ('healthconsultation.store')}}" method="POST">
+            <form class="add-consult" action="{{route ('other.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="row">
                         <div class="input-box col pb-3">
                             <div class="details">Other Service Rendered:</div>
-                            <input type="text" id="otherservice" placeholder="" required>
+                            <input type="text" id="otherservice" name="otherservice" placeholder="" required>
+                        </div>
+                        <div class="input-box col pb-3">
+                            <div class="details">Date:</div>
+                            <input type="date" id="daterec" name="daterec" placeholder="" required>
                         </div>
                     </div>
                 </div>

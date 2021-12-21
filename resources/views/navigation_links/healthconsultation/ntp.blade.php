@@ -17,57 +17,61 @@
                     <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addntpconsul">
                     <i class="fas fa-file-medical"></i> ADD
                     </div>
-                </div> 
-                <hr>
-                <div class="table-responsive mb-3">
-                    <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
-                        <thead>
-                            <tr role="row">
-                                <th scope="col">Patient_ID</th>
-                                <th scope="col">Resident_ID</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Middle Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Date Added</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    {{-----***************************** SHOW BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewntpconsul">
-                                    <i class="manage fas fa-eye"></i></a>
-                                    @include('modals.NTP.Show')
-                                </td>
-                                <td>
-                                    {{-----***************************** EDIT BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editntpconsul">
-                                    <i class="manage fas fa-edit"></i>
-                                    </a>
-                                    @include('modals.NTP.Edit')
-                                </td>
-                                <td>
-                                    {{-----***************************** DELETE BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletentpconsul">
-                                    <i class="manage fas fa-trash"></i>
-                                    </a>
-                                    @include('modals.NTP.Delete')
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    @include('modals.ntp.Add')
                 </div>
+                    <hr>
+                    <div class="table-responsive mb-3">
+                        <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
+                            <thead>
+                                <tr role="row">
+                                    <th scope="col">Patient_ID</th>
+                                    <th scope="col">Resident_ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Date Added</th>
+                                    <th scope="col">Date Updated</th>
+        
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($ntpconsulrecord)
+                                    @foreach ($ntpconsulrecord as $ntpRec)
+                                    <tr>
+                                    <th>{{ $ntpRec->id }}</th>
+                                    <td>{{ $ntpRec->resident_id }}</td>
+                                    <td>{{ $ntpRec->name }}</td>
+                                    <td>{{ $ntpRec->age }}</td>
+                                    <td>{{ date('F d, Y h:i:s a',strtotime($ntpRec['created_at'])) }}</td>
+                                    <td>{{ date('F d, Y h:i:s a',strtotime($ntpRec['updated_at'])) }}</td>
+                                    <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                        {{-----***************************** SHOW BUTTON *******************************------}}
+                                            <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewntpconsul"
+                                            data-ntp_id="{{ $ntpRec->id }}" data-resident_id = "{{ $ntpRec->resident_id }}" data-name = "{{ $ntpRec->name }}"
+                                            data-age="{{ $ntpRec->age }}">
+                                            <i class="manage fas fa-eye"></i></a>
+                                            @include('modals.ntp.Show')
+                                    
+                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editntpconsul"
+                                        data-ntp_id="{{ $ntpRec->id }}" data-resident_id = "{{ $ntpRec->resident_id }}" data-name = "{{ $ntpRec->name }}"
+                                        data-age="{{ $ntpRec->age }}">                                    
+                                        <i class="manage fas fa-edit"></i>
+                                        </a>
+                                        @include('modals.ntp.Edit')
+                                    
+                                        {{-----***************************** DELETE BUTTON *******************************------}}
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletentpconsul"
+                                        data-ntp_id="{{ $ntpRec->id }}">
+                                        <i class="manage fas fa-trash"></i>
+                                        </a>
+                                        @include('modals.ntp.Delete')
+                                    </td>
+                                    </tr>
+                                    @endforeach
+                                @endif                        
+                            </tbody>
+                        </table>
+                    </div>
             </div>
         </div> <!-- /row d-flex justify-content-center -->
     </div> <!--container-fluid -->

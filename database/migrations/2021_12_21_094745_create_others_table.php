@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDiarrhealConsulTable extends Migration
+class CreateOthersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateDiarrhealConsulTable extends Migration
      */
     public function up()
     {
-        Schema::create('diarrheal_consul', function (Blueprint $table) {
-            $table->id();
+        Schema::create('others', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('service_rendered');
+            $table->string('date');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateDiarrhealConsulTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diarrheal_consul');
+        Schema::dropIfExists('others');
     }
 }

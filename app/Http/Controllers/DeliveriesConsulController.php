@@ -70,7 +70,7 @@ class DeliveriesConsulController extends Controller
      */
     public function show($id)
     {
-        $deliverconsulrecord = pregnants::find($id);
+        $deliverconsulrecord = Deliveries::find($id);
         return view('navigation_links.healthconsultation.deliveries')->with($deliverconsulrecord, $id); 
     }
 
@@ -82,7 +82,7 @@ class DeliveriesConsulController extends Controller
      */
     public function edit($id)
     {
-        $deliverconsulrecord = pregnants::find($id);
+        $deliverconsulrecord = Deliveries::find($id);
         return view('navigation_links.healthconsultation.deliveries')->with($deliverconsulrecord, $id); 
 
     }

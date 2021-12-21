@@ -11,7 +11,7 @@
                         @method('delete')
                         <div class="modal-body">
                             <div class="input-box">
-                                <input name="Ddeliveries_id" id="Ddeliveries_id" type="block" placeholder="">
+                                <input name="Ddeliveries_id" id="Ddeliveries_id" type="hidden" placeholder="">
                             </div>
                             <h5>Are you sure you want to delete this?</h5>
                         </div>

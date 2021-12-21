@@ -17,22 +17,23 @@ class DashboardController extends Controller
                $bhw = User::whereRoleIs('bhw')->count();
                $resident = DB::table('residents')->count();
                $pregnant = DB::table('pregnants')->count();
-               $deliveries = DB::table('deliveries_consul')->count();
-               $epi = DB::table('e_p_i_consul')->count();
-               $ntp = DB::table('n_t_p_consul')->count(); 
-               $diarrheal = DB::table('diarrheal_consul')->count();
-               $other_services = DB::table('other_consul')->count();
+               $deliveries = DB::table('deliveries')->count();
+               $epi = DB::table('epis')->count();
+               $ntp = DB::table('ntps')->count(); 
+               $diarrheal = DB::table('diarrheals')->count();
+               $other_services = DB::table('others')->count();
 
                return view('navigation_links/dashboard', compact('bhw', 'resident', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
+
           }elseif(Auth::user()->hasRole('bhw')){
                $bhw = User::whereRoleIs('bhw')->count();
                $resident = DB::table('residents')->count();
                $pregnant = DB::table('pregnants')->count();
-               $deliveries = DB::table('deliveries_consul')->count();
-               $epi = DB::table('e_p_i_consul')->count();
-               $ntp = DB::table('n_t_p_consul')->count(); 
-               $diarrheal = DB::table('diarrheal_consul')->count();
-               $other_services = DB::table('other_consul')->count();
+               $deliveries = DB::table('deliveries')->count();
+               $epi = DB::table('epis')->count();
+               $ntp = DB::table('ntps')->count(); 
+               $diarrheal = DB::table('diarrheals')->count();
+               $other_services = DB::table('others')->count();
 
                return view('navigation_links/bhwdashboard', compact('bhw', 'resident', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
           }

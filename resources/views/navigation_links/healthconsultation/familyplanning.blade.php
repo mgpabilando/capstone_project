@@ -29,40 +29,44 @@
                             <th scope="col">Age</th>
                             <th scope="col">Method Used</th>
                             <th scope="col">Date Added</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
                             </tr>
                     </thead>
                         <tbody>
-                            <tr>
-                                <th></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    {{-----***************************** SHOW BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfpconsul">
-                                    <i class="manage fas fa-eye"></i></a>
-                                    @include('modals.familyplanning.Show')
-                                </td>
-                                <td>
-                                    {{-----***************************** EDIT BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editfpconsul">
-                                    <i class="manage fas fa-edit"></i>
-                                    </a>
-                                    @include('modals.familyplanning.Edit')
-                                </td>
-                                <td>
-                                    {{-----***************************** DELETE BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletefpconsul">
-                                    <i class="manage fas fa-trash"></i>
-                                    </a>
-                                    @include('modals.familyplanning.Delete')
-                                </td>
-                            </tr>
+                            @if ($familyplanningconsulrecord)
+                                @foreach ($familyplanningconsulrecord as $familyplanningRec)
+                                    <tr>
+                                        <th>{{ $familyplanningRec->id }}</th>
+                                        <td>{{ $familyplanningRec->resident_id }}</td>
+                                        <td>{{ $familyplanningRec->name }}</td>
+                                        <td>{{ $familyplanningRec->age }}</td>
+                                        <td>{{ $familyplanningRec->method_used }}</td>
+                                        <td>{{ date('F d, Y h:i:s a',strtotime($familyplanningRec['created_at'])) }}</td>
+                                        <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                            {{-----***************************** SHOW BUTTON *******************************------}}
+                                            <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfpconsul"
+                                            data-familyplanning_id="{{ $familyplanningRec->id }}" data-resident_id = "{{ $familyplanningRec->resident_id }}" data-name = "{{ $familyplanningRec->name }}"
+                                            data-age="{{ $familyplanningRec->age }}" data-method_used="{{ $familyplanningRec->method_used }}">
+                                            <i class="manage fas fa-eye"></i></a>
+                                            @include('modals.familyplanning.Show')
+                                        
+                                            {{-----***************************** EDIT BUTTON *******************************------}}
+                                            <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editfpconsul"
+                                            data-familyplanning_id="{{ $familyplanningRec->id }}" data-resident_id = "{{ $familyplanningRec->resident_id }}" data-name = "{{ $familyplanningRec->name }}"
+                                            data-age="{{ $familyplanningRec->age }}" data-method_used="{{ $familyplanningRec->method_used }}">
+                                            <i class="manage fas fa-edit"></i>
+                                            </a>
+                                            @include('modals.familyplanning.Edit')
+                                        
+                                            {{-----***************************** DELETE BUTTON *******************************------}}
+                                            <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletefpconsul"
+                                            data-familyplanning_id="{{ $familyplanningRec->id }}">
+                                            <i class="manage fas fa-trash"></i>
+                                            </a>
+                                            @include('modals.familyplanning.Delete')
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                 </table>
                 </div>

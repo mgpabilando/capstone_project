@@ -27,37 +27,39 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Service Rendered</th>
                                 <th scope="col">Date</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th></th>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    {{-----***************************** SHOW BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewotherconsul">
-                                    <i class="manage fas fa-eye"></i></a>
-                                    @include('modals.othersconsul.Show')
-                                </td>
-                                <td>
-                                    {{-----***************************** EDIT BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editotherconsul">
-                                    <i class="manage fas fa-edit"></i>
-                                    </a>
-                                    @include('modals.othersconsul.Edit')
-                                </td>
-                                <td>
-                                    {{-----***************************** DELETE BUTTON *******************************------}}
-                                    <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deleteotherconsul">
-                                    <i class="manage fas fa-trash"></i>
-                                    </a>
-                                    @include('modals.othersconsul.Delete')
-                                </td>
-                            </tr>
+                            @if ($otherconsulrecord)
+                                @foreach ($otherconsulrecord as $otherRec)
+                                    <tr>
+                                        <th>{{ $otherRec->id }}</th>
+                                        <td>{{ $otherRec->service_rendered }}</td>
+                                        <td>{{ date('F d, Y',strtotime($otherRec['date'])) }}</td>
+                                        <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                            {{-----***************************** SHOW BUTTON *******************************------}}
+                                            <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewotherconsul"
+                                            data-other_id="{{ $otherRec->id }}" data-service_rendered="{{ $otherRec->service_rendered }}" data-daterec="{{ $otherRec->date }}">
+                                            <i class="manage fas fa-eye"></i></a>
+                                            @include('modals.othersconsul.Show')
+                                        
+                                            {{-----***************************** EDIT BUTTON *******************************------}}
+                                            <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editotherconsul"
+                                            data-other_id="{{ $otherRec->id }}" data-service_rendered="{{ $otherRec->service_rendered }}" data-daterec="{{ $otherRec->date }}">
+                                            <i class="manage fas fa-edit"></i>
+                                            </a>
+                                            @include('modals.othersconsul.Edit')
+                                        
+                                            {{-----***************************** DELETE BUTTON *******************************------}}
+                                            <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deleteotherconsul"
+                                            data-other_id="{{ $otherRec->id }}">
+                                            <i class="manage fas fa-trash"></i>
+                                            </a>
+                                            @include('modals.othersconsul.Delete')
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
