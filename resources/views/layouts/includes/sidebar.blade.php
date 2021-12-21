@@ -66,7 +66,7 @@
                     <li><a href="#">Control of Diarrheal Diseases</a></li>
                     <li><a href="#">Other Services</a></li>
                   </ul> --}} 
-                <div class="icon-link d-flex">
+                <div class="icon-link d-flex ">
                     <a>
                         <i class="fas fa-heartbeat"></i>
                         <span class="link-name">Health Consultation</span>

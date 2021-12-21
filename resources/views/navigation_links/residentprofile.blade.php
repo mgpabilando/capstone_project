@@ -40,7 +40,7 @@
                                             <td data-label="ID">{{ $residentprofile->id }}</td>
                                             <td data-label="Full Name"><p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{ $residentprofile->lname }}, {{ $residentprofile->fname }} {{ $residentprofile->mname }}.</p></td> 
                                             <td data-label="Purok">{{ $residentprofile->purok }}</td>                                         
-                                            <td data-label="Action" style="white-space:nowrap; text-align: center;">
+                                            <td data-label="" style="white-space:nowrap; text-align: center;">
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn resview"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
