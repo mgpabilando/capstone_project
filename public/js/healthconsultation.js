@@ -65,8 +65,8 @@ $('#viewdeliveriesconsul').on('show.bs.modal', function(event) {
     var name = button.data('name')
     var age = button.data('age')
     var date_delivered = button.data('date_delivered')
-    var outcome = button.data('Voutcome')
-    var place = button.data('age')
+    var outcome = button.data('outcome')
+    var place = button.data('place')
 
 
     var modal = $(this)
