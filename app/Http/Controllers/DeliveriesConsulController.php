@@ -18,7 +18,7 @@ class DeliveriesConsulController extends Controller
     public function index()
     {
         $deliverconsulrecord = Deliveries::all();
-        return view('navigation_links.healthconsultation')->with('deliverconsulrecord',$deliverconsulrecord);
+        return view('navigation_links.healthconsultation.deliveries')->with('deliverconsulrecord',$deliverconsulrecord);
     }
 
     /**
@@ -28,7 +28,7 @@ class DeliveriesConsulController extends Controller
      */
     public function create()
     {
-        return view('navigation_links.healthconsultation');
+        return view('navigation_links.healthconsultation.deliveries');
     }
 
     /**
@@ -59,7 +59,7 @@ class DeliveriesConsulController extends Controller
         
         // return dd($deliveries);
         $deliveries->save();
-        return redirect()->route('healthconsultation.index')->with('success', 'Added Successfully.');
+        return redirect()->route('deliveries.index')->with('success', 'Added Successfully.');
     }
 
     /**
@@ -71,7 +71,7 @@ class DeliveriesConsulController extends Controller
     public function show($id)
     {
         $deliverconsulrecord = pregnants::find($id);
-        return view('navigation_links.healthconsultation')->with($deliverconsulrecord, $id); 
+        return view('navigation_links.healthconsultation.deliveries')->with($deliverconsulrecord, $id); 
     }
 
     /**
@@ -83,7 +83,7 @@ class DeliveriesConsulController extends Controller
     public function edit($id)
     {
         $deliverconsulrecord = pregnants::find($id);
-        return view('navigation_links.healthconsultation')->with($deliverconsulrecord, $id); 
+        return view('navigation_links.healthconsultation.deliveries')->with($deliverconsulrecord, $id); 
 
     }
 
@@ -106,13 +106,14 @@ class DeliveriesConsulController extends Controller
         ]);
 
         $deliverconsulrecord = array (
+            'age' =>  $request->Eage,
             'date_delivered' => $request->Edate_delivered,
             'outcome' => $request->Eoutcome,
             'place' => $request->Eplace,
         );
 
         Deliveries::findOrFail($request->Edeliveries_id)->update($deliverconsulrecord);
-        return redirect()->route('healthconsultation.index')->with('success', 'Updated Successfully.');
+        return redirect()->route('deliveries.index')->with('success', 'Updated Successfully.');
 
 
     }
@@ -123,10 +124,10 @@ class DeliveriesConsulController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $deliverconsulrecord)
     {
-        $deliverrecordDelete = pregnants::findOrFail($deliverconsulrecord->Ddeliveries_id);
+        $deliverrecordDelete = Deliveries::findOrFail($deliverconsulrecord->Ddeliveries_id);
         $deliverrecordDelete->delete();
-        return redirect()->route('healthconsultation.index')->with('success', 'Deleted Successfully.');
+        return redirect()->route('deliveries.index')->with('success', 'Deleted Successfully.');
     }
 }

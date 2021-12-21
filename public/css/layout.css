@@ -337,6 +337,16 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.sidebar .nav-links li .active{
+  background: #1d1b31;
+} 
+
+.sidebar .nav-links .showMenu{
+  background: #1d1b31;
+}
+
+
 .sidebar .profile-details{
   position: fixed;
   bottom: 0;

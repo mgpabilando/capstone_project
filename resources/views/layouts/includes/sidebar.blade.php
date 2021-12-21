@@ -66,14 +66,14 @@
                     <li><a href="#">Control of Diarrheal Diseases</a></li>
                     <li><a href="#">Other Services</a></li>
                   </ul> --}} 
-                <div class="iocn-link">
+                <div class="icon-link d-flex">
                     <a>
                         <i class="fas fa-heartbeat"></i>
                         <span class="link-name">Health Consultation</span>
                     </a>
-                    <i class="fas fa-chevron-down arrow"></i>
+                    <i class="fas fa-chevron-down arrow" style="font-size: 15px;"></i>
                 </div>
-                <ul class="sub-menu">
+                <ul class="sub-menu"> 
                     <li><a href="pregnancy">Pregnant</a></li>
                     <li><a href="deliveries">Deliveries</a></li>
                     <li><a href="epi">EPI</a></li>
@@ -81,7 +81,7 @@
                     <li><a href="familyplanning">Family Planning</a></li>
                     <li><a href="diarrheal">Control of Diarrheal <br> Disease</a></li>
                     <li><a href="other">Other Services</a></li>
-                </ul> 
+                 </ul>
             </li>
 
             <li class="">

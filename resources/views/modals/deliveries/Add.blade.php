@@ -30,7 +30,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <form id="searchResident" class="add-consult" action="{{route('healthconsultation.store')}}" method="POST">
+            <form id="searchResident" class="add-consult" action="{{route('deliveries.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="form-search d-flex justify-content-center">
@@ -49,12 +49,25 @@
                     </div>
 
                     <div class="row">
-                        <div class="details">Date Delivered:</div>
-                        <input type="date" id="datedelivered" placeholder="" required>
-                        <div class="details">Outcome:</div>
-                        <input type="text" id="outcome" placeholder="" required>
-                        <div class="details">Place:</div>
-                        <input type="text" id="place" placeholder="" required>
+                        <div class="input-box col pb-3">
+                            <div class="details">Age:</div>
+                            <input type="number" name="age" id="age" placeholder="">
+                        </div>
+                        <div class="input-box col pb-3">
+                            <div class="details">Date Delivered:</div>
+                            <input type="date" id="date_delivered" name="date_delivered" placeholder="" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-box col pb-3">
+                            <div class="details">Outcome:</div>
+                            <input type="text" id="outcome" name="outcome" placeholder="" required>
+                        </div>   
+                        <div class="input-box col pb-3">
+                            <div class="details">Place:</div>
+                            <input type="text" id="place" name="place" placeholder="" required>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

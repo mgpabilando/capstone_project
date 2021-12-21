@@ -15,9 +15,10 @@
             <div class="col-md-12">
                 <div class="container list-of-res bhms-box-shadow">
 
+
                     <div class="d-flex justify-content-between align-items-center">
-                      <h4 class="fw-bold head-title">Resident List</h4>
-                      <button type="submit" class="btn btn-add" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
+                      <h4 class="fw-bold mt-3 ms-3 head-title">Resident List</h4>
+                      <button type="submit" class="btn mt-3 me-3 btn-add" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
                         <i class="fas fa-user-plus"></i> Add</button>
                     </div>
 
