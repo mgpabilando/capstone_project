@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class FamilyNumbering extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'resident_id', 'familyhead', 'purok',
+    ];
 }

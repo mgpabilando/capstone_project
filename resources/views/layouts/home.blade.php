@@ -20,8 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script> 
     {{-- <link href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js"> --}}
+    <script src="{{ asset('js/datatables.js') }}"></script>
     <script src="{{ asset('js/healthconsultation.js') }}"></script>
-    
+    <script src="{{ asset('js/familynumbering.js') }}"></script>
     @include('sweetalert::alert')
     @yield('scripts')
     
@@ -56,20 +57,6 @@
         $('li').removeClass("active");
         $(this).addClass("active");
         });
-</script>
-
-
-<script>
-    $(document).ready(function() 
-    { $('table.display').DataTable(); } 
-    );
-</script>
-
-<script>
-    $(document).ready(function() {
-    $('#datatable').DataTable( {
-    } );
-} );
 </script>
 
 </body>

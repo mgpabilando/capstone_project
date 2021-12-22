@@ -17,18 +17,18 @@
 
                     <div class="d-flex">
                         <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Resident List</h4>
-                        <button type="submit" class="btn btn-add me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
-                            <i class="fas fa-user-plus"></i> Add</button>
                             @if(request()->has('view_deleted'))
                                 <a href="{{ route('residentprofile.index') }}" class="btn btn-primary">View All Residents</a>
                             @else
+                                <button type="submit" class="btn btn-add me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
+                                <i class="fas fa-user-plus"></i> Add</button>
                                 <a href="{{ route('residentprofile.index', ['view_deleted' => 'DeletedRecords']) }}"
                                 class="btn btn-danger">View Deleted Records </a>
                             @endif
                     </div>
                     <hr>
                     <div class="table-responsive mb-3">
-                        <table id="datatable" class="table table-bordered table-striped datatable-hover">
+                        <table id="residentprofile-datatable" class="table table-bordered table-striped datatable-hover">
                                 <thead>
                                     <tr role="row">
                                         <th scope="col">ID</th>
@@ -38,6 +38,7 @@
                                         <th scope="col">First Name</th>
                                         <th scope="col">Middle Name</th>
                                         <th scope="col">Date Added</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

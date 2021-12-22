@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\FamilyNumbering;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Alert;
 
 class FamilyNumberingController extends Controller
 {
@@ -14,7 +16,9 @@ class FamilyNumberingController extends Controller
      */
     public function index()
     {
-        //
+        $familynumberrecord = FamilyNumbering::all();
+        return view('navigation_links.familynumbering')->with('familynumberrecord',$familynumberrecord);
+
     }
 
     /**
@@ -24,7 +28,7 @@ class FamilyNumberingController extends Controller
      */
     public function create()
     {
-        //
+        return view('navigation_links.familynumbering');
     }
 
     /**
@@ -35,7 +39,26 @@ class FamilyNumberingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'resID' => 'required | unique:family_numberings,resident_id',
+            'resname' => 'required',
+            'purok'=> 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors('Duplicate Record!')->withInput();
+        }
+
+        $familyNumbering = FamilyNumbering::create([
+            'resident_id' => $request['resID'],
+            'familyhead' => $request['resname'],
+            'purok' => $request['purok'],
+        ]);
+        
+        $familyNumbering->save();
+        return redirect()->route('familynumbering.index')->with('success', 'Added Successfully.');
+        
+
     }
 
     /**
@@ -46,7 +69,9 @@ class FamilyNumberingController extends Controller
      */
     public function show(FamilyNumbering $familyNumbering)
     {
-        //
+        $familynumberrecord = FamilyNumbering::find($id);
+        return view('navigation_links.familynumbering')->with($familynumberrecord, $id); 
+
     }
 
     /**
@@ -57,7 +82,8 @@ class FamilyNumberingController extends Controller
      */
     public function edit(FamilyNumbering $familyNumbering)
     {
-        //
+        $familynumberrecord = FamilyNumbering::find($id);
+        return view('navigation_links.familynumbering')->with($familynumberrecord, $id); 
     }
 
     /**
@@ -69,7 +95,19 @@ class FamilyNumberingController extends Controller
      */
     public function update(Request $request, FamilyNumbering $familyNumbering)
     {
-        //
+        $request->validate([
+            'EresID' => 'required',
+            'Eresname' => 'required',
+            'purok'=> 'required',
+        ]);
+
+        $familynumberrecord = array (
+            'purok' =>  $request->purok,
+        );
+
+        FamilyNumbering::findOrFail($request->Efamilynumber_id)->update($familynumberrecord);
+        return redirect()->route('familynumbering.index')->with('success', 'Updated Successfully.');
+
     }
 
     /**
@@ -78,8 +116,11 @@ class FamilyNumberingController extends Controller
      * @param  \App\Models\FamilyNumbering  $familyNumbering
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FamilyNumbering $familyNumbering)
+    public function destroy(Request $familynumberrecord)
     {
-        //
+        $familynumberrecordDelete = FamilyNumbering::findOrFail($familynumberrecord->Dfamilynumber_id);
+        $familynumberrecordDelete->delete();
+        return redirect()->route('familynumbering.index')->with('success', 'Deleted Successfully.');
+
     }
 }

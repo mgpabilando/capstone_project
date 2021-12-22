@@ -20,6 +20,7 @@ use App\Http\Controllers\SearchAutoCompleteController;
 use App\Http\Controllers\MedRequestController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\restoreController;
+use App\Http\Controllers\FamilyNumberingController;
 
 
 /*
@@ -90,10 +91,15 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::resource('/diarrheal', DiarrhealController::class);
     Route::resource('/other', OtherController::class);
 
+//routes for events//
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
-    
+
+//routes for search residents//
     Route::post('/getResidents', [SearchAutoCompleteController::class, 'getResidents'])->name('getResidents');
+
+//routes for familynumbering//
+    Route::resource('/familynumbering', FamilyNumberingController::class);
 
     Route::resource('/medicinerequest', MedRequestController::class);
 });

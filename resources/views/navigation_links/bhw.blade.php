@@ -68,6 +68,7 @@
                                     <th scope="col">ContactNo</th>
                                     <th scope="col">Date Added</th>
                                     <th scope="col">Date Updated</th>
+                                    <th>Actions</th>
                                     
                                 </tr>
                             </thead>
@@ -457,12 +458,7 @@
 @endsection
 
 @section("scripts")
-<script>
-    $(document).ready(function() {
-    $('#bhw-datatable').DataTable( {
-    } );
-} );
-</script>
+
 
 <script>
     function CheckPasswordMatch() {

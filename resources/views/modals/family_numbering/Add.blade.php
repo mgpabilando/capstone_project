@@ -1,0 +1,121 @@
+<style>
+    li:hover
+    {
+        background-color: #e8f0fe;
+    }
+
+    .select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    user-select: none;
+    -webkit-user-select: none;
+    width:300px;
+    }
+
+    .select2-dropdown--below {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 13px;
+    }
+</style>
+
+<div class="consul-add modal fade" id="addfamilynumber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">FAMILY NUMBER INFORMATION</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form id="searchResident" class="add-consult" action="{{route('familynumbering.store')}}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-search d-flex justify-content-center">
+                        <select class="js-example-basic-single" id="selectresident" name="selectresident">
+                        <option value="0">--Select Resident--</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="res_prof row justify-content-center" id="details">  
+                        <div class="input-box col-6 pb-3 align-self-center">
+                            <div class="details">Resident ID:</div>
+                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
+                        </div>
+                        
+                        <div class="input-box col-6 pb-3 align-self-center">
+                            <div class="details">Family Head:</div>
+                            <input type="text" name="resname" id="resname" required style="width:auto">
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-box col-6 pb-3">
+                            <div class="details">Purok:</div>
+                                <select class="purok" name="purok" id="purok_id" >
+                                    <option selected>Select</option>
+                                    <option value="1">UNO</option>
+                                    <option value="2">DOS</option>
+                                    <option value="3">TRES</option>
+                                    <option value="4">KWATRO</option>
+                                    <option value="5">SINGKO</option>
+                                    <option value="6">SAIS</option>
+                                    <option value="7">SYETE</option>
+                                </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">SAVE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $('#addfamilynumber').on('hidden.bs.modal', function () {
+        $('#addfamilynumber form')[0].reset();
+        });
+</script>
+
+<script type="text/javascript">
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    $(document).ready(function(){
+        $( "#selectresident" ).select2({
+            dropdownParent: $('#addfamilynumber'),
+            ajax: { 
+            url: "getResidents",
+            type: "post",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                _token: CSRF_TOKEN,
+                search: params.term // search term
+                };
+            },
+            processResults: function (response) {
+                return {
+                    results: response
+                };
+            },
+            cache: true
+            }
+        });
+
+        $("#selectresident").change(
+        function () {
+            $("#resID").val($("#selectresident option:last-child").val());
+            $("#resname").val($("#selectresident option:last-child").text());
+        }
+    );
+    });
+</script>
+@endsection
