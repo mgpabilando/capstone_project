@@ -15,10 +15,11 @@ class ResidentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
         //RETRIEVE DATA FROM RESIDENTS DB
-        $residentprofile = Residents::all();
+        $residentprofile = Residents::get();
 
         if ($request->has('view_deleted')) {
             $residentprofile = Residents::onlyTrashed()->get();
@@ -174,11 +175,5 @@ class ResidentController extends Controller
         $deleteresident = Residents::findOrFail($residentprofile->resident_id);
         $deleteresident->delete();
         return redirect()->route('residentprofile.index')->with('success', 'Deleted Successfully.');
-    }
-
-    public function restore($id)
-    {
-        Residents::withTrashed()->find($id)->restore();
-        return back()->with('success', 'Restored Successfully.');
     }
 }

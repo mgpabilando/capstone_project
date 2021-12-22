@@ -19,6 +19,7 @@ use App\Http\Controllers\OtherController;
 use App\Http\Controllers\SearchAutoCompleteController;
 use App\Http\Controllers\MedRequestController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\restoreController;
 
 
 /*
@@ -76,10 +77,11 @@ Route::group([ 'middleware' => ['auth']], function () {
 //route for bhw page//
     Route::resource('/bhw', usersController::class);
 
-//route for resident page page//
-    Route::get('/residentprofile/{id}/restore', ResidentController::class, 'restore' )->name('residents.restore');
+//route for resident page page//  
+    Route::get('/residentprofile/restore/{id}', restoreController::class, 'restore')->name('resident.restore');
     Route::resource('/residentprofile', ResidentController::class);
 
+//routes for health consultation//
     Route::resource('/pregnancy', PregnantConsulController::class);
     Route::resource('/deliveries', DeliveriesConsulController::class);
     Route::resource('/epi', EpiController::class);
