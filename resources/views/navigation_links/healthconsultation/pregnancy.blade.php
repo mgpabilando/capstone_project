@@ -5,7 +5,7 @@
     @include('layouts.includes.topnavbar')
     <div class="row no-margin-padding">
         <div class="col-md-12 d-flex flex-row justify-content-between">
-            <h3 class="block-title">Health Consultation: Pregnancy</h3>
+            <h3 class="block-title">Pregnancy</h3>
         </div>
       </div>
 
@@ -24,40 +24,31 @@
               <table id="" class="display table table-bordered table-striped table-hover">
                     <thead>
                         <tr role="row">
-                            <th scope="col">Patient_ID</th>
-                            <th scope="col">Resident_ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Height(cm)</th>
-                            <th scope="col">Weight(kg)</th>
+                            <th scope="col">Patient_ID</th> 
+                            <th scope="col">Name</th> 
                             <th scope="col">Age</th>
-                            <th scope="col">Pregnancy Order</th>
-                            <th scope="col">Last Menstrual Period</th>
                             <th scope="col">Date Added</th>
                             <th scope="col">Date Updated</th>
+                            <th scope="col-md-1">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                       @if ($pregconsultationrecord)
                         @foreach ($pregconsultationrecord as $pregpatient)
                         <tr>
-                          <th>{{ $pregpatient->id }}</th>
-                          <td>{{ $pregpatient->resident_id }}</td>
-                          <td>{{ $pregpatient->name }}</td>
-                          <td>{{ $pregpatient->height_cm }}</td>
-                          <td>{{ $pregpatient->weight_kg }}</td>
-                          <td>{{ $pregpatient->age }}</td>
-                          <td>{{ $pregpatient->pregnancyorder }}</td>
-                          <td>{{ date('F d, Y',strtotime($pregpatient['lmp'])) }}</td>
-                          <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
-                          <td>{{ date('F d, Y h:i:s a',strtotime($pregpatient['updated_at'])) }}</td>
-                          <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                          <th data-label="Patient ID">{{ $pregpatient->id }}</th> 
+                          <td data-label="Name">{{ $pregpatient->name }}</td> 
+                          <td data-label="Age">{{ $pregpatient->age }}</td> 
+                          <td data-label="Date Added">{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
+                          <td data-label="Date Updated">{{ date('F d, Y h:i:s a',strtotime($pregpatient['updated_at'])) }}</td>
+                          <td style="white-space:nowrap; text-align:center;">
                             {{-----***************************** SHOW BUTTON *******************************------}}
                                 <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewpregconsul"
                                   data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-name = "{{ $pregpatient->name }}" 
                                   data-height_cm = "{{ $pregpatient->height_cm }}" data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" 
                                   data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
                                   data-lmp = "{{ $pregpatient->lmp }}">
-                                <i class="manage fas fa-eye"></i></a>
+                                <i class="manage text-success fas fa-eye"></i></a>
                                 @include('modals.pregnancy.Show')
                             
                                 {{-----***************************** EDIT BUTTON *******************************------}}
@@ -66,14 +57,14 @@
                                   data-height_cm = "{{ $pregpatient->height_cm }}" data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" 
                                   data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
                                   data-lmp = "{{ $pregpatient->lmp }}">
-                                <i class="manage fas fa-edit"></i>
+                                <i class="manage text-warning fas fa-edit"></i>
                                 </a>
                                 @include('modals.pregnancy.Edit')
                             
                                 {{-----***************************** DELETE BUTTON *******************************------}}
                                 <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletepregconsul"
                                 data-pregnant_id="{{$pregpatient->id}}">
-                                <i class="manage fas fa-trash"></i>
+                                <i class="manage fas text-danger fa-trash"></i>
                                 </a>
                                 @include('modals.pregnancy.Delete')
                             </td>
