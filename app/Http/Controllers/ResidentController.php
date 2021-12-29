@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Residents;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Validator;
+use Alert;
 
 
 class ResidentController extends Controller
@@ -46,21 +47,25 @@ class ResidentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'fname' => 'required', 'string', 'max:255',
-            'mname' => 'string', 'max:255',
-            'lname' => 'required', 'string', 'max:255',
-            'age' => 'required', 'integer',
-            'placeofbirth' => 'required', 'string', 'max:255',
-            'bdate' => 'required', 'date',
-            'mobile' => 'required', 'string', 'max:11',
-            'sex' => 'required', 'string', 'max:255',
-            'civil_status' => 'required', 'string', 'max:255',
-            'phil_health_id' => 'string', 'max:255',
-            'id_4ps' => 'string', 'max:255',
-            'family_id' => 'required', 'string', 'max:255',
-            'purok' => 'string', 'max:255',
+        $validator = Validator::make($request->all(), [
+            'fname' => 'required | string | max:255',
+            'mname' => 'string | max:255',
+            'lname' => 'required | string | max:255',
+            'age' => 'required | integer',
+            'placeofbirth' => 'required | string | max:255',
+            'bdate' => 'required | date',
+            'mobile' => 'required | string | max:11',
+            'sex' => 'required | string | max:255',
+            'civil_status' => 'required | string | max:255',
+            'phil_health_id' => 'string | max:255 | unique:residents,phil_health_id',
+            'id_4ps' => 'string | max:255 | unique:residents,id_4ps',
+            'family_id' => 'required | string | max:255',
+            'purok' => 'string | max:255',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors('Identification Cards must be unique!')->withInput();
+        }
 
         $residentprofile = Residents::create([
             'fname' => $request['fname'],

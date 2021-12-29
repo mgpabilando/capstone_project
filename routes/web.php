@@ -21,8 +21,9 @@ use App\Http\Controllers\MedRequestController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\restoreController;
 use App\Http\Controllers\FamilyNumberingController;
-
-
+use App\Http\Controllers\SearchFamNumController;
+use App\Http\Controllers\purokController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,7 +74,8 @@ Route::group([ 'middleware' => ['auth']], function () {
 
 //route for changing current user's password //
     Route::get('/profile', [ChangePasswordController::class, 'profile'])->name('yourprofile');
-    Route::post('/changepassword', [ChangePasswordController::class, 'changePassword'])->name('adminchangepassword');
+    Route::post('/change/password',  [ChangePasswordController::class,'changePassword'])->name('profile.change.password');
+    Route::post('change-profile-picture',[AdminController::class,'updatePicture'])->name('PictureUpdate');
 
 //route for bhw page//
     Route::resource('/bhw', usersController::class);
@@ -98,8 +100,13 @@ Route::group([ 'middleware' => ['auth']], function () {
 //routes for search residents//
     Route::post('/getResidents', [SearchAutoCompleteController::class, 'getResidents'])->name('getResidents');
 
+//routes for search Family Number//
+    Route::post('/getFamilynumber', [SearchFamNumController::class, 'getFamilynumber'])->name('getFamilynumber');
+
 //routes for familynumbering//
     Route::resource('/familynumbering', FamilyNumberingController::class);
 
     Route::resource('/medicinerequest', MedRequestController::class);
+
+    Route::get('/purok', [purokController::class, 'index']);
 });

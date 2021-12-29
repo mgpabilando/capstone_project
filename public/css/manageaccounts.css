@@ -9,7 +9,7 @@
 /* Profile Image*/
   .chooseprofile
   {
-    height: 250px;
+    height: auto;
     position: relative;
     background-color: #ffff; 
     margin: 100px 25px 25px 25px; 

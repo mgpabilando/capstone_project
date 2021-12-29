@@ -13,8 +13,8 @@ class pregnants extends Model
         'resident_id', 'name', 'height_cm', 'weight_kg', 'age', 'lmp', 'pregnancyorder',
     ];
 
-    // public function residents()
-    // {
-    //     return $this->belongsTo(Residents::class);
-    // }
+    public function residents()
+    {
+        return $this->belongsTo(Residents::class);
+    }
 }

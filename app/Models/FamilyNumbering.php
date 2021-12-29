@@ -12,4 +12,10 @@ class FamilyNumbering extends Model
     protected $fillable = [
         'resident_id', 'familyhead', 'purok',
     ];
+
+
+    public function residents()
+    {
+        return $this->hasMany(Residents::class);
+    }
 }

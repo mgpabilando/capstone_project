@@ -28,11 +28,16 @@ class Residents extends Model
 
     protected $dates = ['deleted_at'];
 
-    // public function pregnants()
-    // {
-    //     return $this->hasMany(pregnants::class);
-    // }
+    public function pregnants()
+    {
+        return $this->hasMany(pregnants::class);
+    }
 
+
+    public function family_id()
+    {
+        return $this->belongsTo(FamilyNumbering::class);
+    }
 
 
 }

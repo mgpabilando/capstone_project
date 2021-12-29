@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/chart_style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('select2/dist/css/select2.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('js/ijaboCropTool-master/ijaboCropTool.min.css') }}">
 
     <!---------------------------          SCRIPTS           ---------------------------->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>
@@ -29,5 +30,3 @@
  
     {{-- <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script> --}}

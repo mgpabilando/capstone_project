@@ -9,353 +9,270 @@
         </div>
     </div>
 
-    <div class="head-alert">
-        <div class="head-func d-flex align-items-center justify-content-end">
-            @if (\Session::has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ \Session::get('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-        </div>
-    </div>
-
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
           <div class="consult-pane text-center">
             <!--NAVIGATION TABS-->
             <ul class="nav nav-tabs" id="tab-next-prev" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#Pregnant_info">Purok 1</a>
+                <a class="nav-link active" data-bs-toggle="tab" href="#Uno">Purok 1</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#Deliveries_info">Purok 2</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Dos">Purok 2</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#EPI_info">Purok 3</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Tres">Purok 3</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#NTP_info">Purok 4</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Kwatro">Purok 4</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#Family-Planning_info">Purok 5</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Singko">Purok 5</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#Diarrheal_info">Purok 6</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Sais">Purok 6</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#Others_info">Purok 7</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#Syete">Purok 7</a>
               </li>
             </ul><!--/NAVIGATION TABS-->
 
             {{-- TAB CONTENT --}}
             <div class="tab-content">
-              <div class="tab-pane active" id="Pregnant_info">
+              <div class="tab-pane active" id="Uno">
                 <div class="consultation-list align-items-center">
                     <div class="d-flex justify-content-between align-items-center">
                       <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Uno List</h4>
                     </div>
                   <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
+                    <div class="table-responsive">
+                        <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
                             <thead>
                                 <tr role="row">
                                     <th scope="col">Family ID No.</th>
                                     <th scope="col">Family Head</th>
+                                    <th scope="col">Resident ID</th>
+                                    <th scope="col">Purok</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                              @if ($residentprofile)
+                              @foreach ( $residentprofile as $row)
+                              <tr>
+                                <th>{{ $row->purok }}</th>
+                                <td>{{ $row->family_id }}</td>
+                                <td>{{ $row->purok }}</td>
+                                <td>{{ $row->lname }}</td>
+                                <td>
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpurok1">
+                                    <i class="manage fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                              @endforeach
+                              @endif
                             </tbody>
                         </table>
                     </div>
                 </div>
               </div>
 
-              <div class="tab-pane" id="Deliveries_info">
+              <div class="tab-pane" id="Dos">
                 <div class="consultation-list  align-items-center">
                   <div class="d-flex justify-content-between align-items-center">
                     <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Dos List</h4>
                   </div>
                   <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                          <thead>
-                              <tr role="row">
-                                  <th scope="col">Family ID No.</th>
-                                  <th scope="col">Family Head</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <th></th>
-                                  <td></td>
-                                  <td>
-                                      {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                      <i class="manage fas fa-eye"></i></a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                      <i class="manage fas fa-edit"></i>
-                                      </a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                      <i class="manage fas fa-trash"></i>
-                                      </a>
-                                  </td>
-                              </tr>
-                          </tbody>
-                        </table>
-                    </div>
+                  <div class="table-responsive">
+                    <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
+                        <thead>
+                            <tr role="row">
+                                <th scope="col">Family ID No.</th>
+                                <th scope="col">Family Head</th>
+                                <th scope="col">Resident ID</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpurok1">
+                                    <i class="manage fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
 
-              <div class="tab-pane" id="EPI_info">
+              <div class="tab-pane" id="Tres">
                 <div class="consultation-list align-items-center">
                   <div class="d-flex justify-content-between align-items-center">
                     <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Tres List</h4>
                   </div>
                   <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                          <thead>
-                              <tr role="row">
-                                  <th scope="col">Family ID No.</th>
-                                  <th scope="col">Family Head</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <th></th>
-                                  <td></td>
-                                  <td>
-                                      {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                      <i class="manage fas fa-eye"></i></a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                      <i class="manage fas fa-edit"></i>
-                                      </a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                      <i class="manage fas fa-trash"></i>
-                                      </a>
-                                  </td>
-                              </tr>
-                          </tbody>
-                        </table>
-                    </div>
+                  <div class="table-responsive">
+                    <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
+                        <thead>
+                            <tr role="row">
+                                <th scope="col">Family ID No.</th>
+                                <th scope="col">Family Head</th>
+                                <th scope="col">Resident ID</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpurok1">
+                                    <i class="manage fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
 
-              <div class="tab-pane" id="NTP_info">
+              <div class="tab-pane" id="Kwatro">
                 <div class="consultation-list align-items-center">
                   <div class="d-flex justify-content-between align-items-center">
                     <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Kwatro List</h4>
                   </div>
                   <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                            <thead>
-                                <tr role="row">
-                                    <th scope="col">Patient ID</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Type of Consultation</th>
-                                    <th scope="col">Purok</th>
-                                    <th scope="col">Family No</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                        <i class="manage fas fa-eye"></i></a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                        <i class="manage fas fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                        <i class="manage fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                  <div class="table-responsive">
+                    <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
+                        <thead>
+                            <tr role="row">
+                                <th scope="col">Family ID No.</th>
+                                <th scope="col">Family Head</th>
+                                <th scope="col">Resident ID</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpurok1">
+                                    <i class="manage fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
 
-              <div class="tab-pane" id="Family-Planning_info">
+              <div class="tab-pane" id="Singko">
                 <div class="consultation-list align-items-center">
                   <div class="d-flex justify-content-between align-items-center">
                     <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Singko List</h4>
                   </div>
                   <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                          <thead>
-                              <tr role="row">
-                                  <th scope="col">Family ID No.</th>
-                                  <th scope="col">Family Head</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <th></th>
-                                  <td></td>
-                                  <td>
-                                      {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                      <i class="manage fas fa-eye"></i></a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                      <i class="manage fas fa-edit"></i>
-                                      </a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                      <i class="manage fas fa-trash"></i>
-                                      </a>
-                                  </td>
-                              </tr>
-                          </tbody>
-                        </table>
-                    </div>
+                  <div class="table-responsive">
+                    <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
+                        <thead>
+                            <tr role="row">
+                                <th scope="col">Family ID No.</th>
+                                <th scope="col">Family Head</th>
+                                <th scope="col">Resident ID</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpurok1">
+                                    <i class="manage fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
 
-              <div class="tab-pane" id="Diarrheal_info">
+              <div class="tab-pane" id="Sais">
                 <div class="consultation-list align-items-center">
                   <div class="d-flex justify-content-between align-items-center">
                     <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Sais List</h4>
                   </div>
                   <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                          <thead>
-                              <tr role="row">
-                                  <th scope="col">Family ID No.</th>
-                                  <th scope="col">Family Head</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <th></th>
-                                  <td></td>
-                                  <td>
-                                      {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                      <i class="manage fas fa-eye"></i></a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                      <i class="manage fas fa-edit"></i>
-                                      </a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                      <i class="manage fas fa-trash"></i>
-                                      </a>
-                                  </td>
-                              </tr>
-                          </tbody>
-                        </table>
-                    </div>
+                  <div class="table-responsive">
+                    <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
+                        <thead>
+                            <tr role="row">
+                                <th scope="col">Family ID No.</th>
+                                <th scope="col">Family Head</th>
+                                <th scope="col">Resident ID</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpurok1">
+                                    <i class="manage fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
 
-              <div class="tab-pane" id="Others_info">
+              <div class="tab-pane" id="Syete">
                 <div class="consultation-list align-items-center">
                   <div class="d-flex justify-content-between align-items-center">
                     <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok Syete List</h4>
                   </div>
                   <hr>
-                    <div class="table-responsive" style="border: 1px solid grey;">
-                        <table id="consultdatatable" class="table table-bordered table-striped" style="padding: 10px">
-                          <thead>
-                              <tr role="row">
-                                  <th scope="col">Family ID No.</th>
-                                  <th scope="col">Family Head</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <th></th>
-                                  <td></td>
-                                  <td>
-                                      {{-----***************************** SHOW BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewnewconsultation">
-                                      <i class="manage fas fa-eye"></i></a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** EDIT BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_edit" data-bs-target="#editnewconsultation">
-                                      <i class="manage fas fa-edit"></i>
-                                      </a>
-                                  </td>
-                                  <td>
-                                      {{-----***************************** DELETE BUTTON *******************************------}}
-                                      <a data-bs-toggle="modal" type="button" class="btn-action consul_delete" data-bs-target="#deletenewconsultation">
-                                      <i class="manage fas fa-trash"></i>
-                                      </a>
-                                  </td>
-                              </tr>
-                          </tbody>
-                        </table>
-                    </div>
+                  <div class="table-responsive">
+                    <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
+                        <thead>
+                            <tr role="row">
+                                <th scope="col">Family ID No.</th>
+                                <th scope="col">Family Head</th>
+                                <th scope="col">Resident ID</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    {{-----***************************** SHOW BUTTON *******************************------}}
+                                    <a data-bs-toggle="modal" type="button" class="btn-action consul_view" data-bs-target="#viewpurok1">
+                                    <i class="manage fas fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

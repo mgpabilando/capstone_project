@@ -20,7 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script> 
     {{-- <link href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js"> --}}
+    <script src="{{ asset('js/ijaboCropTool-master/ijaboCropTool.min.js') }}"></script>
     <script src="{{ asset('js/datatables.js') }}"></script>
+    <script src="{{ asset('js/residentprofile.js') }}"></script>
     <script src="{{ asset('js/healthconsultation.js') }}"></script>
     <script src="{{ asset('js/familynumbering.js') }}"></script>
     @include('sweetalert::alert')
@@ -57,6 +59,26 @@
         $('li').removeClass("active");
         $(this).addClass("active");
         });
+
+    $(document).on('click','#change_picture_btn', function(){
+        $('#admin_image').click();
+    }); 
+    
+    $('#admin_image').ijaboCropTool({
+        preview : '.admin_picture',
+        setRatio:1,
+        allowedExtensions: ['jpg', 'jpeg','png'],
+        buttonsText:['CROP','QUIT'],
+        buttonsColor:['#30bf7d','#ee5155', -15],
+        processUrl:'{{ route("PictureUpdate") }}',
+        withCSRF:['_token','{{ csrf_token() }}'],
+        onSuccess:function(message, element, status){
+            alert(message);
+        },
+        onError:function(message, element, status){
+            alert(message);
+        }
+    });
 </script>
 
 </body>

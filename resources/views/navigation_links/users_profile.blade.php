@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="head-alert">
+    {{-- <div class="head-alert">
       <div class="head-func d-flex justify-content-center">
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -35,7 +35,7 @@
               </div>
           @endif
       </div>
-  </div>
+  </div> --}}
 
   <div class="container-fluid">
     <div class="row d-flex">  
@@ -43,7 +43,7 @@
       <div class="chooseprofile col-sm-3 justify-content-center">       
         <div class="text-center">
           @if(Auth::User()->profile_image)
-          <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::User()->profile_image)}}" alt="profile_image">
+          <img class="image rounded-circle admin_picture" src="{{asset('/storage/images/'.Auth::User()->profile_image)}}" alt="profile_image">
           @endif
           <h3 class="profile-username text-center admin_name" style="color: #2e2d2d">{{Auth::User()->fname}}</h3>
           @if (Auth::User()->hasRole('admin_nurse'))
@@ -111,23 +111,23 @@
                 </div>
 
                 <div class="row row-space">
-                    <div class="form-group col-6">
-                        <label class="control-label" for="bdate">Birthdate:</label>
-                        <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="bdate" name="bdate" value="{{ $user->bdate }}" disabled>
-                        <span class="text-danger">@error('birthdate'){{ $message }} @enderror</span>
-                    </div>
+                  <div class="col-6">
+                    <label class="control-label" for="bdate">Birthdate:</label>
+                    <input type="date" class="form-control @error('bdate') is-invalid @enderror" id="bdate" name="bdate" value="{{ $user->bdate }}" disabled>
+                    <span class="text-danger">@error('birthdate'){{ $message }} @enderror</span>
+                  </div>
                     
-                    <div class="form-group col-6">
-                        <label class="control-label" for="age">Age:</label>
-                        <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ $user->age }}" disabled>
-                        <span class="text-danger">@error('age'){{ $message }} @enderror</span>
-                    </div>
+                  <div class="form-group col-6">
+                      <label class="control-label" for="age">Age:</label>
+                      <input type="text" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ $user->age }}" disabled>
+                      <span class="text-danger">@error('age'){{ $message }} @enderror</span>
+                  </div>
 
-                    <div class="form-group">
-                      <label class="control-label" for="email">Email Address:</label>
-                      <input type="email" class="form-control @error('email') is-invalid @enderror" id="changeemail" name="email" value="{{ $user->email }}" disabled>
-                      <span class="text-danger">@error('email'){{ $message }} @enderror</span>
-                    </div>
+                  <div class="form-group">
+                    <label class="control-label" for="email">Email Address:</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="changeemail" name="email" value="{{ $user->email }}" disabled>
+                    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                  </div>
                 </div>
               </div>
               <button type="submit" id="save" class="btn btn-danger" style="display: none;">Save Changes</button>
@@ -137,34 +137,65 @@
  
            {{-- ACCOUNT INFO --}}
           <div class="tab-pane fade" id="account_info">
-            <form class="form-horizontal" action="{{ route('adminchangepassword') }}" method="POST" id="changePasswordAdminForm">
-              @csrf
-              <div class="account-info" style="background-color: white; padding:10px;">
-                <div class="form-group">
-                  <label class="control-label" for="oldpass">Old Password:</label>
-                  <input type="password" class="form-control @error('oldpassword') is-invalid @enderror" id="oldpassword" name="oldpassword" disabled>
-                  <span class="text-danger">@error('oldpassword'){{ $message }} @enderror</span>
-                </div>
-
-                <hr>
-
-                <div class="row row-space">
-                  <div class="form-group col-6">
-                      <label class="control-label" for="password">New Password:</label>
-                      <input type="password" class="form-control @error('newpassword') is-invalid @enderror" id="newpassword" name="newpassword" disabled>
-                      <span class="text-danger">@error('newpassword'){{ $message }} @enderror</span>
-                  </div>
-                  
-                  <div class="form-group col-6">
-                      <label class="control-label" for="password_confirmation">Confirm New Password:</label>
-                      <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" name="password_confirmation" disabled>
-                      <span class="text-danger">@error('password_confirmation'){{ $message }} @enderror</span>
-                  </div> 
-
-                  <div class="registrationFormAlert d-flex justify-content-center" id="CheckPasswordMatch"></div> 
-                </div>
-              </div><!---account info-->
-                <button type="submit" class="btn btn-danger" id="update" style="display: none">Update</button>
+            <form action="{{route('profile.change.password')}}" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                @csrf         
+                <div class="row ">
+                    <div class="col-md-12">
+                        <div class="main-card mb-3  card">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <h4>Change Password</h4>
+                                </h4>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group mt-3">
+                                            <label for="current_password">Old Password:</label>
+                                            <input type="password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" required
+                                                placeholder="Enter current password" disabled>
+                                            @error('current_password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                          
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mt-3">
+                                            <label for="new_password ">New Password:</label>
+                                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required
+                                                placeholder="Enter the new password" disabled>
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                          
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mt-3">
+                                            <label for="confirm_password">Confirm Password:</label>
+                                            <input type="password" name="confirm_password" class="form-control @error('confirm_password') is-invalid @enderror" required 
+                                            placeholder="Enter same password" disabled>
+                                            @error('confirm_password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                          
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-first mt-4 ml-2">
+                                        <button type="submit" class="btn btn-danger" style="display: none"
+                                            id="formSubmit">Update</button>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>        
             </form>
             <button class="btn btn-edit" onclick="myFunction1()" id="editacc">Edit</button>
           </div><!--ACCOUNT INFO-->
@@ -180,7 +211,6 @@
 
 @section('scripts')
 <script>
-
 function myFunction() {
   $("form input[type=text],form input[type=email],form input[type=date]").prop("disabled",true);
 
@@ -204,7 +234,7 @@ var y = document.getElementById("save");
   $("form input[type=email], form input[type=password]").prop("disabled",true);
 
 var x = document.getElementById("editacc");
-var y = document.getElementById("update");
+var y = document.getElementById("formSubmit");
 
   if (x.innerHTML === "Edit") {
     x.innerHTML = "Cancel";

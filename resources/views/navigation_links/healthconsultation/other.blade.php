@@ -21,12 +21,13 @@
                 </div>
                 <hr>
                 <div class="table-responsive mb-3">
-                    <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
+                    <table id="other-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                         <thead>
                             <tr role="row">
                                 <th scope="col">ID</th>
                                 <th scope="col">Service Rendered</th>
                                 <th scope="col">Date</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>

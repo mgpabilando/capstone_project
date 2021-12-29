@@ -21,7 +21,7 @@
           </div>
             <hr>
             <div class="table-responsive mb-3">
-                <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
+                <table id="EPI-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                     <thead>
                         <tr role="row">
                             <th scope="col">Patient_ID</th>
@@ -31,6 +31,7 @@
                             <th scope="col">Birthdate</th>
                             <th scope="col">Date Added</th>
                             <th scope="col">Date Updated</th>
+                            <th>Actions</th>
 
                         </tr>
                     </thead>
