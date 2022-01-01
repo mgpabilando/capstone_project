@@ -102,7 +102,7 @@ $('#residentprofile-datatable').DataTable
 //PUROK-DATATABLE //
     $('table.purok').DataTable( {
         columnDefs: 
-    [{ orderable: false, targets: 4 }],
+    [{ orderable: false, targets: 5 }],
         initComplete: function () {
             this.api().columns(0).every( function () {
                 var column = this;
@@ -125,5 +125,14 @@ $('#residentprofile-datatable').DataTable
         }
     } );
 //END____PUROK-DATATABLE //
+
+// MED REQUEST-DATATABLE //
+$('#medRequest-datatable').DataTable
+    ({
+        columnDefs: 
+        [{ orderable: false, targets: 3 }]
+    });
+
+//END____ MED REQUEST-DATATABLE //
 
 

@@ -101,7 +101,7 @@
               </div>
               <div class="total-data">
                 <p class="text-start m-0">Total Family Head</p>
-                <p class="text-start total m-0">0</p>
+                <p class="text-start total m-0">{{ $familynumber }}</p>
               </div>
             </div>
           </div>

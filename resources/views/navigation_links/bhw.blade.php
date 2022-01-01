@@ -58,16 +58,16 @@
                             
                             <thead>
                                 <tr role="row">
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Email Address</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Birthdate</th>
-                                    <th scope="col">Age</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">ContactNo</th>
-                                    <th scope="col">Date Added</th>
-                                    <th scope="col">Date Updated</th>
+                                    <th class="text-center" scope="col">ID</th>
+                                    <th class="text-center" scope="col">Email Address</th>
+                                    <th class="text-center" scope="col">Last Name</th>
+                                    <th class="text-center" scope="col">First Name</th>
+                                    <th class="text-center" scope="col">Birthdate</th>
+                                    <th class="text-center" scope="col">Age</th>
+                                    <th class="text-center" scope="col">Address</th>
+                                    <th class="text-center" scope="col">ContactNo</th>
+                                    <th class="text-center" scope="col">Date Added</th>
+                                    <th class="text-center" scope="col">Date Updated</th>
                                     <th>Actions</th>
                                     
                                 </tr>
@@ -76,16 +76,16 @@
                                 @if($bhws)
                                 @foreach ($bhws as $bhw)
                                 <tr>
-                                    <th>{{$bhw->id}}</th>
-                                    <td style="text-transform: lowercase;">{{$bhw->email}}</td>
-                                    <td>{{$bhw->lname}}</td>
-                                    <td>{{$bhw->fname}}</td>
-                                    <td>{{$bhw->bdate}}</td>
-                                    <td>{{$bhw->age}}</td>
-                                    <td>{{$bhw->address}}</td>
-                                    <td>{{$bhw->contact}}</td>
-                                    <td>{{ date('F d, Y h:i:s a',strtotime($bhw['created_at'])) }}</td>
-                                    <td>{{ date('F d, Y h:i:s a',strtotime($bhw['updated_at'])) }}</td>
+                                    <th class="text-center" scope="col">{{$bhw->id}}</th>
+                                    <td class="text-center" scope="col" style="text-transform: lowercase;">{{$bhw->email}}</td>
+                                    <td class="text-center" scope="col">{{$bhw->lname}}</td>
+                                    <td class="text-center" scope="col">{{$bhw->fname}}</td>
+                                    <td class="text-center" scope="col">{{$bhw->bdate}}</td>
+                                    <td class="text-center" scope="col">{{$bhw->age}}</td>
+                                    <td class="text-center" scope="col">{{$bhw->address}}</td>
+                                    <td class="text-center" scope="col">{{$bhw->contact}}</td>
+                                    <td class="text-center" scope="col" style="text-transform: uppercase;">{{ date('F d, Y h:i:s a',strtotime($bhw['created_at'])) }}</td>
+                                    <td class="text-center" scope="col" style="text-transform: uppercase;">{{ date('F d, Y h:i:s a',strtotime($bhw['updated_at'])) }}</td>
                                     <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                         {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn btn-primary bhw_view" data-bs-target="#viewbhw"

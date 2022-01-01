@@ -11,57 +11,59 @@
 
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-          <div class="consultation-list align-items-center">
-            <div class="d-flex justify-content-between align-items-center">
-              <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok List</h4>
-            </div>
-          <hr>
-            <div class="table-responsive">
-                <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
-                    <thead>
-                      <tr role="row">
-                          <th scope="col">Purok</th>
-                          <th scope="col">Resident ID</th>
-                          <th scope="col">Family ID No.</th>
-                          <th scope="col">Family Head (Resident ID)</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Action</th>
-                          
-                      </tr>
-                    </thead>
+          <div class="col-md-12">
+            <div class="consultation-list align-items-center bhms-box-shadow">
+              <div class="d-flex justify-content-between align-items-center">
+                <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Purok List</h4>
+              </div>
+              <hr>
+              <div class="table-responsive">
+                  <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
+                      <thead>
+                        <tr role="row">
+                            <th class="text-center" scope="col">Purok</th>
+                            <th class="text-center" scope="col">Resident ID</th>
+                            <th class="text-center" scope="col">Family ID No.</th>
+                            <th class="text-center" scope="col">Family Head (Resident ID)</th>
+                            <th class="text-center" scope="col">Name</th>
+                            <th class="text-center" scope="col">Action</th>
+                            
+                        </tr>
+                      </thead>
 
-                    <tbody>
-                      @if ($residentprofile)
-                      @foreach ( $residentprofile as $row)
-                      <tr>
-                        <th>{{ $row->purok }}</th>
-                        <td>{{ $row->id}}</td>
-                        <td>{{ $row->family_id }}</td>
-                        <td>{{ $row->familyNumbers->resident_id ?? 'Member' }}</td>
-                        <td>{{ $row->fname }} {{ $row->mname }} {{ $row->lname }}</td>
-                        <td>
+                      <tbody>
+                        @if ($residentprofile)
+                        @foreach ( $residentprofile as $row)
+                        <tr>
+                          <th class="text-center">{{ $row->purok }}</th>
+                          <td class="text-center">{{ $row->id}}</td>
+                          <td class="text-center">{{ $row->family_id }}</td>
+                          <td class="text-center">{{ $row->familyNumbers->resident_id ?? 'Member' }}</td>
+                          <td class="text-center">{{ $row->fname }} {{ $row->mname }} {{ $row->lname }}</td>
+                          <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                             {{-----***************************** SHOW BUTTON *******************************------}}
-                            <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  
-                              data-resident_id="{{$row->id}}" data-purok="{{$row->purok}}" data-fname="{{$row->fname}}"
-                              data-lname="{{$row->lname}}" data-mname="{{$row->mname}}"
-                              data-family_id="{{ $row->family_id }}" data-age="{{ $row->age }}"
-                              data-bdate="{{ $row->bdate }}" data-placeofbirth="{{ $row->placeofbirth }}"
-                              data-sex="{{ $row->sex }}" data-mobile="{{ $row->mobile }}"
-                              data-civil_status="{{ $row->civil_status }}"
-                              data-phil_health_id="{{ $row->phil_health_id }}" data-id_4ps="{{ $row->id_4ps }}"
-                              data-bs-target="#viewresidentdetail">
-                            <i class="manage fas fa-eye"></i></a>
-                            @include("modals.Purok.Show")
-                        </td>
-                    </tr>
-                      @endforeach
-                      @endif
-                  </tbody>
-                </table>
+                              <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  
+                                data-resident_id="{{$row->id}}" data-purok="{{$row->purok}}" data-fname="{{$row->fname}}"
+                                data-lname="{{$row->lname}}" data-mname="{{$row->mname}}"
+                                data-family_id="{{ $row->family_id }}" data-age="{{ $row->age }}"
+                                data-bdate="{{ $row->bdate }}" data-placeofbirth="{{ $row->placeofbirth }}"
+                                data-sex="{{ $row->sex }}" data-mobile="{{ $row->mobile }}"
+                                data-civil_status="{{ $row->civil_status }}"
+                                data-phil_health_id="{{ $row->phil_health_id }}" data-id_4ps="{{ $row->id_4ps }}"
+                                data-bs-target="#viewresidentdetail">
+                              <i class="manage fas fa-eye"></i></a>
+                              @include("modals.Purok.Show")
+                          </td>
+                      </tr>
+                        @endforeach
+                        @endif
+                    </tbody>
+                  </table>
+              </div>
             </div>
+          </div>
         </div>
-        </div>
-      </div>
+    </div>
 </div>
 @endsection
 

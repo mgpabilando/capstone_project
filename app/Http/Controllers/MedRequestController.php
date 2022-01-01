@@ -9,8 +9,8 @@ class MedRequestController extends Controller
 {
     public function index(){
       //show content
-      $medrequest = Medicine_Request::all();
-       return view('navigation_links.medicinerequest')->with('medicine_requests', $medrequest);
+      $medicine_requests = Medicine_Request::all();
+       return view('navigation_links.medicinerequest')->with('medicine_requests', $medicine_requests);
     }
 
     public function store(Request $request){

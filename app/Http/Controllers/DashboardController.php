@@ -16,6 +16,7 @@ class DashboardController extends Controller
           if(Auth::user()->hasRole('admin_nurse')){
                $bhw = User::whereRoleIs('bhw')->count();
                $resident = DB::table('residents')->count();
+               $familynumber = DB::table('family_numberings')->count();
                $pregnant = DB::table('pregnants')->count();
                $deliveries = DB::table('deliveries')->count();
                $epi = DB::table('epis')->count();
@@ -23,11 +24,12 @@ class DashboardController extends Controller
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
 
-               return view('navigation_links/dashboard', compact('bhw', 'resident', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
+               return view('navigation_links/dashboard', compact('bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
 
           }elseif(Auth::user()->hasRole('bhw')){
                $bhw = User::whereRoleIs('bhw')->count();
                $resident = DB::table('residents')->count();
+               $familynumber = DB::table('family_numberings')->count();
                $pregnant = DB::table('pregnants')->count();
                $deliveries = DB::table('deliveries')->count();
                $epi = DB::table('epis')->count();
@@ -35,7 +37,7 @@ class DashboardController extends Controller
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
 
-               return view('navigation_links/bhwdashboard', compact('bhw', 'resident', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
+               return view('navigation_links/bhwdashboard', compact('bhw', 'resident', 'pregnant', 'familynumber', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
           }
      }
 

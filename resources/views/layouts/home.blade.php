@@ -21,6 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script> 
     {{-- <link href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js"> --}}
     <script src="{{ asset('js/ijaboCropTool-master/ijaboCropTool.min.js') }}"></script>
+    <script src="{{ asset('js/medrequest.js') }}"></script>
     <script src="{{ asset('js/datatables.js') }}"></script>
     <script src="{{ asset('js/residentprofile.js') }}"></script>
     <script src="{{ asset('js/healthconsultation.js') }}"></script>

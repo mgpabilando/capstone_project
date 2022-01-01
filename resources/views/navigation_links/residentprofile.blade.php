@@ -32,13 +32,13 @@
                         <table id="residentprofile-datatable" class="table table-bordered table-striped datatable-hover">
                                 <thead>
                                     <tr role="row">
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Family No</th>
-                                        <th scope="col">Purok</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Middle Name</th>
-                                        <th scope="col">Date Added</th>
+                                        <th class="text-center" scope="col">ID</th>
+                                        <th class="text-center" scope="col">Family No</th>
+                                        <th class="text-center" scope="col">Purok</th>
+                                        <th class="text-center" scope="col">Last Name</th>
+                                        <th class="text-center" scope="col">First Name</th>
+                                        <th class="text-center" scope="col">Middle Name</th>
+                                        <th class="text-center" scope="col">Date Added</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -46,13 +46,13 @@
                                     @if($residents)
                                     @foreach($residents as $residentprofile)
                                         <tr>
-                                            <th>{{ $residentprofile->id }}</th>
-                                            <td>{{ $residentprofile->family_id }}</td>
-                                            <td>{{ $residentprofile->purok }}</td>
-                                            <td>{{ $residentprofile->lname }}</td>
-                                            <td>{{ $residentprofile->fname }}</td>
-                                            <td>{{ $residentprofile->mname }}</td>
-                                            <td>{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
+                                            <td class="text-center">{{ $residentprofile->family_id }}</td>
+                                            <th class="text-center">{{ $residentprofile->id }}</th>
+                                            <td class="text-center">{{ $residentprofile->purok }}</td>
+                                            <td class="text-center">{{ $residentprofile->lname }}</td>
+                                            <td class="text-center">{{ $residentprofile->fname }}</td>
+                                            <td class="text-center">{{ $residentprofile->mname }}</td>
+                                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
                                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 @if (request()->has('view_deleted'))
                                                     <a href="{{ route('resident.restore', $residentprofile->id) }}" class="btn btn-success">Restore</a>
