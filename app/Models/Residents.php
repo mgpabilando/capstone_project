@@ -34,7 +34,12 @@ class Residents extends Model
     }
 
 
-    public function family_id()
+    public function familyNumbers()
+    {
+        return $this->hasOne(FamilyNumbering::class, 'resident_id');
+    }
+
+    public function familyNumbering()
     {
         return $this->belongsTo(FamilyNumbering::class);
     }

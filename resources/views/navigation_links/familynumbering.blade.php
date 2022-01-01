@@ -35,10 +35,10 @@
                             @if ($familynumberrecord)
                                 @foreach ($familynumberrecord as $familynumberRec)
                                     <tr>
-                                        <th>{{ $familynumberRec->id }}</th>
+                                        <th>{{ $familynumberRec->family_id }}</th>
                                         <td>{{ $familynumberRec->resident_id }}</td>
-                                        <td>{{ $familynumberRec->familyhead }}</td>
-                                        <td>{{ $familynumberRec->purok }}</td>
+                                        <td>{{ $familynumberRec->resident->fname }} {{ $familynumberRec->resident->mname }} {{ $familynumberRec->resident->lname }}</td>
+                                        <td>{{ $familynumberRec->resident->purok }}</td>
                                         <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                             {{-----***************************** SHOW BUTTON *******************************------}}
                                             <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfamilynumber"

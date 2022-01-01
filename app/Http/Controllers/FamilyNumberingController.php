@@ -6,6 +6,7 @@ use App\Models\FamilyNumbering;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Alert;
+use App\Models\Residents;
 
 class FamilyNumberingController extends Controller
 {
@@ -16,7 +17,7 @@ class FamilyNumberingController extends Controller
      */
     public function index()
     {
-        $familynumberrecord = FamilyNumbering::all();
+        $familynumberrecord = FamilyNumbering::has('resident')->get();
         return view('navigation_links.familynumbering')->with('familynumberrecord',$familynumberrecord);
 
     }
@@ -40,19 +41,17 @@ class FamilyNumberingController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'resID' => 'required | unique:family_numberings,resident_id',
-            'resname' => 'required',
-            'purok'=> 'required',
+            'familyID' => 'required | unique:family_numberings,family_id',
+            'resID' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Duplicate Record!')->withInput();
+            return redirect()->back()->withErrors('Family Number Already Has A Family Head!')->withInput();
         }
 
         $familyNumbering = FamilyNumbering::create([
+            'family_id' => $request['familyID'],
             'resident_id' => $request['resID'],
-            'familyhead' => $request['resname'],
-            'purok' => $request['purok'],
         ]);
         
         $familyNumbering->save();

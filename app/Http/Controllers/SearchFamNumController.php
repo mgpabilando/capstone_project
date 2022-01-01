@@ -21,15 +21,15 @@ class SearchFamNumController extends Controller
 
         if($search == '')
         {
-        $familynumbers = FamilyNumbering::select('id','familyhead' , 'purok')
+        $familynumbers = FamilyNumbering::has('resident')
                                 ->limit(5)->get();
 
         }
         
         else
         {
-        $familynumbers = FamilyNumbering::select('id','familyhead', 'purok')
-                                ->where(DB::raw('CONCAT(id," ",familyhead)'), 'like', '%' .$search . '%')
+        $familynumbers = FamilyNumbering::has('resident')
+                                ->where(DB::raw('CONCAT(family_id," ",fname," ",mname," ",lname)'), 'like', '%' .$search . '%')
                                 ->limit(5)
                                 ->get();
         }
@@ -38,8 +38,8 @@ class SearchFamNumController extends Controller
         foreach($familynumbers as $familynumber)
         {
         $response[] = array(
-                "id"=>$familynumber->purok,
-                "text"=>$familynumber->id,   
+                "id"=>$familynumber->resident->purok,
+                "text"=>$familynumber->family_id,   
         );
         }
     

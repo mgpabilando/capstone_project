@@ -10,12 +10,18 @@ class FamilyNumbering extends Model
     use HasFactory;
 
     protected $fillable = [
-        'resident_id', 'familyhead', 'purok',
+        'resident_id', 'family_id'
     ];
 
+    public function resident()
+    {
+        return $this->belongsTo(Residents::class);
+    }
 
     public function residents()
     {
-        return $this->hasMany(Residents::class);
+        return $this->hasMany(Residents::class, 'family_id');
     }
+
+
 }

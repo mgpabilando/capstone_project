@@ -24,6 +24,7 @@ use App\Http\Controllers\FamilyNumberingController;
 use App\Http\Controllers\SearchFamNumController;
 use App\Http\Controllers\purokController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SearchResidentByFamilyNumber;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,16 +98,23 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
 
-//routes for search residents//
+//routes for search residents for HealthConsultation//
     Route::post('/getResidents', [SearchAutoCompleteController::class, 'getResidents'])->name('getResidents');
 
-//routes for search Family Number//
+//routes for search Family Number for ResidentProfile page//
     Route::post('/getFamilynumber', [SearchFamNumController::class, 'getFamilynumber'])->name('getFamilynumber');
 
-//routes for familynumbering//
+//routes for familynumbering page//
     Route::resource('/familynumbering', FamilyNumberingController::class);
+
+//routes for search residents for familynumbering//
+Route::post('/getResidentsFamilyNum', [SearchResidentByFamilyNumber::class, 'getResidentsFamilyNum'])->name('getResidentsFamilyNum');
 
     Route::resource('/medicinerequest', MedRequestController::class);
 
-    Route::get('/purok', [purokController::class, 'index']);
+//routes for Purok Page//
+    Route::get('/purok', [purokController::class, 'index'])->name('purok');
+    Route::get('/purok/resident/{id}', [purokController::class, 'view'])->name('purok.show');
+
+
 });

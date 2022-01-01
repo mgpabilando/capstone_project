@@ -16,8 +16,7 @@ class CreateFamilyNumberingsTable extends Migration
         Schema::create('family_numberings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('resident_id')->unique();
-            $table->string('familyhead')->unique();
-            $table->string('purok');
+            $table->unsignedBigInteger('family_id')->unique();
             $table->timestamps();
 
             $table->foreign('resident_id')->references('id')->on('residents')

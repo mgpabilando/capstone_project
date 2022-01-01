@@ -31,7 +31,7 @@ class CreateResidentsTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('family_id')->references('id')->on('family_numberings')
+            $table->foreign('family_id')->references('family_id')->on('family_numberings')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }
