@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Residents;
 use DB;
 use App\Models\pregnants;
+use Carbon\Carbon;
+use App\Models\DailyTimeRecord;
 
 class DashboardController extends Controller
 {
@@ -24,8 +26,10 @@ class DashboardController extends Controller
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
                $familyplanning = DB::table('familyplannings')->count();
-               $sum = $pregnant + $deliveries + $epi + $ntp + $diarrheal + $other_services + $familyplanning;
-               return view('navigation_links/dashboard', compact('sum', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
+               // $sum = $pregnant + $deliveries + $epi + $ntp + $diarrheal + $other_services + $familyplanning;
+               $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+               $dtr = DailyTimeRecord::get();
+               return view('navigation_links/dashboard', compact('dtr', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
 
           }elseif(Auth::user()->hasRole('bhw')){
                $bhw = User::whereRoleIs('bhw')->count();

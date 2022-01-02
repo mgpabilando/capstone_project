@@ -28,6 +28,7 @@ use App\Http\Controllers\SearchResidentByFamilyNumber;
 use App\Http\Controllers\UserRestoreController;
 use App\Http\Controllers\usersDeletecontroller;
 use App\Http\Controllers\ResidentDeleteController;
+use App\Http\Controllers\DailyTimeRecordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,6 +54,10 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::resource('/register', RegisteredUsersController::class);
 
 Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
+    Route::get('/dailytimerecord/{$dtr}', [DailyTimeRecordController::class, 'index'])->name('dtr.index');
+    Route::get('dailytimerecord/timein/{id}', [DailyTimeRecordController::class, 'showtimeIn'])->name('dtr.timeIn');
+    Route::post('dailytimerecord/undertime/{id}', [DailyTimeRecordController::class, 'showunderTime'])->name('dtr.underTime');
+    Route::post('dailytimerecord/timeout/{id}', [DailyTimeRecordController::class, 'showtimeOut'])->name('dtr.timeOut');
 
 // route from main sidebar links //
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

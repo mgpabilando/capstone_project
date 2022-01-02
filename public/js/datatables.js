@@ -135,4 +135,8 @@ $('#medRequest-datatable').DataTable
 
 //END____ MED REQUEST-DATATABLE //
 
-
+$('#dtr-datatable').DataTable
+    ({
+        columnDefs: 
+        [{ orderable: false, targets: 3 }]
+    });
