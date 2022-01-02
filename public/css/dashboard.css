@@ -3,22 +3,27 @@
 .counter{
   box-sizing: border-box;
   height: 100px;
-  width: 300px;
-  margin: 10px 0px 10px 10px;
-  border-radius: 5px;
-  background-image: linear-gradient(to bottom right, #08aeea , #2ae88a);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  width: 500px;
+  /* margin: 10px 0px 10px 10px; */
+  /* border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+  border-radius: 0;
+  border: 0;
+  -webkit-box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  background: #fff;
+  margin-top: 20px;
 }
 
 .counter p{
   padding: 5px 5px 5px 5px;
   line-height: 1;
-  color: #ffff;
+  color: #15c3c7;
 }
 
 .counter i{
   font-size: 30px;
-  color: #fff;
+  color: #15c3c7;
 }
 
 .counter .icon{
@@ -27,10 +32,11 @@
   border: 1px solid;
   border-radius: 50px;
   margin: 0px 10px 0px 10px;
-  border-color: #fff;
+  border-color: #15c3c7;
 }
 .counter .total{
-  font-size: 40px;
+  font-size: 42px;
+  /* color: #2e2d2d; */
 }
 
 .event-list{
@@ -41,12 +47,8 @@
   display: none;
 }
 
-#myChart{
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-}
-
 .btn-dtr{
-  background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+  background-color: #15c3c7;
   border-radius: 5px;  
   color: white;
   margin-top: 15px;
@@ -80,9 +82,13 @@
   font-size: 1rem;
 }
 
-
-
-/*//#2ae88a
-//#38c77f
-//#08aeea
-//#007bff
+.dashboarditem{
+  border-radius: 0;
+  border: 0;
+  -webkit-box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+  background: #fff;
+  width: 100%; 
+  padding: 20px; 
+  margin-top:20px;
+}

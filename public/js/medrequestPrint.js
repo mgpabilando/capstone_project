@@ -1,8 +1,3 @@
-document.getElementById("medreqBtn").onclick = function() {
-    printElement(document.getElementById("medrequestPrint"));
-    window.print();
-}
-
 function printElement(elem, append, delimiter) {
     var domClone = elem.cloneNode(true);
 

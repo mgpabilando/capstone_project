@@ -25,6 +25,9 @@ use App\Http\Controllers\SearchFamNumController;
 use App\Http\Controllers\purokController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchResidentByFamilyNumber;
+use App\Http\Controllers\UserRestoreController;
+use App\Http\Controllers\usersDeletecontroller;
+use App\Http\Controllers\ResidentDeleteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,19 +52,19 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 Route::resource('/register', RegisteredUsersController::class);
 
-Route::group([ 'middleware' => ['auth']], function () {
+Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
 
 // route from main sidebar links //
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/bhw', [DashboardController::class, 'index'])->name('dashboard.bhw');
     Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');
     Route::get('/familynumbering', [DashboardController::class, 'familynumbering'])->name('dashboard.familynumbering');
-    Route::get('/medicinerequest', [DashboardController::class, 'medicinerequest'])->name('dashboard.medicinerequest');
     Route::get('/purok', [DashboardController::class, 'purok'])->name('dashboard.purok');
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
     Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
 
 // route for health consultation sidebar links //
+Route::group([ 'middleware' => ['role:admin_nurse']], function () {
     Route::get('/pregnancy', [DashboardController::class, 'pregnancy'])->name('dashboard.pregnancy');
     Route::get('/deliveries', [DashboardController::class, 'deliveries'])->name('dashboard.deliveries');
     Route::get('/epi', [DashboardController::class, 'epi'])->name('dashboard.epi');
@@ -69,6 +72,20 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/familyplanning', [DashboardController::class, 'familyplanning'])->name('dashboard.familyplanning');
     Route::get('/diarrheal', [DashboardController::class, 'diarrheal'])->name('dashboard.diarrheal');
     Route::get('/other', [DashboardController::class, 'other'])->name('dashboard.other');
+
+    //routes for medicine request
+    Route::get('/medicinerequest', [DashboardController::class, 'medicinerequest'])->name('dashboard.medicinerequest');
+    Route::resource('/medicinerequest', MedRequestController::class);
+
+    //routes for health consultation//
+    Route::resource('/pregnancy', PregnantConsulController::class);
+    Route::resource('/deliveries', DeliveriesConsulController::class);
+    Route::resource('/epi', EpiController::class);
+    Route::resource('/ntp', NtpController::class);
+    Route::resource('/familyplanning', FamilyplanningController::class);
+    Route::resource('/diarrheal', DiarrhealController::class);
+    Route::resource('/other', OtherController::class); 
+});
 
 //route for myprofile page//  
     Route::resource('/myprofile', MyProfileController::class);
@@ -79,20 +96,14 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::post('change-profile-picture',[AdminController::class,'updatePicture'])->name('PictureUpdate');
 
 //route for bhw page//
+    Route::get('/bhws/restore/{id}', UserRestoreController::class, 'restore')->name('bhws.restore');
+    Route::get('/bhws/permanentdelete/{id}', usersDeletecontroller::class, 'delete')->name('bhws.permanentdelete');
     Route::resource('/bhw', usersController::class);
 
 //route for resident page page//  
     Route::get('/residentprofile/restore/{id}', restoreController::class, 'restore')->name('resident.restore');
+    Route::get('/residentprofile/permanentdelete/{id}', ResidentDeleteController::class, 'delete')->name('resident.permanentdelete');
     Route::resource('/residentprofile', ResidentController::class);
-
-//routes for health consultation//
-    Route::resource('/pregnancy', PregnantConsulController::class);
-    Route::resource('/deliveries', DeliveriesConsulController::class);
-    Route::resource('/epi', EpiController::class);
-    Route::resource('/ntp', NtpController::class);
-    Route::resource('/familyplanning', FamilyplanningController::class);
-    Route::resource('/diarrheal', DiarrhealController::class);
-    Route::resource('/other', OtherController::class);
 
 //routes for events//
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
@@ -109,8 +120,6 @@ Route::group([ 'middleware' => ['auth']], function () {
 
 //routes for search residents for familynumbering//
 Route::post('/getResidentsFamilyNum', [SearchResidentByFamilyNumber::class, 'getResidentsFamilyNum'])->name('getResidentsFamilyNum');
-
-    Route::resource('/medicinerequest', MedRequestController::class);
 
 //routes for Purok Page//
     Route::get('/purok', [purokController::class, 'index'])->name('purok');

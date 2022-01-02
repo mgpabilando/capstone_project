@@ -39,7 +39,6 @@
                     <li><a class="link-name" href="#">BHWs</a></li>
                 </ul>
             </li>
-            @endif
 
             <li class="">
                 <div class="iocn-link">
@@ -59,7 +58,7 @@
                     <li class=""><a href="other">Other Services</a></li>
                 </ul>
             </li>
-
+            @endif
             <li class="">
                 <a class="{{ Request::is('events') ? 'active' : '' }}" href="events">
                     <i class="fas fa-calendar-alt"></i>
@@ -93,6 +92,7 @@
                 </ul>
             </li>
 
+            @if (Auth::user()->hasRole('admin_nurse'))
             <li class="">
                 <a class="{{ Request::is('medicinerequest') ? 'active' : '' }}" href="medicinerequest">
                     <i class="fa fa-capsules"></i>
@@ -102,6 +102,7 @@
                     <li><a class="link-name" href="#">Medicine Request</a></li>
                 </ul>
             </li>
+            @endif
 
             <li class="">
                 <a class="{{ Request::is('reports') ? 'active' : '' }}" href="reports">

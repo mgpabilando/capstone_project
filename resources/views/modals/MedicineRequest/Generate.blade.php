@@ -46,8 +46,17 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CANCEL</button>
-            <button id="medreqBtn" type="button" class="btn btn-primary"><i class="fas fa-print"></i> PRINT</button>
+            <button id="medreqBtn" type="button" medreq.onclick = class="btn btn-primary"><i class="fas fa-print"></i> PRINT</button>
             </div>
         </div>
         </div>
     </div>
+
+    @section('scripts')
+        <script>
+        document.getElementById("medreqBtn").onclick = function() {
+            printElement(document.getElementById("medrequestPrint"));
+            window.print();
+        }
+        </script>
+    @endsection

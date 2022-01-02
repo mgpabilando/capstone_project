@@ -52,6 +52,17 @@ $('#deleteResidentModal').on('show.bs.modal', function(event) {
    modal.find('.modal-body #resident_id').val(resident_id);
 })
 
+//   {{-----------------------------DELETE RESIDENT SCRIPT--------------------------------}
+$('#deleteModal').on('show.bs.modal', function(event) {
+   var button = $(event.relatedTarget)
+   var resident_id = button.data('resident_id')
+
+
+   var modal = $(this)
+   modal.find('.modal-title').text(' Delete Resident Profile');
+   modal.find('.modal-body #resident_id').val(resident_id);
+})
+
 
 
 //   {{-----------------------------VIEW RESIDENT SCRIPT--------------------------------}

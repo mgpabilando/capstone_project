@@ -16,9 +16,16 @@ return [
             'residentprofile' => 'c,r,u,d',
             'bhws' => 'c,r,u,d',
             'myprofile' => 'r,u',
-            'healthconsultation' => 'c,r,u,d',
+            //healthconsultation
+            'pregnancy' => 'c,r,u,d',
+            'deliveries' => 'c,r,u,d',
+            'epi' => 'c,r,u,d',
+            'ntp' => 'c,r,u,d',
+            'familyplanning' => 'c,r,u,d',
+            'diarrheal' => 'c,r,u,d',
+            'others' => 'c,r,u,d',
             'events' => 'c,r,u,d',
-            'purok' => 'c,r,u,d',
+            'purok' => 'r',
             'familynumbering' => 'c,r,u,d',
             'medicinerequest' => 'c,r,u,d',
             'reports' => 'c,r,u,d'
@@ -29,7 +36,7 @@ return [
             'events' => 'c,r,u,d',
             'purok' => 'c,r,u,d',
             'familynumbering' => 'c,r,u,d',
-            'reports' => 'r,u'
+            'reports' => 'r,u',
         ],        
     ],
 

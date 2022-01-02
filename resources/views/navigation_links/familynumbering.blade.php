@@ -43,8 +43,9 @@
                                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfamilynumber"
-                                                data-familynumber_id="{{ $familynumberRec->id }}" data-resident_id = "{{ $familynumberRec->resident_id }}" data-name = "{{ $familynumberRec->familyhead }}"
-                                                data-purok="{{ $familynumberRec->purok }}">
+                                                data-familynumber_id="{{ $familynumberRec->id }}" data-resident_id = "{{ $familynumberRec->resident_id }}" 
+                                                data-name = "{{ $familynumberRec->resident->fname }} {{ $familynumberRec->resident->mname }} {{ $familynumberRec->resident->lname }}"
+                                                data-purok="{{ $familynumberRec->resident->purok }}">
                                                 <i class="manage fas fa-eye"></i></a>
                                                 @include('modals.family_numbering.Show')
                                             

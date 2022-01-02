@@ -23,8 +23,9 @@ class DashboardController extends Controller
                $ntp = DB::table('ntps')->count(); 
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
-
-               return view('navigation_links/dashboard', compact('bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
+               $familyplanning = DB::table('familyplannings')->count();
+               $sum = $pregnant + $deliveries + $epi + $ntp + $diarrheal + $other_services + $familyplanning;
+               return view('navigation_links/dashboard', compact('sum', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
 
           }elseif(Auth::user()->hasRole('bhw')){
                $bhw = User::whereRoleIs('bhw')->count();
@@ -36,8 +37,8 @@ class DashboardController extends Controller
                $ntp = DB::table('ntps')->count(); 
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
-
-               return view('navigation_links/bhwdashboard', compact('bhw', 'resident', 'pregnant', 'familynumber', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services'));
+               $familyplanning = DB::table('familyplannings')->count();
+               return view('navigation_links/bhwdashboard', compact('bhw', 'resident', 'pregnant', 'familynumber', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning'));
           }
      }
 

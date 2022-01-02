@@ -10,46 +10,21 @@
         </div>
     </div>
 
-    {{-- <div class="head-resprof">
-        <div class="head-func d-flex justify-content-center">
-            @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <ul>
-                @foreach($errors->all() as $error)
-                <li>
-                    {{$error}}
-                </li>
-                @endforeach
-                </ul>
-            </div>
-            @endif
-            @if(session('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                {{session('error')}}
-            </div>
-            @endif
-            @if (\Session::has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ \Session::get('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-        </div>
-    </div> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="container bhw-list bhms-box-shadow">
-
                     <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="fw-bold head-title pt-2 ps-2 mb-0" style="text-align: center">Barangay Health Workers</h4>
-                        <button type="submit" class="btn btn-add" title="Add New User" data-bs-toggle="modal" data-bs-target="#addbhwModal">
-                            <i class="fas fa-user"></i> 
-                            Add
-                        </button>
+                        <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Barangay Health Workers</h4>
+                        @if(request()->has('view_deleted'))
+                                <a href="{{ route('bhw.index') }}" class="btn btn-primary">View All BHWs</a>
+                        @else
+                            <button type="submit" class="btn btn-add me-2" title="Add New User" data-bs-toggle="modal" data-bs-target="#addbhwModal">
+                            <i class="fas fa-user-plus"></i> Add</button>
+                            <a href="{{ route('bhw.index', ['view_deleted' => 'DeletedRecords']) }}"
+                            class="btn btn-danger">View Deleted Records </a>
+                        @endif
                     </div>
 
                     <hr>
@@ -87,6 +62,12 @@
                                     <td class="text-center" scope="col" style="text-transform: uppercase;">{{ date('F d, Y h:i:s a',strtotime($bhw['created_at'])) }}</td>
                                     <td class="text-center" scope="col" style="text-transform: uppercase;">{{ date('F d, Y h:i:s a',strtotime($bhw['updated_at'])) }}</td>
                                     <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                        @if (request()->has('view_deleted'))
+                                                    <a href="{{ route('bhws.restore', $bhw->id) }}" class="btn btn-success">Restore</a>
+                                                    <a type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal"  data-user_id="{{$bhw->id}}">Delete
+                                                    </a>
+                                        @else
                                         {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn btn-primary bhw_view" data-bs-target="#viewbhw"
                                             data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
@@ -107,6 +88,7 @@
                                         data-user_id="{{$bhw->id}}">
                                         <i class="manage fas fa-trash"></i>
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -453,6 +435,34 @@
         </div>
         <!--**************************------------------- DELETE MODAL ENDS HERE-------------------****************************---------->
     </div>
+
+    <!--**************************------------------- DELETE RESIDENT MODAL -------------------****************************---------->
+<div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Delete BHW Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="delete-resident" action="{{route ('bhws.permanentdelete', 'user_id')}}" method="GET">
+                @csrf
+                <div class="modal-body">
+                    <div class="input-box">
+                        <input name="user_id" id="deleteuser_id" type="hidden" placeholder="">
+                    </div>
+                    <h5>This will be removed permanently. Do you want to continue?</h5>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--**************************------------------- DELETE MODAL ENDS HERE-------------------****************************---------->
+
 </div>
 
 @endsection
@@ -514,6 +524,19 @@
         modal.find('.modal-body #deleteuser_id').val(user_id);
     });
 </script>
+
+    {{----------------------------- PERMANENT DELETE BHW SCRIPT--------------------------------}}
+    <script>
+        $('#deleteModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var user_id = button.data('user_id')
+    
+    
+            var modal = $(this)
+            modal.find('.modal-title').text(' Delete Profile');
+            modal.find('.modal-body #deleteuser_id').val(user_id);
+        });
+    </script>
 
     {{-----------------------------VIEW BHW SCRIPT--------------------------------}}
 <script>

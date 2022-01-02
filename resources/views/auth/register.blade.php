@@ -21,7 +21,7 @@
 }
 
 /* Full-width input fields */
-.modal input[type=text] {
+.modal input[type=text], .modal input[type=number] {
   width: 100%;
   padding: 5px 20px;
   margin: 5px 0;

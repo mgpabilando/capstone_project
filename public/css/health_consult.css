@@ -27,7 +27,7 @@ h3.block-title {
 .btn-add{
   width: 100px;
   position: relative;
-  background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+  background-color:#15c3c7;
   padding: 5px 10px;
   border-radius: 3px;
   border-radius: 5px;

@@ -174,9 +174,6 @@ class ResidentController extends Controller
      */
     public function destroy(Request $residentprofile)
     {
-        $delete = $residentprofile->all();
-
-        /* echo "<pre>"; print_r($delete); die; */
         $deleteresident = Residents::findOrFail($residentprofile->resident_id);
         $deleteresident->delete();
         return redirect()->route('residentprofile.index')->with('success', 'Deleted Successfully.');
