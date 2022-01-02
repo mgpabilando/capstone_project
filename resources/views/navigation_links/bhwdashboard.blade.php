@@ -135,29 +135,6 @@
 
 @section('scripts')
 <script>
-//   const labels = ['Pregnant', 'Deliveries','EPI','NTP','Diarrheal','Other Services', 'Family Planning'];
-//   const data = {
-//     labels: labels,
-//     datasets: [{
-//       label: 'Health Consultation',
-//       backgroundColor: ['#15c3c7', '#2ae88a' ],
-//       fontfamily: 'Poppins',
-//       data: [{{ $pregnant }}, {{ $deliveries }}, {{ $epi }}, {{ $ntp }}, {{ $diarrheal }}, {{ $other_services }}, {{ $familyplanning }}],
-//     }]
-//   };
-
-//   const config = {
-//   type: 'bar',
-//   data: data,
-//   options: {
-//     scales: {
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   },  
-// };
-
 var data = {
     labels : ['Pregnant', 'Deliveries','EPI','NTP','Diarrheal','Other Services', 'Family Planning'],
 
