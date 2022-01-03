@@ -67,7 +67,7 @@ class DashboardController extends Controller
 // HEALTH CONSULTATION
      public function pregnancy()
      {
-          return view('navigation_links.healthconsultation.pregnancy');
+     return view('navigation_links.healthconsultation.pregnancy');
      }
 
      public function deliveries()

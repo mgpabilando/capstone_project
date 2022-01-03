@@ -19,6 +19,7 @@ use App\Http\Controllers\DeliveriesConsulController;
 use App\Http\Controllers\SearchAutoCompleteController;
 use App\Http\Controllers\MedRequestController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ReportController;
 
 
 /*
@@ -31,6 +32,7 @@ use App\Http\Controllers\ForgotPasswordController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -39,15 +41,15 @@ Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customl
 Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout');
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::resource('/register', RegisteredUsersController::class);
 
-Route::group([ 'middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth']], function () {
 
-// route from main sidebar links //
+    // route from main sidebar links //
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/bhw', [DashboardController::class, 'index'])->name('dashboard.bhw');
     Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');
@@ -57,7 +59,7 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
     Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
 
-// route for health consultation sidebar links //
+    // route for health consultation sidebar links //
     Route::get('/pregnancy', [DashboardController::class, 'pregnancy'])->name('dashboard.pregnancy');
     Route::get('/deliveries', [DashboardController::class, 'deliveries'])->name('dashboard.deliveries');
     Route::get('/epi', [DashboardController::class, 'epi'])->name('dashboard.epi');
@@ -66,17 +68,22 @@ Route::group([ 'middleware' => ['auth']], function () {
     Route::get('/diarrheal', [DashboardController::class, 'diarrheal'])->name('dashboard.diarrheal');
     Route::get('/other', [DashboardController::class, 'other'])->name('dashboard.other');
 
-//route for myprofile page//  
+    //route for reports//
+    Route::get('/monthly_accomplished', [ReportController::class, 'monthly_accomplished'])->name('reports.monthly_accomplished');
+    Route::get('/monthly_visitor', [ReportController::class, 'monthly_visitor'])->name('reports.monthly_visitor');
+    Route::get('/daily_timerec', [ReportController::class, 'daily_timerec'])->name('reports.daily_timerec');
+    Route::get('/med_request', [ReportController::class, 'med_request'])->name('reports.med_request');
+    //route for myprofile page//  
     Route::resource('/myprofile', MyProfileController::class);
 
-//route for changing current user's password //
+    //route for changing current user's password //
     Route::get('/profile', [ChangePasswordController::class, 'profile'])->name('yourprofile');
     Route::post('/changepassword', [ChangePasswordController::class, 'changePassword'])->name('adminchangepassword');
 
-//route for bhw page//
+    //route for bhw page//
     Route::resource('/bhw', usersController::class);
 
-//route for resident page page//
+    //route for resident page page//
     Route::resource('/residentprofile', ResidentController::class);
 
     Route::resource('/pregnancy', PregnantConsulController::class);
@@ -89,9 +96,9 @@ Route::group([ 'middleware' => ['auth']], function () {
 
     Route::get('/events', [FullCalendarController::class, 'index'])->name('events.view');
     Route::post('events/action', [FullCalendarController::class, 'action'])->name('events.action');
-    
+
     Route::post('/getResidents', [SearchAutoCompleteController::class, 'getResidents'])->name('getResidents');
 
-    Route::resource('/medicinerequest', MedRequestController::class);
+    Route::resource('/reports/medicinerequest', MedRequestController::class);
     Route::post('/users_profile', 'App\Http\Controllers\MyProfileController@upload');
 });

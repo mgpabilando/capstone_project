@@ -1,0 +1,66 @@
+#table-mar p, th, td, thead, tbody{
+  padding: 0px 0px 0px 9px !important;
+  font-size: 11pt;
+  border: 1px solid !important;
+}
+
+#table-mar th{
+  text-align: center;
+}
+ 
+
+.purok-month {
+  margin-top: 5px;
+}
+
+.purok-month p{
+  margin: 5px;
+}
+
+table{
+  margin: 0px;
+}
+
+.mar-report .text-center{
+  margin: 0px 0px 3px 0px;
+}
+
+.signature-by input{
+  width: 300px ;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  text-align: center; 
+}
+
+.noted-sign-cap{
+  margin-left: 100px;
+}
+
+
+
+/*for printing*/
+@page {
+      margin:  0.5cm;
+    }
+
+    @media print {
+
+      nav, button, i, a{
+        display: none;
+      }
+      #printSection {
+        width: 100%;
+      }
+
+      body {
+        font-size: 11pt;
+        line-height: 1;
+        }
+
+    }
+
+    #printSection {
+      width: 100%;
+    }
+ 

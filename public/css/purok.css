@@ -35,101 +35,26 @@
     border-top: none;
   }
 
-
-  /*for reports style*/
-
-  .report-gen .btn-reportgen {
-  width: 50vh;
+  .reports a{
+    text-decoration: none;
+    background-color: #08aeea;
+    border: 2px solid #08aeea;
+    text-align: center;
+    box-sizing: border-box;
+    width: 95%;
+    height: 45px;
+    line-height: 2.2;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #ffff;
+    border-radius: 10px;
+    transition: all, 0.5s;
 }
 
-@media screen {
-  #printSection {
-    display: none;
+  .reports a:hover{
+    background-color: #ffff;
+    color: #000;
+
   }
-}
-
-@media print {
-  body * {
-    visibility: hidden;
-  }
-
-  #printSection, #printSection * {
-    visibility: visible;
-  }
-
-  #printSection {
-    position: absolute;
-    left: 5px;
-    top: 10px;
-  }
-}
-
-@page
-    {
-        size:  auto;
-        margin: 01mm;
-    }
-
-.btn-monthly-report{
-  height: 55px;
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin: 5px 5px 5px 5px;
-  width: 500px;
-  border-radius: 50px;
-  background-color: #ffff;
-  border: 2px solid;
-  border-color: #2ae88a;
-  transition: all, 1s;
-}
-
-.btn-monthly-report:hover{
-  background-color: #08aeea;
-  color: #fff;
-
-}
-
-.mar-report{
-  width: 100%;
-}
-.mar-report form{
-  padding: 0px;
-  line-height: normal;
-  width: 200px;
-  text-align: left;
-  margin-bottom: 15px;
-}
-
-
-.mar-report form p{
-    margin-bottom: 0px;
-
-}
-
-.form-group-mar th{
-  padding: 0px;
-
-}
-
-.form-group-mar td{
-  padding: 0px;
-}
-
-.signature-by{
-  position: relative;
-  left: 10px;
-}
-
-.submitted-by{
-  width: 300px;
-}
-
-.noted-sign{
-   width: 300px;
-   margin-right: 100px;
-}
-
-.signature-by input{
-  width: 300px;
-  border-width: 0px 0px 1px 0px;
-}
+ 
