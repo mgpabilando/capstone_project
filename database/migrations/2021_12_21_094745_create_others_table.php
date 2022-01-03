@@ -18,6 +18,7 @@ class CreateOthersTable extends Migration
             $table->string('service_rendered');
             $table->string('date');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

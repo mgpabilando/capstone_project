@@ -57,6 +57,17 @@
         modal.find('.modal-title').text(' Delete Consultation Record');
         modal.find('.modal-body #Dpregnant_id').val(pregnant_id);
     });
+
+    //{{-----------------------------DELETE PERMANENT SCRIPT--------------------------------}}
+    $('#deleteModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var pregnant_id = button.data('pregnant_id')
+
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Dpregnant_id').val(pregnant_id);
+    });
 //____END_________________PREGNANCY__________________//
 
 //_________________DELIVERIES__________________//
@@ -114,6 +125,16 @@
         modal.find('.modal-title').text(' Delete Consultation Record');
         modal.find('.modal-body #Ddeliveries_id').val(deliveries_id);
     });
+
+    //{{-----------------------------DELETE PERMANENT SCRIPT--------------------------------}}
+    $('#deleteModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var deliveries_id = button.data('deliveries_id')
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Ddeliveries_id').val(deliveries_id);
+    });
 //____END_________________DELIVERIES__________________//
 
 //_________________EPI__________________//
@@ -162,6 +183,16 @@
         modal.find('.modal-title').text(' Delete Consultation Record');
         modal.find('.modal-body #Depi_id').val(epi_id);
     });
+
+    //{{-----------------------------DELETE PERMANENT SCRIPT--------------------------------}}
+    $('#deleteModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var epi_id = button.data('epi_id')
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Depi_id').val(epi_id);
+    });
 //____END_________________DELIVERIES__________________//
 
 //_________________NTP__________________//
@@ -203,11 +234,21 @@
     //{{-----------------------------DELETE NTP SCRIPT--------------------------------}}
     $('#deletentpconsul').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
-        var epi_id = button.data('epi_id')
+        var ntp_id = button.data('ntp_id')
 
         var modal = $(this)
         modal.find('.modal-title').text(' Delete Consultation Record');
-        modal.find('.modal-body #Depi_id').val(epi_id);
+        modal.find('.modal-body #Dntp_id').val(ntp_id);
+    });
+
+    //{{-----------------------------DELETE PERMANENTLY SCRIPT--------------------------------}}
+    $('#deleteModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var ntp_id = button.data('ntp_id')
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Dntp_id').val(ntp_id);
     });
 //____END_________________NTP__________________//
 
@@ -248,6 +289,16 @@
     });
     //{{-----------------------------DELETE FAMILY PLANNING SCRIPT--------------------------------}}
     $('#deletefpconsul').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var familyplanning_id = button.data('familyplanning_id')
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Dfamilyplanning_id').val(familyplanning_id);
+    });
+
+    //{{-----------------------------DELETE PERMANENT SCRIPT--------------------------------}}
+    $('#deleteModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var familyplanning_id = button.data('familyplanning_id')
 
@@ -297,6 +348,16 @@
         modal.find('.modal-title').text(' Delete Consultation Record');
         modal.find('.modal-body #Ddiarrheal_id').val(diarrheal_id);
     });
+
+    //{{-----------------------------DELETE PERMANENT SCRIPT--------------------------------}}
+    $('#deleteModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var diarrheal_id = button.data('diarrheal_id')
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Ddiarrheal_id').val(diarrheal_id);
+    });
 //____END_________________CONTROL OF DIARRHEAL PROBLEM__________________//
 
 //_________________OTHER SERVICES RENDERED__________________//
@@ -328,6 +389,16 @@
     });
     //{{-----------------------------DELETE OTHER SERVICES RENDERED SCRIPT--------------------------------}}
     $('#deleteotherconsul').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var other_id = button.data('other_id')
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Dother_id').val(other_id);
+    });
+
+    //{{-----------------------------DELETE PERMANENT RENDERED SCRIPT--------------------------------}}
+    $('#deleteModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var other_id = button.data('other_id')
 

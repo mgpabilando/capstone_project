@@ -12,9 +12,12 @@ class NtpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $ntpconsulrecord = ntp::all();
+        if ($request->has('view_deleted')) {
+            $ntpconsulrecord = ntp::onlyTrashed()->get();
+        }  
         return view('navigation_links.healthconsultation.ntp')->with('ntpconsulrecord',$ntpconsulrecord);
 
     }

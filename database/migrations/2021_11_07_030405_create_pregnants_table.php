@@ -23,6 +23,7 @@ class CreatePregnantsTable extends Migration
             $table->string('lmp');
             $table->string('pregnancyorder');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
 
             $table->foreign('resident_id')->references('id')->on('residents')
                 ->onUpdate('cascade')->onDelete('cascade');

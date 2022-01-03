@@ -15,9 +15,14 @@ class PregnantConsulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $pregconsultationrecord = pregnants::all();
+
+        if ($request->has('view_deleted')) {
+            $pregconsultationrecord = pregnants::onlyTrashed()->get();
+        }   
+        
         return view('navigation_links.healthconsultation.pregnancy')->with('pregconsultationrecord',$pregconsultationrecord);
     }
 

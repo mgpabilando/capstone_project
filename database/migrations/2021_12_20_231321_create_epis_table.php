@@ -20,7 +20,8 @@ class CreateEpisTable extends Migration
             $table->string('birthdate');
             $table->string('meds_given');
             $table->timestamps();
-
+            $table->timestamp('deleted_at')->nullable();
+            
             $table->foreign('resident_id')->references('id')->on('residents')
                 ->onUpdate('cascade')->onDelete('cascade');
 

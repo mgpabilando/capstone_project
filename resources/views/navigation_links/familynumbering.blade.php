@@ -13,11 +13,16 @@
             <div class="col-md-12">
                 <div class="consultation-list container bhms-box-shadow">
                     <div class="title-and-button d-flex justify-content-between align-items-center">
-                        <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Family Numbering</h4> 
-                        <div type="button" class="btn btn-add" title="Add Family Number" data-bs-toggle="modal" data-bs-target="#addfamilynumber">
-                            <i class="fas fa-plus"></i> ADD
-                        </div>
-                        @include('modals.family_numbering.Add')
+                        <h4 class="consulttable-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Family Numbering</h4> 
+                        @if(request()->has('view_deleted'))
+                                <a href="{{ route('familynumbering.index') }}" class="btn btn-primary">View All</a>
+                        @else
+                            <button type="submit" class="btn btn-add me-2" title="Add Family Number" data-bs-toggle="modal" data-bs-target="#addfamilynumber">
+                            <i class="fas fa-user-plus"></i> Add</button>
+                            @include('modals.family_numbering.Add')
+                            <a href="{{ route('familynumbering.index', ['view_deleted' => 'DeletedRecords']) }}"
+                            class="btn btn-danger">Trash </a>
+                        @endif
                     </div> 
                         <hr>
                     <div class="table-responsive mb-3">
@@ -41,6 +46,13 @@
                                             <td class="text-center">{{ $familynumberRec->resident->fname }} {{ $familynumberRec->resident->mname }} {{ $familynumberRec->resident->lname }}</td>
                                             <td class="text-center">{{ $familynumberRec->resident->purok }}</td>
                                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                                @if (request()->has('view_deleted'))
+                                                <a href="{{ route('familyhead.restore', $familynumberRec->id) }}" class="btn btn-success">Restore</a>
+                                                
+                                                <a type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal"  data-familynumber_id="{{$familynumberRec->id}}">Delete
+                                                </a>
+                                                @else
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfamilynumber"
                                                 data-familynumber_id="{{ $familynumberRec->id }}" data-resident_id = "{{ $familynumberRec->resident_id }}" 
@@ -63,6 +75,8 @@
                                                 <i class="manage fas fa-trash"></i>
                                                 </a>
                                                 @include('modals.family_numbering.Delete')
+
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

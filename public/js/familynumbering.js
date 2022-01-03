@@ -45,3 +45,14 @@ $('#deletefamilynumber').on('show.bs.modal', function(event) {
     modal.find('.modal-title').text(' Delete Record');
     modal.find('.modal-body #Dfamilynumber_id').val(familynumber_id);
 });
+
+//   {{-----------------------------DELETE PERMANENTLY SCRIPT--------------------------------}
+$('#deleteModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget)
+    var familynumber_id = button.data('familynumber_id')
+ 
+ 
+    var modal = $(this)
+    modal.find('.modal-title').text(' Delete Resident Profile');
+    modal.find('.modal-body #familyhead_id').val(familynumber_id);
+ })

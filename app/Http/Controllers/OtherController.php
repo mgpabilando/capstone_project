@@ -12,9 +12,12 @@ class OtherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $otherconsulrecord = other::all();
+        if ($request->has('view_deleted')) {
+            $otherconsulrecord = other::onlyTrashed()->get();
+        }  
         return view('navigation_links.healthconsultation.other')->with('otherconsulrecord',$otherconsulrecord);
 
     }

@@ -19,6 +19,7 @@ class CreateDiarrhealsTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
 
             $table->foreign('resident_id')->references('id')->on('residents')
                 ->onUpdate('cascade')->onDelete('cascade');

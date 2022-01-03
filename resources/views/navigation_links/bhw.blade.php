@@ -18,7 +18,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Barangay Health Workers</h4>
                         @if(request()->has('view_deleted'))
-                                <a href="{{ route('bhw.index') }}" class="btn btn-primary">View All BHWs</a>
+                                <a href="{{ route('bhw.index') }}" class="btn btn-primary">View All</a>
                         @else
                             <button type="submit" class="btn btn-add me-2" title="Add New User" data-bs-toggle="modal" data-bs-target="#addbhwModal">
                             <i class="fas fa-user-plus"></i> Add</button>
@@ -26,7 +26,7 @@
 
                             <a href="{{ route('bhw.index', ['view_deleted' => 'DeletedRecords']) }}"
                             class="btn btn-danger">Trash</a>
-                            @include('modals.BHW.PermanentDelete')
+                            
                         @endif
                     </div>
 
@@ -70,6 +70,7 @@
                                                     <a type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal"  data-user_id="{{$bhw->id}}">Delete
                                                     </a>
+                                                    @include('modals.BHW.PermanentDelete')
                                         @else
                                         {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn btn-primary bhw_view" data-bs-target="#viewbhw"

@@ -22,13 +22,13 @@ class AdminController extends Controller
             return response()->json(['status'=>0,'msg'=>'Something went wrong, upload new picture failed.']);
         }else{
             //Get Old picture
-            $oldPicture = User::find(Auth::User()->id)->getAttributes()['profile_image'];
+            // $oldPicture = User::find(Auth::User()->id)->getAttributes()['profile_image'];
 
-            if( $oldPicture != '' ){
-                if( \File::exists(public_path($path.$oldPicture))){
-                    \File::delete(public_path($path.$oldPicture));
-                }
-            }
+            // if( $oldPicture != '' ){
+            //     if( \File::exists(public_path($path.$oldPicture))){
+            //         \File::delete(public_path($path.$oldPicture));
+            //     }
+            // }
 
             //Update DB
             $update = User::find(Auth::User()->id)->update(['profile_image'=>$new_name]);

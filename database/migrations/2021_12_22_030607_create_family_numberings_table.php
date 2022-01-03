@@ -18,6 +18,7 @@ class CreateFamilyNumberingsTable extends Migration
             $table->unsignedBigInteger('resident_id')->unique();
             $table->unsignedBigInteger('family_id')->unique();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
 
             $table->foreign('resident_id')->references('id')->on('residents')
             ->onUpdate('cascade')->onDelete('cascade');

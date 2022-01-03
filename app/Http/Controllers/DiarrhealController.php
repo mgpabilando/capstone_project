@@ -12,9 +12,12 @@ class DiarrhealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $diarrhealconsulrecord = diarrheal::all();
+        if ($request->has('view_deleted')) {
+            $diarrhealconsulrecord = diarrheal::onlyTrashed()->get();
+        } 
         return view('navigation_links.healthconsultation.diarrheal')->with('diarrhealconsulrecord',$diarrhealconsulrecord);
 
     }

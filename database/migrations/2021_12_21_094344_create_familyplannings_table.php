@@ -20,6 +20,7 @@ class CreateFamilyplanningsTable extends Migration
             $table->integer('age');
             $table->string('method_used');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
 
             $table->foreign('resident_id')->references('id')->on('residents')
                 ->onUpdate('cascade')->onDelete('cascade');

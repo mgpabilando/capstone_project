@@ -105,15 +105,6 @@
 
     <div class="container">
         <div class="row" style="justify-content: center;">
-            <div class="add-sec d-flex">
-                @if (\Session::has('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ \Session::get('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
-            </div>
-
             <div class="container">
                 <div class="eventcalendar">
                     <div id='calendar' class="calendar"></div>

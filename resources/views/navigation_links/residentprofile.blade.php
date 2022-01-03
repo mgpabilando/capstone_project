@@ -18,13 +18,13 @@
                     <div class="d-flex">
                         <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Resident List</h4>
                             @if(request()->has('view_deleted'))
-                                <a href="{{ route('residentprofile.index') }}" class="btn btn-primary">View All Residents</a>
+                                <a href="{{ route('residentprofile.index') }}" class="btn btn-primary">View All</a>
                             @else
                                 <button type="submit" class="btn btn-add me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
                                 <i class="fas fa-user-plus"></i> Add</button>
                                 @include('modals.residentprofile.Add')
                                 <a href="{{ route('residentprofile.index', ['view_deleted' => 'DeletedRecords']) }}"
-                                class="btn btn-danger">View Deleted Records </a>
+                                class="btn btn-danger">Trash </a>
                             @endif
                     </div>
                     <hr>
@@ -59,6 +59,7 @@
                                                     <a type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal"  data-resident_id="{{$residentprofile->id}}">Delete
                                                     </a>
+                                                    @include('modals.residentprofile.PermanentDelete')
                                                 @else
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
@@ -108,29 +109,3 @@
 </div>
 @endsection
 
-<!--**************************------------------- DELETE RESIDENT MODAL -------------------****************************---------->
-<div class="res-delete modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Delete Resident Profile</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form class="delete-resident" action="{{route ('resident.permanentdelete', 'resident_id')}}" method="GET">
-                @csrf
-                <div class="modal-body">
-                    <div class="input-box">
-                        <input name="resident_id" id="resident_id" type="hidden" placeholder="">
-                    </div>
-                    <h5>This will be removed permanently. Do you want to continue?</h5>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-danger">Yes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!--**************************------------------- DELETE MODAL ENDS HERE-------------------****************************---------->

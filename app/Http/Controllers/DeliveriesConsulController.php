@@ -15,9 +15,12 @@ class DeliveriesConsulController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $deliverconsulrecord = Deliveries::all();
+        if ($request->has('view_deleted')) {
+            $deliverconsulrecord = Deliveries::onlyTrashed()->get();
+        } 
         return view('navigation_links.healthconsultation.deliveries')->with('deliverconsulrecord',$deliverconsulrecord);
     }
 
