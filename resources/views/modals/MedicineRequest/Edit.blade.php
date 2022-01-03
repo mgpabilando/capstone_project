@@ -13,11 +13,11 @@
 
                 <div class="input-box">
                     <div class="text-start details">Medicine Name</div>
-                    <input class="name align-text-left" name="medicine_name" id="medicine_name" type="text" placeholder="" readonly>
+                    <input class="name align-text-left" name="medicine_name" id="medicine_name" type="text" placeholder="">
                 </div>
                 <div class="input-box">
-                    <div class="text-start details">Medicine Name</div>
-                    <input class="name align-text-left" name="med_quantity" id="med_quantity" type="text" placeholder="" readonly>
+                    <div class="text-start details">Quantity</div>
+                    <input class="name align-text-left" name="med_quantity" id="med_quantity" type="text" placeholder="">
                 </div>
 
             </div>

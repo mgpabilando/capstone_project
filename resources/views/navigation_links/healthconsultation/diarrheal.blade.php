@@ -14,10 +14,12 @@
                 <div class="consultation-list container bhms-box-shadow">
                     <div class="title-and-button d-flex justify-content-between align-items-center">
                         <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">Control Of Diarrheal Problem</h4>  
+                        @if (Auth::user()->hasRole('admin_nurse'))
                         <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#adddiarrhealconsul">
                             <i class="fas fa-file-medical"></i> ADD
                         </div>
-                    @include('modals.diarrheal.Add')
+                        @include('modals.diarrheal.Add')
+                        @endif
                     </div> 
                     <hr>
                     <div class="table-responsive mb-3">
@@ -50,7 +52,8 @@
                                                 data-age="{{ $diarrhealRec->age }}">
                                                 <i class="manage fas fa-eye"></i></a>
                                                 @include('modals.diarrheal.Show')
-                                            
+                                                
+                                                @if (Auth::user()->hasRole('admin_nurse'))
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editdiarrhealconsul"
                                                 data-diarrheal_id="{{ $diarrhealRec->id }}" data-resident_id = "{{ $diarrhealRec->resident_id }}" data-name = "{{ $diarrhealRec->name }}"
@@ -65,6 +68,7 @@
                                                 <i class="manage fas fa-trash"></i>
                                                 </a>
                                                 @include('modals.diarrheal.Delete')
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

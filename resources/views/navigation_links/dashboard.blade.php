@@ -27,46 +27,25 @@
                   </div>
                   <div class="modal-body">
                     <div class="dtr">
-                    <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" style="font-size: 1rem;">ARRIVAL</button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" style="font-size: 1rem;">DEPARTURE</button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="font-size: 1rem;">UNDERTIME</button>
-                      </li>
-                    </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <input type="time" name="">
-                        <div class="d-flex justify-content-end">
-                         <button type="button" class="btn dtr-btn btn-success">ADD</button>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <input type="time" name="">
-                        <div class="d-flex justify-content-end">
-                         <button type="button" class="btn dtr-btn btn-success">ADD</button>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <input type="number" name="" placeholder="HOUR">
-                        <input type="number" name="" placeholder="MINUTE">
-                        <div class="d-flex justify-content-end">
-                         <button type="button" class="btn dtr-btn btn-success" style="margin-right: 35px;">ADD</button>
-                        </div>
-                      </div>
+                      <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-timeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-timeIn" type="button" role="tab" aria-controls="pills-timeIn" aria-selected="true" style="font-size: 1rem;">ARRIVAL</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-underTime-tab" data-bs-toggle="pill" data-bs-target="#pills-timeOut" type="button" role="tab" aria-controls="pills-timeOut" aria-selected="false" style="font-size: 1rem;">DEPARTURE</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-timeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-underTime" type="button" role="tab" aria-controls="pills-underTime" aria-selected="false" style="font-size: 1rem;">UNDERTIME</button>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
                   </div>
                   <div class="modal-footer d-flex ">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button> 
                   </div>
                 </div>
               </div>
-            </div>       
+            </div>   
         </div>
     </div>
 

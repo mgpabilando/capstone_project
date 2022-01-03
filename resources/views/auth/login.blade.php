@@ -14,12 +14,6 @@
                 <div class="hms-login col-md-6 d-flex align-items-center">
                     <div class="form-login p-2 d-flex justify-content-center">
                         <form method="POST" action="{{ route('customlogin') }}">   
-                            {{-- @if (Session::get('error'))  
-                            <div class="alert alert-warning alert-dismissible fade show m-0 p-3" role="alert">
-                                <p class="m-0 p-0" style="color: #ffff;"><i class="fas fa-exclamation-triangle p-1"></i>{{Session::get('error')}}</p>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            @endif   --}}
                             @csrf
                             <div class="brgy-logo d-flex align-items-start justify-content-center">
                                 <img class="login-user-logo" src="images/macawayan logo.png" alt="Login" width="150" height="150">

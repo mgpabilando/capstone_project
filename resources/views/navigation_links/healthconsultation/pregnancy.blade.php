@@ -15,10 +15,12 @@
             <div class="consultation-list container bhms-box-shadow">
               <div class="title-and-button d-flex justify-content-between align-items-center">
                 <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of Pregnancy</h4>
+                @if (Auth::user()->hasRole('admin_nurse'))
                 <div type="button"  class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addpregconsul">
                   <i class="fas fa-file-medical"></i> ADD
                 </div>
                 @include('modals.pregnancy.Add')
+                @endif
               </div>
               <hr>
               <div class="table-responsive mb-3">
@@ -61,7 +63,8 @@
                                     data-lmp = "{{ $pregpatient->lmp }}">
                                   <i class="manage fas fa-eye"></i></a>
                                   @include('modals.pregnancy.Show')
-                              
+                                  
+                                  @if (Auth::user()->hasRole('admin_nurse'))
                                   {{-----***************************** EDIT BUTTON *******************************------}}
                                   <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editpregconsul"
                                     data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-name = "{{ $pregpatient->name }}" 
@@ -78,6 +81,7 @@
                                   <i class="manage fas fa-trash"></i>
                                   </a>
                                   @include('modals.pregnancy.Delete')
+                                  @endif
                               </td>
                           </tr>
                           @endforeach

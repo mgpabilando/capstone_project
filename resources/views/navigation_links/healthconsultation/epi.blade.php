@@ -15,10 +15,12 @@
           <div class="consultation-list container bhms-box-shadow">
             <div class="title-and-button d-flex justify-content-between align-items-center">
               <h4 class="consulttable-title pt-2 ps-2 mb-0" style="text-align: center">List of EPI</h4>
+              @if (Auth::user()->hasRole('admin_nurse'))
               <div type="button" class="btn btn-add" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addepiconsul">
                 <i class="fas fa-file-medical"></i> ADD
               </div>
               @include('modals.epi.Add')
+              @endif
             </div>
               <hr>
               <div class="table-responsive mb-3">
@@ -55,11 +57,12 @@
                                         <i class="manage fas fa-eye"></i></a>
                                         @include('modals.epi.Show')
                                 
+                                    @if (Auth::user()->hasRole('admin_nurse'))
                                     {{-----***************************** EDIT BUTTON *******************************------}}
                                     <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editepiconsul"
                                     data-epi_id="{{ $epiRec->id }}" data-resident_id = "{{ $epiRec->resident_id }}" data-name = "{{ $epiRec->name }}"
                                     data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->birthdate }}">
-                                <i class="manage fas fa-edit"></i>
+                                    <i class="manage fas fa-edit"></i>
                                     </a>
                                     @include('modals.epi.Edit')
                                 
@@ -69,6 +72,7 @@
                                     <i class="manage fas fa-trash"></i>
                                     </a>
                                     @include('modals.epi.Delete')
+                                    @endif
                                 </td>
                               </tr>
                               @endforeach
