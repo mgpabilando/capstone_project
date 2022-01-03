@@ -1,6 +1,6 @@
 <!-- Modal For Show -->
 <div class="modal fade" id="viewNewConsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">MEDICINE REQUEST</h5>

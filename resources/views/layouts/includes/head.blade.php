@@ -24,7 +24,7 @@
 
     <!---------------------------          SCRIPTS           ---------------------------->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
     <script href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js"> --}}
  
