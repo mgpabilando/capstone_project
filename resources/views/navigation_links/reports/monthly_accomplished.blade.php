@@ -18,6 +18,7 @@
     <nav class="navbar navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="{{ Request::is('reports') ? 'active' : '' }}" href="reports"><i class="fas fa-arrow-left" style="color: #ffff;"></i></a>
+        <p class="fw-bold m-0 p-0 report-tilte" style="color: #ffff;">MONTHLY ACCOMPLISHED REPORT</p>
         {{-- <button id="MARbtnPrint" type="button" class="btn btn-primary"><i class="fas fa-print"></i> PRINT</button> --}}
         <button onclick="printpage()"><i class="fas fa-print"></i> PRINT</button>
       </div>

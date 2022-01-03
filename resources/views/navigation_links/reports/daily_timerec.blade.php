@@ -18,54 +18,80 @@
         <nav class="navbar navbar-dark bg-primary">
             <div class="container-fluid">
                 <a class="{{ Request::is('reports') ? 'active' : '' }}" href="reports"><i class="fas fa-arrow-left" style="color: #ffff;"></i></a>
+                <p class="fw-bold m-0 p-0 report-tilte" style="color: #ffff;">DAILY TIME RECORD</p>
                 <button onclick="printpage()"><i class="fas fa-print"></i> PRINT</button>
             </div>
         </nav>
 
         <div class="col-md-12 p-0">
             <div class="d-flex justify-content-center flex-column mar-report">
-                <h4>CIVIL SERVICE FORM No.48</h4>
-                <p>DAILY TIME RECORD</p>
-                <p>Name</p>
-                <p>For the month of </p>
-                <p>Officials hours for arrival Regular days</p>
-                <p>and departure Saturdays</p>
+                <div class="civil-srvc ms-5">
+                    <h5>CIVIL SERVICE FORM No.48</h5>
+                    <p class="fw-bold text-center">DAILY TIME RECORD</p>
+                    <div class="d-flex flex-grid justify-content-center">
+                        <input type="text" style="width: 300px ; border-left: 0px; border-top: 0px; border-right: 0px; text-align: center; ">
+                    </div>
+                    <p class="fw-bold text-center">Name</p>
+                    <p class="fst-italic m-0">For the month of </p>
+                    <p class="fst-italic m-0">Officials hours for arrival Regular days</p>
+                    <p class="fst-italic mt-0 mb-3">and departure Saturdays</p>
+                    </>
 
-                <form id="table-mar" class="d-flex justify-content-center">
-                    <table style="width: 90%" class="table table-bordered border-dark">
+                    <form id="table-mar" class="d-flex justify-content-center">
+                        <table style="width: 90%" class="table table-bordered border-dark">
 
-                        <thead>
-                            <tr>
-                                <th style="width:20%">AM</th>
-                                <th style="width:80%">PM</th>
-                            </tr>
-                            <tr>
-                                <th style="width:20%">DATE</th>
-                                <th style="width:80%">NAME</th>
-                            </tr>
-                        </thead>
+                            <thead>
+                                <tr>
+                                    <th style="width:20%; vertical-align: middle;" rowspan="2">DAY</th>
+                                    <th colspan="2">AM</th>
+                                    <th colspan="2">PM</th>
+                                    <th colspan="2">UNDERTIME</th>
+                                </tr>
+                                <tr>
+                                    <th>ARRIVAL</th>
+                                    <th>DEPARTURE</th>
+                                    <th>ARRIVAL</th>
+                                    <th>DEPARTURE</th>
+                                    <th>HOURS</th>
+                                    <th>MINUTES</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</td>
-                                <td>data1</td>
-                            </tr>
-                        </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>date</td>
+                                    <td>date</td>
+                                    <td>date</td>
+                                    <td>date</td>
+                                    <td>date</td>
+                                    <td>date</td>
+                                </tr>
+                            </tbody>
 
+                            <tbody>
+                            <tfoot>
+                                <td style="text-align:center; font-weight: bold;" colspan="5">TOTAL</td>
+                                <td>date</td>
+                                <td>date</td>
+                            </tfoot>
+                            </tbody>
+                        </table>
+                    </form>
+                    <div class="civil-srvc">
+                        <p class="fst-italic">I certify on my honor that the above is a true and correct report of the hours of work performed, record of which was made daily at the time of arrival at and departure from office.</p>
+                    </div>
 
-                    </table>
-                </form>
-
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <script>
-        function printpage() {
-            window.print();
-        }
-    </script>
+        <script>
+            function printpage() {
+                window.print();
+            }
+        </script>
 
 </body>
 

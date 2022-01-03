@@ -1,4 +1,4 @@
-#table-mar p, th, td, thead, tbody{
+#table-mar p, th, td, thead, tbody, tfoot{
   padding: 0px 0px 0px 9px !important;
   font-size: 11pt;
   border: 1px solid !important;
@@ -40,27 +40,34 @@ table{
 
 
 /*for printing*/
-@page {
-      margin:  0.5cm;
-    }
+ 
 
     @media print {
 
-      nav, button, i, a{
+      nav, button, i, a {
         display: none;
       }
       #printSection {
         width: 100%;
       }
 
+      .navbar p{
+        display: none;
+      }
+
       body {
         font-size: 11pt;
-        line-height: 1;
+        line-height: 1; 
         }
+      
+      .col-md-12{
+        margin: 20px 20px 20px 20px;
+      }
 
     }
 
     #printSection {
       width: 100%;
     }
+ 
  
