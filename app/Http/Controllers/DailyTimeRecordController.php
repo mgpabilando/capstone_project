@@ -27,17 +27,22 @@ class DailyTimeRecordController extends Controller
 
     public function showunderTime($id)
     {
-        DailyTimeRecord::where('user_id', Auth::user()->id)
-        ->update(['UnderTime' => Carbon::now()->format('H:i:m', 'Philippines')]);
-
+        return DailyTimeRecord::find($id);
         return back()->with('success', 'Good Work!');
     }
 
-    public function showtimeOut()
+    public function showtimeOut(Request $id)
     {
-        DailyTimeRecord::where('user_id', Auth::user()->id)
-        ->update(['TimeOut' => Carbon::now()->format('H:i:m', 'Philippines')]);
+        // DailyTimeRecord::where('user_id', Auth::id())->where('TimeOut', $id)->firstOrFail()
+        // ->update(['TimeOut' => Carbon::now()->format('H:i:m', 'Philippines')]);
+        $data = DailyTimeRecord::find($id);
+        return $data;
+    }
 
-        return back()->with('success', 'Have a Nice Day!');
+    public function updateTimeOut(Request $id)
+    {
+        $data = DailyTimeRecord::where('id', $id)->firstOrFail()
+        ->update(['TimeOut' => Carbon::now()->format('H:i:m', 'Philippines')]);
+        dd( $data);
     }
 }

@@ -39,7 +39,7 @@
                     <li><a class="link-name" href="#">BHWs</a></li>
                 </ul>
             </li>
-
+            @endif
             <li class="">
                 <div class="iocn-link">
                     <a>
@@ -58,7 +58,7 @@
                     <li class=""><a href="other">Other Services</a></li>
                 </ul>
             </li>
-            @endif
+           
             <li class="">
                 <a class="{{ Request::is('events') ? 'active' : '' }}" href="events">
                     <i class="fas fa-calendar-alt"></i>

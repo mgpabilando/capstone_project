@@ -67,7 +67,7 @@
         var resident_id = button.data('resident_id')
         var name = button.data('name')
         var age = button.data('age')
-        var meds_given = button.data('date_delivered')
+        var date_delivered = button.data('date_delivered')
         var outcome = button.data('outcome')
         var place = button.data('place')
 

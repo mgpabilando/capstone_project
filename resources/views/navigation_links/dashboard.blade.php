@@ -27,74 +27,25 @@
                   </div>
                   <div class="modal-body">
                     <div class="dtr">
-                    <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-timeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-timeIn" type="button" role="tab" aria-controls="pills-timeIn" aria-selected="true" style="font-size: 1rem;">ARRIVAL</button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-underTime-tab" data-bs-toggle="pill" data-bs-target="#pills-timeOut" type="button" role="tab" aria-controls="pills-timeOut" aria-selected="false" style="font-size: 1rem;">DEPARTURE</button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-timeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-underTime" type="button" role="tab" aria-controls="pills-underTime" aria-selected="false" style="font-size: 1rem;">UNDERTIME</button>
-                      </li>
-                    </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                      <div class="tab-pane fade show active" id="pills-timeIn" role="tabpanel" aria-labelledby="pills-timeIn-tab">
-                        <input type="time" name="timeIn" id="timeIn" value="{{ $todayTime }}">
-                        <div class="d-flex justify-content-end">
-                         <a href="{{ route('dtr.timeIn', Auth::user()->id) }}" class="btn btn-success">Time In</a>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="pills-timeOut" role="tabpanel" aria-labelledby="pills-timeOut-tab">
-                        <input type="time" name="timeOut" id="timeOut" value="{{ $todayTime }}">
-                        <div class="d-flex justify-content-end">
-                          <a href="{{ route('dtr.timeOut', Auth::user()->id) }}" onclick="event.preventDefault(); document.getElementById('submit-form').submit();" class="btn btn-success">Time Out</a>  
-                          <form id="submit-form" action="{{ route('dtr.timeOut', Auth::user()->id) }}" method="post" >@csrf</form>                      
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="pills-underTime" role="tabpanel" aria-labelledby="pills-underTime-tab">
-                        <input type="time" name="underTime" id="underTime" value="{{ $todayTime }}">
-                        <div class="d-flex justify-content-end">
-                          <a href="{{ route('dtr.underTime', Auth::user()->id) }}" onclick="event.preventDefault(); document.getElementById('submit-form').submit();" class="btn btn-success">Time Out</a>  
-                          <form id="submit-form" action="{{ route('dtr.underTime', Auth::user()->id) }}" method="post" >@csrf</form>                      
-                        </div>
-                      </div>
-                      <hr>
-                      {{-- DATATABLE FOR DAILY TIME RECORD --}}
-                      <div class="table-responsive mb-3">
-                        <table id="" class="table table-bordered table-striped table-hover">
-                              <thead>
-                                  <tr role="row">
-                                      <th class="text-center" scope="col">Name</th>
-                                      <th class="text-center" scope="col">Time In</th>
-                                      <th class="text-center" scope="col">Time Out</th>
-                                      <th class="text-center" scope="col">UnderTime</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                @if ($dtr)
-                                  @foreach ($dtr as $dtrs)
-                                  <tr>
-                                    <th class="text-center">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</th>
-                                    <td class="text-center">{{ $dtrs->TimeIn }}</td>
-                                    <td class="text-center">{{ $dtrs->TimeOut }}</td>
-                                    <td class="text-center">{{ $dtrs->UnderTime }}</td>
-                                  </tr>
-                                  @endforeach
-                                @endif
-                              </tbody>
-                        </table>
-                      </div>
-                      {{-- END DATATABLE FOR DAILY TIME RECORD --}}
+                      <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-timeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-timeIn" type="button" role="tab" aria-controls="pills-timeIn" aria-selected="true" style="font-size: 1rem;">ARRIVAL</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-underTime-tab" data-bs-toggle="pill" data-bs-target="#pills-timeOut" type="button" role="tab" aria-controls="pills-timeOut" aria-selected="false" style="font-size: 1rem;">DEPARTURE</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-timeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-underTime" type="button" role="tab" aria-controls="pills-underTime" aria-selected="false" style="font-size: 1rem;">UNDERTIME</button>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
                   </div>
                   <div class="modal-footer d-flex ">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button> 
                   </div>
                 </div>
               </div>
-            </div>       
+            </div>   
         </div>
     </div>
 

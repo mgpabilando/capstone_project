@@ -18,7 +18,7 @@
                     <div class="d-flex">
                         <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Resident List</h4>
                             @if(request()->has('view_deleted'))
-                                <a href="{{ route('residentprofile.index', $dtr) }}" class="btn btn-primary">View All Residents</a>
+                                <a href="{{ route('residentprofile.index') }}" class="btn btn-primary">View All Residents</a>
                             @else
                                 <button type="submit" class="btn btn-add me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
                                 <i class="fas fa-user-plus"></i> Add</button>
