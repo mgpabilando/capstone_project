@@ -3,8 +3,13 @@
 
 <style>
   .fc .fc-toolbar > * > :first-child{
-    font-size: medium;
+    font-size: small;
   }
+  .fc-toolbar.fc-header-toolbar h2 {
+        font-weight: 900;
+        color: #15c5c4;
+        margin-right: 10px;
+    }
 
 </style>
 
@@ -29,15 +34,52 @@
                     <div class="dtr">
                       <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="pills-timeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-timeIn" type="button" role="tab" aria-controls="pills-timeIn" aria-selected="true" style="font-size: 1rem;">ARRIVAL</button>
+                          <button class="nav-link active" id="pills-am-tab" data-bs-toggle="pill" data-bs-target="#pills-am" type="button" role="tab" aria-controls="pills-am" aria-selected="true" style="font-size: 1rem;">AM</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="pills-underTime-tab" data-bs-toggle="pill" data-bs-target="#pills-timeOut" type="button" role="tab" aria-controls="pills-timeOut" aria-selected="false" style="font-size: 1rem;">DEPARTURE</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="pills-timeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-underTime" type="button" role="tab" aria-controls="pills-underTime" aria-selected="false" style="font-size: 1rem;">UNDERTIME</button>
+                          <button class="nav-link" id="pills-pm-tab" data-bs-toggle="pill" data-bs-target="#pills-pm" type="button" role="tab" aria-controls="pills-pm" aria-selected="false" style="font-size: 1rem;">PM</button>
                         </li>
                       </ul>
+                      <hr>
+                      <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-am" role="tabpanel" aria-labelledby="pills-am-tab">
+                          <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="pills-TimeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeIn" type="button" role="tab" aria-controls="pills-TimeIn" aria-selected="true" style="font-size: 1rem;">TimeIn</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-TimeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeOut" type="button" role="tab" aria-controls="pills-TimeOut" aria-selected="false" style="font-size: 1rem;">TimeOut</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-UnderTime-tab" data-bs-toggle="pill" data-bs-target="#pills-UnderTime" type="button" role="tab" aria-controls="pills-UnderTime" aria-selected="false" style="font-size: 1rem;">UnderTime</button>
+                            </li>
+                          </ul>
+                          <div class="tab-pane fade show active" id="pills-TimeIn" role="tabpanel" aria-labelledby="pills-TimeIn-tab">
+                            <h2>Time In Morning</h2>
+                          </div>
+                          <div class="tab-pane fade" id="pills-TimeOut" role="tabpanel" aria-labelledby="pills-TimeOut-tab">
+                            <h2>Time Out Morning</h2>
+                          </div>
+                          <div class="tab-pane fade" id="pills-UnderTime" role="tabpanel" aria-labelledby="pills-UnderTime-tab">
+                            <h2>UnderTime Morning</h2>
+                          </div>
+                        </div>
+
+                        <div class="tab-pane fade show" id="pills-pm" role="tabpanel" aria-labelledby="pills-pm-tab">
+                          <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="pills-TimeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeIn" type="button" role="tab" aria-controls="pills-TimeIn" aria-selected="true" style="font-size: 1rem;">TimeIn</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-TimeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeOut" type="button" role="tab" aria-controls="pills-TimeOut" aria-selected="false" style="font-size: 1rem;">TimeOut</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-UnderTime-tab" data-bs-toggle="pill" data-bs-target="#pills-UnderTime" type="button" role="tab" aria-controls="pills-UnderTime" aria-selected="false" style="font-size: 1rem;">UnderTime</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+  
                     </div>
                   </div>
                   <div class="modal-footer d-flex ">
