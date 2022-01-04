@@ -178,4 +178,16 @@ class MyProfileController extends Controller
          }
         }
     }
+
+     public function upload(Request $request)
+    {
+        if($request->hasFile('profile_image')){
+            $filename = $request->profile_image->getClientOriginalName();
+            $request->profile_image->storeAs('profile_image',$filename,'public');
+            Auth()->user()->update(['profile_image'=>$filename]);
+        }
+        return redirect()->back();
+    }
 }
+
+   

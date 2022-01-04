@@ -1,35 +1,4 @@
-{{-- TOP NAVIGATION --}}
-{{-- <section class="home-section">
-    <nav class="navbar navbar-default d-flex">
-        <div class="d-flex align-items-center">
-            <ul class="topnav-link">
-                <li>
-                    <i class="fa fa-bars"></i>
-                </li>
-            </ul>
-            <div class="account d-flex justify-content-end align-items-center">
-                <img class="img-profile" width="40px" height="40px" src="{{ asset ('images/profile.jpeg')}} " alt="">
-                <a href=""><i class="fa fa-user-circle"></i><span class="usernav-link">User Profile</span></a>
-                <a href="/signout" onclick="event.preventDefault();
-                document.getElementById('logout-form').submi t();"><i class="fa fa-power-off"></i>
-                    <span class="usernav-link">Sign Out</span>
-                </a>
-                <form id="logout-form" action="signout" method="POST" style="display: none;">
-                    @csrf
-                </form>
-        <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                    </a>
-                    <div class="dropdown-menu profile">
-                        @auth <div>Hi! I'm<h5>{{ Auth::user()->fname }}</h5></div>@endauth
-
-                    </div>
-                </li>
-            </div>
-
-        </div>
-    </nav>
-</section> --}}
+ 
 
 <style>
     .rounded-circle
@@ -55,11 +24,16 @@
 
     }
 
-    .account .topnav .usernav-link
-    {
+    .account .topnav .usernav-link{
         align-items: center;
     }
+
+  
+
+
+
     </style>
+    
     <section class="home-section">
         <nav class="navbar navbar-default d-flex">
             <div class="d-flex align-items-center">
@@ -70,7 +44,9 @@
                 </ul>
 
                 <div class="account d-flex justify-content-end align-items-center">
-                    @auth <div style="font-size: 12px; color:#495057">Welcome! <br> <b style="font-size: 15px;  color:#2e2d2d">{{ Auth::user()->fname }}</b></div>@endauth
+                    @auth <div class="name-usr" style="font-size: 12px; color:#495057; text-align: end; text-transform: capitalize;"><b style="font-size: 15px;  color:#2e2d2d;">{{ Auth::user()->fname }}&nbsp{{ Auth::user()->lname }}</b>
+
+                        <div class="email-usr" style="font-size: 12px; color:#495057; text-transform: lowercase;"> {{ Auth::user()->email }}</div></div>@endauth
                     <a class="topnav me-2" href="myprofile" title="My Profile">
                         @if(Auth::User()->profile_image)
                         <img class="user rounded-circle admin_picture" src="{{asset('/storage/images/'.Auth::user()->profile_image)}}" alt="profile_image">

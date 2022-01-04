@@ -7,14 +7,22 @@
     box-sizing: border-box;
 }
 /* Profile Image*/
+  
+  .mng-acc{
+   height: 75vh;
+
+
+  }
+
   .chooseprofile
   {
     height: auto;
     position: relative;
-    background-color: #ffff; 
-    margin: 100px 25px 25px 25px; 
+    background-color: #ffff;  
     padding: 10px;
     box-shadow: 1px 1px 5px 0px grey;
+    width: 300px;
+
   }
 
    .chooseprofile img
@@ -55,10 +63,8 @@
 /* User Profile information */
 .user-info
   {
+
     background-color: rgb(255, 255, 255);
-    margin-left: auto;
-    margin-top: 15px;
-    margin-right:30px; 
     padding:10px; 
     box-shadow: 1px 1px 5px 0px grey;
     height: auto;
@@ -109,16 +115,16 @@
   .form-control:disabled, .form-control[readonly] {
     background-color: #e8f0fe;
     opacity: 1;
-}
+    }
 
-hr
-{
-  margin: 10px 0;
-}
+    hr
+    {
+      margin: 10px 0;
+    }
 
-.control-label
-{
-  font-size: 14px;
-}
+    .control-label
+    {
+      font-size: 14px;
+    }
 
-  
+      

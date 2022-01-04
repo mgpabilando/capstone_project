@@ -14,12 +14,15 @@ body{
   font-family: 'poppins', sans-serif;
   height: 100vh;
   margin: 0px 0 0px 0;
-  /* background-image: url(images/bmhms-background.jpg); */
+  background-image: url(images/bmhms-background.jpg); 
   background: #3CB371;
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .Login_Section{
+  width: 100%;
   height: 30rem;
   position: relative;
   border-radius: 25%;
@@ -44,8 +47,7 @@ body{
   width: 384px;
   height: 480px;
   background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
-  transform: translateY(0px);
-  border-radius: 10px 0px 0px 10px;
+  transform: translateY(0px); 
 }
 
 /* .hms-display h3{
@@ -161,78 +163,9 @@ body{
   color:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;;
 }
 
-.form-check-input,
-.form-check-label
-{
+.form-check-input, .form-check-label{
   font-size: 13px;
 }
-
-@media (max-width: 768px){
-  body{
-    background-image: url(images/1-Smart-City-Health-ICES-770x578.jpeg);
-    background-repeat: no-repeat;
-    background-size:cover;
-  }
-  .Login_Section{
-    height: 100%;
-    position: relative;
-    background-color: rgba(0,0,0,0.1);
-  }
-
-  .log_content {
-    border-radius: 10px;
-    width: 100%;
-    min-height: 100%;
-    box-shadow: 0 0 0;
-    
-  }
-
-  .hms-display {
-    background-image: none;
-    background-color: none;
-    z-index: 5;
-    width: 100%;
-    background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
-  }
-
-  .hms-display #overlay {
-    position: relative;
-    display: initial;
-    width: 80%;
-    height: 100px;
-    background: none;
-  }
-
-  .hms-display h3{
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    position: relative;
-    
-  }
-
-  .hms-login{
-    background:none;
-  }
-
-  .hms-login .form-login {
-    transform: translateY(220px);
-    width: 450px;
-    height: 80%;
-    border-radius: 10px;
-  }
-
-  .form-login .login-user-logo {
-    transform: translateY(-230px);
-    margin-bottom: 0px;
-    position: absolute;
-    width: 200px;
-    height: 200px;
-  }
-}
-
 
 
 /*MODAL*/
@@ -276,42 +209,7 @@ body{
   box-sizing: border-box;
   font-size: 14px;
 } 
-/* .modal .modal-content .btn-reg:hover {
-  opacity: 0.8;
-} */
-
-/* Extra styles for the cancel button */
-/* .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-} */
-
-/* Center the image and position the close button */
-/* .imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-} */
-
-/* img.avatar {
-  width: 40%;
-  border-radius: 50%;
-} */
-
-/* span.psw {
-  float: right;
-  padding-top: 16px;
-} */
-
-
-
-
-
-
-/* .modal .modal-content .form-group{
-  padding-top: 5px;
-} */
+ 
 
 .modal .modal-content .control-label{
   color: #000000;
@@ -336,59 +234,157 @@ body{
   color: #ffffff;
 }
 
-/* .modal .modal-content .in-col.col-end{
-  transform: translateX(20px);
-} */
 
-/* The Close Button (x) */
-/* .close {
-  position: fixed;
-  right: 250px;
-  top: 0;
-  color: rgb(255, 255, 255);
-  font-size: 35px;
-  font-weight: bold;
-} */
+/*media screen queries*/
 
-/* .close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
-} */
+@media (max-width: 768px){
 
-/* Add Zoom Animation */
-/* .animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-} */
-
-/* Change styles for span and cancel button on extra small screens */
-/* @media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
+  body{
+    background-image: url(images/1-Smart-City-Health-ICES-770x578.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
   }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-
-@media (max-width: 576px){
-  .modal-content{
-    width: 90%;
+  .Login_Section{
+    height: 100%;
+    position: relative; 
   }
 
-  .modal .modal-content .btn-reg{
+  .log_content { 
     width: 100%;
+    height: 100%; 
+    border-radius: 0px;
   }
-}  */
+
+
+  .hms-display {
+    height: 60px;
+    background-image: none;
+    background-color: none;
+    z-index: 5;
+    width: 100%;
+    background:linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
+  }
+
+  .hms-display #overlay {
+    display: none;
+    background: none;
+    height: 100px;
+  }
+
+  .hms-display .logo{
+    display: none;
+  }
+
+  .hms-display h3{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    position: relative;
+    width: 100%;
+    width: 100vh;
+    color: #ffff;
+    font-size: 1.2rem;
+    
+  }
+
+  .hms-login{
+    background:none;
+    height: 250px;
+    display: none;
+    padding: 0px;
+  }
+
+
+  .hms-login .form-login {
+    transform: translateY(220px);
+    width: 400px;
+    height: 250px !important;
+    border-radius: 10px;
+  }
+
+  .form-login .login-user-logo {
+    transform: translateY(-200px);
+    margin-bottom: 0px;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+  }
+
+  .form-login p{
+    margin: 10px 0px 10px 0px;
+  }
+}
+
+
+@media (max-width: 425px){
+  .hms-display h3{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+    width: 100%;
+    width: 100vh;
+    color: #ffff;
+    font-size: 1.1rem;
+    
+  }
+ 
+}
+ 
+
+@media (max-width: 375px){
+  .hms-display h3{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+    width: 100%;
+    width: 100vh;
+    color: #ffff;
+    font-size: 1rem;
+    
+  }
+
+  .Login_Section{
+    height: 100%;
+    width: 100%;
+    position: relative; 
+
+  }
+
+  .log_content { 
+    position: relative; 
+    width: 100%;
+    height: 100%; 
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+    .hms-login .form-login {
+    transform: translateY(220px);
+    width: 320px;
+    height: 250px !important;
+    border-radius: 10px;
+  }
+
+  .hms-display #overlay {
+    display: none;
+    background: none;
+    height: 100px;
+    width:  100%;
+  }
+
+  
+
+   
+ 
+}
+ 

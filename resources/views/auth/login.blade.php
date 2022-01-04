@@ -3,11 +3,11 @@
 @section('content')
     <section class="Login_Section">
         <div class="container log_content">
-            <div class="row">           
+            <div class="row d-flex justify-content-center">           
                 <div class="hms-display col-md-6 d-flex align-items-center justify-content-center">
+                    <h3 class="title-hms">BRGY HEALTH MANAGEMNENT SYSTEM</h3>
                     <div class="d-flex align-items-center justify-content-center" id="overlay">
-                        <img src="images/HMS1.png" alt="">
-                        {{-- <h3 style="text-align:center">Barangay Macawayan Health Management System</h3>   --}}
+                        <img class="logo" src="images/HMS1.png" alt=""> 
                     </div>   
                 </div>
                 
@@ -32,7 +32,7 @@
 
                             <div class= "input-group">
                                 <i class="fa fa-lock icon"></i>
-                                <input type="password" class= "form-control" name="password" placeholder="Enter Password" required autocomplete="password">
+                                <input type="password" class= "form-control" name="password" placeholder="Enter Password" required minlength="8" autocomplete="current-password">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
                                     </label>
 
                                     <label  class="form-check-label" for="reset">
-                                        <a href="{{ route('forget.password.get') }}">Reset Password</a>
+                                        <a href="{{ route('forget.password.get') }}">Forgot password?</a>
                                     </label>
                             </div>
 
@@ -60,16 +60,16 @@
                                 <a class="form-signup"
                                     style="cursor: pointer"
                                     data-bs-toggle="modal" 
-                                    data-bs-target="#registerModal">{{ __('Register') }}
+                                    data-bs-target="#registerModal">{{ __('Register here.') }}
                                 </a>                            
                             </p>
                         </form>
                    
-                    </div>  
-                                        <!-- Button trigger modal -->
-                                   
-                </div>
+                    </div>                       <!-- Button trigger modal -->
+                
             </div>  
+        </div>
+    </div>
     </section> 
     
     @include('auth.register')       

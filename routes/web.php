@@ -57,6 +57,7 @@ use App\Http\Controllers\FamilyNumbering_RestoreController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -65,7 +66,7 @@ Route::post('/save', [LoginUserController::class, 'customlogin'])->name('customl
 Route::post('/signout', [LoginUserController::class, 'signout'])->name('signout');
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
@@ -86,7 +87,7 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
     Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
 
-// route for health consultation sidebar links //
+    // route for health consultation sidebar links //
     Route::get('/pregnancy', [DashboardController::class, 'pregnancy'])->name('dashboard.pregnancy');
     Route::get('/deliveries', [DashboardController::class, 'deliveries'])->name('dashboard.deliveries');
     Route::get('/epi', [DashboardController::class, 'epi'])->name('dashboard.epi');
@@ -141,7 +142,7 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
 //route for myprofile page//  
     Route::resource('/myprofile', MyProfileController::class);
 
-//route for changing current user's password //
+    //route for changing current user's password //
     Route::get('/profile', [ChangePasswordController::class, 'profile'])->name('yourprofile');
     Route::post('/change/password',  [ChangePasswordController::class,'changePassword'])->name('profile.change.password');
     Route::post('change-profile-picture',[AdminController::class,'updatePicture'])->name('PictureUpdate');

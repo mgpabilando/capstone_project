@@ -1293,18 +1293,47 @@ be a descendant of the grid when it is being dragged.
   background-color: #eee; }
 
 .calendar2 h2{
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-right: 5px !important;
   color: #08aeea;
+  padding-left: 15px !important;
+  padding-right: 90px !important;
 }
 
 .calendar2 .fc-toolbar{
   display: flex !important;
-  justify-content: space-around !important;
+  justify-content: space-around; !important;
   align-items: center !important;
   margin: 10px 0px 10px 0px !important;
 }
 
-.calendar2{ 
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px !important;
+
+.calendar2{    
+  width: 100%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+  rgba(60, 64, 67, 0.15) 0px 2px 6px 2px !important;
 }
+
+
+.calendar2 .fc-header-toolbar{
+  display: flex !important;
+  flex-wrap: wrap !important; 
+}
+
+.calendar2 .fc-center{
+  display: none !important;
+}
+
+.calendar2 .fc-clear{
+  display: none !important;
+}
+
+.calendar2 .fc-right .fc-button-group button{
+  font-size: 1rem;
+}
+ 
+.calendar2 .fc-right .fc-button-group{
+  margin-right: 10px;
+}
+
+

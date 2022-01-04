@@ -73,7 +73,7 @@
                                                     @include('modals.BHW.PermanentDelete')
                                         @else
                                         {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn btn-primary bhw_view" data-bs-target="#viewbhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_view" data-bs-target="#viewbhw"
                                             data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
                                             data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
                                             data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
@@ -81,18 +81,18 @@
                                         @include('modals.BHW.Show')
                                     
                                         {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn btn-warning bhw_edit" data-bs-target="#editbhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_edit" data-bs-target="#editbhw"
                                             data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
                                             data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
                                             data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">                                        
-                                        <i class="manage fas fa-edit"></i>
+                                        <i class="manage fas text-warning fa-edit"></i>
                                         </a>
                                         @include('modals.BHW.Edit')
                                     
                                         {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn btn-danger bhw_delete" data-bs-target="#deletebhw"
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_delete" data-bs-target="#deletebhw"
                                         data-user_id="{{$bhw->id}}">
-                                        <i class="manage fas fa-trash"></i>
+                                        <i class="manage text-danger fas fa-trash"></i>
                                         </a>
                                         @include('modals.BHW.Delete')
                                         @endif

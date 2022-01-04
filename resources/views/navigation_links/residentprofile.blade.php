@@ -27,6 +27,7 @@
                                 class="btn btn-danger">Trash </a>
                             @endif
                     </div>
+
                     <hr>
                     <div class="table-responsive mb-3">
                         <table id="residentprofile-datatable" class="table table-bordered table-striped datatable-hover">
@@ -62,7 +63,7 @@
                                                     @include('modals.residentprofile.PermanentDelete')
                                                 @else
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
+                                                <a data-bs-toggle="modal" type="button" class="btn resview"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
                                                 data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
@@ -74,7 +75,7 @@
                                                 @include('modals.residentprofile.Show')
                                             
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn btn-warning resedit"
+                                                <a data-bs-toggle="modal" type="button" class="btn  resedit"
                                                 data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
                                                 data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
@@ -83,12 +84,12 @@
                                                 data-civil_status="{{ $residentprofile->civil_status }}"
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
                                                 data-bs-target="#editResidentModal">
-                                                <i class="fas fa-edit"></i>
+                                                <i class="fas text-warning fa-edit"></i>
                                                 </a>
                                                 @include('modals.residentprofile.Edit')
 
                                                 {{-----***************************** DELETE BUTTON *******************************------}}
-                                                <a type="button" class="btn btn-danger resdelete" data-bs-toggle="modal"
+                                                <a type="button" class="btn resdelete" data-bs-toggle="modal"
                                                 data-bs-target="#deleteResidentModal"
                                                 data-resident_id="{{$residentprofile->id}}">
                                                 <i class="fas fa-trash"></i></a>

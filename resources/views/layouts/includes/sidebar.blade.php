@@ -18,7 +18,13 @@
 
             </li>
 
+            <li class="">  
             <li class="">
+                {{-- <div class="icon-link">
+                    <i class="fas fa-chevron-down"></i>
+                </div> --}} {{--For drop down sub menu--}}
+ 
+            <li class=""> 
                 <a class="link {{ Request::is('residentprofile') ? 'active' : '' }}" href="residentprofile">
                     <i class="fas fa-id-badge"></i>
                     <span class="link-name">Resident Profile</span>
@@ -28,8 +34,13 @@
                 </ul>
             </li>
 
-            @if (Auth::user()->hasRole('admin_nurse'))
+            @if (Auth::user()->hasRole('admin_nurse')) 
+            <li class="">  
             <li class="">
+                {{-- <div class="icon-link">
+                    <i class="fas fa-chevron-down"></i>
+                </div> --}} {{--For drop down sub menu--}} 
+            <li class=""> 
                 <a class="{{ Request::is('bhw') ? 'active' : '' }}" href="bhw">
                     <i class="fa fa-address-card"></i>
                     <span class="link-name">BHWs</span>
@@ -46,17 +57,17 @@
                         <i class="fas fa-heartbeat"></i>
                         <span class="link-name">Health Consultation</span>
                     </a>
-                    <i class="fas fa-chevron-down arrow"></i>
+                    <i class="fas fa-chevron-down arrow" style="font-size: 15px;"></i>
                 </div>
-                <ul class="sub-menu">
-                    <li class=""><a href="pregnancy">Pregnant</a></li>
-                    <li class=""><a href="deliveries">Deliveries</a></li>
-                    <li class=""><a href="epi">EPI</a></li>
-                    <li class=""><a href="ntp">NTP</a></li>
-                    <li class=""><a href="familyplanning">Family Planning</a></li>
-                    <li class=""><a href="diarrheal">Control of Diarrheal <br> Disease</a></li>
-                    <li class=""><a href="other">Other Services</a></li>
-                </ul>
+                <ul class="sub-menu"> 
+                    <li><a href="pregnancy">Pregnant</a></li>
+                    <li><a href="deliveries">Deliveries</a></li>
+                    <li><a href="epi">EPI</a></li>
+                    <li><a href="ntp">NTP</a></li>
+                    <li><a href="familyplanning">Family Planning</a></li>
+                    <li><a href="diarrheal">Control of Diarrheal <br> Disease</a></li>
+                    <li><a href="other">Other Services</a></li>
+                 </ul>
             </li>
            
             <li class="">
