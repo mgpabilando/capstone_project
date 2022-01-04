@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('select2/dist/css/select2.css')}}"/>
     <link rel="stylesheet" href="{{ asset('js/ijaboCropTool-master/ijaboCropTool.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/reports.css') }}">
 
     <!---------------------------          SCRIPTS           ---------------------------->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>
@@ -29,7 +30,7 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.1/locales-all.min.js"> --}}
     {{-- <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">

@@ -40,12 +40,17 @@ use App\Http\Controllers\OtherController;
 use App\Http\Controllers\Other_DeleteController;
 use App\Http\Controllers\Other_RestoreController;
 use App\Http\Controllers\MedRequestController;
-use App\Http\Controllers\DailyTimeRecordController;
 use App\Http\Controllers\purokController;
 use App\Http\Controllers\FamilyNumberingController;
 use App\Http\Controllers\SearchResidentByFamilyNumber;
 use App\Http\Controllers\FamilyNumbering_DeleteController;
 use App\Http\Controllers\FamilyNumbering_RestoreController;
+use App\Http\Controllers\MorningDtrController;
+use App\Http\Controllers\AfternoonDtrController;
+use App\Http\Controllers\Dtr_ReportController;
+use App\Http\Controllers\MedRequest_ReportController;
+use App\Http\Controllers\MonthlyAccomplished_ReportController;
+use App\Http\Controllers\MonthlyVisitor_ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +92,7 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
     Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
     Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
 
-    // route for health consultation sidebar links //
+// route for health consultation sidebar links //
     Route::get('/pregnancy', [DashboardController::class, 'pregnancy'])->name('dashboard.pregnancy');
     Route::get('/deliveries', [DashboardController::class, 'deliveries'])->name('dashboard.deliveries');
     Route::get('/epi', [DashboardController::class, 'epi'])->name('dashboard.epi');
@@ -142,7 +147,7 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
 //route for myprofile page//  
     Route::resource('/myprofile', MyProfileController::class);
 
-    //route for changing current user's password //
+//route for changing current user's password //
     Route::get('/profile', [ChangePasswordController::class, 'profile'])->name('yourprofile');
     Route::post('/change/password',  [ChangePasswordController::class,'changePassword'])->name('profile.change.password');
     Route::post('change-profile-picture',[AdminController::class,'updatePicture'])->name('PictureUpdate');
@@ -176,6 +181,13 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
 //routes for Purok Page//
     Route::get('/purok', [purokController::class, 'index'])->name('purok');
     Route::get('/purok/resident/{id}', [purokController::class, 'view'])->name('purok.show');
+
+//Routes for Reports Page //
+    Route::get('/monthly_accomplished', [MonthlyAccomplished_ReportController::class, 'index'])->name('report.monthly_accomplished');
+    Route::get('/monthly_visitor', [MonthlyVisitor_ReportController::class, 'index'])->name('report.monthly_visitor');
+    Route::get('/daily_timerec', [Dtr_ReportController::class, 'index'])->name('report.daily_timerec');
+    Route::get('/med_request', [MedRequest_ReportController::class, 'index'])->name('report.med_request');
+
 
 
 });

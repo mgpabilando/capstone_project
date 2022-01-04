@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="container list-of-res bhms-box-shadow">
+                <div class="container list-of-res bhms-box-shadow" style="padding: 20px;">
 
                     <div class="d-flex">
                         <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Resident List</h4>

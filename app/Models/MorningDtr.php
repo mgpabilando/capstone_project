@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DailyTimeRecord extends Model
+class MorningDtr extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'TimeIn', 'TimeOut', 'UnderTime',
+        'user_id', 'Arrival', 'Departure',
     ];
 }

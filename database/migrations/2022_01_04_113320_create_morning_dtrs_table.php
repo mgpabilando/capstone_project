@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDailyTimeRecordsTable extends Migration
+class CreateMorningDtrsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateDailyTimeRecordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('daily_time_records', function (Blueprint $table) {
+        Schema::create('morning_dtrs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('TimeIn')->nullable();
-            $table->string('UnderTime')->nullable();
-            $table->string('TimeOut')->nullable();
+            $table->string('Arrival')->nullable();
+            $table->string('Departure')->nullable();
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')
@@ -33,6 +32,6 @@ class CreateDailyTimeRecordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daily_time_records');
+        Schema::dropIfExists('morning_dtrs');
     }
 }

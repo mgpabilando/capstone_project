@@ -32,7 +32,7 @@
 
                             <div class= "input-group">
                                 <i class="fa fa-lock icon"></i>
-                                <input type="password" class= "form-control" name="password" placeholder="Enter Password" required minlength="8" autocomplete="current-password">
+                                <input type="password" class= "form-control" name="password" placeholder="Enter Password" required autocomplete="current-password">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

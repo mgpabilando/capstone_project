@@ -12,15 +12,15 @@
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12">
-                <div class="container list-of-res medsRequest-list align-items-center bhms-box-shadow">
+                <div class="container list-of-res medsRequest-list align-items-center bhms-box-shadow" style="padding: 20px;">
                     <div class="d-flex">
                         <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">List of Request</h4>
                         <button type="submit" class="btn btn-add mt-2 me-2" data-bs-toggle="modal" data-bs-target="#addnewmedicine">
                             <i class="fas fa-pills"></i> ADD</button>
                             @include('modals.MedicineRequest.Add')
-                        <button type="submit" class="btn btn-add mt-2 me-2" data-bs-toggle="modal" data-bs-target="#medrequest" style="width:200px;">
+                        {{-- <button type="submit" class="btn btn-add mt-2 me-2" data-bs-toggle="modal" data-bs-target="#medrequest" style="width:200px;">
                             <i class="fas fa-print"></i> GENERATE REPORT</button>
-                            @include('modals.MedicineRequest.Generate')
+                            @include('modals.MedicineRequest.Generate') --}}
                     </div>
                     <hr>
                     <div class="table-responsive mb-3">

@@ -103,7 +103,7 @@
  </style>
 
 <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
