@@ -1,8 +1,8 @@
 <div class="home-container">
     <nav id="sidebar" class="sidebar hms-bg active">
         <div class="sidebar-header">
-            <img class="hms-logo"src="{{ secure_asset ('images/HMS.png')}} ">
-            <img class="stet-logo" src="{{ secure_asset ('images/stethoscope.png')}} ">
+            <img class="hms-logo"src="{{ asset ('images/HMS.png')}} ">
+            <img class="stet-logo" src="{{ asset ('images/stethoscope.png')}} ">
         </div>
 
         <ul class="nav-links">

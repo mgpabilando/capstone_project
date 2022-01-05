@@ -121,31 +121,6 @@ var options = {
     animation: {
         duration: 2000
     },
-    scales: {
-        yAxes: [{
-            display: true,
-            ticks: {
-                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
-                // OR //
-                beginAtZero: true,   // minimum value will be 0.
-                suggestedMax: 10
-            },
-            gridLines: {
-                display: false
-            },
-            pointLabels: {
-                fontFamily: "Arial"
-            }
-        }],
-        xAxes: [{
-            gridLines: {
-                display: false
-            },
-            ticks: {
-                fontFamily: "Arial",
-            }
-        }],
-    },
 };
 
 var ctx = document.getElementById("myChart").getContext("2d");

@@ -12,10 +12,10 @@
     {{-- <script language="JavaScript" type="text/javascript" src="{{ asset ('js/app.js') }}" defer></script>  --}}
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="{{secure_asset ('bootstrap/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset ('bootstrap/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('fonts/font-awesome/css/all.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{secure_asset ('css/LoginandRegister.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset ('bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset ('css/LoginandRegister.css') }}">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <link rel="icon" href="images/macawayan logo.png">
@@ -34,7 +34,7 @@
     
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script language="JavaScript" type="text/javascript" src="{{ secure_asset('/js/bootstrap.js') }}"></script>
+<script language="JavaScript" type="text/javascript" src="{{asset('/js/bootstrap.js') }}"></script>
 @include('sweetalert::alert')
 @yield('scripts')
 
