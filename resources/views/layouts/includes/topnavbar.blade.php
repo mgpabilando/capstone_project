@@ -49,7 +49,7 @@
                         <div class="email-usr" style="font-size: 12px; color:#495057; text-transform: lowercase;"> {{ Auth::user()->email }}</div></div>@endauth
                     <a class="topnav me-2" href="myprofile" title="My Profile">
                         @if(Auth::User()->profile_image)
-                        <img class="user rounded-circle admin_picture" src="{{asset('/storage/images/'.Auth::user()->profile_image)}}" alt="profile_image">
+                        <img class="user rounded-circle admin_picture" src="{{secure_asset('/storage/images/'.Auth::user()->profile_image)}}" alt="profile_image">
                         @endif
                     </a>
 
