@@ -30,7 +30,7 @@ class Residents extends Model
 
     public function pregnants()
     {
-        return $this->hasMany(pregnants::class);
+        return $this->hasMany(pregnants::class, 'resident_id');
     }
 
 

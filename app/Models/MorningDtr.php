@@ -10,6 +10,6 @@ class MorningDtr extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'Arrival', 'Departure',
+       'user_id' ,'Arrival', 'Departure',
     ];
 }

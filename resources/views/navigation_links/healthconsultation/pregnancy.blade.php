@@ -34,6 +34,7 @@
                       <thead>
                           <tr role="row">
                               <th class="text-center" scope="col">Patient_ID</th>
+                              <th class="text-center" scope="col">Purok</th>
                               <th class="text-center" scope="col">Resident_ID</th>
                               <th class="text-center" scope="col">Name</th>
                               <th class="text-center" scope="col">Height(cm)</th>
@@ -42,7 +43,6 @@
                               <th class="text-center" scope="col">Pregnancy Order</th>
                               <th class="text-center" scope="col">Last Menstrual Period</th>
                               <th class="text-center" scope="col">Date Added</th>
-                              <th class="text-center" scope="col">Date Updated</th>
                               <th>Actions</th>
                           </tr>
                       </thead>
@@ -51,6 +51,7 @@
                           @foreach ($pregconsultationrecord as $pregpatient)
                           <tr>
                             <th class="text-center">{{ $pregpatient->id }}</th>
+                            <td class="text-center">{{ $pregpatient->residents->purok }}</td>
                             <td class="text-center">{{ $pregpatient->resident_id }}</td>
                             <td class="text-center">{{ $pregpatient->name }}</td>
                             <td class="text-center">{{ $pregpatient->height_cm }}</td>
@@ -59,7 +60,6 @@
                             <td class="text-center">{{ $pregpatient->pregnancyorder }}</td>
                             <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($pregpatient['lmp'])) }}</td>
                             <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
-                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($pregpatient['updated_at'])) }}</td>
                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                               @if (request()->has('view_deleted'))
                                 <a href="{{ route('pregnancy.restore', $pregpatient->id) }}" class="btn btn-success">Restore</a>
@@ -101,6 +101,17 @@
                           @endforeach
                         @endif
                       </tbody>
+                      <thead>
+                        <th class="text-center" scope="col">Patient_ID</th>
+                        <th class="text-center" scope="col">Purok</th>
+                        <th class="text-center" scope="col">Resident_ID</th>
+                        <th class="text-center" scope="col">Name</th>
+                        <th class="text-center" scope="col">Height(cm)</th>
+                        <th class="text-center" scope="col">Weight(kg)</th>
+                        <th class="text-center" scope="col">Age</th>
+                        <th class="text-center" scope="col">Pregnancy Order</th>
+                        <th class="text-center" scope="col">Last Menstrual Period</th>
+                        <th class="text-center" scope="col">Date Added</th></thead>
                 </table>
               </div>
             </div>

@@ -22,72 +22,7 @@
             <button type="button" class="btn-dtr m-0" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       DAILY TIME RECORD
             </button>
-            <!-- Modal -->
-            <div class="modal fade dtr" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">DAILY TIME RECORD</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="dtr">
-                      <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="pills-am-tab" data-bs-toggle="pill" data-bs-target="#pills-am" type="button" role="tab" aria-controls="pills-am" aria-selected="true" style="font-size: 1rem;">AM</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="pills-pm-tab" data-bs-toggle="pill" data-bs-target="#pills-pm" type="button" role="tab" aria-controls="pills-pm" aria-selected="false" style="font-size: 1rem;">PM</button>
-                        </li>
-                      </ul>
-                      <hr>
-                      <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-am" role="tabpanel" aria-labelledby="pills-am-tab">
-                          <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link active" id="pills-TimeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeIn" type="button" role="tab" aria-controls="pills-TimeIn" aria-selected="true" style="font-size: 1rem;">TimeIn</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="pills-TimeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeOut" type="button" role="tab" aria-controls="pills-TimeOut" aria-selected="false" style="font-size: 1rem;">TimeOut</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="pills-UnderTime-tab" data-bs-toggle="pill" data-bs-target="#pills-UnderTime" type="button" role="tab" aria-controls="pills-UnderTime" aria-selected="false" style="font-size: 1rem;">UnderTime</button>
-                            </li>
-                          </ul>
-                          <div class="tab-pane fade show active" id="pills-TimeIn" role="tabpanel" aria-labelledby="pills-TimeIn-tab">
-                            <h2>Time In Morning</h2>
-                          </div>
-                          <div class="tab-pane fade" id="pills-TimeOut" role="tabpanel" aria-labelledby="pills-TimeOut-tab">
-                            <h2>Time Out Morning</h2>
-                          </div>
-                          <div class="tab-pane fade" id="pills-UnderTime" role="tabpanel" aria-labelledby="pills-UnderTime-tab">
-                            <h2>UnderTime Morning</h2>
-                          </div>
-                        </div>
-
-                        <div class="tab-pane fade show" id="pills-pm" role="tabpanel" aria-labelledby="pills-pm-tab">
-                          <ul class="nav nav-pills mb-3 dtr-link" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link active" id="pills-TimeIn-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeIn" type="button" role="tab" aria-controls="pills-TimeIn" aria-selected="true" style="font-size: 1rem;">TimeIn</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="pills-TimeOut-tab" data-bs-toggle="pill" data-bs-target="#pills-TimeOut" type="button" role="tab" aria-controls="pills-TimeOut" aria-selected="false" style="font-size: 1rem;">TimeOut</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="pills-UnderTime-tab" data-bs-toggle="pill" data-bs-target="#pills-UnderTime" type="button" role="tab" aria-controls="pills-UnderTime" aria-selected="false" style="font-size: 1rem;">UnderTime</button>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-  
-                    </div>
-                  </div>
-                  <div class="modal-footer d-flex ">
-                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button> 
-                  </div>
-                </div>
-              </div>
-            </div>   
+            @include('modals.DailyTimeRecord.DTR')  
         </div>
     </div>
 
@@ -247,4 +182,17 @@ $(document).ready(function () {
 
 });
 </script>
+
+{{-- <script>
+  $('#staticBackdrop').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var other_id = button.data('other_id')
+
+        var modal = $(this)
+        modal.find('.modal-title').text(' Delete Consultation Record');
+        modal.find('.modal-body #Dother_id').val(other_id);
+    });
+</script> --}}
 @endsection
+
+

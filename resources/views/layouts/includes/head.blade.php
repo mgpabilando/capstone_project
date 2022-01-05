@@ -19,9 +19,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/chart_style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
     <link rel="stylesheet" href="{{ asset('select2/dist/css/select2.css')}}"/>
     <link rel="stylesheet" href="{{ asset('js/ijaboCropTool-master/ijaboCropTool.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/reports.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/reports.css') }}"> --}}
 
     <!---------------------------          SCRIPTS           ---------------------------->
     <script src="https://cdn.jsdelivr.net/npm/chart.js" charset="utf-8"></script>

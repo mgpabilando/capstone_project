@@ -47,6 +47,7 @@ use App\Http\Controllers\FamilyNumbering_DeleteController;
 use App\Http\Controllers\FamilyNumbering_RestoreController;
 use App\Http\Controllers\MorningDtrController;
 use App\Http\Controllers\AfternoonDtrController;
+use App\Http\Controllers\UndertimeDtrController;
 use App\Http\Controllers\Dtr_ReportController;
 use App\Http\Controllers\MedRequest_ReportController;
 use App\Http\Controllers\MonthlyAccomplished_ReportController;
@@ -78,12 +79,17 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::resource('/register', RegisteredUsersController::class);
 
 Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
-    Route::get('/dailytimerecord/{id}', [DailyTimeRecordController::class, 'index'])->name('dtr.index');
-    Route::post('dailytimerecord/timein/{id}', [DailyTimeRecordController::class, 'showtimeIn'])->name('dtr.timeIn');
-    Route::get('dailytimerecord/undertime/{id}', [DailyTimeRecordController::class, 'showunderTime'])->name('dtr.underTime');
-    Route::get('dailytimerecord/timeout/{id}', [DailyTimeRecordController::class, 'showtimeOut'])->name('dtr.timeOut');
-    Route::post('dailytimerecord/timeout', [DailyTimeRecordController::class, 'updateTimeOut'])->name('dtr.updatetimeOut');
-// route from main sidebar links //
+    Route::get('/dailytimerecord', [MorningDtrController::class, 'morningrecord'])->name('dtr.morningrecord');
+    Route::post('/dailytimerecord/arrival', [MorningDtrController::class, 'Arrival'])->name('dtr.arrival');
+    Route::post('/dailytimerecord/departure/{id}', [MorningDtrController::class, 'Departure'])->name('dtr.departure');
+
+    Route::post('/dailytimerecord/afternoon', [AfternoonDtrController::class, 'afternoonrecord'])->name('dtr.afternoon');
+    Route::post('/dailytimerecord/undertime', [UndertimeDtrController::class, 'undertimerecord'])->name('dtr.undertime');
+
+
+
+
+    // route from main sidebar links //
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/bhw', [DashboardController::class, 'index'])->name('dashboard.bhw');
     Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');

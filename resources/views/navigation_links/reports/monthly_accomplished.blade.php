@@ -25,79 +25,186 @@
               <p class="text-left fw-bold">Month Of: </p>
             </div>
           </div>
-  
-          <div class="table-responsive mb-3">
-            <table id="" class="display table table-bordered table-striped table-hover">
-                  <thead>
-                      <tr role="row">
-                          <th class="text-center" scope="col">Patient_ID</th>
-                          <th class="text-center" scope="col">Resident_ID</th>
-                          <th class="text-center" scope="col">Name</th>
-                          <th class="text-center" scope="col">Height(cm)</th>
-                          <th class="text-center" scope="col">Weight(kg)</th>
-                          <th class="text-center" scope="col">Age</th>
-                          <th class="text-center" scope="col">Pregnancy Order</th>
-                          <th class="text-center" scope="col">Last Menstrual Period</th>
-                          <th class="text-center" scope="col">Date Added</th>
-                          <th class="text-center" scope="col">Date Updated</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    @if ($pregnants)
-                      @foreach ($pregnants as $pregpatient)
+
+          <table id="pregnant" class="display table table-bordered m-0 ">
+            <thead>
+                <tr role="row">
+                    <th class="text-center" scope="col">Pregnants</th>
+                    <th class="text-center" scope="col">Resident_ID</th>
+                    <th class="text-center" scope="col">Name</th>
+                    <th class="text-center" scope="col">Height(cm)</th>
+                    <th class="text-center" scope="col">Weight(kg)</th>
+                    <th class="text-center" scope="col">Age</th>
+                    <th class="text-center" scope="col">Pregnancy Order</th>
+                    <th class="text-center" scope="col">LMP</th>
+                </tr>
+                <tfoot>age</tfoot>
+            </thead>
+            <tbody>
+              @if ($pregnants)
+                @foreach ($pregnants as $pregpatient)
+                <tr>
+                  <th class="text-center">{{ $pregpatient->id }}</th>
+                  <td class="text-center">{{ $pregpatient->resident_id }}</td>
+                  <td class="text-center">{{ $pregpatient->name }}</td>
+                  <td class="text-center">{{ $pregpatient->height_cm }}</td>
+                  <td class="text-center">{{ $pregpatient->weight_kg }}</td>
+                  <td class="text-center">{{ $pregpatient->age }}</td>
+                  <td class="text-center">{{ $pregpatient->pregnancyorder }}</td>
+                  <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($pregpatient['lmp'])) }}</td>
+                </tr>
+                @endforeach
+              @endif
+            </tbody>
+
+            
+        </table>
+
+        <table id="deliveries" class="display table table-bordered m-0" style="padding: 10px">
+          <thead>
+              <tr role="row">
+                  <th class="text-center" scope="col">Deliveries</th>
+                  <th class="text-center" scope="col">Resident_ID</th>
+                  <th class="text-center" scope="col">Name</th>
+                  <th class="text-center" scope="col">Age</th>
+                  <th class="text-center" scope="col">Date Delivered</th>
+                  <th class="text-center" scope="col">Outcome</th>
+                  <th class="text-center" scope="col">Place</th>
+              </tr>
+          </thead>
+          <tbody>
+            @if ($Deliveries)
+              @foreach ($Deliveries as $deliveriesRec)
+              <tr>
+                <th class="text-center">{{ $deliveriesRec->id }}</th>
+                <td class="text-center">{{ $deliveriesRec->resident_id }}</td>
+                <td class="text-center">{{ $deliveriesRec->name }}</td>
+                <td class="text-center">{{ $deliveriesRec->age }}</td>
+                <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($deliveriesRec['date_delivered'])) }}</td>
+                <td class="text-center">{{ $deliveriesRec->outcome }}</td>
+                <td class="text-center">{{ $deliveriesRec->place }}</td>
+              </tr>
+              @endforeach
+            @endif                        
+          </tbody>
+        </table>
+
+        <table id="epi" class="display table table-bordered m-0" style="padding: 10px">
+          <thead>
+              <tr role="row">
+                  <th class="text-center" scope="col">EPI</th>
+                  <th class="text-center" scope="col">Resident_ID</th>
+                  <th class="text-center" scope="col">Name</th>
+                  <th class="text-center" scope="col">Medicines Given</th>
+                  <th class="text-center" scope="col">Birthdate</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              @if ($epi)
+                  @foreach ($epi as $epiRec)
+                  <tr>
+                    <th class="text-center">{{ $epiRec->id }}</th>
+                    <td class="text-center">{{ $epiRec->resident_id }}</td>
+                    <td class="text-center">{{ $epiRec->name }}</td>
+                    <td class="text-center">{{ $epiRec->meds_given }}</td>
+                    <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($epiRec['birthdate'])) }}</td>
+                  </tr>
+                  @endforeach
+              @endif                        
+          </tbody>
+        </table>
+
+        <table id="ntp" class="display table table-bordered m-0" style="padding: 10px">
+          <thead>
+              <tr role="row">
+                  <th class="text-center" scope="col">NTP</th>
+                  <th class="text-center" scope="col">Resident_ID</th>
+                  <th class="text-center" scope="col">Name</th>
+                  <th class="text-center" scope="col">Age</th>
+              </tr>
+          </thead>
+          <tbody>
+              @if ($ntp)
+                  @foreach ($ntp as $ntpRec)
+                  <tr>
+                  <th class="text-center">{{ $ntpRec->id }}</th>
+                  <td class="text-center">{{ $ntpRec->resident_id }}</td>
+                  <td class="text-center">{{ $ntpRec->name }}</td>
+                  <td class="text-center">{{ $ntpRec->age }}</td>
+                  </tr>
+                  @endforeach
+              @endif                        
+          </tbody>
+        </table>
+
+        <table id="famplan" class="display table table-bordered m-0" style="padding: 10px">
+          <thead>
+                  <tr role="row">
+                      <th class="text-center" scope="col">Family Planning</th>
+                      <th class="text-center" scope="col">Resident_ID</th>
+                      <th class="text-center" scope="col">Name</th>
+                      <th class="text-center" scope="col">Age</th>
+                      <th class="text-center" scope="col">Method Used</th>
+                  </tr>
+          </thead>
+          <tbody>
+              @if ($familyplanning)
+                  @foreach ($familyplanning as $familyplanningRec)
                       <tr>
-                        <th class="text-center">{{ $pregpatient->id }}</th>
-                        <td class="text-center">{{ $pregpatient->resident_id }}</td>
-                        <td class="text-center">{{ $pregpatient->name }}</td>
-                        <td class="text-center">{{ $pregpatient->height_cm }}</td>
-                        <td class="text-center">{{ $pregpatient->weight_kg }}</td>
-                        <td class="text-center">{{ $pregpatient->age }}</td>
-                        <td class="text-center">{{ $pregpatient->pregnancyorder }}</td>
-                        <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($pregpatient['lmp'])) }}</td>
-                        <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>
-                        <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($pregpatient['updated_at'])) }}</td>
+                          <th class="text-center">{{ $familyplanningRec->id }}</th>
+                          <td class="text-center">{{ $familyplanningRec->resident_id }}</td>
+                          <td class="text-center">{{ $familyplanningRec->name }}</td>
+                          <td class="text-center">{{ $familyplanningRec->age }}</td>
+                          <td class="text-center">{{ $familyplanningRec->method_used }}</td>
                       </tr>
-                      @endforeach
-                    @endif
-                  </tbody>
-            </table>
-          </div>
-      
-          <div class="table-responsive mb-3">
-            <table id="" class="display table table-bordered table-striped table-hover" style="padding: 10px">
-                <thead>
-                    <tr role="row">
-                        <th class="text-center" scope="col">Patient_ID</th>
-                        <th class="text-center" scope="col">Resident_ID</th>
-                        <th class="text-center" scope="col">Name</th>
-                        <th class="text-center" scope="col">Age</th>
-                        <th class="text-center" scope="col">Date Delivered</th>
-                        <th class="text-center" scope="col">Outcome</th>
-                        <th class="text-center" scope="col">Place</th>
-                        <th class="text-center" scope="col">Date Added</th>
-                        <th class="text-center" scope="col">Date Updated</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  @if ($Deliveries)
-                    @foreach ($Deliveries as $deliveriesRec)
-                    <tr>
-                      <th class="text-center">{{ $deliveriesRec->id }}</th>
-                      <td class="text-center">{{ $deliveriesRec->resident_id }}</td>
-                      <td class="text-center">{{ $deliveriesRec->name }}</td>
-                      <td class="text-center">{{ $deliveriesRec->age }}</td>
-                      <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($deliveriesRec['date_delivered'])) }}</td>
-                      <td class="text-center">{{ $deliveriesRec->outcome }}</td>
-                      <td class="text-center">{{ $deliveriesRec->place }}</td>
-                      <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['created_at'])) }}</td>
-                      <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['updated_at'])) }}</td>
-                    
-                    </tr>
-                    @endforeach
-                  @endif                        
-                </tbody>
-            </table>
-          </div>
+                  @endforeach
+              @endif
+          </tbody>
+        </table>
+
+        <table id="diarrheal" class="display table table-bordered m-0" style="padding: 10px">
+          <thead>
+          <tr role="row">
+              <th class="text-center" scope="col">Control of Diarrheal Problems</th>
+              <th class="text-center" scope="col">Resident_ID</th>
+              <th class="text-center" scope="col">Name</th>
+              <th class="text-center" scope="col">Age</th>
+          </tr>
+          </thead>
+          <tbody>
+              @if ($diarrheal)
+                  @foreach ($diarrheal as $diarrhealRec)
+                      <tr>
+                          <th class="text-center">{{ $diarrhealRec->id }}</th>
+                          <td class="text-center">{{ $diarrhealRec->resident_id }}</td>
+                          <td class="text-center">{{ $diarrhealRec->name }}</td>
+                          <td class="text-center">{{ $diarrhealRec->age }}</td>
+                      </tr>
+                  @endforeach
+              @endif
+          </tbody>
+        </table>
+
+        <table id="other" class="dsiplay table table-bordered m-0" style="padding: 10px">
+          <thead>
+              <tr role="row">
+                  <th class="text-center" scope="col">Other Services Rendered</th>
+                  <th class="text-center" scope="col">Service Rendered</th>
+              </tr>
+          </thead>
+          <tbody>
+              @if ($other)
+                  @foreach ($other as $otherRec)
+                      <tr>
+                          <th class="text-center">{{ $otherRec->id }}</th>
+                          <td class="text-center">{{ $otherRec->service_rendered }}</td>
+                      </tr>
+                  @endforeach
+              @endif
+          </tbody>
+        </table>
+
   
           <div class="signature-by ms-4">
   
@@ -129,4 +236,106 @@
 </div>
 @include('layouts.includes.footer')
 
+<script>
+  function printpage() {
+    window.print();
+  }
+</script>
+
+{{-- <script>
+  $(document).ready(function() {
+    $('#pregnant').DataTable( {
+    searching: false,
+    "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
+} );
+</script> --}}
+
+<script>
+  $(document).ready(function() {
+    $('#deliveries').DataTable( {
+      searching: false, 
+      "paging":   false,
+        "ordering": false,
+        "info":     false,
+        initComplete: function () {
+            this.api().columns(0).every( function () {
+                var column = this;
+                var select = $('<select style="font-weight:800;"><option value="">Purok</option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+} );
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#epi').DataTable( {
+    searching: false,
+      "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
+} );
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#ntp').DataTable( {
+    searching: false,
+      "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
+} );
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#diarrheal').DataTable( {
+      searching: false,
+      "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
+} );
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#famplan').DataTable( {
+      searching: false,
+      "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
+} );
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#other').DataTable( {
+      searching: false,
+      "paging":   false,
+        "ordering": false,
+        "info":     false
+    } );
+} );
+</script>
 

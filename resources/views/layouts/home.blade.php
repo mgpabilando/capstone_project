@@ -11,18 +11,13 @@
     @yield('content')
     
     </div>
-    
+
     @include('layouts.includes.footer')
-
-    @include('sweetalert::alert')
-
-    @yield('scripts')
     
-
-
-
-
-
+    <script>
+    $('table.display').DataTable();
+    
+    </script>
 </body>
 </html>
 

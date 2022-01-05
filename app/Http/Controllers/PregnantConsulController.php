@@ -17,7 +17,7 @@ class PregnantConsulController extends Controller
      */
     public function index(Request $request)
     {
-        $pregconsultationrecord = pregnants::all();
+        $pregconsultationrecord = pregnants::with('residents')->get();
 
         if ($request->has('view_deleted')) {
             $pregconsultationrecord = pregnants::onlyTrashed()->get();

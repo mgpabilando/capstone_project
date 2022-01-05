@@ -10,7 +10,7 @@ use DB;
 use App\Models\pregnants;
 use Carbon\Carbon;
 use App\Models\DailyTimeRecord;
-
+use App\Models\MorningDtr;
 class DashboardController extends Controller
 {
      public function index()
@@ -28,8 +28,8 @@ class DashboardController extends Controller
                $familyplanning = DB::table('familyplannings')->count();
                // $sum = $pregnant + $deliveries + $epi + $ntp + $diarrheal + $other_services + $familyplanning;
                $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-               $dtr = DailyTimeRecord::get();
-               return view('navigation_links/dashboard', compact('dtr', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
+               $morningrecord = MorningDtr::get();
+               return view('navigation_links/dashboard', compact('morningrecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
 
           }elseif(Auth::user()->hasRole('bhw')){
                $bhw = User::whereRoleIs('bhw')->count();
