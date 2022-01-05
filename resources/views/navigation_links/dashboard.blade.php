@@ -17,12 +17,21 @@
     @include('layouts.includes.topnavbar')
 
     <div class="row no-margin-padding">
-        <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
             <h3 class="block-title">Nurse Dashboard</h3>
-            <button type="button" class="btn-dtr m-0" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                      DAILY TIME RECORD
+            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#MORNING">
+                      MORNING RECORD
             </button>
-            @include('modals.DailyTimeRecord.DTR') 
+            @include('modals.DailyTimeRecord.MORNING') 
+            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#AFTERNOON">
+              AFTERNOON RECORD
+            </button>
+            @include('modals.DailyTimeRecord.AFTERNOON') 
+            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#UNDERTIME">
+              UNDERTIME RECORD
+            </button>
+            @include('modals.DailyTimeRecord.UNDERTIME') 
+
         </div>
     </div>
 
@@ -181,5 +190,7 @@ $(document).ready(function () {
   });
 
 });
+
+
 </script>
 @endsection

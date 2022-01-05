@@ -10,11 +10,13 @@ use App\Models\epi;
 use App\Models\ntp;
 use App\Models\other;
 use App\Models\familyplanning;
-
+use App\Models\Medicine_Request;
+use Carbon\Carbon;
 class MonthlyAccomplished_ReportController extends Controller
 {
     public function index()
     {
+        $todayMonth = Carbon::now()->format('F, Y', 'Philippines');
         return view('navigation_links.reports.monthly_accomplished')
         ->with('pregnants', pregnants::all())
         ->with('Deliveries', Deliveries::all())
@@ -22,6 +24,8 @@ class MonthlyAccomplished_ReportController extends Controller
         ->with('epi', epi::all())
         ->with('ntp', ntp::all())
         ->with('other', other::all())
-        ->with('familyplanning', Deliveries::all());
+        ->with('familyplanning', Deliveries::all())
+        ->with('todayMonth', $todayMonth);
+        
     }
 }

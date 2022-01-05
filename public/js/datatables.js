@@ -22,27 +22,27 @@ $('#residentprofile-datatable').DataTable
     // });
 
     $('#pregnancy-datatable thead th').each( function () {
-        var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        // var title = $(this).text();
+        // $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
     } );
     // DataTable
     var table = $('#pregnancy-datatable').DataTable({
         columnDefs: 
             [{ orderable: false, targets: 10 }],
-        initComplete: function () {
-            // Apply the search
-            this.api().columns().every( function () {
-                var that = this;
+        // initComplete: function () {
+        //     // Apply the search
+        //     this.api().columns().every( function () {
+        //         var that = this;
  
-                $( 'input', this.header() ).on( 'keyup change clear', function () {
-                    if ( that.search() !== this.value ) {
-                        that
-                            .search( this.value )
-                            .draw();
-                    }
-                } );
-            } );
-        }
+        //         $( 'input', this.header() ).on( 'keyup change clear', function () {
+        //             if ( that.search() !== this.value ) {
+        //                 that
+        //                     .search( this.value )
+        //                     .draw();
+        //             }
+        //         } );
+        //     } );
+        // }
     });
     //END____PREGNANCY-DATATABLE //
 
