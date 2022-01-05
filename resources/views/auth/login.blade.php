@@ -5,7 +5,7 @@
         <div class="container log_content">
             <div class="row d-flex justify-content-center">           
                 <div class="hms-display col-md-6 d-flex align-items-center justify-content-center">
-                    <h3 class="title-hms">BRGY HEALTH MANAGEMNENT SYSTEM</h3>
+                    <h3 class="title-hms">BRGY HEALTH MANAGEMENT SYSTEM</h3>
                     <div class="d-flex align-items-center justify-content-center" id="overlay">
                         <img class="logo" src="images/HMS1.png" alt=""> 
                     </div>   
