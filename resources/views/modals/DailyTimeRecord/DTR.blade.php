@@ -25,6 +25,27 @@
                     <button class="nav-link col-md-6" id="nav-out-am-tab" data-bs-toggle="tab" data-bs-target="#timeout-am" type="button" role="tab" aria-controls="timeout-am" aria-selected="false">DEPARTURE</button>
                   </div>
                 </nav>
+                <table id="dtr" class="table table-responsive table-bordered mt-3">
+                  <thead class="table-primary">
+                    <tr>
+                      <th>DATE</th>
+                      <th>TIME IN </th>
+                      <th>TIME OUT </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @if($morningrecord)
+                      @foreach ($morningrecord as $morningrecord)
+                      <tr>
+                        <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                        <td>{{ $morningrecord->Arrival }}</td>
+                        <td>{{ $morningrecord->Departure }}</td>
+                      </tr>
+                      @endforeach
+                    @endif
+                  </tbody>
+                </table>
+                
                 <div class="tab-content" id="nav-tabContent">
                   <div class="tab-pane fade show active" id="timein-am" role="tabpanel" aria-labelledby="nav-in-am-tab">
                     <form action="{{ route('dtr.arrival') }}" method="POST">
@@ -32,27 +53,9 @@
                       <input type="text" name="user_id" id="user_id" value={{ Auth::user()->id }} hidden>
                       <input id="timein" name="timein" type="time" class="mt-4" value={{ $todayTime }}>
                       <div class="d-flex justify-content-center">
-                        <button class="col-md-3 btn btn-primary">TIME IN</button>
+                        <button class="col-md-3 btn btn-success">TIME IN</button>
                       </div>
                     </form>
-                    <table class="table table-bordered mt-3">
-                      <thead class="table-primary">
-                        <tr>
-                          <th style="width: 50%;">DATE</th>
-                          <th style="width: 50%;">TIME IN </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @if($morningrecord)
-                          @foreach ($morningrecord as $morningrecord)
-                          <tr>
-                            <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
-                            <td>{{ $morningrecord->Arrival }}</td>
-                          </tr>
-                          @endforeach
-                        @endif
-                      </tbody>
-                    </table>
                   </div>
                   
                   <div class=" tab-pane fade" id="timeout-am" role="tabpanel" aria-labelledby="nav-out-am-tab">
@@ -66,26 +69,9 @@
                       </div>
                     </form>
                   </div>
+                  
+                  
                 </div>
-
-                {{-- <table class="table table-bordered mt-3">
-                  <thead class="table-primary">
-                    <tr>
-                      <th style="width: 50%;">DATE</th>
-                      <th style="width: 50%;">TIME IN </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @if($morningrecord)
-                      @foreach ($morningrecord as $morningrecord)
-                      <tr>
-                        <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
-                        <td>{{ $morningrecord->Arrival }}</td>
-                      </tr>
-                      @endforeach
-                    @endif
-                  </tbody>
-                </table> --}}
               </div>
 
               <div class="tab-pane fade" id="afternoon" role="tabpanel" aria-labelledby="afternoon-tab">
