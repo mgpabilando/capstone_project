@@ -37,8 +37,7 @@
                     <th class="text-center" scope="col">Age</th>
                     <th class="text-center" scope="col">Pregnancy Order</th>
                     <th class="text-center" scope="col">LMP</th>
-                </tr>
-                <tfoot>age</tfoot>
+                </tr> 
             </thead>
             <tbody>
               @if ($pregnants)
