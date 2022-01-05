@@ -35,7 +35,6 @@
                         <button class="col-md-3 btn btn-primary">TIME IN</button>
                       </div>
                     </form>
-
                     <table class="table table-bordered mt-3">
                       <thead class="table-primary">
                         <tr>
@@ -59,34 +58,36 @@
                   <div class=" tab-pane fade" id="timeout-am" role="tabpanel" aria-labelledby="nav-out-am-tab">
                     <form action="{{ route('dtr.departure', $morningrecord->id) }}" method="POST">
                       @csrf
-                      <input type="text" name="user_id" id="user_id" value={{ Auth::user()->id }} >
-                      <input type="text" name="id" id="id" value={{$morningrecord->id}} >
+                      <input type="text" name="user_id" id="user_id" value={{ Auth::user()->id }} hidden>
+                      <input type="text" name="id" id="id" value={{$morningrecord->id}} hidden>
                       <input id="timeout" name="timeout" type="time" class="mt-4" value={{ $todayTime }}>
                       <div class="d-flex justify-content-center">
                         <button class="col-md-3 btn btn-primary">TIME OUT</button>
                       </div>
                     </form>
-                    <table class="table table-bordered mt-3">
-                      <thead class="table-primary">
-                        <tr>
-                          <th style="width: 50%;">DATE</th>
-                          <th style="width: 50%;">TIME OUT </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @if($morningrecord)
-                          @foreach ($morningrecord as $morningrecord)
-                          <tr>
-                            <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->updated_at)->format('d-m-Y') ?? '' }}</th>
-                            <td>{{ $morningrecord->Departure }}</td>
-                          </tr>
-                          @endforeach
-                        @endif
-                      </tbody>
-                    </table>
                   </div>
                 </div>
+
+                {{-- <table class="table table-bordered mt-3">
+                  <thead class="table-primary">
+                    <tr>
+                      <th style="width: 50%;">DATE</th>
+                      <th style="width: 50%;">TIME IN </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @if($morningrecord)
+                      @foreach ($morningrecord as $morningrecord)
+                      <tr>
+                        <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                        <td>{{ $morningrecord->Arrival }}</td>
+                      </tr>
+                      @endforeach
+                    @endif
+                  </tbody>
+                </table> --}}
               </div>
+
               <div class="tab-pane fade" id="afternoon" role="tabpanel" aria-labelledby="afternoon-tab">
                 <nav>
                   <div class="nav nav-pills" id="nav-tab" role="tablist">
@@ -100,43 +101,16 @@
                     <div class="d-flex justify-content-center">
                       <input type="button" class="col-md-3 btn btn-primary" value="TIME IN">
                     </div>
-                    <table class="table table-bordered mt-3">
-                      <thead class="table-primary">
-                        <tr>
-                          <th style="width: 50%;">DATE</th>
-                          <th style="width: 50%;">TIME IN </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th>date</th>
-                          <td>time</td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
                   <div class="tab-pane fade" id="timeout-pm" role="tabpanel" aria-labelledby="nav-out-pm-tab">
                     <input type="time" class="mt-4">
                     <div class="d-flex justify-content-center">
                       <input type="button" class="col-md-3 btn btn-primary" value="TIME OUT">
                     </div>
-                    <table class="table table-bordered mt-3">
-                      <thead class="table-primary">
-                        <tr>
-                          <th style="width: 50%;">DATE</th>
-                          <th style="width: 50%;">TIME OUT </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th>date</th>
-                          <td>time</td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
                 </div>
               </div>
+
               <div class="tab-pane fade" id="undertime" role="tabpanel" aria-labelledby="undertime-tab">
                 <div class="d-flex justify-content-center">
                   <input type="number" class="col-md-6" placeholder="HOUR">
