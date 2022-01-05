@@ -39,7 +39,7 @@ class MorningDtrController extends Controller
         ]);
 
         $arrivalrecord->save();
-        return back()->with('success', 'Good Day!');
+        return back()->with('success', 'Have a Great Day!');
     }
 
     public function Departure(Request $request)
@@ -48,7 +48,7 @@ class MorningDtrController extends Controller
         //$Departure = $request->Departure;
 
         $departurerecord = MorningDtr::find($userid)->update(['Departure'=>Carbon::now()->format('H:i:m', 'Philippines')]);
-        return redirect()->route('dtr.morningrecord')->with('success', 'Updated Successfully.');
+        return redirect()->route('dtr.morningrecord')->with('success', 'Have a Great Day!');
     }
 
 
