@@ -74,14 +74,14 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @if($morningrecord)
+                        {{-- @if($morningrecord)
                           @foreach ($morningrecord as $morningrecord)
                           <tr>
-                            <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->updated_at)->format('d-m-Y') ?? '' }}</th>
-                            <td>{{ $morningrecord->Departure }}</td>
+                            <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                            <td>{{ $morningrecord->Arrival }}</td>
                           </tr>
                           @endforeach
-                        @endif
+                        @endif --}}
                       </tbody>
                     </table>
                   </div>
