@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{{ secure_asset ('bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ secure_asset('fonts/font-awesome/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{secure_asset ('css/LoginandRegister.css') }}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <link rel="icon" href="images/macawayan logo.png">
     
     <style>
@@ -27,6 +29,8 @@
 </head>
 <body>
     @yield('content')
+
+    @include('sweetalert::alert')
     
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
