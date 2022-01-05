@@ -83,7 +83,10 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
     Route::post('/dailytimerecord/arrival', [MorningDtrController::class, 'Arrival'])->name('dtr.arrival');
     Route::post('/dailytimerecord/departure/{id}', [MorningDtrController::class, 'Departure'])->name('dtr.departure');
 
-    Route::post('/dailytimerecord/afternoon', [AfternoonDtrController::class, 'afternoonrecord'])->name('dtr.afternoon');
+    Route::post('/dailytimerecord/afternoon', [AfternoonDtrController::class, 'afternoonrecord'])->name('dtr.afternoonrecord');
+    Route::post('/dailytimerecord/afternoon/arrival', [AfternoonDtrController::class, 'Arrival'])->name('dtr.afternoonarrival');
+    Route::post('/dailytimerecord/afternoon/departure/{id}', [AfternoonDtrController::class, 'Departure'])->name('dtr.afternoondeparture');
+
     Route::post('/dailytimerecord/undertime', [UndertimeDtrController::class, 'undertimerecord'])->name('dtr.undertime');
 
 

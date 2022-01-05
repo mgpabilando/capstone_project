@@ -18,11 +18,11 @@
 
     <div class="row no-margin-padding">
         <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
-            <h3 class="block-title">BHW Dashboard</h3>
+            <h3 class="block-title">Nurse Dashboard</h3>
             <button type="button" class="btn-dtr m-0" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       DAILY TIME RECORD
             </button>
-            @include('modals.DailyTimeRecord.DTR')  
+            @include('modals.DailyTimeRecord.DTR') 
         </div>
     </div>
 
@@ -182,17 +182,4 @@ $(document).ready(function () {
 
 });
 </script>
-
-{{-- <script>
-  $('#staticBackdrop').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var other_id = button.data('other_id')
-
-        var modal = $(this)
-        modal.find('.modal-title').text(' Delete Consultation Record');
-        modal.find('.modal-body #Dother_id').val(other_id);
-    });
-</script> --}}
 @endsection
-
-
