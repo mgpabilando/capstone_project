@@ -12,13 +12,12 @@
     }
 
 </style>
-
 <div id="content" style="height: auto;">
     @include('layouts.includes.topnavbar')
 
     <div class="row no-margin-padding">
         <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
-            <h3 class="block-title">Nurse Dashboard</h3>
+            <h3 class="block-title">BHW Dashboard</h3>
             <button type="button" class="btn-dtr m-0" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       DAILY TIME RECORD
             </button>
@@ -40,34 +39,34 @@
                 </div>
               </div>
             </div>
-            </div>
-
-          <div class="col-md-4">
-              <div class="d-flex justify-content-center">
-            <div class="counter d-flex align-items-center">
-              <div class="icon d-flex align-items-center justify-content-center" style="border-color: #25e096">
-                  <i class="fas fa-user-alt" style="color: #25e096"></i>
-              </div>
-              <div class="total-data">
-                <p class="text-start m-0" style="color: #25e096">Total Resident</p>
-                <p class="text-start total m-0" style="color: #25e096">{{ $resident }}</p>
-              </div>
-            </div>
-          </div>
           </div>
 
           <div class="col-md-4">
               <div class="d-flex justify-content-center">
-            <div class="counter d-flex align-items-center">
-              <div class="icon d-flex align-items-center justify-content-center" style="border-color:gold">
-                  <i class="fas fa-users" style="color: gold;"></i>
+                <div class="counter d-flex align-items-center">
+                  <div class="icon d-flex align-items-center justify-content-center" style="border-color: #25e096">
+                      <i class="fas fa-user-alt" style="color: #25e096"></i>
+                  </div>
+                  <div class="total-data">
+                    <p class="text-start m-0" style="color: #25e096">Total Resident</p>
+                    <p class="text-start total m-0" style="color: #25e096">{{ $resident }}</p>
+                  </div>
+                </div>
               </div>
-              <div class="total-data">
-                <p class="text-start m-0" style="color: gold">Total Family Head</p>
-                <p class="text-start total m-0" style="color: gold">{{ $familynumber }}</p>
-              </div>
-            </div>
           </div>
+
+          <div class="col-md-4">
+              <div class="d-flex justify-content-center">
+                <div class="counter d-flex align-items-center">
+                  <div class="icon d-flex align-items-center justify-content-center" style="border-color:gold">
+                      <i class="fas fa-users" style="color: gold;"></i>
+                  </div>
+                  <div class="total-data">
+                    <p class="text-start m-0" style="color: gold">Total Family Head</p>
+                    <p class="text-start total m-0" style="color: gold">{{ $familynumber }}</p>
+                  </div>
+                </div>
+              </div>
           </div>
       </div>
 
@@ -85,8 +84,8 @@
             </div>
         </div>
       </div>
-
     </div>
+    
 </div>
 
 @section('scripts')
@@ -111,31 +110,6 @@ var data = {
 var options = {
     animation: {
         duration: 2000
-    },
-    scales: {
-        yAxes: [{
-            display: true,
-            ticks: {
-                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
-                // OR //
-                beginAtZero: true,   // minimum value will be 0.
-                suggestedMax: 10
-            },
-            gridLines: {
-                display: false
-            },
-            pointLabels: {
-                fontFamily: "Arial"
-            }
-        }],
-        xAxes: [{
-            gridLines: {
-                display: false
-            },
-            ticks: {
-                fontFamily: "Arial",
-            }
-        }],
     },
 };
 
