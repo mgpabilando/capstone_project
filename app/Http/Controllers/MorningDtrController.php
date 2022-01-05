@@ -14,32 +14,64 @@ use App\Models\DailyTimeRecord;
 class MorningDtrController extends Controller
 {
     public function morningrecord ()
-    {
-        $morningrecord = MorningDtr::get();
-        $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-        $bhw = User::whereRoleIs('bhw')->count();
-        $resident = DB::table('residents')->count();
-        $familynumber = DB::table('family_numberings')->count();
-        $pregnant = DB::table('pregnants')->count();
-        $deliveries = DB::table('deliveries')->count();
-        $epi = DB::table('epis')->count();
-        $ntp = DB::table('ntps')->count(); 
-        $diarrheal = DB::table('diarrheals')->count();
-        $other_services = DB::table('others')->count();
-        $familyplanning = DB::table('familyplannings')->count();
-        return view('navigation_links.dashboard', compact('morningrecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning') );
+    {   
+        if(Auth::user()->hasRole('admin_nurse')){
+            $morningrecord = MorningDtr::get();
+            $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+            $bhw = User::whereRoleIs('bhw')->count();
+            $resident = DB::table('residents')->count();
+            $familynumber = DB::table('family_numberings')->count();
+            $pregnant = DB::table('pregnants')->count();
+            $deliveries = DB::table('deliveries')->count();
+            $epi = DB::table('epis')->count();
+            $ntp = DB::table('ntps')->count(); 
+            $diarrheal = DB::table('diarrheals')->count();
+            $other_services = DB::table('others')->count();
+            $familyplanning = DB::table('familyplannings')->count();
+            return view('navigation_links.dashboard', compact('morningrecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning') );
+        }
+        
+        elseif(Auth::user()->hasRole('bhw')){
+            $morningrecord = MorningDtr::get();
+            $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+            $bhw = User::whereRoleIs('bhw')->count();
+            $resident = DB::table('residents')->count();
+            $familynumber = DB::table('family_numberings')->count();
+            $pregnant = DB::table('pregnants')->count();
+            $deliveries = DB::table('deliveries')->count();
+            $epi = DB::table('epis')->count();
+            $ntp = DB::table('ntps')->count(); 
+            $diarrheal = DB::table('diarrheals')->count();
+            $other_services = DB::table('others')->count();
+            $familyplanning = DB::table('familyplannings')->count();
+            return view('navigation_links.bhwdashboard', compact('morningrecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning') );
+        }
+    
     }
 
     public function Arrival(Request $request)
     {
-       
-        $arrivalrecord = MorningDtr::create([
-            'user_id' => Auth::user()->id,
-            'Arrival' =>  Carbon::now()->format('H:i:m', 'Philippines'),
-        ]);
+        if (Auth::user()->hasRole('admin_nurse')){
+            $arrivalrecord = MorningDtr::create([
+                'user_id' => Auth::user()->id,
+                'Arrival' =>  Carbon::now()->format('H:i:m', 'Philippines'),
+            ]);
 
-        $arrivalrecord->save();
-        return back()->with('success', 'Have a Great Day!');
+            $arrivalrecord->save();
+            return redirect()->route('dtr.morningrecord')->with('success', 'Have a Great Day!');
+
+        }
+        
+        elseif (Auth::user()->hasRole('bhw')){
+            $arrivalrecord = MorningDtr::create([
+                'user_id' => Auth::user()->id,
+                'Arrival' =>  Carbon::now()->format('H:i:m', 'Philippines'),
+            ]);
+    
+            $arrivalrecord->save();
+            return redirect()->route('dtr.morningrecord')->with('success', 'Have a Great Day!');
+    
+        }
     }
 
     public function Departure(Request $request)

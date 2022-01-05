@@ -59,8 +59,8 @@
                   <div class=" tab-pane fade" id="timeout-am" role="tabpanel" aria-labelledby="nav-out-am-tab">
                     <form action="{{ route('dtr.departure', $morningrecord->id) }}" method="POST">
                       @csrf
-                      <input type="text" name="user_id" id="user_id" value={{ Auth::user()->id }} hidden>
-                      <input type="text" name="id" id="id" value={{$morningrecord->id}} hidden>
+                      <input type="text" name="user_id" id="user_id" value={{ Auth::user()->id }} >
+                      <input type="text" name="id" id="id" value={{$morningrecord->id}} >
                       <input id="timeout" name="timeout" type="time" class="mt-4" value={{ $todayTime }}>
                       <div class="d-flex justify-content-center">
                         <button class="col-md-3 btn btn-primary">TIME OUT</button>
