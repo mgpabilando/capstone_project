@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use App\Models\DailyTimeRecord;
 use App\Models\MorningDtr;
 use App\Models\AfternoonDtr;
+use App\Models\undertimeDtr;
+use App\Models\Medicine_Request;
 class DashboardController extends Controller
 {
      public function index()
@@ -31,7 +33,9 @@ class DashboardController extends Controller
                $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
                $morningrecord = MorningDtr::get();
                $afternoonrecord = AfternoonDtr::get();
-               return view('navigation_links/dashboard', compact('afternoonrecord', 'morningrecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
+               $undertimerecord = undertimeDtr::get();
+               $medreq = Medicine_Request::get();
+               return view('navigation_links/dashboard', compact('medreq','morningrecord', 'afternoonrecord', 'undertimerecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
 
           }elseif(Auth::user()->hasRole('bhw')){
                $bhw = User::whereRoleIs('bhw')->count();
@@ -44,19 +48,23 @@ class DashboardController extends Controller
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
                $familyplanning = DB::table('familyplannings')->count();
-               return view('navigation_links/bhwdashboard', compact('bhw', 'resident', 'pregnant', 'familynumber', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning'));
+               // $sum = $pregnant + $deliveries + $epi + $ntp + $diarrheal + $other_services + $familyplanning;
+               $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+               $morningrecord = MorningDtr::get();
+               $undertimerecord = undertimeDtr::get();
+               return view('navigation_links/dashboard', compact('morningrecord', 'afternoonrecord', 'undertimerecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
           }
      }
 
      public function users_profile()
      {
-     $user = Auth::User();
-     return view('navigation_links.users_profile')->with('user', $user);
+          $user = Auth::User();
+          return view('navigation_links.users_profile')->with('user', $user);
      }
 
      public function residentprofile()
      {
-     return view('navigation_links.residentprofile');
+          return view('navigation_links.residentprofile');
      }
 
      public function bhw()
@@ -74,7 +82,7 @@ class DashboardController extends Controller
      return view('navigation_links.familynumbering');
      }
 
-// HEALTH CONSULTATION
+     // HEALTH CONSULTATION
      public function pregnancy()
      {
      return view('navigation_links.healthconsultation.pregnancy');
@@ -109,7 +117,7 @@ class DashboardController extends Controller
      {
      return view('navigation_links.healthconsultation.other');
      }
-//END HEALTH CONSULTATION
+     //END HEALTH CONSULTATION
 
      public function medicinerequest()
      {

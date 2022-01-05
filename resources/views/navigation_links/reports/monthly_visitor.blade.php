@@ -34,8 +34,6 @@
         <div class="d-flex justify-content-center">
           <div class="purok-month">
             <p class="text-left fw-bold">Barangay: Macawayan</p>
-            <p class="text-left fw-bold">Purok :</p>
-            <p class="text-left fw-bold">Month Of: </p>
           </div>
         </div>
 
@@ -45,16 +43,21 @@
 
             <thead>
               <tr>
-                <th style="width:20%">DATE</th>
+                <th style="width:30%">DATE</th>
                 <th style="width:80%">NAME</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <th scope="row">1</td>
-                <td>data1</td>
-              </tr>
+              @if ($lastRecordDate)
+                @foreach ($lastRecordDate as $lastRecordDate)
+                <tr>
+                  <th class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($lastRecordDate['created_at'])) }}</td>
+                  <td class="text-center" >{{ $lastRecordDate->fname }} {{ $lastRecordDate->mname }} {{ $lastRecordDate->lname }}</td>
+                </tr>
+                @endforeach
+              @endif
+              
             </tbody>
 
 

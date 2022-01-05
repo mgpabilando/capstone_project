@@ -21,8 +21,7 @@
           <div class="d-flex justify-content-center">
             <div class="purok-month">
               <p class="text-left fw-bold">Barangay: Macawayan</p>
-              <p class="text-left fw-bold">Purok :</p>
-              <p class="text-left fw-bold">Month Of: </p>
+              <p class="text-center"><b>Month of:</b> {{ $todayMonth }}</p>
             </div>
           </div>
 
@@ -38,7 +37,6 @@
                     <th class="text-center" scope="col">Pregnancy Order</th>
                     <th class="text-center" scope="col">LMP</th>
                 </tr>
-                <tfoot>age</tfoot>
             </thead>
             <tbody>
               @if ($pregnants)

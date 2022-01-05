@@ -101,17 +101,6 @@
                           @endforeach
                         @endif
                       </tbody>
-                      <thead>
-                        <th class="text-center" scope="col">Patient_ID</th>
-                        <th class="text-center" scope="col">Purok</th>
-                        <th class="text-center" scope="col">Resident_ID</th>
-                        <th class="text-center" scope="col">Name</th>
-                        <th class="text-center" scope="col">Height(cm)</th>
-                        <th class="text-center" scope="col">Weight(kg)</th>
-                        <th class="text-center" scope="col">Age</th>
-                        <th class="text-center" scope="col">Pregnancy Order</th>
-                        <th class="text-center" scope="col">Last Menstrual Period</th>
-                        <th class="text-center" scope="col">Date Added</th></thead>
                 </table>
               </div>
             </div>

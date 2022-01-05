@@ -18,33 +18,13 @@ class MorningDtrController extends Controller
         if(Auth::user()->hasRole('admin_nurse')){
             $morningrecord = MorningDtr::get();
             $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-            $bhw = User::whereRoleIs('bhw')->count();
-            $resident = DB::table('residents')->count();
-            $familynumber = DB::table('family_numberings')->count();
-            $pregnant = DB::table('pregnants')->count();
-            $deliveries = DB::table('deliveries')->count();
-            $epi = DB::table('epis')->count();
-            $ntp = DB::table('ntps')->count(); 
-            $diarrheal = DB::table('diarrheals')->count();
-            $other_services = DB::table('others')->count();
-            $familyplanning = DB::table('familyplannings')->count();
-            return view('navigation_links.dashboard', compact('morningrecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning') );
+            return view('navigation_links.dashboard', compact('morningrecord', 'todayTime') );
         }
         
         elseif(Auth::user()->hasRole('bhw')){
             $morningrecord = MorningDtr::get();
             $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-            $bhw = User::whereRoleIs('bhw')->count();
-            $resident = DB::table('residents')->count();
-            $familynumber = DB::table('family_numberings')->count();
-            $pregnant = DB::table('pregnants')->count();
-            $deliveries = DB::table('deliveries')->count();
-            $epi = DB::table('epis')->count();
-            $ntp = DB::table('ntps')->count(); 
-            $diarrheal = DB::table('diarrheals')->count();
-            $other_services = DB::table('others')->count();
-            $familyplanning = DB::table('familyplannings')->count();
-            return view('navigation_links.bhwdashboard', compact('morningrecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning') );
+            return view('navigation_links.bhwdashboard', compact('morningrecord', 'todayTime') );
         }
     
     }
@@ -58,7 +38,7 @@ class MorningDtrController extends Controller
             ]);
 
             $arrivalrecord->save();
-            return redirect()->route('dtr.morningrecord')->with('success', 'Have a Great Day!');
+            return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
 
         }
         
@@ -69,7 +49,7 @@ class MorningDtrController extends Controller
             ]);
     
             $arrivalrecord->save();
-            return redirect()->route('dtr.morningrecord')->with('success', 'Have a Great Day!');
+            return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
     
         }
     }
@@ -80,7 +60,7 @@ class MorningDtrController extends Controller
         //$Departure = $request->Departure;
 
         $departurerecord = MorningDtr::find($userid)->update(['Departure'=>Carbon::now()->format('H:i:m', 'Philippines')]);
-        return redirect()->route('dtr.morningrecord')->with('success', 'Have a Great Day!');
+        return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
     }
 
 

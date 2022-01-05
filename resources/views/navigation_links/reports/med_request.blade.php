@@ -33,18 +33,23 @@
                 <p class="text-center fw-bold">MEDICINE REQUEST FORM</p>
 
                 <form id="table-mar" class="d-flex justify-content-center mt-4">
-                    <table style="width: 95%;" class="table table-bordered border-dark">
+                    <table style="width: 80%;" class="table table-bordered border-dark">
                         <thead>
                             <tr>
-                                <th styele="width: 20%">QUANTITY</th>
+                                <th style="width: 20%">QUANTITY</th>
                                 <th style="width: 80%">MEDICINE NAME</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>data1</td>
-                                <td>data2</td>
-                            </tr>
+                            @if ($medreq)
+                                @foreach ($medreq as $medreq)
+                                <tr>
+                                    <td class="text-center">{{ $medreq->med_quantity }}</td>
+                                    <td class="text-center">{{ $medreq->medicine_name }}</td>
+                                </tr> 
+                                @endforeach
+                            @endif
+                            
                         </tbody>
                     </table>
                 </form>
@@ -53,7 +58,8 @@
 
                     <div class="d-flex flex-grid bhw-signature">
                         <div class="submitted-by">
-                            <input type="date" class="sub-name" name="" value="">
+                            <p style="margin: 0">{{Carbon\Carbon::parse($medreq->created_at)->format('d-m-Y') ?? '' }}</p>
+                            <hr style="margin: 0">
                             <p class="fw-bold worker-type">Date Requested</p>
                         </div>
                     </div>

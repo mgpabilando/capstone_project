@@ -30,9 +30,7 @@ class CreateResidentsTable extends Migration
             $table->string('purok');
             $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('family_id')->references('family_id')->on('family_numberings')
-                ->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

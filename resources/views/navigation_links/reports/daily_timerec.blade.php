@@ -26,58 +26,77 @@
         <div class="col-md-12 p-0">
             <div class="d-flex justify-content-center flex-column mar-report">
                 <div class="civil-srvc ms-5">
-                    <h5>CIVIL SERVICE FORM No.48</h5>
                     <p class="fw-bold text-center">DAILY TIME RECORD</p>
                     <div class="d-flex flex-grid justify-content-center">
-                        <input type="text" style="width: 300px ; border-left: 0px; border-top: 0px; border-right: 0px; text-align: center; ">
+                        <input type="text" style="width: 300px ; border-left: 0px; border-top: 0px; border-right: 0px; text-align: center; " value="{{ Auth::user()->fname }} {{ Auth::user()->lname }}">
                     </div>
-                    <p class="fw-bold text-center">Name</p>
-                    <p class="fst-italic m-0">For the month of </p>
-                    <p class="fst-italic m-0">Officials hours for arrival Regular days</p>
-                    <p class="fst-italic mt-0 mb-3">and departure Saturdays</p>
-                    </>
+                    <p class="text-center" style="font-weight: 500">Name</p>
+                    <p class="text-center"><b>Month of:</b> {{ $todayMonth }}</p>
+                </div>
+                    <b>Morning Record</b>
+                    <table id="dtr" class="table table-responsive table-bordered mt-3">
+                        <thead class="table-primary">
+                          <tr>
+                            <th>DATE</th>
+                            <th>TIME IN </th>
+                            <th>TIME OUT </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @if($morningrecord)
+                            @foreach ($morningrecord as $morningrecord)
+                            <tr>
+                              <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                              <td>{{ $morningrecord->Arrival }}</td>
+                              <td>{{ $morningrecord->Departure }}</td>
+                            </tr>
+                            @endforeach
+                          @endif
+                        </tbody>
+                      </table>
+                      <b>Afternoon Record</b>
+                      <table id="dtr" class="table table-responsive table-bordered mt-3">
+                        <thead class="table-primary">
+                          <tr>
+                            <th>DATE</th>
+                            <th>TIME IN </th>
+                            <th>TIME OUT </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @if($afternoonrecord)
+                            @foreach ($afternoonrecord as $afternoonrecord)
+                            <tr>
+                              <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($afternoonrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                              <td>{{ $afternoonrecord->Arrival }}</td>
+                              <td>{{ $afternoonrecord->Departure }}</td>
+                            </tr>
+                            @endforeach
+                          @endif
+                        </tbody>
+                      </table>
 
-                    <form id="table-mar" class="d-flex justify-content-center">
-                        <table style="width: 90%" class="table table-bordered border-dark">
-
-                            <thead>
-                                <tr>
-                                    <th style="width:20%; vertical-align: middle;" rowspan="2">DAY</th>
-                                    <th colspan="2">AM</th>
-                                    <th colspan="2">PM</th>
-                                    <th colspan="2">UNDERTIME</th>
-                                </tr>
-                                <tr>
-                                    <th>ARRIVAL</th>
-                                    <th>DEPARTURE</th>
-                                    <th>ARRIVAL</th>
-                                    <th>DEPARTURE</th>
-                                    <th>HOURS</th>
-                                    <th>MINUTES</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>date</td>
-                                    <td>date</td>
-                                    <td>date</td>
-                                    <td>date</td>
-                                    <td>date</td>
-                                    <td>date</td>
-                                    <td>date</td>
-                                </tr>
-                            </tbody>
-
-                            <tbody>
-                            <tfoot>
-                                <td style="text-align:center; font-weight: bold;" colspan="5">TOTAL</td>
-                                <td>date</td>
-                                <td>date</td>
-                            </tfoot>
-                            </tbody>
-                        </table>
-                    </form>
+                      <b>Undertime Record</b>
+                      <table id="dtr" class="table table-responsive table-bordered mt-3">
+                        <thead class="table-primary">
+                          <tr>
+                            <th>DATE</th>
+                            <th>HOUR/S </th>
+                            <th>MINUTE/S </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @if($undertimerecord)
+                            @foreach ($undertimerecord as $undertimerecord)
+                            <tr>
+                              <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($undertimerecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                              <td>{{ $undertimerecord->Hour }}</td>
+                              <td>{{ $undertimerecord->Minute }}</td>
+                            </tr>
+                            @endforeach
+                          @endif
+                        </tbody>
+                      </table>
                     <div class="civil-srvc">
                         <p class="fst-italic">I certify on my honor that the above is a true and correct report of the hours of work performed, record of which was made daily at the time of arrival at and departure from office.</p>
                     </div>
