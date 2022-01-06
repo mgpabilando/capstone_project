@@ -185,7 +185,7 @@
                         <div class="row d-flex flex-wrap ">
                             <div class="col-md-6">
                                 <label class="control-label" for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password" minlength="8">
+                                <input type="password" class="form-control" id="password" name="password">
                                 <span class="invalid-feedback" role="alert" id="passwordError">
                                     <strong></strong>
                                 </span>
