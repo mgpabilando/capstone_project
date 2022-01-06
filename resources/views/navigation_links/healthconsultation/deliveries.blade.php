@@ -33,13 +33,9 @@
                   <table id="deliveries-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                       <thead>
                           <tr role="row">
-                              <th class="text-center" scope="col">Patient_ID</th>
-                              <th class="text-center" scope="col">Resident_ID</th>
+                              <th class="text-center" scope="col">Patient_ID</th> 
                               <th class="text-center" scope="col">Name</th>
-                              <th class="text-center" scope="col">Age</th>
-                              <th class="text-center" scope="col">Date Delivered</th>
-                              <th class="text-center" scope="col">Outcome</th>
-                              <th class="text-center" scope="col">Place</th>
+                              <th class="text-center" scope="col">Age</th> 
                               <th class="text-center" scope="col">Date Added</th>
                               <th class="text-center" scope="col">Date Updated</th>
                               <th class="text-center" scope="col">Actions</th>
@@ -50,15 +46,11 @@
                         @if ($deliverconsulrecord)
                           @foreach ($deliverconsulrecord as $deliveriesRec)
                           <tr>
-                            <th class="text-center">{{ $deliveriesRec->id }}</th>
-                            <td class="text-center">{{ $deliveriesRec->resident_id }}</td>
-                            <td class="text-center">{{ $deliveriesRec->name }}</td>
-                            <td class="text-center">{{ $deliveriesRec->age }}</td>
-                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($deliveriesRec['date_delivered'])) }}</td>
-                            <td class="text-center">{{ $deliveriesRec->outcome }}</td>
-                            <td class="text-center">{{ $deliveriesRec->place }}</td>
-                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['created_at'])) }}</td>
-                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['updated_at'])) }}</td>
+                            <th data-label="Patient ID" class="text-center">{{ $deliveriesRec->id }}</th> 
+                            <td data-label="Name" class="text-center">{{ $deliveriesRec->name }}</td>
+                            <td data-label="Age" class="text-center">{{ $deliveriesRec->age }}</td> 
+                            <td data-label="Date Added" class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['created_at'])) }}</td>
+                            <td data-label="Date Updated" class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['updated_at'])) }}</td>
                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                               @if (request()->has('view_deleted'))
                                 <a href="{{ route('deliveries.restore', $deliveriesRec->id) }}" class="btn btn-success">Restore</a>
