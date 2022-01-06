@@ -31,6 +31,7 @@
               UNDERTIME RECORD
             </button>
             @include('modals.DailyTimeRecord.UNDERTIME') 
+            {{-- <a href="dtr" class="btn btn-success">DAILY TIME RECORD</a> --}}
 
         </div>
     </div>

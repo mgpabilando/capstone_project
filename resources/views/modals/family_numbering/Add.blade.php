@@ -33,27 +33,39 @@
             <form id="searchResident" class="add-consult" action="{{route('familynumbering.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="form-search d-flex justify-content-center">
-                        <select class="js-example-basic-single" id="selectResidentbyfamilynum" name="selectResidentbyfamilynum">
-                        <option value="0">--Select Resident--</option>
-                        </select>
-                    </div>
-                    <hr>
-                    <div class="res_prof row justify-content-center" id="details">  
-                        <div class="input-box col-6 pb-3 align-self-center">
-                            <div class="details">Family Number:</div>
-                            <input type="text" name="familyID" id="familyID" placeholder="" required style="width:auto">
+                    <div class="d-flex identification row">
+                        <div class="input-box" style="width: 50%">
+                            <div class="details">First Name:</div>
+                            <input name="f_name" type="text" placeholder="" required>
                         </div>
-
-                        <div class="input-box col-6 pb-3 align-self-center">
-                            <div class="details">Resident ID:</div>
-                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
+                        <div class="input-box" style="width: 50%">
+                            <div class="details">Middle Name:</div>
+                            <input name="m_name" type="text" placeholder="" required>
                         </div>
-                        
-                        <hr>
                     </div>
 
+                    <div class="d-flex identification row">
+                        <div class="input-box mt-2" style="width: 50%">
+                            <div class="details">Last Name:</div>
+                            <input name="l_name" type="text" placeholder="" required>
+                        </div>
+                    
+                        <div class="input-box  mt-2" style="width: 50%">
+                            <div class="details">Purok No.:</div>
+                            <select class="purok" name="purok" id="purok">
+                                <option selected>Select</option>
+                                <option value="1">UNO</option>
+                                <option value="2">DOS</option>
+                                <option value="3">TRES</option>
+                                <option value="4">KWATRO</option>
+                                <option value="5">SINGKO</option>
+                                <option value="6">SAIS</option>
+                                <option value="7">SYETE</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-success">SAVE AS FAMILY HEAD</button>
@@ -70,7 +82,7 @@
         });
 </script>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     $(document).ready(function(){
         $( "#selectResidentbyfamilynum" ).select2({
@@ -102,5 +114,5 @@
         }
     );
     });
-</script>
+</script> --}}
 @endsection

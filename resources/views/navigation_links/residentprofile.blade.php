@@ -35,7 +35,7 @@
                                     <tr role="row">
                                         <th class="text-center" scope="col">ID</th>
                                         <th class="text-center" scope="col">Family No</th>
-                                        <th class="text-center" scope="col">Purok</th>
+                                        <th class="text-center" scope="col">Family Head</th>
                                         <th class="text-center" scope="col">Last Name</th>
                                         <th class="text-center" scope="col">First Name</th>
                                         <th class="text-center" scope="col">Middle Name</th>
@@ -47,9 +47,9 @@
                                     @if($residents)
                                     @foreach($residents as $residentprofile)
                                         <tr>
-                                            <td class="text-center">{{ $residentprofile->family_id }}</td>
                                             <th class="text-center">{{ $residentprofile->id }}</th>
-                                            <td class="text-center">{{ $residentprofile->purok }}</td>
+                                            <td class="text-center">{{ $residentprofile->family_id }}</td>
+                                            <td class="text-center">{{ $residentprofile->family_head }}</td>
                                             <td class="text-center">{{ $residentprofile->lname }}</td>
                                             <td class="text-center">{{ $residentprofile->fname }}</td>
                                             <td class="text-center">{{ $residentprofile->mname }}</td>
@@ -63,10 +63,11 @@
                                                     @include('modals.residentprofile.PermanentDelete')
                                                 @else
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn btn-primary"  data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
-                                                data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
-                                                data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
-                                                data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
+                                                <a data-bs-toggle="modal" type="button" class="btn btn-primary"                                                  
+                                                data-resident_id="{{$residentprofile->id}}" data-family_id="{{ $residentprofile->family_id }}" data-family_head="{{ $residentprofile->family_head }}"
+                                                data-fname="{{$residentprofile->fname}}" data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
+                                                data-age="{{ $residentprofile->age }}" data-bdate="{{ $residentprofile->bdate }}" 
+                                                data-placeofbirth="{{ $residentprofile->placeofbirth }}"
                                                 data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}"
                                                 data-civil_status="{{ $residentprofile->civil_status }}"
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"
@@ -76,10 +77,10 @@
                                             
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn  btn-warning"
-                                                data-resident_id="{{$residentprofile->id}}" data-purok="{{$residentprofile->purok}}" data-fname="{{$residentprofile->fname}}"
-                                                data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
-                                                data-family_id="{{ $residentprofile->family_id }}" data-age="{{ $residentprofile->age }}"
-                                                data-bdate="{{ $residentprofile->bdate }}" data-placeofbirth="{{ $residentprofile->placeofbirth }}"
+                                                data-resident_id="{{$residentprofile->id}}" data-family_id="{{ $residentprofile->family_id }}" data-family_head="{{ $residentprofile->family_head }}"
+                                                data-fname="{{$residentprofile->fname}}" data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
+                                                data-age="{{ $residentprofile->age }}" data-bdate="{{ $residentprofile->bdate }}" 
+                                                data-placeofbirth="{{ $residentprofile->placeofbirth }}"
                                                 data-sex="{{ $residentprofile->sex }}" data-mobile="{{ $residentprofile->mobile }}"
                                                 data-civil_status="{{ $residentprofile->civil_status }}"
                                                 data-phil_health_id="{{ $residentprofile->phil_health_id }}" data-id_4ps="{{ $residentprofile->id_4ps }}"

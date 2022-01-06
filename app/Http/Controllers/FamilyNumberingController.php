@@ -17,7 +17,7 @@ class FamilyNumberingController extends Controller
      */
     public function index(Request $request)
     {
-        $familynumberrecord = FamilyNumbering::has('resident')->get();
+        $familynumberrecord = FamilyNumbering::get();
 
         if ($request->has('view_deleted')) {
             $familynumberrecord = FamilyNumbering::onlyTrashed()->get();
@@ -46,17 +46,22 @@ class FamilyNumberingController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'familyID' => 'required | unique:family_numberings,family_id',
-            'resID' => 'required',
+            'f_name' => 'required | string | max:255',
+            'm_name' => 'string | max:255',
+            'l_name' => 'required | string | max:255',
+            'purok' => 'required',
+
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Family Number Already Has A Family Head!')->withInput();
+            return redirect()->back()->withErrors('Do not leave it blank')->withInput();
         }
 
         $familyNumbering = FamilyNumbering::create([
-            'family_id' => $request['familyID'],
-            'resident_id' => $request['resID'],
+            'f_name' => $request['f_name'],
+            'm_name' => $request['m_name'],
+            'l_name' => $request['l_name'],
+            'purok' => $request['purok'],
         ]);
         
         $familyNumbering->save();
@@ -100,13 +105,17 @@ class FamilyNumberingController extends Controller
     public function update(Request $request, FamilyNumbering $familyNumbering)
     {
         $request->validate([
-            'EresID' => 'required',
-            'Eresname' => 'required',
-            'purok'=> 'required',
+            'Ef_name' => 'required',
+            'Em_name' => 'required',
+            'El_name' => 'required',
+            'Epurok'=> 'required',
         ]);
 
         $familynumberrecord = array (
-            'purok' =>  $request->purok,
+            'Ef_name'=> $request->Ef_name,
+            'Em_name'=> $request->Em_name,
+            'El_name'=> $request->El_name,
+            'Epurok' => $request->Epurok,
         );
 
         FamilyNumbering::findOrFail($request->Efamilynumber_id)->update($familynumberrecord);

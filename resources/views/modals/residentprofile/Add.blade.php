@@ -51,7 +51,7 @@
                             <div class="col-5">
                                 <div class="details">Search:</div>
                                 <select class="js-example-basic-single" id="selectfamilynumber" name="selectfamilynumber">
-                                <option value="0">--Search Family Number/Family Head--</option>
+                                <option value="0">Search By Family Number/Family Head</option>
                                 </select>
                             </div>
                         </div>
@@ -63,19 +63,11 @@
                             </div>
 
                             <div class="col-4 input-box">
-                                <div class="details">Purok No.:</div>
-                                <select class="purok" name="purok" id="purok">
-                                    <option selected>Select</option>
-                                    <option value="1">UNO</option>
-                                    <option value="2">DOS</option>
-                                    <option value="3">TRES</option>
-                                    <option value="4">KWATRO</option>
-                                    <option value="5">SINGKO</option>
-                                    <option value="6">SAIS</option>
-                                    <option value="7">SYETE</option>
-                                </select>
+                                <div class="details">Family Head:</div>
+                                <input type="text" name="family_head" id="family_head">
                             </div>
                         </div>
+
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-4 input-box">
                                 <div class="details">First Name:</div>
@@ -179,8 +171,8 @@
 
         $("#selectfamilynumber").change(
         function () {
-            $("#purok").val($("#selectfamilynumber option:last-child").val());
-            $("#family_id").val($("#selectfamilynumber option:last-child").text());
+            $("#family_id").val($("#selectfamilynumber option:last-child").val());
+            $("#family_head").val($("#selectfamilynumber option:last-child").text());
         }
     );
     });

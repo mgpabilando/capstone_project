@@ -30,7 +30,6 @@
                             <thead>
                                 <tr role="row">
                                     <th class="text-center" scope="col">Family_Number</th>
-                                    <th class="text-center" scope="col">Resident_ID</th>
                                     <th class="text-center" scope="col">Family Head</th>
                                     <th class="text-center" scope="col">Purok</th>
                                     <th class="text-center" scope="col">Actions</th>
@@ -41,10 +40,9 @@
                                 @if ($familynumberrecord)
                                     @foreach ($familynumberrecord as $familynumberRec)
                                         <tr>
-                                            <th class="text-center">{{ $familynumberRec->family_id }}</th>
-                                            <td class="text-center">{{ $familynumberRec->resident_id }}</td>
-                                            <td class="text-center">{{ $familynumberRec->resident->fname }} {{ $familynumberRec->resident->mname }} {{ $familynumberRec->resident->lname }}</td>
-                                            <td class="text-center">{{ $familynumberRec->resident->purok }}</td>
+                                            <th class="text-center">{{ $familynumberRec->id }}</th>
+                                            <td class="text-center">{{ $familynumberRec->f_name }} {{ $familynumberRec->m_name }} {{ $familynumberRec->l_name }}</td>
+                                            <td class="text-center">{{ $familynumberRec->purok }}</td>
                                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 @if (request()->has('view_deleted'))
                                                 <a href="{{ route('familyhead.restore', $familynumberRec->id) }}" class="btn btn-success">Restore</a>
@@ -52,18 +50,20 @@
                                                 <a type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteModal"  data-familynumber_id="{{$familynumberRec->id}}">Delete
                                                 </a>
+                                                @include('modals.family_numbering.PermanentDelete')
                                                 @else
                                                 {{-----***************************** SHOW BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfamilynumber"
-                                                data-familynumber_id="{{ $familynumberRec->id }}" data-resident_id = "{{ $familynumberRec->resident_id }}" 
-                                                data-name = "{{ $familynumberRec->resident->fname }} {{ $familynumberRec->resident->mname }} {{ $familynumberRec->resident->lname }}"
-                                                data-purok="{{ $familynumberRec->resident->purok }}">
+                                                data-familynumber_id="{{ $familynumberRec->id }}"
+                                                data-f_name = "{{ $familynumberRec->f_name }}" data-m_name = "{{ $familynumberRec->m_name }}" data-l_name = "{{ $familynumberRec->l_name }}"
+                                                data-purok="{{ $familynumberRec->purok }}">
                                                 <i class="manage fas fa-eye"></i></a>
                                                 @include('modals.family_numbering.Show')
                                             
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
                                                 <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editfamilynumber"
-                                                data-familynumber_id="{{ $familynumberRec->id }}" data-resident_id = "{{ $familynumberRec->resident_id }}" data-name = "{{ $familynumberRec->familyhead }}"
+                                                data-familynumber_id="{{ $familynumberRec->id }}"
+                                                data-f_name = "{{ $familynumberRec->f_name }}" data-m_name = "{{ $familynumberRec->m_name }}" data-l_name = "{{ $familynumberRec->l_name }}"
                                                 data-purok="{{ $familynumberRec->purok }}">
                                                 <i class="manage fas fa-edit"></i>
                                                 </a>

@@ -9,71 +9,80 @@
                 <form class="add-resident" action="{{route ('residentprofile.show', 'resident_id')}}" method="GET">
                     @csrf
                     <div class="modal-body">
+                        <input type="text" name="resident_id" id="resident_id" hidden>
+
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-4 input-box">
-                                <div class="details">Last Name:</div>
-                                <input class="name align-text-left" name="lname" id="lname" type="text" placeholder="" required readonly>
+                                <div class="details">Family No.:</div>
+                                <input type="text" name="family_id" id="family_id">
                             </div>
+
+                            <div class="col-4 input-box">
+                                <div class="details">Family Head:</div>
+                                <input type="text" name="family_head" id="family_head">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap identification row ">
                             <div class="col-4 input-box">
                                 <div class="details">First Name:</div>
-                                <input class="name" name="fname" id="fname" type="text" placeholder="" required readonly>
+                                <input name="fname" type="text" placeholder="" required>
                             </div>
                             <div class="col-4 input-box">
                                 <div class="details">Middle Name:</div>
-                                <input class="name" name="mname" id="mname" type="text" placeholder="" required readonly>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="d-flex flex-wrap identification row ">
-                            <div class="col-4 input-box">
-                                <div class="details">Resident ID No.:</div>
-                                <input name="resident_id" id="resident_id" type="text" placeholder="" required readonly>
+                                <input name="mname" type="text" placeholder="" required>
                             </div>
                             <div class="col-4 input-box">
-                                <div class="details">Purok No.:</div>
-                                <input name="purok" id="purok" type="text" placeholder="" required readonly>
-                            </div>
-                            <div class="col-4 input-box">
-                                <div class="details">Family ID No.:</div>
-                                <input name="family_id" id="family_id" type="text" placeholder="" required readonly>
+                                <div class="details">Last Name:</div>
+                                <input name="lname" type="text" placeholder="" required>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-4 input-box">
                                 <div class="details">Age:</div>
-                                <input name="age" id="age" type="number" placeholder="" required readonly>
+                                <input name="age" type="number" placeholder="" required>
                             </div>
                             <div class="col-4 input-box">
                                 <div class="details">Birthdate:</div>
-                                <input name="bdate" id="bdate" type="date" class="date" placeholder="" required readonly>
+                                <input name="bdate" type="date" class="date" placeholder="" required>
                             </div>
                             <div class="col-4 input-box">
                                 <div class="details">Place of Birth:</div>
-                                <input name="placeofbirth" id="placeofbirth" type="text" placeholder="" required readonly>
+                                <input name="placeofbirth" type="text" placeholder="" required>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-4 input-box">
                                 <div class="details">Sex:</div>
-                                <input name="sex" id="sex" type="text" placeholder="" required readonly>
+                                <select class="gender" name="sex">
+                                <option selected>Select</option>'
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                </select>
                             </div>
                             <div class="col-4 input-box">
                                 <div class="details">Civil Status:</div>
-                                <input name="civil_status" id="civil_status" type="text" placeholder="" required readonly>
+                                <select class="civil-status" name="civil_status">
+                                    <option selected>Select</option>'
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widowed">Widowed</option>
+                                </select>
                             </div>
                             <div class="col-4 input-box">
                                 <div class="details">Contact Number:</div>
-                                <input name="mobile" id="mobile" type="number" placeholder="" required readonly>
+                                <input name="mobile" type="number" placeholder="" required>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-6 input-box">
                                 <div class="details">PhilHealth ID No:</div>
-                                <input name="phil_health_id" id="phil_health_id" type="text" placeholder="" required readonly>
+                                <input name="phil_health_id" type="text" placeholder="" required>
                             </div>
                             <div class="col-6 input-box">
                                 <div class="details">4PS ID No:</div>
-                                <input name="id_4ps" id="id_4ps" type="text" placeholder="" required readonly>
+                                <input name="id_4ps" type="text" placeholder="" required>
                             </div>
                         </div>
                     </div>

@@ -29,13 +29,16 @@ class DashboardController extends Controller
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
                $familyplanning = DB::table('familyplannings')->count();
-               // $sum = $pregnant + $deliveries + $epi + $ntp + $diarrheal + $other_services + $familyplanning;
                $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
                $morningrecord = MorningDtr::get();
                $afternoonrecord = AfternoonDtr::get();
                $undertimerecord = undertimeDtr::get();
+
                $medreq = Medicine_Request::get();
-               return view('navigation_links/dashboard', compact('medreq','morningrecord', 'afternoonrecord', 'undertimerecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
+               return view('navigation_links/dashboard', compact('medreq','morningrecord', 
+               'afternoonrecord', 'undertimerecord', 'todayTime', 
+               'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries',
+               'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
 
           }elseif(Auth::user()->hasRole('bhw')){
                $bhw = User::whereRoleIs('bhw')->count();
@@ -48,11 +51,15 @@ class DashboardController extends Controller
                $diarrheal = DB::table('diarrheals')->count();
                $other_services = DB::table('others')->count();
                $familyplanning = DB::table('familyplannings')->count();
-               // $sum = $pregnant + $deliveries + $epi + $ntp + $diarrheal + $other_services + $familyplanning;
                $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
                $morningrecord = MorningDtr::get();
+               $afternoonrecord = AfternoonDtr::get();
                $undertimerecord = undertimeDtr::get();
-               return view('navigation_links/dashboard', compact('morningrecord', 'afternoonrecord', 'undertimerecord', 'todayTime', 'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries', 'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
+               $medreq = Medicine_Request::get();
+               return view('navigation_links/dashboard', compact('medreq','morningrecord', 
+               'afternoonrecord', 'undertimerecord', 'todayTime', 
+               'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries',
+               'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
           }
      }
 
@@ -65,6 +72,11 @@ class DashboardController extends Controller
      public function residentprofile()
      {
           return view('navigation_links.residentprofile');
+     }
+
+     public function dtr()
+     {
+          return view('navigation_links.dtr');
      }
 
      public function bhw()

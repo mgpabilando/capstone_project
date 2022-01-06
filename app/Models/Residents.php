@@ -11,6 +11,8 @@ class Residents extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'family_id',
+        'family_head',
         'fname',
         'lname',
         'mname',
@@ -18,12 +20,10 @@ class Residents extends Model
         'bdate',
         'mobile',
         'placeofbirth',
-        'family_id',
         'sex',
         'civil_status',
         'phil_health_id',
         'id_4ps',
-        'purok',
     ];
 
     protected $dates = ['deleted_at'];
@@ -31,12 +31,6 @@ class Residents extends Model
     public function pregnants()
     {
         return $this->hasMany(pregnants::class, 'resident_id');
-    }
-
-
-    public function familyNumbers()
-    {
-        return $this->hasOne(FamilyNumbering::class, 'resident_id');
     }
 
     public function familyNumbering()

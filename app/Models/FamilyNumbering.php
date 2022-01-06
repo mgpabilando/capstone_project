@@ -12,19 +12,15 @@ class FamilyNumbering extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'resident_id', 'family_id'
+        'f_name', 'm_name', 'l_name', 'purok',
     ];
 
     protected $dates = ['deleted_at'];
     
-    public function resident()
-    {
-        return $this->belongsTo(Residents::class);
-    }
 
     public function residents()
     {
-        return $this->hasMany(Residents::class, 'family_id');
+        return $this->hasMany(Residents::class);
     }
 
 

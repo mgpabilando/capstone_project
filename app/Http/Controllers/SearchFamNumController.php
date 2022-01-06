@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Residents;
 use App\Models\FamilyNumbering;
 use DB;
 
@@ -21,25 +20,24 @@ class SearchFamNumController extends Controller
 
         if($search == '')
         {
-        $familynumbers = FamilyNumbering::has('resident')
-                                ->limit(5)->get();
-
+            $FamilyNumbering = FamilyNumbering::select('id','f_name', 'm_name', 'l_name')
+                                    ->limit(5)->get();
         }
         
         else
         {
-        $familynumbers = FamilyNumbering::has('resident')
-                                ->where(DB::raw('CONCAT(family_id," ",fname," ",mname," ",lname)'), 'like', '%' .$search . '%')
+            $FamilyNumbering = FamilyNumbering::select('id','f_name', 'm_name', 'l_name')
+                                ->where(DB::raw('CONCAT(f_name," ",m_name," ",l_name," ",id," ")'), 'like', '%' .$search . '%')
                                 ->limit(5)
                                 ->get();
         }
 
         $response = array();
-        foreach($familynumbers as $familynumber)
+        foreach($FamilyNumbering as $familynumber)
         {
         $response[] = array(
-                "id"=>$familynumber->resident->purok,
-                "text"=>$familynumber->family_id,   
+                "id"=>$familynumber->id,
+                "text"=>$familynumber->f_name." ".$familynumber->m_name." ".$familynumber->l_name,   
         );
         }
     

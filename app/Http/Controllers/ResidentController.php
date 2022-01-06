@@ -48,6 +48,8 @@ class ResidentController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'family_id' => 'required | string | max:255',
+            'family_head' => 'required | string | max:255',
             'fname' => 'required | string | max:255',
             'mname' => 'string | max:255',
             'lname' => 'required | string | max:255',
@@ -59,8 +61,6 @@ class ResidentController extends Controller
             'civil_status' => 'required | string | max:255',
             'phil_health_id' => 'string | max:255 | unique:residents,phil_health_id',
             'id_4ps' => 'string | max:255 | unique:residents,id_4ps',
-            'family_id' => 'required | string | max:255',
-            'purok' => 'string | max:255',
         ]);
 
         if ($validator->fails()) {
@@ -68,6 +68,8 @@ class ResidentController extends Controller
         }
 
         $residentprofile = Residents::create([
+            'family_id' => $request['family_id'],
+            'family_head' => $request['family_head'],
             'fname' => $request['fname'],
             'mname' => $request['mname'],
             'lname' => $request['lname'],
@@ -79,8 +81,6 @@ class ResidentController extends Controller
             'civil_status' => $request['civil_status'],
             'phil_health_id' => $request['phil_health_id'],
             'id_4ps' => $request['id_4ps'],
-            'family_id' => $request['family_id'],
-            'purok' => $request['purok'],
         ]);
         $residentprofile->save();
         return redirect()->route('residentprofile.index')->with('success', 'Added Successfully.');
@@ -124,23 +124,29 @@ class ResidentController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
-            'fname' => 'required', 'string', 'max:255',
-            'mname' => 'string', 'max:255',
-            'lname' => 'required', 'string', 'max:255',
-            'age' => 'required', 'integer',
-            'placeofbirth' => 'required', 'string', 'max:255',
-            'bdate' => 'required', 'date',
-            'mobile' => 'required', 'string', 'max:11',
-            'sex' => 'required', 'string', 'max:255',
-            'civil_status' => 'required', 'string', 'max:255',
-            'phil_health_id' => 'string', 'max:255',
-            'id_4ps' => 'string', 'max:255',
-            'family_id' => 'required', 'string', 'max:255',
-            'purok' => 'string', 'max:255',
+        $validator = Validator::make($request->all(), [
+            'family_id' => 'required | string | max:255',
+            'family_head' => 'required | string | max:255',
+            'fname' => 'required | string | max:255',
+            'mname' => 'string | max:255',
+            'lname' => 'required | string | max:255',
+            'age' => 'required | integer',
+            'placeofbirth' => 'required | string | max:255',
+            'bdate' => 'required | date',
+            'mobile' => 'required | string | max:11',
+            'sex' => 'required | string | max:255',
+            'civil_status' => 'required | string | max:255',
+            'phil_health_id' => 'string | max:255 | unique:residents,phil_health_id',
+            'id_4ps' => 'string | max:255 | unique:residents,id_4ps',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors('Identification Cards must be unique!')->withInput();
+        }
+
         $residentprofile = array (
+            'family_id' => $request->family_id,
+            'family_head' => $request->family_head,
             'fname' => $request->fname,
             'mname' => $request->mname,
             'lname' => $request->lname,
@@ -152,8 +158,6 @@ class ResidentController extends Controller
             'civil_status' => $request->civil_status,
             'phil_health_id' => $request->phil_health_id,
             'id_4ps' => $request->id_4ps,
-            'family_id' => $request->family_id,
-            'purok' => $request->purok,
         );
 
         /* echo "<pre>"; print_r($residentprofile); die; */

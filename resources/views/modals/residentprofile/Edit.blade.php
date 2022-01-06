@@ -10,69 +10,61 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
+                    <input type="text" name="Eresident_id" id="Eresident_id" hidden>
+
                     <div class="d-flex flex-wrap identification row ">
-                        <div class="input-box">
-                            <input name="resident_id" id="resident_id" type="hidden" placeholder="">
+                        <div class="col-4 input-box">
+                            <div class="details">Family No.:</div>
+                            <input type="text" name="Efamily_id" id="Efamily_id">
                         </div>
-                        <div class="col-6 input-box">
-                            <div class="details">Purok No.:</div>
-                            <select class="purok" name="purok" id="purok">
-                                <option selected>Select</option>
-                                <option value="1">UNO</option>
-                                <option value="2">DOS</option>
-                                <option value="3">TRES</option>
-                                <option value="4">KWATRO</option>
-                                <option value="5">SINGKO</option>
-                                <option value="6">SAIS</option>
-                                <option value="7">SYETE</option>
-                            </select>
-                        </div>
-                        <div class="col-6 input-box">
-                            <div class="details">Family ID No.:</div>
-                            <input name="family_id" id="family_id" type="text" placeholder="" required>
+
+                        <div class="col-4 input-box">
+                            <div class="details">Family Head:</div>
+                            <input type="text" name="Efamily_head" id="Efamily_head">
                         </div>
                     </div>
+
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-4 input-box">
                             <div class="details">First Name:</div>
-                            <input name="fname" id="fname" type="text" placeholder="" required>
+                            <input name="Efname" type="text" placeholder="" required>
                         </div>
                         <div class="col-4 input-box">
                             <div class="details">Middle Name:</div>
-                            <input name="mname" id="mname" type="text" placeholder="" required>
+                            <input name="Emname" type="text" placeholder="" required>
                         </div>
                         <div class="col-4 input-box">
                             <div class="details">Last Name:</div>
-                            <input name="lname" id="lname" type="text" placeholder="" required>
+                            <input name="Elname" type="text" placeholder="" required>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-4 input-box">
                             <div class="details">Age:</div>
-                            <input name="age" id="age" type="number" placeholder="" required>
+                            <input name="Eage" type="number" placeholder="" required>
                         </div>
                         <div class="col-4 input-box">
                             <div class="details">Birthdate:</div>
-                            <input name="bdate" id="bdate" type="date" class="date" placeholder="" required>
+                            <input name="Ebdate" type="date" class="date" placeholder="" required>
                         </div>
                         <div class="col-4 input-box">
                             <div class="details">Place of Birth:</div>
-                            <input name="placeofbirth" id="placeofbirth" type="text" placeholder="" required>
+                            <input name="Eplaceofbirth" type="text" placeholder="" required>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-4 input-box">
                             <div class="details">Sex:</div>
-                            <select class="gender" name="sex" id="sex">
-                            <option selected>Select</option>
+                            <select class="gender" name="Esex">
+                            <option selected>Select</option>'
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             </select>
                         </div>
                         <div class="col-4 input-box">
                             <div class="details">Civil Status:</div>
-                            <select class="civil-status" name="civil_status" id="civil_status">
-                                <option selected>Select</option>
+                            <select class="civil-status" name="Ecivil_status">
+                                <option selected>Select</option>'
                                 <option value="Single">Single</option>
                                 <option value="Married">Married</option>
                                 <option value="Divorced">Divorced</option>
@@ -81,17 +73,17 @@
                         </div>
                         <div class="col-4 input-box">
                             <div class="details">Contact Number:</div>
-                            <input name="mobile" id="mobile" type="number" placeholder="" required>
+                            <input name="Emobile" type="number" placeholder="" required>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap identification row ">
-                        <div class="col-6 input-box mr-3">
+                        <div class="col-6 input-box">
                             <div class="details">PhilHealth ID No:</div>
-                            <input name="phil_health_id" id="phil_health_id" type="text" placeholder="" required>
+                            <input name="Ephil_health_id" type="text" placeholder="" required>
                         </div>
                         <div class="col-6 input-box">
                             <div class="details">4PS ID No:</div>
-                            <input name="id_4ps" id="id_4ps" type="text" placeholder="" required>
+                            <input name="Eid_4ps" type="text" placeholder="" required>
                         </div>
                     </div>
                 </div>

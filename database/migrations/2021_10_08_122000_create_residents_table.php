@@ -16,6 +16,7 @@ class CreateResidentsTable extends Migration
         Schema::create('residents', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('family_id');
+            $table->string('family_head');
             $table->string('fname');
             $table->string('mname');
             $table->string('lname');
@@ -27,11 +28,16 @@ class CreateResidentsTable extends Migration
             $table->string('phil_health_id')->unique();
             $table->string('id_4ps')->unique();
             $table->string('mobile');
-            $table->string('purok');
+            
             $table->rememberToken();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
+
+            $table->foreign('family_id')->references('id')->on('family_numberings')
+            ->onUpdate('cascade')->onDelete('cascade');
+    
         });
+
     }
 
     /**

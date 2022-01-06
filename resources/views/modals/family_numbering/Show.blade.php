@@ -34,29 +34,31 @@
             <form class="show-consult" method="GET" action=" {{route('familynumbering.show', 'id')}}">
                 @csrf
                 <div class="modal-body">
-                    <div class="res_prof row justify-content-center" id="details">  
-                        <div class="input-box col-6 pb-3 align-self-center">
-                            <div class="details">Family Number:</div>
-                            <input type="text" name="Vfamilynumber_id" id="Vfamilynumber_id" required style="width:auto" readonly>
-                        </div>
-                        <div class="input-box col-6 pb-3 align-self-center">
-                            <div class="details">Resident ID:</div>
-                            <input type="text" name="Vresident_id" id="Vresident_id" placeholder="" required style="width:auto" readonly>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="res_prof justify-content-center" id="details">  
-                        <div class="input-box pb-3">
-                            <div class="details">Name:</div>
-                            <input type="text" name="Vresname" id="Vresname" placeholder="" required readonly>
-                        </div>
-                    </div>
-                    <hr>
+                    <div class="res_prof row justify-content-center" id="details"> 
+                        <div class="d-flex flex-wrap identification row ">
+                            <div class="input-box">
+                                <div class="details">Family Number:</div>
+                                <input name="Vfamilynumber_id" id="Vfamilynumber_id" type="text" placeholder="" required readonly>
+                            </div>
+                            <div class="input-box">
+                                <div class="details">First Name:</div>
+                                <input name="Vf_name" id="Vf_name" type="text" placeholder="" required readonly>
+                            </div>
+                            <div class="input-box">
+                                <div class="details">Middle Name:</div>
+                                <input name="Vm_name" id="Vm_name" type="text" placeholder="" required readonly>
+                            </div>
 
-                    <div class="row">
-                        <div class="input-box col-6 pb-3">
-                            <div class="details">Purok:</div>
-                            <input type="text" name="purok" id="purok" placeholder="" required readonly>                        </div>
+                            <div class="input-box">
+                                <div class="details">Last Name:</div>
+                                <input name="Vl_name" id="Vl_name" type="text" placeholder="" required readonly>
+                            </div>
+
+                            <div class="input-box">
+                            <div class="details">Purok No.:</div>
+                            <input type="text" name="Vpurok" id="Vpurok" placeholder="" required readonly>                        
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

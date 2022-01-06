@@ -28,8 +28,7 @@
         <table id="pregnant" class="display table table-bordered m-0 ">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Pregnants</th>
-              <th class="text-center" scope="col">Resident_ID</th>
+              <th class="text-center" scope="col">Pregnants</th> 
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Height(cm)</th>
               <th class="text-center" scope="col">Weight(kg)</th>
@@ -42,8 +41,7 @@
             @if ($pregnants)
             @foreach ($pregnants as $pregpatient)
             <tr>
-              <th class="text-center">{{ $pregpatient->id }}</th>
-              <td class="text-center">{{ $pregpatient->resident_id }}</td>
+              <th class="text-center">{{ $pregpatient->id }}</th> 
               <td class="text-center">{{ $pregpatient->name }}</td>
               <td class="text-center">{{ $pregpatient->height_cm }}</td>
               <td class="text-center">{{ $pregpatient->weight_kg }}</td>
@@ -61,11 +59,10 @@
         <table id="deliveries" class="display table table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Deliveries</th>
-              <th class="text-center" scope="col">Resident_ID</th>
+              <th class="text-center" scope="col">Deliveries</th> 
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
-              <th class="text-center" scope="col">Date Delivered</th>
+              <th class="text-center" scope="col">Delivered</th>
               <th class="text-center" scope="col">Outcome</th>
               <th class="text-center" scope="col">Place</th>
             </tr>
@@ -74,8 +71,7 @@
             @if ($Deliveries)
             @foreach ($Deliveries as $deliveriesRec)
             <tr>
-              <th class="text-center">{{ $deliveriesRec->id }}</th>
-              <td class="text-center">{{ $deliveriesRec->resident_id }}</td>
+              <th class="text-center">{{ $deliveriesRec->id }}</th> 
               <td class="text-center">{{ $deliveriesRec->name }}</td>
               <td class="text-center">{{ $deliveriesRec->age }}</td>
               <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($deliveriesRec['date_delivered'])) }}</td>

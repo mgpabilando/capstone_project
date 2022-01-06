@@ -8,18 +8,18 @@
         <table id="dtr" class="table table-responsive table-bordered mt-3">
           <thead class="table-primary">
             <tr>
-              <th>DATE</th>
-              <th>HOUR/S </th>
-              <th>MINUTE/S </th>
+              <th class="text-center" style="font-size: 11px">DATE</th>
+              <th class="text-center" style="font-size: 11px">HOUR/S </th>
+              <th class="text-center" style="font-size: 11px">MINUTE/S</th>
             </tr>
           </thead>
           <tbody>
             @if($undertimerecord)
               @foreach ($undertimerecord as $undertimerecord)
               <tr>
-                <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($undertimerecord->created_at)->format('d-m-Y') ?? '' }}</th>
-                <td>{{ $undertimerecord->Hour }}</td>
-                <td>{{ $undertimerecord->Minute }}</td>
+                <th class="text-center" style="text-transform: uppercase; font-size: 11px;">{{Carbon\Carbon::parse($undertimerecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                <td class="text-center" style="font-size: 11px">{{ $undertimerecord->Hour }}</td>
+                <td class="text-center" style="font-size: 11px">{{ $undertimerecord->Minute }}</td>
               </tr>
               @endforeach
             @endif

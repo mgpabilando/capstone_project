@@ -15,13 +15,15 @@ class CreateFamilyNumberingsTable extends Migration
     {
         Schema::create('family_numberings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('resident_id')->unique();
-            $table->unsignedBigInteger('family_id')->unique();
+            $table->string('f_name');
+            $table->string('m_name');
+            $table->string('l_name');
+            $table->string('purok');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 
-            $table->foreign('resident_id')->references('id')->on('residents')
-                ->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('resident_id')->references('id')->on('residents')
+            //     ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

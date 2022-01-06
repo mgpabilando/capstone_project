@@ -46,7 +46,7 @@ class RegisteredUsersController extends Controller
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
             'contact' => 'required', 'string', 'max:11',
-            'password' => 'required', 'min:6', 'max:12', 
+            'password' => 'required', 'min:6', 'max:8', 
             'password_confirmation' => 'required'
         ]);
 
