@@ -58,7 +58,7 @@
 
                     <div class="d-flex flex-grid bhw-signature">
                         <div class="submitted-by">
-                            <p style="margin: 0">{{Carbon\Carbon::parse($medreq->created_at)->format('d-m-Y') ?? '' }}</p>
+                            <input type="text" name="med" id="med" value="{{ Carbon\Carbon::now()->format('M-d-Y') }}">
                             <hr style="margin: 0">
                             <p class="fw-bold worker-type">Date Requested</p>
                         </div>

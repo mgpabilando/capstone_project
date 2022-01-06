@@ -35,7 +35,7 @@ class Residents extends Model
 
     public function familyNumbering()
     {
-        return $this->belongsTo(FamilyNumbering::class);
+        return $this->belongsTo(FamilyNumbering::class, 'id');
     }
 
 

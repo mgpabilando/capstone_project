@@ -24,7 +24,7 @@
                             <th class="text-center" scope="col">Purok</th>
                             <th class="text-center" scope="col">Resident ID</th>
                             <th class="text-center" scope="col">Family ID No.</th>
-                            <th class="text-center" scope="col">Family Head (Resident ID)</th>
+                            <th class="text-center" scope="col">Family Head</th>
                             <th class="text-center" scope="col">Name</th>
                             <th class="text-center" scope="col">Action</th>
                             
@@ -35,15 +35,15 @@
                         @if ($residentprofile)
                         @foreach ( $residentprofile as $row)
                         <tr>
-                          <th class="text-center">{{ $row->purok }}</th>
+                          <th class="text-center">{{ $row->familyNumbering->purok }}</th>
                           <td class="text-center">{{ $row->id}}</td>
                           <td class="text-center">{{ $row->family_id }}</td>
-                          <td class="text-center">{{ $row->familyNumbers->resident_id ?? 'Member' }}</td>
+                          <td class="text-center">{{ $row->family_head}}</td>
                           <td class="text-center">{{ $row->fname }} {{ $row->mname }} {{ $row->lname }}</td>
                           <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                             {{-----***************************** SHOW BUTTON *******************************------}}
                               <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  
-                                data-resident_id="{{$row->id}}" data-purok="{{$row->purok}}" data-fname="{{$row->fname}}"
+                                data-resident_id="{{$row->id}}" data-purok="{{$row->familyNumbering->purok}}" data-fname="{{$row->fname}}"
                                 data-lname="{{$row->lname}}" data-mname="{{$row->mname}}"
                                 data-family_id="{{ $row->family_id }}" data-age="{{ $row->age }}"
                                 data-bdate="{{ $row->bdate }}" data-placeofbirth="{{ $row->placeofbirth }}"
