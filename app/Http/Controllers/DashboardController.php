@@ -47,7 +47,7 @@ class DashboardController extends Controller
                $familyplanning = DB::table('familyplannings')->count();
                $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
 
-               return view('navigation_links/dashboard', compact('todayTime', 
+               return view('navigation_links/bhwdashboard', compact('todayTime', 
                'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries',
                'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
           }
