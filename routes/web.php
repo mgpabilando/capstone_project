@@ -90,7 +90,7 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
     Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
     Route::get('/dtr', [DashboardController::class, 'dtr'])->name('dashboard.dtr');
 
-    Route::get('/dtr', [MorningDtrController::class, 'morningrecord'])->name('dtr.morningrecord');
+   //Route::get('/dtr', [MorningDtrController::class, 'morningrecord'])->name('dtr.morningrecord');
     Route::post('/dailytimerecord/arrival', [MorningDtrController::class, 'Arrival'])->name('dtr.arrival');
     Route::post('/dailytimerecord/departure/{id}', [MorningDtrController::class, 'Departure'])->name('dtr.departure');
 

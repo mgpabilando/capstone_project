@@ -19,7 +19,7 @@
     <div class="row no-margin-padding">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="block-title">Nurse Dashboard</h3>
-            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#MORNING">
+            {{-- <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#MORNING">
                       MORNING RECORD
             </button>
             @include('modals.DailyTimeRecord.MORNING') 
@@ -30,8 +30,8 @@
             <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#UNDERTIME">
               UNDERTIME RECORD
             </button>
-            @include('modals.DailyTimeRecord.UNDERTIME') 
-            {{-- <a href="dtr" class="btn btn-success">DAILY TIME RECORD</a> --}}
+            @include('modals.DailyTimeRecord.UNDERTIME')  --}}
+            <a href="dtr" class="btn btn-success">DAILY TIME RECORD</a>
 
         </div>
     </div>
