@@ -13,21 +13,21 @@ use App\Models\pregnants;
 use App\Models\DailyTimeRecord;
 class MorningDtrController extends Controller
 {
-    public function morningrecord ()
-    {   
-        if(Auth::user()->hasRole('admin_nurse')){
-            $morningrecord = MorningDtr::get();
-            $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-            return view('navigation_links.dashboard', compact('morningrecord', 'todayTime') );
-        }
+    // public function morningrecord ()
+    // {   
+    //     if(Auth::user()->hasRole('admin_nurse')){
+    //         $morningrecord = MorningDtr::get();
+    //         $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+    //         return view('navigation_links.dashboard', compact('morningrecord', 'todayTime') );
+    //     }
         
-        elseif(Auth::user()->hasRole('bhw')){
-            $morningrecord = MorningDtr::get();
-            $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-            return view('navigation_links.bhwdashboard', compact('morningrecord', 'todayTime') );
-        }
+    //     elseif(Auth::user()->hasRole('bhw')){
+    //         $morningrecord = MorningDtr::get();
+    //         $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+    //         return view('navigation_links.bhwdashboard', compact('morningrecord', 'todayTime') );
+    //     }
     
-    }
+    // }
 
     public function Arrival(Request $request)
     {
@@ -38,7 +38,7 @@ class MorningDtrController extends Controller
             ]);
 
             $arrivalrecord->save();
-            return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
+            return back()->with('success', 'Have a Great Day!');
 
         }
         
@@ -59,7 +59,7 @@ class MorningDtrController extends Controller
         $userid = $request->id;
         //$Departure = $request->Departure;
 
-        $departurerecord = MorningDtr::find($userid)->update(['Departure'=>Carbon::now()->format('H:i:m', 'Philippines')]);
+        $departurerecord = MorningDtr::find($userid)->update(['Departure'=>Carbon::now()->format('H:i:m')]);
         return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
     }
 

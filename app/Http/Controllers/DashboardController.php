@@ -11,9 +11,8 @@ use App\Models\pregnants;
 use Carbon\Carbon;
 use App\Models\DailyTimeRecord;
 use App\Models\MorningDtr;
-use App\Models\AfternoonDtr;
+use App\Models\afternoonDtr;
 use App\Models\undertimeDtr;
-use App\Models\Medicine_Request;
 class DashboardController extends Controller
 {
      public function index()
@@ -30,13 +29,8 @@ class DashboardController extends Controller
                $other_services = DB::table('others')->count();
                $familyplanning = DB::table('familyplannings')->count();
                $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-               $morningrecord = MorningDtr::get();
-               $afternoonrecord = AfternoonDtr::get();
-               $undertimerecord = undertimeDtr::get();
 
-               $medreq = Medicine_Request::get();
-               return view('navigation_links/dashboard', compact('medreq','morningrecord', 
-               'afternoonrecord', 'undertimerecord', 'todayTime', 
+               return view('navigation_links/dashboard', compact('todayTime', 
                'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries',
                'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
 
@@ -52,12 +46,8 @@ class DashboardController extends Controller
                $other_services = DB::table('others')->count();
                $familyplanning = DB::table('familyplannings')->count();
                $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-               $morningrecord = MorningDtr::get();
-               $afternoonrecord = AfternoonDtr::get();
-               $undertimerecord = undertimeDtr::get();
-               $medreq = Medicine_Request::get();
-               return view('navigation_links/dashboard', compact('medreq','morningrecord', 
-               'afternoonrecord', 'undertimerecord', 'todayTime', 
+
+               return view('navigation_links/dashboard', compact('todayTime', 
                'bhw', 'resident', 'familynumber', 'pregnant', 'deliveries',
                'epi', 'ntp', 'diarrheal', 'other_services', 'familyplanning' ));
           }

@@ -99,7 +99,7 @@
     border-color: white;
   }  
 
-  .tab-content input[type=text], .tab-content input[type=password], .tab-content input[type=date], .tab-content input[type=email]{
+  .tab-content input[type=text], input[type=time], .tab-content input[type=password], .tab-content input[type=date], .tab-content input[type=email]{
     width: 100%;
     padding: 5px 20px;
     margin-right: 5px;

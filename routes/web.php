@@ -48,6 +48,7 @@ use App\Http\Controllers\FamilyNumbering_RestoreController;
 use App\Http\Controllers\MorningDtrController;
 use App\Http\Controllers\AfternoonDtrController;
 use App\Http\Controllers\UndertimeDtrController;
+use App\Http\Controllers\dailyrecordController; 
 use App\Http\Controllers\Dtr_ReportController;
 use App\Http\Controllers\MedRequest_ReportController;
 use App\Http\Controllers\MonthlyAccomplished_ReportController;
@@ -90,16 +91,17 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
     Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
     Route::get('/dtr', [DashboardController::class, 'dtr'])->name('dashboard.dtr');
 
-   //Route::get('/dtr', [MorningDtrController::class, 'morningrecord'])->name('dtr.morningrecord');
+    Route::get('/dtr', [dailyrecordController::class, 'records'])->name('dtr.records');
+    Route::get('/dailytimerecord/morning', [MorningDtrController::class, 'morningrecords'])->name('dtr.morningrecords');
     Route::post('/dailytimerecord/arrival', [MorningDtrController::class, 'Arrival'])->name('dtr.arrival');
     Route::post('/dailytimerecord/departure/{id}', [MorningDtrController::class, 'Departure'])->name('dtr.departure');
 
-    Route::get('/dailytimerecord/afternoon', [AfternoonDtrController::class, 'afternoonrecord'])->name('dtr.afternoonrecord');
+    Route::get('/dailytimerecord/afternoon', [AfternoonDtrController::class, 'afternoonrecords'])->name('dtr.afternoonrecords');
     Route::post('/dailytimerecord/afternoon/arrival', [AfternoonDtrController::class, 'Arrival'])->name('dtr.afternoonarrival');
     Route::post('/dailytimerecord/afternoon/departure/{id}', [AfternoonDtrController::class, 'Departure'])->name('dtr.afternoondeparture');
 
-    Route::get('/dailytimerecord/undertimeshow', [UndertimeDtrController::class, 'show'])->name('dtr.show');
-    Route::post('/dailytimerecord/undertime', [UndertimeDtrController::class, 'undertimerecord'])->name('dtr.undertime');
+    Route::get('/dailytimerecord/undertime', [UndertimeDtrController::class, 'undertimerecords'])->name('dtr.undertimerecords');
+    Route::post('/dailytimerecord/undertimeadd', [UndertimeDtrController::class, 'undertimerecord'])->name('dtr.undertime');
 
 
 // route for health consultation sidebar links //

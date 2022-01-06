@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AfternoonDtr;
+use App\Models\afternoonDtr;
 use App\Models\MorningDtr;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -11,30 +11,30 @@ use App\Models\User;
 use App\Models\Residents;
 use DB;
 use App\Models\pregnants;
-use App\Models\DailyTimeRecord;
+
 class AfternoonDtrController extends Controller
 {
-    public function afternoonrecord ()
-    {   
-        if(Auth::user()->hasRole('admin_nurse')){
-            $afternoonrecord = AfternoonDtr::get();
-            $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
-            return view('navigation_links.dashboard', compact('afternoonrecord', 'todayTime') );
-        }
+    // public function afternoonrecord ()
+    // {   
+    //     if(Auth::user()->hasRole('admin_nurse')){
+    //         $afternoonrecord = AfternoonDtr::get();
+    //         $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+    //         return view('navigation_links.dashboard', compact('afternoonrecord', 'todayTime') );
+    //     }
         
-        elseif(Auth::user()->hasRole('bhw')){
-            $afternoonrecord = AfternoonDtr::get();
-            $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
+    //     elseif(Auth::user()->hasRole('bhw')){
+    //         $afternoonrecord = AfternoonDtr::get();
+    //         $todayTime = Carbon::now()->format('H:i:m', 'Philippines');
            
-            return view('navigation_links.dashboard', compact('afternoonrecord', 'todayTime') );
-        }
+    //         return view('navigation_links.dashboard', compact('afternoonrecord', 'todayTime') );
+    //     }
     
-    }
+    // }
 
     public function Arrival(Request $request)
     {
         if (Auth::user()->hasRole('admin_nurse')){
-            $arrivalrecord = AfternoonDtr::create([
+            $arrivalrecord = afternoonDtr::create([
                 'user_id' => Auth::user()->id,
                 'Arrival' =>  Carbon::now()->format('H:i:m', 'Philippines'),
             ]);
@@ -45,13 +45,13 @@ class AfternoonDtrController extends Controller
         }
         
         elseif (Auth::user()->hasRole('bhw')){
-            $arrivalrecord = AfternoonDtr::create([
+            $arrivalrecord = afternoonDtr::create([
                 'user_id' => Auth::user()->id,
                 'Arrival' =>  Carbon::now()->format('H:i:m', 'Philippines'),
             ]);
     
             $arrivalrecord->save();
-            return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
+            return back()->with('success', 'Have a Great Day!');
     
         }
     }
@@ -61,7 +61,7 @@ class AfternoonDtrController extends Controller
         $userid = $request->id;
         //$Departure = $request->Departure;
 
-        $departurerecord = AfternoonDtr::find($userid)->update(['Departure'=>Carbon::now()->format('H:i:m', 'Philippines')]);
+        $departurerecord = afternoonDtr::find($userid)->update(['Departure'=>Carbon::now()->format('H:i:m', 'Philippines')]);
         return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
     }
 

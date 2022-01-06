@@ -18,7 +18,7 @@ class UndertimeDtrController extends Controller
             ]);
 
             $arrivalrecord->save();
-            return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
+            return back()->with('success', 'Have a Great Day!');
 
         }
         
@@ -30,7 +30,7 @@ class UndertimeDtrController extends Controller
             ]);
     
             $arrivalrecord->save();
-            return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
+            return back()->with('success', 'Have a Great Day!');
 
         }
     }
