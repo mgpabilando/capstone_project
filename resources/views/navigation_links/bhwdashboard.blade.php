@@ -12,16 +12,27 @@
     }
 
 </style>
+
 <div id="content" style="height: auto;">
     @include('layouts.includes.topnavbar')
 
     <div class="row no-margin-padding">
-        <div class="col-md-12 d-flex flex-row justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
             <h3 class="block-title">BHW Dashboard</h3>
-            <button type="button" class="btn-dtr m-0" style="width: 200px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                      DAILY TIME RECORD
+            {{-- <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#MORNING">
+                      MORNING RECORD
             </button>
-            @include('modals.DailyTimeRecord_BHW.DTR')  
+            @include('modals.DailyTimeRecord.MORNING') 
+            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#AFTERNOON">
+              AFTERNOON RECORD
+            </button>
+            @include('modals.DailyTimeRecord.AFTERNOON') 
+            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#UNDERTIME">
+              UNDERTIME RECORD
+            </button>
+            @include('modals.DailyTimeRecord.UNDERTIME')  --}}
+            <a href="dtr" class="btn btn-success">DAILY TIME RECORD</a>
+
         </div>
     </div>
 
@@ -39,34 +50,34 @@
                 </div>
               </div>
             </div>
+            </div>
+
+          <div class="col-md-4">
+              <div class="d-flex justify-content-center">
+            <div class="counter d-flex align-items-center">
+              <div class="icon d-flex align-items-center justify-content-center" style="border-color: #25e096">
+                  <i class="fas fa-user-alt" style="color: #25e096"></i>
+              </div>
+              <div class="total-data">
+                <p class="text-start m-0" style="color: #25e096">Total Resident</p>
+                <p class="text-start total m-0" style="color: #25e096">{{ $resident }}</p>
+              </div>
+            </div>
+          </div>
           </div>
 
           <div class="col-md-4">
               <div class="d-flex justify-content-center">
-                <div class="counter d-flex align-items-center">
-                  <div class="icon d-flex align-items-center justify-content-center" style="border-color: #25e096">
-                      <i class="fas fa-user-alt" style="color: #25e096"></i>
-                  </div>
-                  <div class="total-data">
-                    <p class="text-start m-0" style="color: #25e096">Total Resident</p>
-                    <p class="text-start total m-0" style="color: #25e096">{{ $resident }}</p>
-                  </div>
-                </div>
+            <div class="counter d-flex align-items-center">
+              <div class="icon d-flex align-items-center justify-content-center" style="border-color:gold">
+                  <i class="fas fa-users" style="color: gold;"></i>
               </div>
+              <div class="total-data">
+                <p class="text-start m-0" style="color: gold">Total Family Head</p>
+                <p class="text-start total m-0" style="color: gold">{{ $familynumber }}</p>
+              </div>
+            </div>
           </div>
-
-          <div class="col-md-4">
-              <div class="d-flex justify-content-center">
-                <div class="counter d-flex align-items-center">
-                  <div class="icon d-flex align-items-center justify-content-center" style="border-color:gold">
-                      <i class="fas fa-users" style="color: gold;"></i>
-                  </div>
-                  <div class="total-data">
-                    <p class="text-start m-0" style="color: gold">Total Family Head</p>
-                    <p class="text-start total m-0" style="color: gold">{{ $familynumber }}</p>
-                  </div>
-                </div>
-              </div>
           </div>
       </div>
 
@@ -84,8 +95,8 @@
             </div>
         </div>
       </div>
+
     </div>
-    
 </div>
 
 @section('scripts')
@@ -155,18 +166,7 @@ $(document).ready(function () {
   });
 
 });
+
+
 </script>
-
-{{-- <script>
-  $('#staticBackdrop').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var other_id = button.data('other_id')
-
-        var modal = $(this)
-        modal.find('.modal-title').text(' Delete Consultation Record');
-        modal.find('.modal-body #Dother_id').val(other_id);
-    });
-</script> --}}
 @endsection
-
-
