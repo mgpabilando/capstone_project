@@ -86,8 +86,7 @@
         <table id="epi" class="display table table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">EPI</th>
-              <th class="text-center" scope="col">Resident_ID</th>
+              <th class="text-center" scope="col">EPI</th> 
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Medicines Given</th>
               <th class="text-center" scope="col">Birthdate</th>
@@ -98,8 +97,7 @@
             @if ($epi)
             @foreach ($epi as $epiRec)
             <tr>
-              <th class="text-center">{{ $epiRec->id }}</th>
-              <td class="text-center">{{ $epiRec->resident_id }}</td>
+              <th class="text-center">{{ $epiRec->id }}</th> 
               <td class="text-center">{{ $epiRec->name }}</td>
               <td class="text-center">{{ $epiRec->meds_given }}</td>
               <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($epiRec['birthdate'])) }}</td>
@@ -112,8 +110,7 @@
         <table id="ntp" class="display table table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">NTP</th>
-              <th class="text-center" scope="col">Resident_ID</th>
+              <th class="text-center" scope="col">NTP</th> 
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
             </tr>
@@ -122,8 +119,7 @@
             @if ($ntp)
             @foreach ($ntp as $ntpRec)
             <tr>
-              <th class="text-center">{{ $ntpRec->id }}</th>
-              <td class="text-center">{{ $ntpRec->resident_id }}</td>
+              <th class="text-center">{{ $ntpRec->id }}</th> 
               <td class="text-center">{{ $ntpRec->name }}</td>
               <td class="text-center">{{ $ntpRec->age }}</td>
             </tr>
@@ -135,8 +131,7 @@
         <table id="famplan" class="display table table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Family Planning</th>
-              <th class="text-center" scope="col">Resident_ID</th>
+              <th class="text-center" scope="col">Family Planning</th> 
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
               <th class="text-center" scope="col">Method Used</th>
@@ -146,8 +141,7 @@
             @if ($familyplanning)
             @foreach ($familyplanning as $familyplanningRec)
             <tr>
-              <th class="text-center">{{ $familyplanningRec->id }}</th>
-              <td class="text-center">{{ $familyplanningRec->resident_id }}</td>
+              <th class="text-center">{{ $familyplanningRec->id }}</th> 
               <td class="text-center">{{ $familyplanningRec->name }}</td>
               <td class="text-center">{{ $familyplanningRec->age }}</td>
               <td class="text-center">{{ $familyplanningRec->method_used }}</td>
@@ -160,8 +154,7 @@
         <table id="diarrheal" class="display table table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Control of Diarrheal Problems</th>
-              <th class="text-center" scope="col">Resident_ID</th>
+              <th class="text-center" scope="col">Control of Diarrheal Problems</th> 
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
             </tr>
@@ -170,8 +163,7 @@
             @if ($diarrheal)
             @foreach ($diarrheal as $diarrhealRec)
             <tr>
-              <th class="text-center">{{ $diarrhealRec->id }}</th>
-              <td class="text-center">{{ $diarrhealRec->resident_id }}</td>
+              <th class="text-center">{{ $diarrhealRec->id }}</th> 
               <td class="text-center">{{ $diarrhealRec->name }}</td>
               <td class="text-center">{{ $diarrhealRec->age }}</td>
             </tr>
