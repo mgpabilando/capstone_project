@@ -140,8 +140,7 @@
   height: 80px;
   width: 225px;
   margin: 10px 0px 10px 10px;
-  border-radius: 5px;
-  background-image: linear-gradient(to bottom right, #08aeea , #2ae88a);
+  border-radius: 5px; 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 }
