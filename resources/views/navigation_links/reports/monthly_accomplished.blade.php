@@ -220,24 +220,12 @@
     </div>
   </div>
 </div>
-@include('layouts.includes.footer')
 
 <script>
   function printpage() {
     window.print();
   }
 </script>
-
-{{-- <script>
-  $(document).ready(function() {
-    $('#pregnant').DataTable( {
-    searching: false,
-    "paging":   false,
-        "ordering": false,
-        "info":     false
-    } );
-} );
-</script> --}}
 
 <script>
   $(document).ready(function() {
