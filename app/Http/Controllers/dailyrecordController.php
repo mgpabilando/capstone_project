@@ -15,6 +15,7 @@ class dailyrecordController extends Controller
         $morning = MorningDtr::get();
         $undertime = undertimeDtr::get();
 
-        return view('navigation_links.dtr', compact('afternoon', 'undertime', 'morning' ));
+        return view('navigation_links.dtr', compact('afternoon', 'undertime', 'morning'));
+        
     }
 }
