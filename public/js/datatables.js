@@ -2,7 +2,7 @@
     $('#bhw-datatable').DataTable
     ({
         columnDefs: 
-        [{ orderable: false, targets: 10 }]
+        [{ orderable: false, targets: 3 }]
     });
 //END____BHW-DATATABLE //
 
@@ -10,7 +10,7 @@
 $('#residentprofile-datatable').DataTable
 ({
     columnDefs: 
-    [{ orderable: false, targets: 7 }]
+    [{ orderable: false, targets: 4 }]
 });
 //END____RESIDENTPROFILE-DATATABLE //
 
@@ -19,7 +19,7 @@ $('#residentprofile-datatable').DataTable
     $('#pregnancy-datatable').DataTable
     ({
         columnDefs: 
-            [{ orderable: false, targets: 10 }],
+            [{ orderable: false, targets: 5 }],
     });
     //END____PREGNANCY-DATATABLE //
 
