@@ -15,15 +15,8 @@
                 <ul class="sub-menu blank">
                     <li><a class="link-name" href="#">Dashboard</a></li>
                 </ul>
-
             </li>
 
-            <li class="">  
-            <li class="">
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div> --}} {{--For drop down sub menu--}}
- 
             <li class=""> 
                 <a class="link {{ Request::is('residentprofile') ? 'active' : '' }}" href="residentprofile">
                     <i class="fas fa-id-badge"></i>
@@ -35,11 +28,6 @@
             </li>
 
             @if (Auth::user()->hasRole('admin_nurse')) 
-            <li class="">  
-            <li class="">
-                {{-- <div class="icon-link">
-                    <i class="fas fa-chevron-down"></i>
-                </div> --}} {{--For drop down sub menu--}} 
             <li class=""> 
                 <a class="{{ Request::is('bhw') ? 'active' : '' }}" href="bhw">
                     <i class="fa fa-address-card"></i>
@@ -51,6 +39,7 @@
                 </ul>
             </li>
             @endif
+            
             <li class="">
                 <div class="iocn-link">
                     <a>

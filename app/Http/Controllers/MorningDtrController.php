@@ -34,23 +34,24 @@ class MorningDtrController extends Controller
         if (Auth::user()->hasRole('admin_nurse')){
             $arrivalrecord = MorningDtr::create([
                 'user_id' => Auth::user()->id,
-                'Arrival' =>  Carbon::now()->format('H:i:m', 'Philippines'),
+                'Arrival' => $request['timein'],
+      
             ]);
-
             $arrivalrecord->save();
             return back()->with('success', 'Have a Great Day!');
-
         }
         
         elseif (Auth::user()->hasRole('bhw')){
             $arrivalrecord = MorningDtr::create([
                 'user_id' => Auth::user()->id,
-                'Arrival' =>  Carbon::now()->format('H:i:m', 'Philippines'),
+                'Arrival' => $request['timein'],
             ]);
     
             $arrivalrecord->save();
-            return redirect()->route('dashboard')->with('success', 'Have a Great Day!');
-    
+            return json_encode(array(
+                "statusCode"=>200
+            ));
+            // return back()->with('success', 'Have a Great Day!');
         }
     }
 
