@@ -11,8 +11,10 @@ class purokController extends Controller
 {
     public function index()
     {
-        $residentprofile = Residents::has('familyNumbering')->get();
+        $residentprofile = Residents::join('family_numberings', 'residents.id', '=', 'family_numberings.id')
+        ->get(['residents.*', 'family_numberings.purok']);
 
+        // dd($residentprofile);
         return view('navigation_links.purok', compact('residentprofile'));
 
 

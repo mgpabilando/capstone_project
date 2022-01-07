@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Alert;
+Use Response;
 
 class usersController extends Controller
 {
@@ -42,13 +43,24 @@ class usersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function userEmailCheck(Request $request)
+    {
+
+        $data = $request->all(); // This will get all the request data.
+        $userCount = User::where('email', $data['email']);
+        if ($userCount->count()) {
+            return Response::json(array('msg' => 'true'));
+        } else {
+            return Response::json(array('msg' => 'false'));
+        }
+    }
     public function store(Request $request)
     {
         $request->validate([
             'fname' => 'required', 'string', 'max:255',
             'lname' => 'required', 'string', 'max:255',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'age' => 'required', 'integer',
+            'age' => 'required', 'integer', 'max:3',
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
             'contact' => 'required', 'string', 'max:11',
@@ -154,4 +166,6 @@ class usersController extends Controller
         $deleteuser->delete();
         return redirect()->route('bhw.index')->with('success', 'Deleted Successfully.');
     }
+
+    
 }

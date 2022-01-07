@@ -47,7 +47,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              @if($morning)
                                 @foreach ($morning as $morningrecord )
                                 <tr>
                                   <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
@@ -62,7 +61,6 @@
                                   </td>
                                 </tr>  
                                 @endforeach
-                              @endif
                             </tbody>
                         </table>
                       </div>

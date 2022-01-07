@@ -53,7 +53,7 @@ use App\Http\Controllers\Dtr_ReportController;
 use App\Http\Controllers\MedRequest_ReportController;
 use App\Http\Controllers\MonthlyAccomplished_ReportController;
 use App\Http\Controllers\MonthlyVisitor_ReportController;
-
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +79,8 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::resource('/register', RegisteredUsersController::class);
+
+Route::post('email-validate', [EmailController::class, 'checkEmail'])->name('checkEmail');
 
 Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
     // route from main sidebar links //
