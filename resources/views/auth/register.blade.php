@@ -235,7 +235,7 @@
                         <div class="row d-flex flex-wrap ">
                             <div class="col-md-6">
                                 <label class="control-label" for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                                <input type="password" class="form-control" id="password" name="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                                 <span class="invalid-feedback" role="alert" id="passwordError" >
                                     <strong></strong>
                                 </span>

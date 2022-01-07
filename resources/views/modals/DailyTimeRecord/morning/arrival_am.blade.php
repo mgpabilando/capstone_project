@@ -5,12 +5,12 @@
         <h2>MORNING DAILY RECORD</h2>
       </div>
       <div class="modal-body">
-        <form action="{{ route('dtr.arrival') }}" method="POST">
+        <form id="morningarrival" action="{{ route('dtr.arrival') }}" method="POST">
           @csrf
           <input type="text" name="user_id" id="user_id" value={{ Auth::user()->id }} hidden>
           <input id="timein" name="timein" type="time" class="mb-2" value="{{ Carbon\Carbon::now()->format('H:i') }}">
           <div class="d-flex justify-content-center">
-            <button class="col-md-3 btn btn-success">TIME IN</button>
+            <button type="submit" class="col-md-3 btn btn-success">TIME IN</button>
           </div>
         </form>
       </div>
@@ -20,6 +20,19 @@
     </div>
   </div>
 </div>
+
+@section('scripts')
+  <script>
+
+    $('#morningarrival').submit(function(){
+
+      var morningrecord = document.getElementById('morningrecord');
+
+    $(this).find('button[type=submit]').prop('disabled', true);
+    document.getElementById('morningrecord').style.visibility = 'hidden';
+});
+  </script>
+@endsection
 
       
     

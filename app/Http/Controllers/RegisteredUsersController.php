@@ -51,7 +51,7 @@ class RegisteredUsersController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Dont leave the form empty')->withInput();
+            return redirect()->back()->withErrors('Some fields are empty')->withInput();
         }
 
         Auth::login($user = User::create([

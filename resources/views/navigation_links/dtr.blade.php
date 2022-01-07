@@ -31,7 +31,7 @@
 
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="morning" role="tabpanel" aria-labelledby="morning-tab">
-                      <button type="button" class="btn-dtr m-2 align-center" style="width: 300px;" data-bs-toggle="modal" data-bs-target="#MORNING">
+                      <button type="button" id="morningrecord" class="btn-dtr m-2 align-center" style="width: 300px;" data-bs-toggle="modal" data-bs-target="#MORNING">
                         MORNING RECORD
                       </button>
                         @include('modals.DailyTimeRecord.morning.arrival_am') 
@@ -145,6 +145,3 @@
         
 @endsection
 
-@section('scripts')
-  <script></script>
-@endsection
