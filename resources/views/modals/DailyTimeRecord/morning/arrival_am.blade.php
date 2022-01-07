@@ -10,7 +10,7 @@
           <input type="text" name="user_id" id="user_id" value={{ Auth::user()->id }} hidden>
           <input id="timein" name="timein" type="time" class="mb-2" value="{{ Carbon\Carbon::now()->format('H:i') }}">
           <div class="d-flex justify-content-center">
-            <button type="submit" class="col-md-3 btn btn-success">TIME IN</button>
+            <button id="submit-this" class="col-md-3 btn btn-success">TIME IN</button>
           </div>
         </form>
       </div>
@@ -24,13 +24,26 @@
 @section('scripts')
   <script>
 
-    $('#morningarrival').submit(function(){
+  // $('#morningarrival').submit(function(e){
 
-      var morningrecord = document.getElementById('morningrecord');
+  //   var morningrecord = document.getElementById('morningrecord');
 
-    $(this).find('button[type=submit]').prop('disabled', true);
-    document.getElementById('morningrecord').style.visibility = 'hidden';
-});
+  //   $(this).find('button[type=submit]').prop('disabled', true);
+  //   document.getElementById('morningrecord').style.visibility = 'hidden';
+    
+  //   return true;
+  // });
+
+//   $(document).ready(function () {
+    
+//     $("#morningarrival").submit(function (e) {
+
+//         $("#submit-this").attr("disabled", true);
+//         $("#morningrecord").attr("disabled", true);
+//         return true;
+
+//     });
+// });
   </script>
 @endsection
 
