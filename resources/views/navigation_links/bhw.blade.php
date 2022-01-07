@@ -18,67 +18,60 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="fw-bold head-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Barangay Health Workers</h4>
                         @if(request()->has('view_deleted'))
-                                <a href="{{ route('bhw.index') }}" class="btn btn-primary">View All</a>
+                        <a href="{{ route('bhw.index') }}" class="btn btn-primary">View All</a>
                         @else
-                            <button type="submit" class="btn btn-add me-2" title="Add New User" data-bs-toggle="modal" data-bs-target="#addbhwModal">
+                        <button type="submit" class="btn btn-add me-2" title="Add New User" data-bs-toggle="modal" data-bs-target="#addbhwModal">
                             <i class="fas fa-user-plus"></i> Add</button>
-                            @include('modals.BHW.Add')
+                        @include('modals.BHW.Add')
 
-                            <a href="{{ route('bhw.index', ['view_deleted' => 'DeletedRecords']) }}"
-                            class="btn btn-danger">Trash</a>
-                            
+                        <a href="{{ route('bhw.index', ['view_deleted' => 'DeletedRecords']) }}" class="btn btn-danger"><i class="fas fa-trash"></i> Trash</a>
+
                         @endif
                     </div>
 
                     <hr>
                     <div class="table-responsive mb-3">
                         <table id="bhw-datatable" class="table table-bordered table-striped table-hover">
-                            
+
                             <thead>
                                 <tr role="row">
-                                <th scope="col">ID</th>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Full Name</th>
-                                    <th scope="col">Email Address</th>  
+                                    <th scope="col">Email Address</th>
                                     <th>Actions</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @if($bhws)
                                 @foreach ($bhws as $bhw)
                                 <tr>
-                                <td data-label="ID">{{$bhw->id}}</td>
-                                    <td data-label="Full Name"><p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{$bhw->fname}} {{$bhw->lname}}</p></td>
-                                    <td data-label="E-mail" style="text-transform: lowercase;">{{$bhw->email}}</td> 
+                                    <td data-label="ID">{{$bhw->id}}</td>
+                                    <td data-label="Full Name">
+                                        <p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{$bhw->fname}} {{$bhw->lname}}</p>
+                                    </td>
+                                    <td data-label="E-mail" style="text-transform: lowercase;">{{$bhw->email}}</td>
                                     <td data-label="" style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                         @if (request()->has('view_deleted'))
-                                                    <a href="{{ route('bhws.restore', $bhw->id) }}" class="btn btn-success">Restore</a>
-                                                    <a type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#deleteModal"  data-user_id="{{$bhw->id}}">Delete
-                                                    </a>
-                                                    @include('modals.BHW.PermanentDelete')
+                                        <a href="{{ route('bhws.restore', $bhw->id) }}" class="btn btn-success">Restore</a>
+                                        <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-user_id="{{$bhw->id}}">Delete
+                                        </a>
+                                        @include('modals.BHW.PermanentDelete')
                                         @else
                                         {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn bhw_view" data-bs-target="#viewbhw"
-                                            data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
-                                            data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
-                                            data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
-                                        <i class="manage fas fa-eye"></i></a>
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_view" data-bs-target="#viewbhw" data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}" data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}" data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
+                                            <i class="manage fas fa-eye"></i></a>
                                         @include('modals.BHW.Show')
-                                    
+
                                         {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn bhw_edit" data-bs-target="#editbhw"
-                                            data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}"
-                                            data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}"
-                                            data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">                                        
-                                        <i class="manage fas text-warning fa-edit"></i>
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_edit" data-bs-target="#editbhw" data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}" data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}" data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
+                                            <i class="manage fas text-warning fa-edit"></i>
                                         </a>
                                         @include('modals.BHW.Edit')
-                                    
+
                                         {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn bhw_delete" data-bs-target="#deletebhw"
-                                        data-user_id="{{$bhw->id}}">
-                                        <i class="manage text-danger fas fa-trash"></i>
+                                        <a data-bs-toggle="modal" type="button" class="btn bhw_delete" data-bs-target="#deletebhw" data-user_id="{{$bhw->id}}">
+                                            <i class="manage text-danger fas fa-trash"></i>
                                         </a>
                                         @include('modals.BHW.Delete')
                                         @endif
@@ -108,9 +101,9 @@
         else
             $("#CheckPasswordMatch").html("Passwords match.").css('color', 'green');
     }
-        $(document).ready(function () {
-            $("#newpass_confirm").keyup(CheckPasswordMatch);
-        });
+    $(document).ready(function() {
+        $("#newpass_confirm").keyup(CheckPasswordMatch);
+    });
 </script>
 
 {{-----------------------------EDIT BHW SCRIPT--------------------------------}}
@@ -137,7 +130,7 @@
         modal.find('.modal-body #editbdate').val(bdate);
         modal.find('.modal-body #editaddress').val(address);
         modal.find('.modal-body #editcontact').val(contact);
-    }) ;
+    });
 </script>
 
 {{-----------------------------DELETE BHW SCRIPT--------------------------------}}
@@ -163,7 +156,8 @@
         var modal = $(this)
         modal.find('.modal-title').text(' Delete Profile');
         modal.find('.modal-body #deleteuser_id').val(user_id);
-    p});
+        p
+    });
 </script>
 
 {{-----------------------------VIEW BHW SCRIPT--------------------------------}}

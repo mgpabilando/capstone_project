@@ -1,26 +1,24 @@
 <style>
-    li:hover
-    {
+    li:hover {
         background-color: #e8f0fe;
     }
 
     .select2-container .select2-selection--single {
-    box-sizing: border-box;
-    cursor: pointer;
-    display: block;
-    height: 28px;
-    user-select: none;
-    -webkit-user-select: none;
-    width:300px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        height: 28px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 300px;
     }
 
     .select2-dropdown--below {
-    border-top: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    font-size: 13px;
-}
-}
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        font-size: 13px;
+    }
 </style>
 
 <div class="consul-show modal fade" id="editfamilynumber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -55,7 +53,7 @@
                         </div>
 
                         <div class="input-box">
-                        <div class="details">Purok No.:</div>
+                            <div class="details">Purok No.:</div>
                             <select class="purok" name="Epurok" id="Epurok">
                                 <option selected>Select</option>
                                 <option value="1">UNO</option>
@@ -77,5 +75,3 @@
         </div>
     </div>
 </div>
-
-

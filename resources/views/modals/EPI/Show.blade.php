@@ -1,26 +1,23 @@
 <style>
-    li:hover
-    {
+    li:hover {
         background-color: #e8f0fe;
     }
 
-    .select2-container .select2-selection--single
-    {
-    box-sizing: border-box;
-    cursor: pointer;
-    display: block;
-    height: 28px;
-    user-select: none;
-    -webkit-user-select: none;
-    width:300px;
+    .select2-container .select2-selection--single {
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        height: 28px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 300px;
     }
 
-    .select2-dropdown--below 
-    {
-    border-top: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    font-size: 13px;
+    .select2-dropdown--below {
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        font-size: 13px;
     }
 </style>
 
@@ -34,17 +31,17 @@
             <form class="show-consult" method="GET" action=" {{route('epi.show', 'id')}}">
                 @csrf
                 <div class="modal-body">
-                    <div class="res_prof row justify-content-center" id="details">  
+                    <div class="res_prof row justify-content-center" id="details">
                         <div class="input-box">
                             <input name="Vepi_id" id="Vepi_id" type="block" placeholder="" hidden>
                         </div>
-                        <div class="input-box col-6 pb-3 align-self-center">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
                             <input type="text" name="VresID" id="VresID" placeholder="" required style="width:auto" readonly>
                         </div>
                     </div>
                     <hr>
-                    <div class="res_prof justify-content-center" id="details">  
+                    <div class="res_prof justify-content-center" id="details">
                         <div class="input-box pb-3">
                             <div class="details">Name:</div>
                             <input type="text" name="Vresname" id="Vresname" placeholder="" required readonly>

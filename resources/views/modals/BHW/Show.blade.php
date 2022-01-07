@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
             </div>
-            <form class="bhw-modal"  method="GET" action=" {{route('bhw.show', 'user_id')}}">
+            <form class="bhw-modal" method="GET" action=" {{route('bhw.show', 'user_id')}}">
                 @csrf
                 <div class="modal-body">
                     <div class="personal-info">
@@ -16,36 +16,36 @@
                             <input name="user_id" id="user_id" type="hidden" placeholder="">
                         </div>
                         <div class="row row-space">
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="fname">First Name:</label><br>
                                 <input class="name align-text-left" id="fname" name="fname" type="text" placeholder="" required readonly>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="lname">Last Name:</label><br>
                                 <input class="name align-text-left" id="lname" name="lname" type="text" placeholder="" required readonly>
                             </div>
                         </div>
 
                         <div class="row row-space">
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="address">Address:</label><br>
                                 <input class="address align-text-left" id="address" name="address" type="text" placeholder="" required readonly>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="contact">Contact Number:</label><br>
                                 <input class="contact align-text-left" id="contact" name="contact" type="text" placeholder="" required readonly>
                             </div>
                         </div>
 
                         <div class="row row-space">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <label class="control-label" for="bdate">Birthdate:</label><br>
                                 <input class="bdate align-text-left" id="bdate" name="bdate" type="date" placeholder="" required readonly>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="age">Age:</label><br>
                                 <input class="age align-text-left" id="age" name="age" type="text" placeholder="" required readonly>
                             </div>
