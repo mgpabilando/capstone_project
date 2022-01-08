@@ -54,6 +54,8 @@ use App\Http\Controllers\MedRequest_ReportController;
 use App\Http\Controllers\MonthlyAccomplished_ReportController;
 use App\Http\Controllers\MonthlyVisitor_ReportController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\TimeEntryController;
+use App\Http\Controllers\Report_TimeRecordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,8 +84,8 @@ Route::resource('/register', RegisteredUsersController::class);
 
 Route::post('email-validate', [EmailController::class, 'checkEmail'])->name('checkEmail');
 
-Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
-    // route from main sidebar links //
+Route::group([ 'middleware' => ['auth']], function () {
+    // SIDEBAR//
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/bhw', [DashboardController::class, 'index'])->name('dashboard.bhw');
     Route::get('/events', [DashboardController::class, 'activityevents'])->name('dashboard.events');
@@ -93,18 +95,12 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
     Route::get('/myprofile', [DashboardController::class, 'users_profile'])->name('dashboard.myprofile');
     Route::get('/dtr', [DashboardController::class, 'dtr'])->name('dashboard.dtr');
 
+    //DAILY TIME RECORD//
     Route::get('/dtr', [dailyrecordController::class, 'records'])->name('dtr.records');
-    Route::get('/dailytimerecord/morning', [MorningDtrController::class, 'morningrecords'])->name('dtr.morningrecords');
-    Route::post('/dailytimerecord/arrival', [MorningDtrController::class, 'Arrival'])->name('dtr.arrival');
-    Route::post('/dailytimerecord/departure/{id}', [MorningDtrController::class, 'Departure'])->name('dtr.departure');
+    Route::get('/dailytimerecord/morning', [MorningDtrController::class, 'showmorning'])->name('dtr.showmorning');
+    Route::post('/update/morningrecord', [MorningDtrController::class, 'updatemorning'])->name('dtr.updatemorning');
 
-    Route::get('/dailytimerecord/afternoon', [AfternoonDtrController::class, 'afternoonrecords'])->name('dtr.afternoonrecords');
-    Route::post('/dailytimerecord/afternoon/arrival', [AfternoonDtrController::class, 'Arrival'])->name('dtr.afternoonarrival');
-    Route::post('/dailytimerecord/afternoon/departure/{id}', [AfternoonDtrController::class, 'Departure'])->name('dtr.afternoondeparture');
-
-    Route::get('/dailytimerecord/undertime', [UndertimeDtrController::class, 'undertimerecords'])->name('dtr.undertimerecords');
-    Route::post('/dailytimerecord/undertimeadd', [UndertimeDtrController::class, 'undertimerecord'])->name('dtr.undertime');
-
+    Route::get('/dailytimerecord', [Report_TimeRecordController::class, 'index'])->name('reports.index');
 
 // route for health consultation sidebar links //
     Route::get('/pregnancy', [DashboardController::class, 'pregnancy'])->name('dashboard.pregnancy');
@@ -199,6 +195,6 @@ Route::group([ 'middleware' => ['role:admin_nurse|bhw']], function () {
 //Routes for Reports Page //
     Route::get('/monthly_accomplished', [MonthlyAccomplished_ReportController::class, 'index'])->name('report.monthly_accomplished');
     Route::get('/monthly_visitor', [MonthlyVisitor_ReportController::class, 'index'])->name('report.monthly_visitor');
-    Route::get('/daily_timerec', [Dtr_ReportController::class, 'index'])->name('report.daily_timerec');
+   // Route::get('/daily_timerec', [Dtr_ReportController::class, 'index'])->name('report.daily_timerec');
     Route::get('/med_request', [MedRequest_ReportController::class, 'index'])->name('report.med_request');
 });

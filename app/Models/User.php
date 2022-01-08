@@ -10,6 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
+use Hash;
 
 class User extends Authenticatable
 {
@@ -21,6 +23,20 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
+    public $table = 'users';
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected $dates = [
+        'updated_at',
+        'created_at',
+        'deleted_at',
+        'email_verified_at',
+    ];
 
     protected $fillable = [
         'profile_image',
@@ -40,10 +56,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
 
     /**
      * The attributes that should be cast.
@@ -60,5 +72,26 @@ class User extends Authenticatable
         }else{
             return asset('storage/images/user.png');
         }
+    }
+
+
+        public function timeEntries()
+    {
+        return $this->hasMany(TimeEntry::class);
+    }
+
+    public function morningrecord()
+    {
+        return $this->hasMany(MorningDtr::class);
+    }
+
+    public function afternoonrecord()
+    {
+        return $this->hasMany(afternoonDtr::class);
+    }
+
+    public function undertimerecord()
+    {
+        return $this->hasMany(undertimeDtr::class);
     }
 }

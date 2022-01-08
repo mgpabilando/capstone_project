@@ -28,19 +28,19 @@
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 10px;
   text-transform: capitalize;
 }
 
- .modal input[type=password], .modal input[type=email], .modal input[type=number]{
+ .modal input[type=password], .modal input[type=tel], .modal input[type=email], .modal input[type=number]{
   width: 100%;
   padding: 5px 20px;
   margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 10px;
   text-transform: lowercase;
  }
@@ -52,10 +52,11 @@
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 10px;
   text-transform: uppercase;
  }
+ 
 
 /* Set a style for all buttons */
 .modal .modal-content .signUp-btn {
@@ -73,16 +74,6 @@
   cursor: pointer;
   width: 40%;
   opacity: 0.9;
-}
-
-.modal-content .modal-body select{ 
-  border-radius: 10px;
-  padding: 5px 20px;
-  margin: 0px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  font-size: 14px;
 }
 
 .modal .modal-content .control-label{
@@ -150,7 +141,7 @@
  </style>
 
 <div class="modal fade" id="registerModal" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-dialog modal-fullscreen-sm-down" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
@@ -260,8 +251,8 @@
                         </div>
 
                         
-                        <div class="row d-flex flex-wrap">
-                            <div class="col-12">
+                        <div class="row d-flex flex-wrap col-12">
+                            <div class="">
                                 <label class="control-label" for="role-id">Register as:</label>
                                 <select name="role_id">
                                     <option selected>Choose...</option>

@@ -19,19 +19,15 @@
     <div class="row no-margin-padding">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="block-title">Nurse Dashboard</h3>
-            {{-- <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#MORNING">
-                      MORNING RECORD
-            </button>
-            @include('modals.DailyTimeRecord.MORNING') 
-            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#AFTERNOON">
-              AFTERNOON RECORD
-            </button>
-            @include('modals.DailyTimeRecord.AFTERNOON') 
-            <button type="button" class="btn-dtr m-2 align-center" style="width: 100px; font-size:smaller" data-bs-toggle="modal" data-bs-target="#UNDERTIME">
-              UNDERTIME RECORD
-            </button>
-            @include('modals.DailyTimeRecord.UNDERTIME')  --}}
-            <a href="dtr" class="btn btn-success">DAILY TIME RECORD</a>
+            <a href="dtr" class="btn btn-success me-2">DAILY TIME RECORD</a>
+            {{-- <li class="nav-item" id="timer">
+              <a href="#" class="btn btn-success">
+                  <i class="fa-fw fas fa-clock nav-icon">
+
+                  </i>
+                  <span>Start work</span>
+              </a>
+          </li> --}}
 
         </div>
     </div>
@@ -98,7 +94,6 @@
 
     </div>
 </div>
-
 @section('scripts')
 <script>
 var data = {
@@ -132,11 +127,6 @@ var myBarChart = new Chart(ctx, {
     options: options
 });
 
-
-
-
-
-
 </script>
 
 <script>
@@ -166,7 +156,41 @@ $(document).ready(function () {
   });
 
 });
-
-
 </script>
+
+<script>
+  function switchWorkStatus(data) {
+      let $timer = $("#timer span");
+      let text = $timer.text() == 'Stop work' ? 'Start work' : 'Stop work';
+      $timer.text(text);
+      swal({
+          title: 'Success!',
+          text: data.status,
+          icon: 'success'
+      })
+  };
+
+  $(document).ready(function(){
+    $(function() {
+        $.get("{{ route('showCurrent') }}", function (data) {
+            if(data.timeEntry != null) {
+                switchWorkStatus();
+            }
+        });
+        var csrf_token = $('meta[name="csrf-token"]').attr('content');
+        $('#timer').click(function () {
+            $.ajax({
+                method: "POST",
+                url: "{{ route('updateCurrent') }}",
+                data: {
+                  csrf_token
+                },
+                success: (data) => switchWorkStatus(data),
+                error: () => window.location.reload()
+            });
+        });
+    });
+  });
+  </script>
+
 @endsection

@@ -173,14 +173,14 @@ body{
 
 
 /* Full-width input fields */
-.modal input[type=text], .modal input[type=tel], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
+.modal input[type=text], .modal input[type=password], .modal input[type=date], .modal input[type=email]{
   width: 100%;
   padding-left: 5px;
   margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 25px;
 
 }
@@ -203,11 +203,11 @@ body{
   width: 100%;
   border-radius: 25px;
   padding: 5px 20px;
-  margin: 0px 0;
+  margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 10px;
 } 
  
 

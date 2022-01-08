@@ -14,14 +14,15 @@ class CreateMorningDtrsTable extends Migration
     public function up()
     {
         Schema::create('morning_dtrs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('Arrival')->nullable();
-            $table->string('Departure')->nullable();
+            $table->increments('id');
+            $table->datetime('Arrival');
+            $table->datetime('Departure')->nullable();
             $table->timestamps();
-            
+            $table->softDeletes();
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
+
+            ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

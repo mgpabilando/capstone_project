@@ -137,10 +137,5 @@ $('#medRequest-datatable').DataTable
 
 $('#DTR-datatable').DataTable
 ({
-    columnDefs: 
-    [{ orderable: false, targets: 0 }],
-    searching: false,
-    "paging":   false,
-    "ordering": false,
-    "info":     false
+    "order": [[ 1, 'desc' ]]
 });

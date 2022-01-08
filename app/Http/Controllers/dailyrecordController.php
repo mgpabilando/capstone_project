@@ -11,11 +11,9 @@ use Carbon\Carbon;
 class dailyrecordController extends Controller
 {
     public function records(){
-        $afternoon = afternoonDtr::get();
         $morning = MorningDtr::get();
-        $undertime = undertimeDtr::get();
 
-        return view('navigation_links.dtr', compact('afternoon', 'undertime', 'morning'));
+        return view('navigation_links.dtr', compact('morning'));
         
     }
 }

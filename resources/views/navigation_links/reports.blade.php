@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-md-6 mt-3 d-flex justify-content-center align-items-center">
-      <a href="daily_timerec">Daily Time Record</a>
+      <a href="{{ route("reports.index") }}">Daily Time Record</a>
     </div>
 
     <div class="col-md-6 mt-3 d-flex justify-content-center align-items-center">

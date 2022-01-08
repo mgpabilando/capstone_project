@@ -16,9 +16,9 @@ class ReportController extends Controller
      return view('navigation_links.reports.monthly_visitor');
      }
 
-     public function daily_timerec()
+     public function dailytimerecord()
      { 
-     return view('navigation_links.reports.daily_timerec');
+     return view('navigation_links.reports.index');
      } 
 
      public function med_request()
