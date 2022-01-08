@@ -18,16 +18,16 @@ class CreateResidentsTable extends Migration
             $table->unsignedBigInteger('family_id');
             $table->string('family_head');
             $table->string('fname');
-            $table->string('mname');
+            $table->string('mname')->nullable();
             $table->string('lname');
             $table->integer('age');
             $table->date('bdate');
             $table->string('placeofbirth');
             $table->string('sex');
             $table->string('civil_status');
-            $table->string('phil_health_id')->unique();
-            $table->string('id_4ps')->unique();
-            $table->string('mobile');
+            $table->string('phil_health_id')->unique()->nullable();
+            $table->string('id_4ps')->unique()->nullable();
+            $table->string('mobile')->nullable();
             
             $table->rememberToken();
             $table->timestamps();

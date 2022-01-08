@@ -16,7 +16,7 @@ class CreateFamilyNumberingsTable extends Migration
         Schema::create('family_numberings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('f_name');
-            $table->string('m_name');
+            $table->string('m_name')->nullable();
             $table->string('l_name');
             $table->string('purok');
             $table->timestamps();

@@ -33,9 +33,9 @@
                         <table id="residentprofile-datatable" class="table table-bordered table-striped datatable-hover">
                                 <thead>
                                     <tr role="row"> 
-                                        <th scope="col">ID</th> 
-                                        <th class="text-center" scope="col">Family Head</th>
-                                        <th scope="col">Full Name</th>
+                                        <th class="text-center" scope="col">ID</th> 
+                                        <th class="text-center col-3" scope="col">Family Head</th>
+                                        <th class="text-center col-4" scope="col">Resident Name</th>
                                         <th class="text-center" scope="col">Date Added</th> 
                                         <th scope="col-md-1">Action</th>
                                     </tr>
@@ -46,7 +46,7 @@
                                         <tr>
                                         <td data-label="ID">{{ $residentprofile->id }}</td>
                                         <td data-label="Family Head" class="text-center">{{ $residentprofile->family_head }}</td>
-                                        <td data-label="Full Name"><p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{ $residentprofile->lname }}, {{ $residentprofile->fname }} {{ $residentprofile->mname }}.</p></td> 
+                                        <td data-label="Full Name"><p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{ $residentprofile->lname }}, {{ $residentprofile->fname }} {{ $residentprofile->mname }}</p></td> 
                                         <td data-label="Date Added" class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
                                         <td td data-label="" style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 @if (request()->has('view_deleted'))

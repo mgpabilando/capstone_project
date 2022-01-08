@@ -47,14 +47,14 @@ class FamilyNumberingController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'f_name' => 'required | string | max:255',
-            'm_name' => 'string | max:255',
+            'm_name' => 'string | max:255 | nullable',
             'l_name' => 'required | string | max:255',
             'purok' => 'required',
 
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Do not leave it blank')->withInput();
+            return redirect()->back()->withErrors('Required field is empty.')->withInput();
         }
 
         $familyNumbering = FamilyNumbering::create([
@@ -104,18 +104,23 @@ class FamilyNumberingController extends Controller
      */
     public function update(Request $request, FamilyNumbering $familyNumbering)
     {
-        $request->validate([
-            'Ef_name' => 'required',
-            'Em_name' => 'required',
-            'El_name' => 'required',
-            'Epurok'=> 'required',
+        $validator = Validator::make($request->all(), [
+            'Ef_name' => 'required | string | max:255',
+            'Em_name' => 'string | max:255 | nullable',
+            'El_name' => 'required | string | max:255',
+            'Epurok' => 'required',
+
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors('Required field is empty.')->withInput();
+        }
+        
         $familynumberrecord = array (
-            'Ef_name'=> $request->Ef_name,
-            'Em_name'=> $request->Em_name,
-            'El_name'=> $request->El_name,
-            'Epurok' => $request->Epurok,
+            'f_name'=> $request->Ef_name,
+            'm_name'=> $request->Em_name,
+            'l_name'=> $request->El_name,
+            'purok' => $request->Epurok,
         );
 
         FamilyNumbering::findOrFail($request->Efamilynumber_id)->update($familynumberrecord);

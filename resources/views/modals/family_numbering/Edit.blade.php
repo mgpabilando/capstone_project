@@ -19,8 +19,17 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     font-size: 13px;
-}
-}
+    }
+
+    #editfamilynumber .details{
+        font-weight: 600;
+    }
+
+    #editfamilynumber .modal-header{
+    background-color: #ffc107;
+    color: #ffffff;
+    }
+
 </style>
 
 <div class="consul-show modal fade" id="editfamilynumber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -35,29 +44,32 @@
                 @method('PUT')
                 <div class="modal-body">
                     <div class="d-flex flex-wrap identification row ">
-                        <div class="input-box">
+                        <div class="input-box text-center"  style="width: 50%;">
                             <div class="details">Family Number:</div>
-                            <input name="Efamilynumber_id" id="Efamilynumber_id" type="text" placeholder="" required readonly>
+                            <input name="Efamilynumber_id" id="Efamilynumber_id" style=" text-align:center;" type="text" placeholder="" required readonly>
                         </div>
-
-                        <div class="input-box">
+                    </div>
+                    <div class="d-flex identification row mt-2">
+                        <div class="input-box" style="width: 50%">
                             <div class="details">First Name:</div>
                             <input name="Ef_name" id="Ef_name" type="text" placeholder="" required>
                         </div>
-                        <div class="input-box">
+                        <div class="input-box" style="width: 50%">
                             <div class="details">Middle Name:</div>
-                            <input name="Em_name" id="Em_name" type="text" placeholder="" required>
+                            <input name="Em_name" id="Em_name" type="text" placeholder="">
                         </div>
+                    </div>
 
-                        <div class="input-box">
+                    <div class="d-flex identification row">
+                        <div class="input-box mt-2" style="width: 50%">
                             <div class="details">Last Name:</div>
                             <input name="El_name" id="El_name" type="text" placeholder="" required>
                         </div>
-
-                        <div class="input-box">
-                        <div class="details">Purok No.:</div>
-                            <select class="purok" name="Epurok" id="Epurok">
-                                <option selected>Select</option>
+                    
+                        <div class="input-box  mt-2" style="width: 50%">
+                            <div class="details">Purok No.:</div>
+                            <select class="purok" name="Epurok" id="Epurok" class="required">
+                                <option value="" selected>Select</option>
                                 <option value="1">UNO</option>
                                 <option value="2">DOS</option>
                                 <option value="3">TRES</option>

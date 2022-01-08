@@ -17,6 +17,17 @@
                 </ul>
             </li>
 
+            <li class="">
+                <a class="{{ Request::is('familynumbering') ? 'active' : '' }}" href="familynumbering">
+                    <i class="fas fa-users"></i>
+                    <span class="link-name">Family Numbering</span>
+                </a>
+
+                <ul class="sub-menu blank">
+                    <li><a class="link-name" href="#">Family Numbering</a></li>
+                </ul>
+            </li>
+
             <li class=""> 
                 <a class="link {{ Request::is('residentprofile') ? 'active' : '' }}" href="residentprofile">
                     <i class="fas fa-id-badge"></i>
@@ -78,17 +89,6 @@
 
                 <ul class="sub-menu blank">
                     <li><a class="link-name" href="#">Purok</a></li>
-                </ul>
-            </li>
-
-            <li class="">
-                <a class="{{ Request::is('familynumbering') ? 'active' : '' }}" href="familynumbering">
-                    <i class="fas fa-users"></i>
-                    <span class="link-name">Family Numbering</span>
-                </a>
-
-                <ul class="sub-menu blank">
-                    <li><a class="link-name" href="#">Family Numbering</a></li>
                 </ul>
             </li>
 

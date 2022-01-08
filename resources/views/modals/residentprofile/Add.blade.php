@@ -59,12 +59,12 @@
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-4 input-box">
                                 <div class="details">Family No.:</div>
-                                <input type="text" name="family_id" id="family_id">
+                                <input type="text" name="family_id" id="family_id" required>
                             </div>
 
                             <div class="col-4 input-box">
                                 <div class="details">Family Head:</div>
-                                <input type="text" name="family_head" id="family_head">
+                                <input type="text" name="family_head" id="family_head" required>
                             </div>
                         </div>
 
@@ -99,16 +99,16 @@
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-4 input-box">
                                 <div class="details">Sex:</div>
-                                <select class="gender" name="sex">
-                                <option selected>Select</option>'
+                                <select class="gender" name="sex" required>
+                                <option selected>Select</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 </select>
                             </div>
                             <div class="col-4 input-box">
                                 <div class="details">Civil Status:</div>
-                                <select class="civil-status" name="civil_status">
-                                    <option selected>Select</option>'
+                                <select class="civil-status" name="civil_status" required>
+                                    <option selected>Select</option>
                                     <option value="Single">Single</option>
                                     <option value="Married">Married</option>
                                     <option value="Divorced">Divorced</option>
@@ -123,11 +123,11 @@
                         <div class="d-flex flex-wrap identification row ">
                             <div class="col-6 input-box">
                                 <div class="details">PhilHealth ID No:</div>
-                                <input name="phil_health_id" type="text" placeholder="" required>
+                                <input name="phil_health_id" type="text" placeholder="Leave blank if not applicable" pattern="[0-9]{12}" title="Unique 12-digit numbers" minlength="12" maxlength="12">
                             </div>
                             <div class="col-6 input-box">
                                 <div class="details">4PS ID No:</div>
-                                <input name="id_4ps" type="text" placeholder="" required>
+                                <input name="id_4ps" type="text" placeholder="Leave blank if not applicable" pattern="[0-9]" title="Unique numbers">
                             </div>
                         </div>
                     </div>

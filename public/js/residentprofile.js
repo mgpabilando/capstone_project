@@ -25,7 +25,6 @@ $('#editResidentModal').on('show.bs.modal', function(event) {
    var modal = $(this)
    modal.find('.modal-title').text('Edit Resident Profile');
    modal.find('.modal-body #Eresident_id').val(resident_id);
-   modal.find('.modal-body #Epurok').val(purok);
    modal.find('.modal-body #Efamily_id').val(family_id);
    modal.find('.modal-body #Efamily_head').val(family_head);
    modal.find('.modal-body #Efname').val(fname);
@@ -84,9 +83,8 @@ $('#viewResidentModal').on('show.bs.modal', function(event) {
    var civil_status = button.data('civil_status')
 
    var modal = $(this)
-   modal.find('.modal-title').text('Edit Resident Profile');
+   modal.find('.modal-title').text('View Resident Profile');
    modal.find('.modal-body #resident_id').val(resident_id);
-   modal.find('.modal-body #purok').val(purok);
    modal.find('.modal-body #family_id').val(family_id);
    modal.find('.modal-body #family_head').val(family_head);
    modal.find('.modal-body #fname').val(fname);

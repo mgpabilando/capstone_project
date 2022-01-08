@@ -1,10 +1,10 @@
 <style>
-    li:hover
+    #addfamilynumber li:hover
     {
         background-color: #e8f0fe;
     }
 
-    .select2-container .select2-selection--single {
+    #addfamilynumber .select2-container .select2-selection--single {
     box-sizing: border-box;
     cursor: pointer;
     display: block;
@@ -14,12 +14,18 @@
     width:300px;
     }
 
-    .select2-dropdown--below {
+    #addfamilynumber .select2-dropdown--below {
     border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     font-size: 13px;
     }
+
+    #addfamilynumber .details{
+        font-weight: 600;
+    }
+
+
 </style>
 
 <div class="consul-add modal fade" id="addfamilynumber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -36,11 +42,11 @@
                     <div class="d-flex identification row">
                         <div class="input-box" style="width: 50%">
                             <div class="details">First Name:</div>
-                            <input name="f_name" type="text" placeholder="" required>
+                            <input name="f_name" id="f_name" type="text" placeholder="" required>
                         </div>
                         <div class="input-box" style="width: 50%">
                             <div class="details">Middle Name:</div>
-                            <input name="m_name" type="text" placeholder="" required>
+                            <input name="m_name" id="m_name" type="text" placeholder="">
                         </div>
                     </div>
 
@@ -52,8 +58,8 @@
                     
                         <div class="input-box  mt-2" style="width: 50%">
                             <div class="details">Purok No.:</div>
-                            <select class="purok" name="purok" id="purok">
-                                <option selected>Select</option>
+                            <select class="purok" name="purok" id="purok" class="required">
+                                <option value="" selected>Select</option>
                                 <option value="1">UNO</option>
                                 <option value="2">DOS</option>
                                 <option value="3">TRES</option>
