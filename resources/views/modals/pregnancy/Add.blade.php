@@ -41,7 +41,7 @@
                     <div class="res_prof row justify-content-center" id="details">
                         <div class="input-box col-md-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
-                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
+                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto" readonly>
                             <input type="text" name="resname" id="resname" hidden>
                         </div>
                         <hr>
@@ -50,26 +50,26 @@
                     <div class="row">
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Weight(kg):</div>
-                            <input type="text" name="weight" id="weight" placeholder="">
+                            <input type="text" name="weight" id="weight" pattern="[0-9]" placeholder="" required>
                         </div>
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Height(cm):</div>
-                            <input type="text" name="height" id="height" placeholder="">
+                            <input type="text" name="height" id="height" pattern="[0-9]" placeholder="" required>
                         </div>
                     </div>
 
                     <div class="row pregnancy-info">
                         <div class="input-box col-md-4 pb-3">
                             <div class="details">Age:</div>
-                            <input type="text" name="age" id="age" placeholder="">
+                            <input type="text" name="age" id="age" pattern="[0-9]" placeholder="" required>
                         </div>
                         <div class="input-box col-md-4 pb-3">
                             <div class="details">LMP:</div>
-                            <input type="date" name="lmp" id="lmp" placeholder="">
+                            <input type="date" name="lmp" id="lmp" placeholder="" required>
                         </div>
                         <div class="input-box col-md-4 pb-3">
                             <div class="details">Pregnancy Order:</div>
-                            <input type="text" name="pregnancyorder" id="pregnancyorder" placeholder="">
+                            <input type="text" name="pregnancyorder" id="pregnancyorder" pattern="[0-9]" placeholder="" required>
                         </div>
                     </div>
                 </div>

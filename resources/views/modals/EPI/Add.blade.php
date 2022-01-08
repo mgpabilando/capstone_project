@@ -41,7 +41,7 @@
                     <div class="res_prof row justify-content-center" id="details">
                         <div class="input-box col-md-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
-                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
+                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto" readonly>
                             <input type="text" name="resname" id="resname" hidden>
                         </div>
                         <hr>
@@ -52,9 +52,11 @@
                             <div class="details">Birthdate:</div>
                             <input type="date" name="birthdate" id="birthdate" placeholder="">
                         </div>
+                    </div>
+                 <div class="row">
                         <div class="input-box col pb-3">
                             <div class="details">Medicine Given:</div>
-                            <textarea id="meds_given" name="meds_given" cols="30" rows="10"></textarea>
+                            <textarea id="meds_given" name="meds_given" class="text-wrap" style="width:100%; height: 100px; padding: 0px5px; "></textarea>
                         </div>
                     </div>
 

@@ -41,7 +41,7 @@
                     <div class="res_prof row justify-content-center" id="details">
                         <div class="input-box col-md-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
-                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
+                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto" readonly>
                             <input type="text" name="resname" id="resname" hidden>
                         </div>
                         <hr>
@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Age:</div>
-                            <input type="number" name="age" id="age" placeholder="">
+                            <input type="number" name="age" pattern="[0-9]" id="age" placeholder="">
                         </div>
                     </div>
 

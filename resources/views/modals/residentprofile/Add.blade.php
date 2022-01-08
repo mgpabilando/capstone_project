@@ -60,12 +60,12 @@
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-6 input-box">
                             <div class="details">Family No.:</div>
-                            <input type="text" name="family_id" id="family_id">
+                            <input type="text" name="family_id" id="family_id" readonly>
                         </div>
 
                         <div class="col-md-6 input-box">
                             <div class="details">Family Head:</div>
-                            <input type="text" name="family_head" id="family_head">
+                            <input type="text" name="family_head" id="family_head" readonly>
                         </div>
                     </div>
 
@@ -86,7 +86,7 @@
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-4 input-box">
                             <div class="details">Age:</div>
-                            <input name="age" type="number" placeholder="" required>
+                            <input name="age" type="number" placeholder="" max="500" required>
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Birthdate:</div>
@@ -118,17 +118,17 @@
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Contact Number:</div>
-                            <input name="mobile" type="number" placeholder="" required>
+                            <input name="mobile" type="text" placeholder="" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11">
                         </div>
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-6 input-box">
                             <div class="details">PhilHealth ID No:</div>
-                            <input name="phil_health_id" type="text" placeholder="00-000000000-0" pattern="[0-9]{2}-[0-9]{9}-[0-9]{1}" required>
+                            <input name="phil_health_id" type="text" pattern="[0-9]{12}" placeholder="000000000000" maxlength="12"  >
                         </div>
                         <div class="col-md-6 input-box">
                             <div class="details">4PS ID No:</div>
-                            <input name="id_4ps" type="text" placeholder="000000000-0000-00000" pattern="[0-9]{9}-[0-9]{4}-[0-9]{5}" required>
+                            <input name="id_4ps" type="text" placeholder="000000000000000000"  pattern="[0-9]{18}" maxlength="18">
                         </div>
                     </div>
                 </div>

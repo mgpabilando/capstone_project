@@ -24,7 +24,7 @@ class ResidentController extends Controller
 
         if ($request->has('view_deleted')) {
             $residentprofile = Residents::onlyTrashed()->get();
-        }   
+        }
 
         return view('navigation_links.residentprofile')->with('residents', $residentprofile);
     }
@@ -56,11 +56,11 @@ class ResidentController extends Controller
             'age' => 'required | integer',
             'placeofbirth' => 'required | string | max:255',
             'bdate' => 'required | date',
-            'mobile' => 'required | string | max:11',
+            'mobile' =>  'string | size:11 | unique:residents,mobile',
             'sex' => 'required | string | max:255',
             'civil_status' => 'required | string | max:255',
-            'phil_health_id' => 'string | max:255 | unique:residents,phil_health_id',
-            'id_4ps' => 'string | max:255 | unique:residents,id_4ps',
+            'phil_health_id' => 'string | size:12 | unique:residents,phil_health_id',
+            'id_4ps' => 'string | size:18 | unique:residents,id_4ps',
         ]);
 
         if ($validator->fails()) {
@@ -98,7 +98,6 @@ class ResidentController extends Controller
         $residentprofile = Residents::find($id);
         /* echo "<pre>"; print_r($residentprofile); die; */
         return view('navigation_links.residentprofile')->with($residentprofile, $id);
-
     }
 
     /**
@@ -112,7 +111,6 @@ class ResidentController extends Controller
 
         $residentprofile = Residents::find($id);
         return view('navigation_links.residentprofile')->with($residentprofile, $id);
-
     }
 
     /**
@@ -133,18 +131,18 @@ class ResidentController extends Controller
             'age' => 'required | integer',
             'placeofbirth' => 'required | string | max:255',
             'bdate' => 'required | date',
-            'mobile' => 'required | string | max:11',
+            'mobile' => 'string | size:11 | unique:residents,mobile',
             'sex' => 'required | string | max:255',
             'civil_status' => 'required | string | max:255',
-            'phil_health_id' => 'string | max:255 | unique:residents,phil_health_id',
-            'id_4ps' => 'string | max:255 | unique:residents,id_4ps',
+            'phil_health_id' => 'string | size:12 | unique:residents,phil_health_id',
+            'id_4ps' => 'string | size:18 | unique:residents,id_4ps',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors('Identification Cards must be unique!')->withInput();
         }
 
-        $residentprofile = array (
+        $residentprofile = array(
             'family_id' => $request->family_id,
             'family_head' => $request->family_head,
             'fname' => $request->fname,
@@ -164,10 +162,6 @@ class ResidentController extends Controller
 
         Residents::findOrFail($request->resident_id)->update($residentprofile);
         return redirect()->route('residentprofile.index')->with('success', 'Updated Successfully.');
-
-
-
-
     }
 
     /**

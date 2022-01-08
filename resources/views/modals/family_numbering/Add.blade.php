@@ -41,7 +41,7 @@
                             <div class="details">Middle Name:</div>
                             <input name="m_name" type="text" placeholder="" required>
                         </div>
-                        <div class="input-box mt-2 col-md-4">
+                        <div class="input-box col-md-4">
                             <div class="details">Last Name:</div>
                             <input name="l_name" type="text" placeholder="" required>
                         </div>
@@ -87,7 +87,7 @@
     $(document).ready(function(){
         $( "#selectResidentbyfamilynum" ).select2({
             dropdownParent: $('#addfamilynumber'),
-            ajax: { 
+            ajax: {
             url: "getResidentsFamilyNum",
             type: "post",
             dataType: 'json',

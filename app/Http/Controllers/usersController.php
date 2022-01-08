@@ -64,7 +64,7 @@ class usersController extends Controller
             'age' => 'required', 'integer', 'max:3',
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
-            'contact' => 'required', 'string', 'max:11',
+            'contact' => 'required', 'string', 'size:11',
             'password' => 'required', 'min:6', 'max:12',
             'password_confirmation' => 'required',
         ]);
@@ -132,7 +132,7 @@ class usersController extends Controller
             'age' => 'required', 'integer',
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
-            'contact' => 'required', 'string', 'max:11',
+            'contact' => 'required', 'string', 'size:11',
         ]);
 
         $bhws = array(

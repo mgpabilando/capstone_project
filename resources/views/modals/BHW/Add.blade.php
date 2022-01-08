@@ -44,7 +44,7 @@
 
                             <div class="form-group col-md-6">
                                 <label class="control-label" for="contact">Contact Number:</label>
-                                <input type="text" class="form-control" name="contact">
+                                <input type="text" class="form-control" id="contact" name="contact" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11" required>
                                 <span class="invalid-feedback" role="alert" id="contactError">
                                     <strong></strong>
                                 </span>

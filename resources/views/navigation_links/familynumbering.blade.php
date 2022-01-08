@@ -39,9 +39,9 @@
                                 @if ($familynumberrecord)
                                 @foreach ($familynumberrecord as $familynumberRec)
                                 <tr>
-                                    <th class="text-center">{{ $familynumberRec->id }}</th>
-                                    <td class="text-center">{{ $familynumberRec->f_name }} {{ $familynumberRec->m_name }} {{ $familynumberRec->l_name }}</td>
-                                    <td class="text-center">{{ $familynumberRec->purok }}</td>
+                                    <td data-label="Family Number" class="text-center">{{ $familynumberRec->id }}</td>
+                                    <td data-label="Family Head" class="text-center">{{ $familynumberRec->f_name }} {{ $familynumberRec->m_name }} {{ $familynumberRec->l_name }}</td>
+                                    <td data-label="Purok" class="text-center">{{ $familynumberRec->purok }}</td>
                                     <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                         @if (request()->has('view_deleted'))
                                         <a href="{{ route('familyhead.restore', $familynumberRec->id) }}" class="btn btn-success">Restore</a>
