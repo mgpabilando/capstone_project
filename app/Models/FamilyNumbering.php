@@ -20,7 +20,7 @@ class FamilyNumbering extends Model
 
     public function residents()
     {
-        return $this->hasMany(Residents::class);
+        return $this->hasMany(Residents::class, 'family_id', 'id');
     }
 
 

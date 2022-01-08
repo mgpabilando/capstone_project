@@ -102,7 +102,7 @@ $('#residentprofile-datatable').DataTable
 //PUROK-DATATABLE //
     $('table.purok').DataTable( {
         columnDefs: 
-    [{ orderable: false, targets: 5 }],
+    [{ orderable: false, targets: 4 }],
         initComplete: function () {
             this.api().columns(0).every( function () {
                 var column = this;

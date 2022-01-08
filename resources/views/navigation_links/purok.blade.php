@@ -22,10 +22,9 @@
                       <thead>
                         <tr role="row">
                             <th class="text-center" scope="col">Purok</th>
-                            <th class="text-center" scope="col">Resident ID</th>
                             <th class="text-center" scope="col">Family ID No.</th>
-                            <th class="text-center" scope="col">Family Head</th>
-                            <th class="text-center" scope="col">Name</th>
+                            <th class="text-center col-3" scope="col">Family Head</th>
+                            <th class="text-center" scope="col">Resident Name</th>
                             <th class="text-center" scope="col">Action</th>
                             
                         </tr>
@@ -36,7 +35,6 @@
                         @foreach ( $residentprofile as $row)
                         <tr>
                           <th class="text-center">{{ $row->familyNumbering->purok }}</th>
-                          <td class="text-center">{{ $row->id}}</td>
                           <td class="text-center">{{ $row->family_id }}</td>
                           <td class="text-center">{{ $row->family_head}}</td>
                           <td class="text-center">{{ $row->fname }} {{ $row->mname }} {{ $row->lname }}</td>

@@ -31,32 +31,7 @@ class MorningDtr extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
-    }
-
-    public function getTimeStartAttribute($value)
-    {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
-    }
-
-    public function setTimeStartAttribute($value)
-    {
-        $this->attributes['Arrival'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
-    }
-
-    public function getTimeEndAttribute($value)
-    {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
-    }
-
-    public function setTimeEndAttribute($value)
-    {
-        $this->attributes['Departure'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
-    }
-
-    public function getDateStartAttribute()
-    {
-        return $this->Arrival ? Carbon::createFromFormat('Y-m-d H:i:s', $this->Arrival)->format(config('panel.date_format')) : null;
-    }                                                                                                                    
+    }                                                                                                                  
 
     public function getTotalTimeAttribute()
     {
