@@ -274,9 +274,10 @@
 </div>
 @section ('scripts')
 {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>   --}}
+@parent
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" type="text/javascript"></script>
 
-<script>    
+{{-- <script>    
     var email =  $("#email").val();
     $('#registerForm').validate({
         rules: {            
@@ -284,11 +285,11 @@
                 required: true,
                 email: true,
                 remote: {
-                    url: '{{url('email-validate')}}',
+                    url: '{{route('checkEmail')}}',
                     type: "post",
                     data: {
                         email:$(email).val(),
-                        _token:"{{ csrf_token() }}"
+                        _token: $('meta[name="csrf-token"]').attr('content'), 
                         },
                     dataFilter: function (data) {
                         var json = JSON.parse(data);
@@ -309,88 +310,126 @@
             }
         }
     });
-</script>
-
-    <script>
-        $('#registerModal').on('hidden.bs.modal', function () {
-            $('#registerModal form')[0].reset();
-            });
-    </script>
-    
-    <script>
-    function CheckPasswordMatch() {
-        var password = $("#password").val();
-        var confirmPassword = $("#password_confirmation").val();
-        if (password != confirmPassword)
-            $("#CheckPasswordMatch").html("Passwords does not match!").css('color', 'red');
-        else
-            $("#CheckPasswordMatch").html("Passwords match.").css('color', 'green');
-    }
-        $(document).ready(function () {
-            $("#password_confirmation").keyup(CheckPasswordMatch);
+</script> --}}
+<script type="text/javascript">
+    $(document).ready(function() {
+        var startTimer;
+        $('#email').on('keyup', function () {
+            clearTimeout(startTimer);
+            let email = $(this).val();
+            startTimer = setTimeout(checkEmail, 500, email);
         });
 
-    </script>
+        $('#email').on('keydown', function () {
+            clearTimeout(startTimer);
+        });
+
+        function checkEmail(email) {
+            $('#email-error').remove();
+            if (email.length > 1) {
+                $.ajax({
+                    type: 'post',
+                    url: "{{ route('checkEmail') }}",
+                    data: {
+                        email: email,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(data) {
+                        if (data.success == false) {
+                            $('#email').after('<div id="email-error" class="text-danger" <strong>'+data.message[0]+'<strong></div>');
+                        } else {
+                            $('#email').after('<div id="email-error" class="text-success" <strong>'+data.message+'<strong></div>');
+                        }
+
+                    }
+                });
+            } else {
+                $('#email').after('<div id="email-error" class="text-danger" <strong>Email address can not be empty.<strong></div>');
+            }
+        }
+    });
+</script>
 
 <script>
-    var myInput = document.getElementById("password");
-    var letter = document.getElementById("letter");
-    var capital = document.getElementById("capital");
-    var number = document.getElementById("number");
-    var length = document.getElementById("length");
-    
-    // When the user clicks on the password field, show the message box
-    myInput.onfocus = function() {
-      document.getElementById("message").style.display = "block";
-    }
-    
-    // When the user clicks outside of the password field, hide the message box
-    myInput.onblur = function() {
-      document.getElementById("message").style.display = "none";
-    }
-    
-    // When the user starts to type something inside the password field
-    myInput.onkeyup = function() {
-      // Validate lowercase letters
-      var lowerCaseLetters = /[a-z]/g;
-      if(myInput.value.match(lowerCaseLetters)) {  
-        letter.classList.remove("invalid");
-        letter.classList.add("valid");
-      } else {
-        letter.classList.remove("valid");
-        letter.classList.add("invalid");
-      }
-      
-      // Validate capital letters
-      var upperCaseLetters = /[A-Z]/g;
-      if(myInput.value.match(upperCaseLetters)) {  
-        capital.classList.remove("invalid");
-        capital.classList.add("valid");
-      } else {
-        capital.classList.remove("valid");
-        capital.classList.add("invalid");
-      }
-    
-      // Validate numbers
-      var numbers = /[0-9]/g;
-      if(myInput.value.match(numbers)) {  
-        number.classList.remove("invalid");
-        number.classList.add("valid");
-      } else {
-        number.classList.remove("valid");
-        number.classList.add("invalid");
-      }
-      
-      // Validate length
-      if(myInput.value.length >= 6) {
-        length.classList.remove("invalid");
-        length.classList.add("valid");
-      } else {
-        length.classList.remove("valid");
-        length.classList.add("invalid");
-      }
-    }
-    </script>
+$('#registerModal').on('hidden.bs.modal', function () {
+    $('#registerModal form')[0].reset();
+    });
+</script>
+
+<script>
+function CheckPasswordMatch() {
+var password = $("#password").val();
+var confirmPassword = $("#password_confirmation").val();
+if (password != confirmPassword)
+    $("#CheckPasswordMatch").html("Passwords does not match!").css('color', 'red');
+else
+    $("#CheckPasswordMatch").html("Passwords match.").css('color', 'green');
+}
+$(document).ready(function () {
+    $("#password_confirmation").keyup(CheckPasswordMatch);
+});
+
+</script>
+
+<script>
+var myInput = document.getElementById("password");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+// Validate lowercase letters
+var lowerCaseLetters = /[a-z]/g;
+if(myInput.value.match(lowerCaseLetters)) {  
+letter.classList.remove("invalid");
+letter.classList.add("valid");
+} else {
+letter.classList.remove("valid");
+letter.classList.add("invalid");
+}
+
+// Validate capital letters
+var upperCaseLetters = /[A-Z]/g;
+if(myInput.value.match(upperCaseLetters)) {  
+capital.classList.remove("invalid");
+capital.classList.add("valid");
+} else {
+capital.classList.remove("valid");
+capital.classList.add("invalid");
+}
+
+// Validate numbers
+var numbers = /[0-9]/g;
+if(myInput.value.match(numbers)) {  
+number.classList.remove("invalid");
+number.classList.add("valid");
+} else {
+number.classList.remove("valid");
+number.classList.add("invalid");
+}
+
+// Validate length
+if(myInput.value.length >= 6) {
+length.classList.remove("invalid");
+length.classList.add("valid");
+} else {
+length.classList.remove("valid");
+length.classList.add("invalid");
+}
+}
+</script>
 
 
 @endsection

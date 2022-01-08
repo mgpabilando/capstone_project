@@ -157,40 +157,4 @@ $(document).ready(function () {
 
 });
 </script>
-
-<script>
-  function switchWorkStatus(data) {
-      let $timer = $("#timer span");
-      let text = $timer.text() == 'Stop work' ? 'Start work' : 'Stop work';
-      $timer.text(text);
-      swal({
-          title: 'Success!',
-          text: data.status,
-          icon: 'success'
-      })
-  };
-
-  $(document).ready(function(){
-    $(function() {
-        $.get("{{ route('showCurrent') }}", function (data) {
-            if(data.timeEntry != null) {
-                switchWorkStatus();
-            }
-        });
-        var csrf_token = $('meta[name="csrf-token"]').attr('content');
-        $('#timer').click(function () {
-            $.ajax({
-                method: "POST",
-                url: "{{ route('updateCurrent') }}",
-                data: {
-                  csrf_token
-                },
-                success: (data) => switchWorkStatus(data),
-                error: () => window.location.reload()
-            });
-        });
-    });
-  });
-  </script>
-
 @endsection
