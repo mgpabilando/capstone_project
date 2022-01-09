@@ -39,10 +39,10 @@
                         </select>
                     </div>
                     <hr>
-                    <div class="res_prof row justify-content-center" id="details">  
+                    <div class="res_prof row justify-content-center" id="details">
                         <div class="input-box col-6 pb-3 align-self-center">
                             <div class="details">Resident ID:</div>
-                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto">
+                            <input type="text" name="resID" id="resID" placeholder="" required style="width:auto" readonly>
                             <input type="text" name="resname" id="resname" hidden>
                         </div>
                         <hr>
@@ -77,7 +77,7 @@
     $(document).ready(function(){
         $( "#selectresident" ).select2({
             dropdownParent: $('#addntpconsul'),
-            ajax: { 
+            ajax: {
             url: "getResidents",
             type: "post",
             dataType: 'json',

@@ -1,4 +1,5 @@
 <style>
+<<<<<<< HEAD
     #addfamilynumber li:hover
     {
         background-color: #e8f0fe;
@@ -19,6 +20,27 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     font-size: 13px;
+=======
+    li:hover {
+        background-color: #e8f0fe;
+    }
+
+    .select2-container .select2-selection--single {
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        height: 28px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 300px;
+    }
+
+    .select2-dropdown--below {
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        font-size: 13px;
+>>>>>>> origin/jkgerero_branch
     }
 
     #addfamilynumber .details{
@@ -40,23 +62,24 @@
                 @csrf
                 <div class="modal-body">
                     <div class="d-flex identification row">
-                        <div class="input-box" style="width: 50%">
+                        <div class="input-box col-md-4">
                             <div class="details">First Name:</div>
                             <input name="f_name" id="f_name" type="text" placeholder="" required>
                         </div>
-                        <div class="input-box" style="width: 50%">
+                        <div class="input-box col-md-4">
                             <div class="details">Middle Name:</div>
                             <input name="m_name" id="m_name" type="text" placeholder="">
+                        </div>
+                        <div class="input-box col-md-4">
+                            <div class="details">Last Name:</div>
+                            <input name="l_name" type="text" placeholder="" required>
                         </div>
                     </div>
 
                     <div class="d-flex identification row">
-                        <div class="input-box mt-2" style="width: 50%">
-                            <div class="details">Last Name:</div>
-                            <input name="l_name" type="text" placeholder="" required>
-                        </div>
-                    
-                        <div class="input-box  mt-2" style="width: 50%">
+
+
+                        <div class="input-box col-md-12 mt-2">
                             <div class="details">Purok No.:</div>
                             <select class="purok" name="purok" id="purok" class="required">
                                 <option value="" selected>Select</option>
@@ -71,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-success">SAVE AS FAMILY HEAD</button>
@@ -83,9 +106,9 @@
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
-    $('#addfamilynumber').on('hidden.bs.modal', function () {
+    $('#addfamilynumber').on('hidden.bs.modal', function() {
         $('#addfamilynumber form')[0].reset();
-        });
+    });
 </script>
 
 {{-- <script type="text/javascript">
@@ -93,7 +116,7 @@
     $(document).ready(function(){
         $( "#selectResidentbyfamilynum" ).select2({
             dropdownParent: $('#addfamilynumber'),
-            ajax: { 
+            ajax: {
             url: "getResidentsFamilyNum",
             type: "post",
             dataType: 'json',

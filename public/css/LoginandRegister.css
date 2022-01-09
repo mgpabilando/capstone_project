@@ -14,7 +14,7 @@ body{
   font-family: 'poppins', sans-serif;
   height: 100vh;
   margin: 0px 0 0px 0;
-  background-image: url(images/bmhms-background.jpg); 
+  background-image: url(images/mcwyn.jpg); 
   background: #3CB371;
   background-size: cover;
   background-position: center center;
@@ -48,6 +48,7 @@ body{
   height: 480px;
   background: linear-gradient(-45deg, #2ae88a 0%, #08aeea 100%) border-box;
   transform: translateY(0px); 
+  border-radius: 10px 0px 0px 10px;
 }
 
 /* .hms-display h3{

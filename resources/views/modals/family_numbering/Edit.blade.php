@@ -1,20 +1,20 @@
 <style>
-    li:hover
-    {
+    li:hover {
         background-color: #e8f0fe;
     }
 
     .select2-container .select2-selection--single {
-    box-sizing: border-box;
-    cursor: pointer;
-    display: block;
-    height: 28px;
-    user-select: none;
-    -webkit-user-select: none;
-    width:300px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        height: 28px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 300px;
     }
 
     .select2-dropdown--below {
+<<<<<<< HEAD
     border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -30,6 +30,13 @@
     color: #ffffff;
     }
 
+=======
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        font-size: 13px;
+    }
+>>>>>>> origin/jkgerero_branch
 </style>
 
 <div class="consul-show modal fade" id="editfamilynumber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -65,11 +72,19 @@
                             <div class="details">Last Name:</div>
                             <input name="El_name" id="El_name" type="text" placeholder="" required>
                         </div>
+<<<<<<< HEAD
                     
                         <div class="input-box  mt-2" style="width: 50%">
                             <div class="details">Purok No.:</div>
                             <select class="purok" name="Epurok" id="Epurok" class="required">
                                 <option value="" selected>Select</option>
+=======
+
+                        <div class="input-box">
+                            <div class="details">Purok No.:</div>
+                            <select class="purok" name="Epurok" id="Epurok">
+                                <option selected>Select</option>
+>>>>>>> origin/jkgerero_branch
                                 <option value="1">UNO</option>
                                 <option value="2">DOS</option>
                                 <option value="3">TRES</option>
@@ -89,5 +104,3 @@
         </div>
     </div>
 </div>
-
-

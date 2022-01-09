@@ -10,7 +10,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Alert;
-Use Response;
+use Response;
 
 class usersController extends Controller
 {
@@ -21,11 +21,11 @@ class usersController extends Controller
      */
     public function index(Request $request)
     {
-            $bhws = User::whereRoleIs('bhw')->get();
-            if ($request->has('view_deleted')) {
-                $bhws = User::onlyTrashed()->get();
-            }   
-            return view('navigation_links.bhw')->with('bhws', $bhws);
+        $bhws = User::whereRoleIs('bhw')->get();
+        if ($request->has('view_deleted')) {
+            $bhws = User::onlyTrashed()->get();
+        }
+        return view('navigation_links.bhw')->with('bhws', $bhws);
     }
     /**
      * Show the form for creating a new resource.
@@ -54,6 +54,7 @@ class usersController extends Controller
             return Response::json(array('msg' => 'false'));
         }
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -63,8 +64,8 @@ class usersController extends Controller
             'age' => 'required', 'integer', 'max:3',
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
-            'contact' => 'required', 'string', 'max:11',
-            'password' => 'required', 'min:6', 'max:12', 
+            'contact' => 'required', 'string', 'size:11',
+            'password' => 'required', 'min:6', 'max:12',
             'password_confirmation' => 'required',
         ]);
 
@@ -78,7 +79,7 @@ class usersController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        $user->attachRole('bhw');  
+        $user->attachRole('bhw');
         event(new Registered($user));
 
         return redirect()->route('bhw.index')->with('success', 'Added Successfully.');
@@ -117,13 +118,13 @@ class usersController extends Controller
      */
     public function update(Request $request)
     {
-        if(!(Hash::check($request->get('password'),Auth::user()->password))){
-            return back()->with('error','Your current password does not match what you provided');
-         }
-         if(strcmp($request->get('password'), $request->get('newpassword'))==0){
-            return back()->with('error','Your new password cant be same with your current password');
-         }
-        
+        if (!(Hash::check($request->get('password'), Auth::user()->password))) {
+            return back()->with('error', 'Your current password does not match what you provided');
+        }
+        if (strcmp($request->get('password'), $request->get('newpassword')) == 0) {
+            return back()->with('error', 'Your new password cant be same with your current password');
+        }
+
         $request->validate([
             'fname' => 'required', 'string', 'max:255',
             'lname' => 'required', 'string', 'max:255',
@@ -131,19 +132,19 @@ class usersController extends Controller
             'age' => 'required', 'integer',
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
-            'contact' => 'required', 'string', 'max:11',
+            'contact' => 'required', 'string', 'size:11',
         ]);
 
-        $bhws = array (
+        $bhws = array(
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
             'age' => $request->age,
-            'address' => $request->address,  
-            'bdate' => $request->bdate, 
+            'address' => $request->address,
+            'bdate' => $request->bdate,
             'contact' => $request->contact,
-        );    
-    
+        );
+
         $user = Auth::User();
         // $user->password = bcrypt($request->get('newpassword'));
         User::findOrFail($request->user_id)->update($bhws);
@@ -166,6 +167,4 @@ class usersController extends Controller
         $deleteuser->delete();
         return redirect()->route('bhw.index')->with('success', 'Deleted Successfully.');
     }
-
-    
 }

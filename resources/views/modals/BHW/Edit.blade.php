@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
             </div>
-            <form class="bhw-modal"  method="POST" action=" {{route('bhw.update', 'user_id')}}">
+            <form class="bhw-modal" method="POST" action=" {{route('bhw.update', 'user_id')}}">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
@@ -17,7 +17,7 @@
                             <input name="user_id" id="edituser_id" type="hidden" placeholder="">
                         </div>
                         <div class="row row-space">
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="fname">First Name:</label><br>
                                 <input type="text" class="form-control" id="editfname" name="fname" value="{{ old('fname') }}">
                                 <span class="invalid-feedback" role="alert" id="bhwfnameError">
@@ -25,7 +25,7 @@
                                 </span>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="lname">Last Name:</label><br>
                                 <input type="text" class="form-control" id="editlname" name="lname" value="{{ old('lname') }}">
                                 <span class="invalid-feedback" role="alert" id="bhwlnameError">
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="row row-space">
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="address">Address:</label><br>
                                 <input type="text" class="form-control" id="editaddress" name="address">
                                 <span class="invalid-feedback" role="alert" id="bhwaddressError">
@@ -43,7 +43,7 @@
                                 </span>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="contact">Contact Number:</label><br>
                                 <input type="number" class="form-control" id="editcontact" name="contact">
                                 <span class="invalid-feedback" role="alert" id="bhwcontactError">
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="row row-space">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <label class="control-label" for="bdate">Birthdate:</label><br>
                                 <input type="date" class="form-control" id="editbdate" name="bdate">
                                 <span class="invalid-feedback" role="alert" id="bhwbdateError">
@@ -61,7 +61,7 @@
                                 </span>
                             </div>
 
-                            <div class="form-group col-6">
+                            <div class="form-group col-md-6">
                                 <label class="control-label" for="age">Age:</label><br>
                                 <input type="number" class="form-control" id="editage" name="age">
                                 <span class="invalid-feedback" role="alert" id="bhwageError">
