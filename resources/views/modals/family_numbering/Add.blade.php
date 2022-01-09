@@ -80,8 +80,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success">Save as Family head</button>
+                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">SAVE</button>
                 </div>
             </form>
         </div>
