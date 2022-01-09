@@ -1,8 +1,8 @@
 @include('layouts.includes.head')
 <div id="printcontent">
-  <div class="container-fluid p-0">
-    <nav class="navbar navbar-dark bg-primary">
-      <div class="container-fluid">
+  <div class="container-fluid p-0" id="mreport">
+    <nav class="navbar sticky-top navbar-dark bg-primary">
+      <div class="container-fluid p-2">
         <a class="{{ Request::is('reports') ? 'active' : '' }}" href="reports"><i class="fas fa-arrow-left" style="color: #ffff;"></i></a>
         <p class="fw-bold m-0 p-0 report-tilte" style="color: #ffff;">MONTHLY ACCOMPLISHED REPORT</p>
         {{-- <button id="MARbtnPrint" type="button" class="btn btn-primary"><i class="fas fa-print"></i> PRINT</button> --}}
@@ -10,7 +10,7 @@
       </div>
     </nav>
 
-    <div class="col-md-12 p-0">
+    <div class="col-md-12 p-3">
       <div class="d-flex justify-content-center flex-column mar-report">
         <p class="text-center">Republic of the Philippines</p>
         <p class="text-center">Province of Sorsogon</p>
@@ -25,10 +25,10 @@
           </div>
         </div>
 
-        <table id="pregnant" class="display table table-bordered m-0 ">
+        <table id="pregnant" class="display table table-bordered border-1 m-0 border-dark">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Pregnants</th> 
+              <th class="text-center" scope="col">Pregnants</th>
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Height(cm)</th>
               <th class="text-center" scope="col">Weight(kg)</th>
@@ -41,7 +41,7 @@
             @if ($pregnants)
             @foreach ($pregnants as $pregpatient)
             <tr>
-              <th class="text-center">{{ $pregpatient->id }}</th> 
+              <th class="text-center">{{ $pregpatient->id }}</th>
               <td class="text-center">{{ $pregpatient->name }}</td>
               <td class="text-center">{{ $pregpatient->height_cm }}</td>
               <td class="text-center">{{ $pregpatient->weight_kg }}</td>
@@ -56,10 +56,10 @@
 
         </table>
 
-        <table id="deliveries" class="display table table-bordered m-0" style="padding: 10px">
+        <table id="deliveries" class="display table border-dark  border-1 table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Deliveries</th> 
+              <th class="text-center" scope="col">Deliveries</th>
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
               <th class="text-center" scope="col">Delivered</th>
@@ -71,7 +71,7 @@
             @if ($Deliveries)
             @foreach ($Deliveries as $deliveriesRec)
             <tr>
-              <th class="text-center">{{ $deliveriesRec->id }}</th> 
+              <th class="text-center">{{ $deliveriesRec->id }}</th>
               <td class="text-center">{{ $deliveriesRec->name }}</td>
               <td class="text-center">{{ $deliveriesRec->age }}</td>
               <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($deliveriesRec['date_delivered'])) }}</td>
@@ -83,10 +83,10 @@
           </tbody>
         </table>
 
-        <table id="epi" class="display table table-bordered m-0" style="padding: 10px">
+        <table id="epi" class="display table border-dark border-1 table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">EPI</th> 
+              <th class="text-center" scope="col">EPI</th>
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Medicines Given</th>
               <th class="text-center" scope="col">Birthdate</th>
@@ -97,7 +97,7 @@
             @if ($epi)
             @foreach ($epi as $epiRec)
             <tr>
-              <th class="text-center">{{ $epiRec->id }}</th> 
+              <th class="text-center">{{ $epiRec->id }}</th>
               <td class="text-center">{{ $epiRec->name }}</td>
               <td class="text-center">{{ $epiRec->meds_given }}</td>
               <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($epiRec['birthdate'])) }}</td>
@@ -107,10 +107,10 @@
           </tbody>
         </table>
 
-        <table id="ntp" class="display table table-bordered m-0" style="padding: 10px">
+        <table id="ntp" class="display table border-dark border-1 table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">NTP</th> 
+              <th class="text-center" scope="col">NTP</th>
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
             </tr>
@@ -119,7 +119,7 @@
             @if ($ntp)
             @foreach ($ntp as $ntpRec)
             <tr>
-              <th class="text-center">{{ $ntpRec->id }}</th> 
+              <th class="text-center">{{ $ntpRec->id }}</th>
               <td class="text-center">{{ $ntpRec->name }}</td>
               <td class="text-center">{{ $ntpRec->age }}</td>
             </tr>
@@ -128,10 +128,10 @@
           </tbody>
         </table>
 
-        <table id="famplan" class="display table table-bordered m-0" style="padding: 10px">
+        <table id="famplan" class="display table border-dark border-1 table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Family Planning</th> 
+              <th class="text-center" scope="col">Family Planning</th>
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
               <th class="text-center" scope="col">Method Used</th>
@@ -141,7 +141,7 @@
             @if ($familyplanning)
             @foreach ($familyplanning as $familyplanningRec)
             <tr>
-              <th class="text-center">{{ $familyplanningRec->id }}</th> 
+              <th class="text-center">{{ $familyplanningRec->id }}</th>
               <td class="text-center">{{ $familyplanningRec->name }}</td>
               <td class="text-center">{{ $familyplanningRec->age }}</td>
               <td class="text-center">{{ $familyplanningRec->method_used }}</td>
@@ -151,10 +151,10 @@
           </tbody>
         </table>
 
-        <table id="diarrheal" class="display table table-bordered m-0" style="padding: 10px">
+        <table id="diarrheal" class="display table border-dark border-1 table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
-              <th class="text-center" scope="col">Control of Diarrheal Problems</th> 
+              <th class="text-center" scope="col">Control of Diarrheal Problems</th>
               <th class="text-center" scope="col">Name</th>
               <th class="text-center" scope="col">Age</th>
             </tr>
@@ -163,7 +163,7 @@
             @if ($diarrheal)
             @foreach ($diarrheal as $diarrhealRec)
             <tr>
-              <th class="text-center">{{ $diarrhealRec->id }}</th> 
+              <th class="text-center">{{ $diarrhealRec->id }}</th>
               <td class="text-center">{{ $diarrhealRec->name }}</td>
               <td class="text-center">{{ $diarrhealRec->age }}</td>
             </tr>
@@ -172,7 +172,7 @@
           </tbody>
         </table>
 
-        <table id="other" class="dsiplay table table-bordered m-0" style="padding: 10px">
+        <table id="other" class="dsiplay table border-dark border-1 table-bordered m-0" style="padding: 10px">
           <thead>
             <tr role="row">
               <th class="text-center" scope="col">Other Services Rendered</th>

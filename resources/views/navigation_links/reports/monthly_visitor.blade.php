@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="container-fluid p-0">
+  <div class="container-fluid p-0" is="mreport">
     <nav class="navbar navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="{{ Request::is('reports') ? 'active' : '' }}" href="reports"><i class="fas fa-arrow-left" style="color: #ffff;"></i></a>
