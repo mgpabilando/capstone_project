@@ -9,8 +9,6 @@
             <h3 class="block-title">BHW</h3>
         </div>
     </div>
-
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -35,10 +33,11 @@
 
                             <thead>
                                 <tr role="row">
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Full Name</th>
-                                    <th scope="col">Email Address</th>
-                                    <th>Actions</th>
+                                    <th class="text-center" scope="col">ID</th>
+                                    <th class="text-center" scope="col">Full Name</th>
+                                    <th class="text-center" scope="col">Email Address</th>
+                                    <th class="text-center" scope="col">Contact Number</th>
+                                    <th class="text-center">Actions</th>
 
                                 </tr>
                             </thead>
@@ -51,6 +50,7 @@
                                         <p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{$bhw->fname}} {{$bhw->lname}}</p>
                                     </td>
                                     <td data-label="E-mail" style="text-transform: lowercase;">{{$bhw->email}}</td>
+                                    <td>{{ $bhw->contact }}</td>
                                     <td data-label="" style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                         @if (request()->has('view_deleted'))
                                         <a href="{{ route('bhws.restore', $bhw->id) }}" class="btn btn-success">Restore</a>
@@ -59,27 +59,25 @@
                                         @include('modals.BHW.PermanentDelete')
                                         @else
                                         {{-----***************************** SHOW BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn bhw_view" data-bs-target="#viewbhw" data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}" data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}" data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
-                                            <i class="manage fas fa-eye"></i></a>
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewbhw" data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}" data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}" data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
+                                            <i class="fas fa-eye"></i></a>
                                         @include('modals.BHW.Show')
 
                                         {{-----***************************** EDIT BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn bhw_edit" data-bs-target="#editbhw" data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}" data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}" data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
-                                            <i class="manage fas text-warning fa-edit"></i>
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editbhw" data-user_id="{{$bhw->id}}" data-fname="{{$bhw->fname}}" data-lname="{{$bhw->lname}}" data-email="{{$bhw->email}}" data-age="{{$bhw->age}}" data-contact="{{$bhw->contact}}" data-address="{{$bhw->address}}" data-bdate="{{$bhw->bdate}}" data-password="{{$bhw->password}}">
+                                            <i class="fas fa-edit"></i>
                                         </a>
                                         @include('modals.BHW.Edit')
 
                                         {{-----***************************** DELETE BUTTON *******************************------}}
-                                        <a data-bs-toggle="modal" type="button" class="btn bhw_delete" data-bs-target="#deletebhw" data-user_id="{{$bhw->id}}">
-                                            <i class="manage text-danger fas fa-trash"></i>
+                                        <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletebhw" data-user_id="{{$bhw->id}}">
+                                            <i class="fas fa-trash"></i>
                                         </a>
                                         @include('modals.BHW.Delete')
                                         @endif
                                     </td>
                                 </tr>
                                 @endforeach
-                                @else
-                                <h1>hi</h1>
                                 @endif
                             </tbody>
                         </table>
@@ -103,88 +101,6 @@
     }
     $(document).ready(function() {
         $("#newpass_confirm").keyup(CheckPasswordMatch);
-    });
-</script>
-
-{{-----------------------------EDIT BHW SCRIPT--------------------------------}}
-<script>
-    $('#editbhw').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var user_id = button.data('user_id')
-        var fname = button.data('fname')
-        var lname = button.data('lname')
-        var email = button.data('email')
-        var age = button.data('age')
-        var bdate = button.data('bdate')
-        var address = button.data('address')
-        var contact = button.data('contact')
-
-
-        var modal = $(this)
-        modal.find('.modal-title').text('Edit Profile');
-        modal.find('.modal-body #edituser_id').val(user_id);
-        modal.find('.modal-body #editfname').val(fname);
-        modal.find('.modal-body #editlname').val(lname);
-        modal.find('.modal-body #editemail').val(email);
-        modal.find('.modal-body #editage').val(age);
-        modal.find('.modal-body #editbdate').val(bdate);
-        modal.find('.modal-body #editaddress').val(address);
-        modal.find('.modal-body #editcontact').val(contact);
-    });
-</script>
-
-{{-----------------------------DELETE BHW SCRIPT--------------------------------}}
-<script>
-    $('#deletebhw').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var user_id = button.data('user_id')
-
-
-        var modal = $(this)
-        modal.find('.modal-title').text(' Delete Profile');
-        modal.find('.modal-body #deleteuser_id').val(user_id);
-    });
-</script>
-
-{{----------------------------- PERMANENT DELETE BHW SCRIPT--------------------------------}}
-<script>
-    $('#deleteModal').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var user_id = button.data('user_id')
-
-
-        var modal = $(this)
-        modal.find('.modal-title').text(' Delete Profile');
-        modal.find('.modal-body #deleteuser_id').val(user_id);
-        p
-    });
-</script>
-
-{{-----------------------------VIEW BHW SCRIPT--------------------------------}}
-<script>
-    $('#viewbhw').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget)
-        var user_id = button.data('user_id')
-        var fname = button.data('fname')
-        var lname = button.data('lname')
-        var email = button.data('email')
-        var age = button.data('age')
-        var bdate = button.data('bdate')
-        var address = button.data('address')
-        var contact = button.data('contact')
-        var password = button.data('password')
-
-        var modal = $(this)
-        modal.find('.modal-title').text('View Profile');
-        modal.find('.modal-body #user_id').val(user_id);
-        modal.find('.modal-body #fname').val(fname);
-        modal.find('.modal-body #lname').val(lname);
-        modal.find('.modal-body #email').val(email);
-        modal.find('.modal-body #age').val(age);
-        modal.find('.modal-body #bdate').val(bdate);
-        modal.find('.modal-body #address').val(address);
-        modal.find('.modal-body #contact').val(contact);
-        modal.find('.modal-body #password').val(password);
     });
 </script>
 @endsection

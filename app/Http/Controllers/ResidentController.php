@@ -130,15 +130,14 @@ class ResidentController extends Controller
             'age' => 'required | integer',
             'placeofbirth' => 'required | string | max:255',
             'bdate' => 'required | date',
-            'mobile' => 'string | size:11 | unique:residents,mobile',
-            'sex' => 'required | string | max:255',
-            'civil_status' => 'required | string | max:255',
-            'phil_health_id' => 'string | size:12 | unique:residents,phil_health_id',
-            'id_4ps' => 'string | size:18 | unique:residents,id_4ps',
+            'sex' => 'string | max:255',
+            'civil_status' => ' string | max:255',
+            'phil_health_id' => 'nullable | string | size:12 | unique:residents,phil_health_id',
+            'id_4ps' => 'nullable | string | size:18 | unique:residents,id_4ps',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Identification Cards must be unique!')->withInput();
+            return redirect()->back()->withErrors('Required field is empty.')->withInput();
         }
 
         $residentprofile = array(

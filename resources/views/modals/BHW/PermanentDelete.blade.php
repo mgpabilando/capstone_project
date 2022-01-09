@@ -10,7 +10,7 @@
                 @csrf
                 <div class="modal-body">
                     <div class="input-box">
-                        <input name="user_id" id="deleteuser_id" type="hidden" placeholder="">
+                        <input name="user_id" class="deleteuser_id" type="hidden" placeholder="">
                     </div>
                     <p style="font-size: 15px">This will be removed permanently. 
                         Do you want to continue?</p>

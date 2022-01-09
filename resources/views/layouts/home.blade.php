@@ -24,6 +24,7 @@
     <script src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
 
     <script src="{{ asset('js/general.js') }}"></script>
+    <script src="{{ asset('js/bhw.js') }}"></script>
     <script src="{{ asset('js/medrequest.js') }}"></script>
     <script src="{{ asset('js/medrequestPrint.js') }}"></script>
     <script src="{{ asset('js/datatables.js') }}"></script>

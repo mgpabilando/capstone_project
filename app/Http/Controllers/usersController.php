@@ -118,37 +118,28 @@ class usersController extends Controller
      */
     public function update(Request $request)
     {
-        if (!(Hash::check($request->get('password'), Auth::user()->password))) {
-            return back()->with('error', 'Your current password does not match what you provided');
-        }
-        if (strcmp($request->get('password'), $request->get('newpassword')) == 0) {
-            return back()->with('error', 'Your new password cant be same with your current password');
-        }
-
         $request->validate([
-            'fname' => 'required', 'string', 'max:255',
-            'lname' => 'required', 'string', 'max:255',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'age' => 'required', 'integer',
-            'address' => 'required', 'string', 'max:255',
-            'bdate' => 'required', 'date',
-            'contact' => 'required', 'string', 'size:11',
+            'editfname' => 'required', 'string', 'max:255',
+            'editlname' => 'required', 'string', 'max:255',
+            'editemail' => 'required', 'string', 'email', 'max:255', 'unique:users',
+            'editage' => 'required', 'integer',
+            'editaddress' => 'required', 'string', 'max:255',
+            'editbdate' => 'required', 'date',
+            'editcontact' => 'required', 'string', 'size:11',
         ]);
 
         $bhws = array(
-            'fname' => $request->fname,
-            'lname' => $request->lname,
-            'email' => $request->email,
-            'age' => $request->age,
-            'address' => $request->address,
-            'bdate' => $request->bdate,
-            'contact' => $request->contact,
+            'fname' => $request->editfname,
+            'lname' => $request->editlname,
+            'email' => $request->editemail,
+            'age' => $request->editage,
+            'address' => $request->editaddress,
+            'bdate' => $request->editbdate,
+            'contact' => $request->editcontact,
         );
 
         $user = Auth::User();
-        // $user->password = bcrypt($request->get('newpassword'));
-        User::findOrFail($request->user_id)->update($bhws);
-        // $user->save();
+        User::findOrFail($request->edituser_id)->update($bhws);
         return redirect()->route('bhw.index')->with('success', 'Updated Successfully.');
     }
 
@@ -160,9 +151,6 @@ class usersController extends Controller
      */
     public function destroy(Request $bhws)
     {
-        // $delete = $bhws->all();
-
-        /* echo "<pre>"; print_r($delete); die; */
         $deleteuser = User::findOrFail($bhws->user_id);
         $deleteuser->delete();
         return redirect()->route('bhw.index')->with('success', 'Deleted Successfully.');
