@@ -15,12 +15,12 @@
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-4 input-box">
                             <div class="details">Family No.:</div>
-                            <input type="text" name="Efamily_id" id="Efamily_id">
+                            <input type="text" name="Efamily_id" id="Efamily_id" readonly>
                         </div>
 
                         <div class="col-md-4 input-box">
                             <div class="details">Family Head:</div>
-                            <input type="text" name="Efamily_head" id="Efamily_head">
+                            <input type="text" name="Efamily_head" id="Efamily_head" readonly>
                         </div>
                     </div>
 
@@ -73,17 +73,17 @@
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Contact Number:</div>
-                            <input name="Emobile" type="number" placeholder="" required>
+                            <input name="Emobile" type="number"  pattern="[0-9]" placeholder="000000000000" maxlength="12" >
                         </div>
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-6 input-box">
                             <div class="details">PhilHealth ID No:</div>
-                            <input name="Ephil_health_id" type="text" placeholder="" required>
+                            <input name="Ephil_health_id" type="text" pattern="[0-9]" placeholder="000000000000" maxlength="12">
                         </div>
                         <div class="col-md-6 input-box">
                             <div class="details">4PS ID No:</div>
-                            <input name="Eid_4ps" type="text" placeholder="" required>
+                            <input name="Eid_4ps" type="text" placeholder="000000000000000000"  pattern="[0-9]" maxlength="18">
                         </div>
                     </div>
                 </div>

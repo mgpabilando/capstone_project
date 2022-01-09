@@ -56,7 +56,7 @@ class ResidentController extends Controller
             'age' => 'required | integer',
             'placeofbirth' => 'required | string | max:255',
             'bdate' => 'required | date',
-            'mobile' =>  'string | size:11 | unique:residents,mobile',
+            'mobile' =>  'string | size:1',
             'sex' => 'required | string | max:255',
             'civil_status' => 'required | string | max:255',
             'phil_health_id' => 'string | size:12 | unique:residents,phil_health_id',
@@ -64,7 +64,7 @@ class ResidentController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Identification Cards must be unique!')->withInput();
+            return redirect()->back()->withErrors('Please fill out the form with correct and valid information.')->withInput();
         }
 
         $residentprofile = Residents::create([
@@ -131,7 +131,7 @@ class ResidentController extends Controller
             'age' => 'required | integer',
             'placeofbirth' => 'required | string | max:255',
             'bdate' => 'required | date',
-            'mobile' => 'string | size:11 | unique:residents,mobile',
+            'mobile' => 'string | size:11 ',
             'sex' => 'required | string | max:255',
             'civil_status' => 'required | string | max:255',
             'phil_health_id' => 'string | size:12 | unique:residents,phil_health_id',
@@ -139,7 +139,7 @@ class ResidentController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Identification Cards must be unique!')->withInput();
+            return redirect()->back()->withErrors('Please fill out the form with correct and valid information.')->withInput();
         }
 
         $residentprofile = array(

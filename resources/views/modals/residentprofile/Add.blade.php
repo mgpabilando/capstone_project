@@ -37,7 +37,7 @@
 
 <!--******************************-------------- ADD RESIDENT MODAL ------------*************************************-->
 <div class="res-add modal fade" id="registerresident" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">ADD RESIDENT</h5>
@@ -118,22 +118,22 @@
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Contact Number:</div>
-                            <input name="mobile" type="text" placeholder="" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11">
+                            <input name="mobile" type="text" placeholder="" pattern="[0-9]" tittle="Must be 11 digit." placeholder="09123456789" maxlength="11">
                         </div>
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-6 input-box">
                             <div class="details">PhilHealth ID No:</div>
-                            <input name="phil_health_id" type="text" pattern="[0-9]{12}" placeholder="000000000000" maxlength="12"  >
+                            <input name="phil_health_id" type="text" pattern="[0-9]" placeholder="000000000000" tittle="Must be 12 digit." maxlength="12" >
                         </div>
                         <div class="col-md-6 input-box">
                             <div class="details">4PS ID No:</div>
-                            <input name="id_4ps" type="text" placeholder="000000000000000000"  pattern="[0-9]{18}" maxlength="18">
+                            <input name="id_4ps" type="text" placeholder="000000000000000000"  pattern="[0-9]" tittle="Must be 18 digit." maxlength="18">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-success">Add Resident</button>
                 </div>
             </form>
