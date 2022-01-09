@@ -26,7 +26,7 @@
     .modal input[type=text],
     .modal input[type=number] {
         width: 100%;
-        padding: 5px 20px;
+        padding: 5px;
         margin: 5px 0;
         display: inline-block;
         border: 1px solid #ccc;
@@ -40,7 +40,7 @@
     .modal input[type=email],
     .modal input[type=number] {
         width: 100%;
-        padding: 5px 20px;
+        padding-left: 8px;
         margin: 5px 0;
         display: inline-block;
         border: 1px solid #ccc;
@@ -52,7 +52,7 @@
 
     .modal input[type=date] {
         width: 100%;
-        padding: 5px 20px;
+        padding-left: 8px;
         margin: 5px 0;
         display: inline-block;
         border: 1px solid #ccc;
@@ -64,20 +64,27 @@
 
     /* Set a style for all buttons */
     .modal .modal-content .signUp-btn {
-        border-radius: 25px;
+        border-radius: 10px;
         color: white;
-        padding: 5px 20px;
+        text-align:center;
         cursor: pointer;
         width: 40%;
-        opacity: 0.9;
+        height: 30px;
     }
 
     .modal .modal-content .signUp-cancel {
-        border-radius: 25px;
-        padding: 5px 20px;
+        background-color:#ffff;
+        border-radius: 10px;
+        text-align: center;
         cursor: pointer;
         width: 40%;
-        opacity: 0.9;
+        height: 30px;
+        transition: 0.5sec;
+    }
+
+    .modal .modal-content .signUp-cancel:hover {
+        background-color: red;
+        color: #ffff;
     }
 
     .modal-content .modal-body select {
@@ -112,7 +119,6 @@
     /* The message box is shown when the user clicks on the password field */
     #message {
         display: none;
-        background: #f1f1f1;
         color: #000;
         position: relative;
 
@@ -195,14 +201,14 @@
 
                             <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="contact">Contact Number:</label>
-                                <input type="text" class="form-control" id="contact" name="contact" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11" required>
+                                <input type="text" class="form-control" id="contact" name="contact" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11" title="Input 11 digit of mobile number." required>
                                 <span class="invalid-feedback" role="alert" for="contact">
                                     <strong></strong>
                                 </span>
                             </div>
                         </div>
 
-                        <div class="row ">
+                        <div class="row">
                             <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="bdate">Birthdate:</label>
                                 <input type="date" class="form-control" id="bdate" name="bdate">
@@ -233,8 +239,6 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-
-
                         </div>
 
                         <div class="row d-flex flex-wrap ">
@@ -254,7 +258,7 @@
                             </div>
 
                             <div id="message">
-                                <p style="font-weight: 500">Password must contain the following:</p>
+                                <h6 style="font-weight: 500">Password must contain the following:</h6>
                                 <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
                                 <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
                                 <p id="number" class="invalid">A <b>number</b></p>
@@ -279,7 +283,7 @@
                 </div>
 
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="signUp-cancel btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="signUp-cancel btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="signUp-btn btn-success">SIGN UP</button>
                 </div>
             </form>
