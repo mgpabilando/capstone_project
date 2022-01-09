@@ -39,8 +39,9 @@
                     </div>
                     <hr>
                     <div class="res_prof row justify-content-center" id="details">
-                        <div class="input-box col-md-6 pb-3 align-self-center">
-                            <div class="details">Resident ID:</div>
+                        
+                            <div class="details text-center">Resident ID:</div>
+                            <div class="input-box d-flex justify-content-center col-md-8 pb-3 align-self-center">
                             <input type="text" name="resID" id="resID" placeholder="" required style="width:auto" readonly>
                             <input type="text" name="resname" id="resname" hidden>
                         </div>
@@ -48,24 +49,24 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-box col pb-3">
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Age:</div>
                             <input type="number" name="age" pattern="[0-9]" id="age" placeholder="" required>
-                        </div>
-                        <div class="input-box col pb-3">
-                            <div class="details">Date Delivered:</div>
-                            <input type="date" id="date_delivered" name="date_delivered" pattern="[0-9]" placeholder="" required>
+                        </div> 
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Place:</div>
+                            <input type="text" id="place" name="place"  placeholder="" required>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-box col pb-3">
-                            <div class="details">Outcome:</div>
-                            <input type="text" id="outcome" name="outcome" placeholder="" required>
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Date Delivered:</div>
+                            <input type="date" id="date_delivered" name="date_delivered" pattern="[0-9]" placeholder="" required>
                         </div>
-                        <div class="input-box col pb-3">
-                            <div class="details">Place:</div>
-                            <input type="text" id="place" name="place"  placeholder="" required>
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Outcome:</div>
+                            <input type="date" id="outcome" name="outcome" placeholder="" required>
                         </div>
                     </div>
                 </div>

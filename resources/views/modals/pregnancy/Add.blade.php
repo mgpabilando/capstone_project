@@ -50,18 +50,18 @@
                     <div class="row">
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Weight(kg):</div>
-                            <input type="text" name="weight" id="weight" pattern="[0-9]" placeholder="" required>
+                            <input type="number" name="weight" id="weight" placeholder="" required>
                         </div>
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Height(cm):</div>
-                            <input type="text" name="height" id="height" pattern="[0-9]" placeholder="" required>
+                            <input type="number" name="height" id="height"   placeholder="" required>
                         </div>
                     </div>
 
                     <div class="row pregnancy-info">
                         <div class="input-box col-md-4 pb-3">
                             <div class="details">Age:</div>
-                            <input type="text" name="age" id="age" pattern="[0-9]" placeholder="" required>
+                            <input type="number" name="age" id="age"  placeholder="" required>
                         </div>
                         <div class="input-box col-md-4 pb-3">
                             <div class="details">LMP:</div>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="input-box col-md-4 pb-3">
                             <div class="details">Pregnancy Order:</div>
-                            <input type="text" name="pregnancyorder" id="pregnancyorder" pattern="[0-9]" placeholder="" required>
+                            <input type="number" name="pregnancyorder" id="pregnancyorder"  placeholder="" required>
                         </div>
                     </div>
                 </div>
