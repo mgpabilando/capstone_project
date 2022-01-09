@@ -1,5 +1,4 @@
 <style>
-<<<<<<< HEAD
     #addfamilynumber li:hover
     {
         background-color: #e8f0fe;
@@ -20,27 +19,6 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     font-size: 13px;
-=======
-    li:hover {
-        background-color: #e8f0fe;
-    }
-
-    .select2-container .select2-selection--single {
-        box-sizing: border-box;
-        cursor: pointer;
-        display: block;
-        height: 28px;
-        user-select: none;
-        -webkit-user-select: none;
-        width: 300px;
-    }
-
-    .select2-dropdown--below {
-        border-top: none;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        font-size: 13px;
->>>>>>> origin/jkgerero_branch
     }
 
     #addfamilynumber .details{
