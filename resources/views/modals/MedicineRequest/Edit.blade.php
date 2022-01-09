@@ -1,5 +1,5 @@
 <!-- Modal for Edit -->
-    <div class="modal fade" id="editnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal res-edit fade" id="editnewconsultation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,8 +22,8 @@
 
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submt" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submt" class="btn btn-warning">Update</button>
             </div>
 
             </form>

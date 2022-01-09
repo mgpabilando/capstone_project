@@ -63,7 +63,7 @@ class ResidentController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Required field is empty.')->withInput();
+            return redirect()->back()->withErrors('Fill out this form with correct and valid informartion.')->withInput();
         }
 
         $residentprofile = Residents::create([
@@ -137,7 +137,7 @@ class ResidentController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Required field is empty.')->withInput();
+            return redirect()->back()->withErrors('Fill out this form with correct and valid informartion.')->withInput();
         }
 
         $residentprofile = array(

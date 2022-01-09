@@ -21,7 +21,7 @@
     }
 </style>
 
-<div class="consul-show modal fade" id="viewdiarrhealconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="consul-show res-view modal fade" id="viewdiarrhealconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -50,7 +50,7 @@
                     <hr>
 
                     <div class="row">
-                        <div class="input-box col-md-6 pb-3">
+                        <div class="input-box col-md-12 pb-3">
                             <div class="details">Age:</div>
                             <input type="number" name="Vage" id="Vage" placeholder="">
                         </div>

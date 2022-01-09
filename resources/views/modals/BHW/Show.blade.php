@@ -4,9 +4,8 @@
         <div class="modal-content">
             <div class="modal-header text-center" style="background-color: #007bff;
             color: #ffffff;">
-                <h5 class="modal-title" id="registerModal">View Record</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
+                <h5 class="modal-title" id="registerModal">View Record</h5> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
             </div>
             <form class="bhw-modal" method="GET" action=" {{route('bhw.show', 'user_id')}}">
                 @csrf

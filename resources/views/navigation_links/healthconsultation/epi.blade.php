@@ -24,7 +24,7 @@
                         @include('modals.epi.Add')
 
                       <a href="{{ route('epi.index', ['view_deleted' => 'DeletedRecords']) }}"
-                      class="btn btn-danger">Trash</a>
+                      class="btn btn-danger"><i class="manage fas fa-trash"></i> Trash</a>
                 @endif
               @endif
             </div>
@@ -33,14 +33,11 @@
                   <table id="EPI-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                       <thead>
                           <tr role="row">
-                              <th class="text-center" scope="col">Patient_ID</th>
-                              <th class="text-center" scope="col">Resident_ID</th>
-                              <th class="text-center" scope="col">Name</th>
-                              <th class="text-center" scope="col">Medicines Given</th>
-                              <th class="text-center" scope="col">Birthdate</th>
-                              <th class="text-center" scope="col">Date Added</th>
-                              <th class="text-center" scope="col">Date Updated</th>
-                              <th class="text-center" scope="col">Actions</th>
+                              <th  scope="col">Patient_ID</th> 
+                              <th  scope="col">Name</th>  
+                              <th  scope="col">Date Added</th>
+                              <th  scope="col">Date Updated</th>
+                              <th  scope="col">Actions</th>
 
                           </tr>
                       </thead>
@@ -48,13 +45,10 @@
                           @if ($epiconsulrecord)
                               @foreach ($epiconsulrecord as $epiRec)
                               <tr>
-                                <th class="text-center">{{ $epiRec->id }}</th>
-                                <td class="text-center">{{ $epiRec->resident_id }}</td>
-                                <td class="text-center">{{ $epiRec->name }}</td>
-                                <td class="text-center">{{ $epiRec->meds_given }}</td>
-                                <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y',strtotime($epiRec['birthdate'])) }}</td>
-                                <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($epiRec['created_at'])) }}</td>
-                                <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($epiRec['updated_at'])) }}</td>
+                                <td data-label="ID" >{{ $epiRec->id }}</td> 
+                                <td data-label="Name" >{{ $epiRec->name }}</td>  
+                                <td data-label="Date Added"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($epiRec['created_at'])) }}</td>
+                                <td data-label="Date Updated"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($epiRec['updated_at'])) }}</td>
                                 <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                   @if (request()->has('view_deleted'))
                                     <a href="{{ route('epi.restore', $epiRec->id) }}" class="btn btn-success">Restore</a>
@@ -62,7 +56,7 @@
                                     <a type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal"  data-epi_id="{{$epiRec->id}}">Delete
                                     </a>
-                                    @include('modals.epi.PermanentDelete')
+                                    @include('modals.epi.Permanentdelete')
 
                                     @else  
                                       {{-----***************************** SHOW BUTTON *******************************------}}

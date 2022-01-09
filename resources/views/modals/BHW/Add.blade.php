@@ -50,8 +50,7 @@
         <div class="modal-content">
             <div class="modal-header text-center" style="background-color: #2ae88a;
             color: #ffffff">
-                <h5 class="modal-title" id="addbhwModal">{{ __('CREATE ACCOUNT') }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="addbhwModal">{{ __('CREATE ACCOUNT') }}</h5> 
                 </button>
 
             </div>

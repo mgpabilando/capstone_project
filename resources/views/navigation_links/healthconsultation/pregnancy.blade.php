@@ -24,7 +24,7 @@
                       @include('modals.pregnancy.Add')
 
                       <a href="{{ route('pregnancy.index', ['view_deleted' => 'DeletedRecords']) }}"
-                      class="btn btn-danger">Trash</a>
+                      class="btn btn-danger"><i class="manage fas fa-trash"></i> Trash</a>
                   @endif
                 @endif
               </div>
@@ -45,7 +45,7 @@
                         @if ($pregconsultationrecord)
                           @foreach ($pregconsultationrecord as $pregpatient)
                           <tr>
-                          <th data-label="Patient ID">{{ $pregpatient->id }}</th> 
+                          <td data-label="Patient ID">{{ $pregpatient->id }}</td> 
                           <td data-label="Name">{{ $pregpatient->name }}</td> 
                           <td data-label="Age">{{ $pregpatient->age }}</td> 
                           <td data-label="Date Added">{{ date('F d, Y h:i:s a',strtotime($pregpatient['created_at'])) }}</td>

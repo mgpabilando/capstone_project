@@ -23,7 +23,7 @@
                                     @include('modals.familyplanning.Add')
 
                                     <a href="{{ route('familyplanning.index', ['view_deleted' => 'DeletedRecords']) }}"
-                                        class="btn btn-danger">Trash</a>
+                                        class="btn btn-danger"><i class="manage fas fa-trash"></i> Trash</a>
                             @endif
                         @endif                                                                                                
                     </div> 
@@ -32,25 +32,19 @@
                     <table id="familyplanning-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                         <thead>
                                 <tr role="row">
-                                    <th class="text-center" scope="col">Patient_ID</th>
-                                    <th class="text-center" scope="col">Resident_ID</th>
-                                    <th class="text-center" scope="col">Name</th>
-                                    <th class="text-center" scope="col">Age</th>
-                                    <th class="text-center" scope="col">Method Used</th>
-                                    <th class="text-center" scope="col">Date Added</th>
-                                    <th class="text-center" scope="col">Actions</th>
+                                    <th  scope="col">Patient_ID</th> 
+                                    <th  scope="col">Name</th>  
+                                    <th  scope="col">Date Added</th>
+                                    <th  scope="col">Actions</th>
                                 </tr>
                         </thead>
                             <tbody>
                                 @if ($familyplanningconsulrecord)
                                     @foreach ($familyplanningconsulrecord as $familyplanningRec)
                                         <tr>
-                                            <th class="text-center">{{ $familyplanningRec->id }}</th>
-                                            <td class="text-center">{{ $familyplanningRec->resident_id }}</td>
-                                            <td class="text-center">{{ $familyplanningRec->name }}</td>
-                                            <td class="text-center">{{ $familyplanningRec->age }}</td>
-                                            <td class="text-center">{{ $familyplanningRec->method_used }}</td>
-                                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($familyplanningRec['created_at'])) }}</td>
+                                            <td data-label="ID" >{{ $familyplanningRec->id }}</td> 
+                                            <td data-label="Name" >{{ $familyplanningRec->name }}</td>  
+                                            <td data-label="Date Added"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($familyplanningRec['created_at'])) }}</td>
                                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 @if (request()->has('view_deleted'))
                                                     <a href="{{ route('familyplanning.restore', $familyplanningRec->id) }}" class="btn btn-success">Restore</a>

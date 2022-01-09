@@ -1,5 +1,5 @@
         <!--**************************------------------- DELETE pregconsul MODAL -------------------****************************---------->
-        <div class="consul-delete modal fade" id="deleteepiconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteepiconsul" aria-hidden="true">
+        <div class="consul-delete res-delete modal fade" id="deleteepiconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteepiconsul" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">

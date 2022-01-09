@@ -65,7 +65,7 @@
                     <li><a href="epi">EPI</a></li>
                     <li><a href="ntp">NTP</a></li>
                     <li><a href="familyplanning">Family Planning</a></li>
-                    <li><a href="diarrheal">Control of Diarrheal <br> Disease</a></li>
+                    <li><a href="diarrheal">Diarrheal</a></li>
                     <li><a href="other">Other Services</a></li>
                  </ul>
             </li>

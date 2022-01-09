@@ -21,7 +21,7 @@
     }
 </style>
 
-<div class="consul-show modal fade" id="viewepiconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="consul-show res-view modal fade" id="viewepiconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -50,13 +50,13 @@
                     <hr>
 
                     <div class="row">
-                        <div class="input-box col pb-3">
+                        <div class="input-box col-md-12 pb-3">
                             <div class="details">Birthdate:</div>
                             <input type="date" name="Vbirthdate" id="Vbirthdate" placeholder="">
                         </div>
-                        <div class="input-box col pb-3">
+                        <div class="input-box col-md-12 pb-3">
                             <div class="details">Medicine Given:</div>
-                            <textarea id="Vmeds_given" name="Vmeds_given" cols="30" rows="10"></textarea>
+                            <textarea id="Vmeds_given" name="Vmeds_given" style="width:100%; height: 100px; padding: 5px; "></textarea>
                         </div>
                     </div>
                 </div>

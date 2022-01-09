@@ -4,8 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Edit Resident</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Resident</h5> 
             </div>
             <form class="edit-resident" action="{{route ('residentprofile.update', 'resident_id')}}" method="POST">
                 @csrf
@@ -82,17 +81,17 @@
                         <div class="col-md-6 input-box">
                             <div class="details mt-2">PhilHealth ID No:</div>
                             <input name="Ephil_health_id" id="Ephil_health_id" type="text" pattern="[0-9]{12}" placeholder="" maxlength="12">
-                            <p>Leave it blank if not applicable</p>
+                            <p class="text-start">Leave it blank if not applicable</p>
                         </div>
                         <div class="col-md-6 input-box">
                             <div class="details mt-2">4PS ID No:</div>
                             <input name="Eid_4ps" id="Eid_4ps" type="text" placeholder="" pattern="[0-9]{18}" maxlength="18">
-                            <p>Leave it blank if not applicable</p>
+                            <p class="text-start">Leave it blank if not applicable</p>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-warning waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-warning">Update Data</button>
                 </div>
             </form>

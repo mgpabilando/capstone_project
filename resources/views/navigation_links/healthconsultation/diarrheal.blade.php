@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <div class="consultation-list container bhms-box-shadow">
                     <div class="title-and-button d-flex justify-content-between align-items-center">
-                        <h4 class="consulttable-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Diarrheal</h4>  
+                        <h4 class="consulttable-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">List of Diarrheal</h4>  
                         @if (Auth::user()->hasRole('admin_nurse'))
                             @if(request()->has('view_deleted'))
                             <a href="{{ route('diarrheal.index') }}" class="btn btn-primary">View All</a>
@@ -23,7 +23,7 @@
                                     @include('modals.diarrheal.Add')
 
                                     <a href="{{ route('diarrheal.index', ['view_deleted' => 'DeletedRecords']) }}"
-                                        class="btn btn-danger">Trash</a>
+                                        class="btn btn-danger"><i class="manage fas fa-trash"></i> Trash</a>
                             @endif
                         @endif                                                                                                
 
@@ -33,25 +33,21 @@
                         <table id="diarrheal-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                             <thead>
                             <tr role="row">
-                                <th class="text-center" scope="col">Patient_ID</th>
-                                <th class="text-center" scope="col">Resident_ID</th>
-                                <th class="text-center" scope="col">Name</th>
-                                <th class="text-center" scope="col">Age</th>
-                                <th class="text-center" scope="col">Date Added</th>
-                                <th class="text-center" scope="col">Date Updated</th>
-                                <th class="text-center" scope="col">Actions</th>
+                                <th scope="col">Patient_ID</th> 
+                                <th scope="col">Name</th> 
+                                <th scope="col">Date Added</th>
+                                <th scope="col">Date Updated</th>
+                                <th scope="col">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @if ($diarrhealconsulrecord)
                                     @foreach ($diarrhealconsulrecord as $diarrhealRec)
                                         <tr>
-                                            <th class="text-center">{{ $diarrhealRec->id }}</th>
-                                            <td class="text-center">{{ $diarrhealRec->resident_id }}</td>
-                                            <td class="text-center">{{ $diarrhealRec->name }}</td>
-                                            <td class="text-center">{{ $diarrhealRec->age }}</td>
-                                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($diarrhealRec['created_at'])) }}</td>
-                                            <td class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($diarrhealRec['updated_at'])) }}</td>
+                                            <td data-label="ID" >{{ $diarrhealRec->id }}</td> 
+                                            <td data-label="Name" >{{ $diarrhealRec->name }}</td> 
+                                            <td data-label="Date Added" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($diarrhealRec['created_at'])) }}</td>
+                                            <td data-label="Date Updated"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($diarrhealRec['updated_at'])) }}</td>
                                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 @if (request()->has('view_deleted'))
                                                     <a href="{{ route('diarrheal.restore', $diarrhealRec->id) }}" class="btn btn-success">Restore</a>

@@ -1,4 +1,4 @@
-<div class="consul-show modal fade" id="editotherconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="consul-show res-edit modal fade" id="editotherconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,11 +15,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-box col-6 pb-3">
-                            <div class="details">Other Service Rendered:</div>
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Service Rendered:</div>
                             <input type="text" id="Eotherservice" name="Eotherservice" placeholder="" required>
                         </div>
-                        <div class="input-box col-6 pb-3">
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Date:</div>
                             <input type="date" id="Edaterec" name="Edaterec" placeholder="" required>
                         </div>
@@ -27,7 +27,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-warning waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-warning">Update</button>
                 </div>
             </form>
