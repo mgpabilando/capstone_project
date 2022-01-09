@@ -12,7 +12,8 @@
                     <div class="input-box">
                         <input name="user_id" id="deleteuser_id" type="hidden" placeholder="">
                     </div>
-                    <h5>This will be removed permanently. Do you want to continue?</h5>
+                    <p style="font-size: 15px">This will be removed permanently. 
+                        Do you want to continue?</p>
                 </div>
 
                 <div class="modal-footer">

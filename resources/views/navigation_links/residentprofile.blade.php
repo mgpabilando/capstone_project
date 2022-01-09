@@ -23,12 +23,14 @@
                                 <button type="submit" class="btn btn-add me-2" title="Add New Resident" data-bs-toggle="modal" data-bs-target="#registerresident">
                                 <i class="fas fa-user-plus"></i> Add</button>
                                 @include('modals.residentprofile.Add')
+
                                 <a href="{{ route('residentprofile.index', ['view_deleted' => 'DeletedRecords']) }}"
                                 class="btn btn-danger">Trash </a>
                             @endif
                     </div>
-
+                    
                     <hr>
+
                     <div class="table-responsive mb-3">
                         <table id="residentprofile-datatable" class="table table-bordered table-striped datatable-hover">
                                 <thead>
@@ -36,8 +38,8 @@
                                         <th class="text-center" scope="col">ID</th> 
                                         <th class="text-center col-3" scope="col">Family Head</th>
                                         <th class="text-center col-4" scope="col">Resident Name</th>
-                                        <th class="text-center" scope="col">Date Added</th> 
-                                        <th scope="col-md-1">Action</th>
+                                        <th class="text-center col-md-2" scope="col">Date Added</th> 
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +50,7 @@
                                         <td data-label="Family Head" class="text-center">{{ $residentprofile->family_head }}</td>
                                         <td data-label="Full Name"><p style="text-transform: capitalize; padding: 0px; margin: 0px;">{{ $residentprofile->lname }}, {{ $residentprofile->fname }} {{ $residentprofile->mname }}</p></td> 
                                         <td data-label="Date Added" class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($residentprofile['created_at'])) }}</td>
-                                        <td td data-label="" style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                                        <td data-label="" style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                                 @if (request()->has('view_deleted'))
                                                     <a href="{{ route('resident.restore', $residentprofile->id) }}" class="btn btn-success">Restore</a>
                                                     <a type="button" class="btn btn-danger" data-bs-toggle="modal"
@@ -70,7 +72,7 @@
                                                 @include('modals.residentprofile.Show')
                                             
                                                 {{-----***************************** EDIT BUTTON *******************************------}}
-                                                <a data-bs-toggle="modal" type="button" class="btn  btn-warning"
+                                                <a data-bs-toggle="modal" type="button" class="btn btn-warning"
                                                 data-resident_id="{{$residentprofile->id}}" data-family_id="{{ $residentprofile->family_id }}" data-family_head="{{ $residentprofile->family_head }}"
                                                 data-fname="{{$residentprofile->fname}}" data-lname="{{$residentprofile->lname}}" data-mname="{{$residentprofile->mname}}"
                                                 data-age="{{ $residentprofile->age }}" data-bdate="{{ $residentprofile->bdate }}" 

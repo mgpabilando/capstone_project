@@ -1,6 +1,6 @@
         <!--**************************------------------- DELETE ntpconsul MODAL -------------------****************************---------->
         <div class="consul-delete modal fade" id="deletefamilynumber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletefamilynumber" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Delete ntp Record</h5>

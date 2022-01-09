@@ -37,10 +37,10 @@
 
 <!--******************************-------------- ADD RESIDENT MODAL ------------*************************************-->
 <div class="res-add modal fade" id="registerresident" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">ADD RESIDENT</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Add Resident</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form class="add-resident" action="{{route ('residentprofile.store')}}" method="POST">
@@ -55,31 +55,17 @@
                                 </select>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <hr>
-                        <div class="d-flex flex-wrap identification row ">
-                            <div class="col-4 input-box">
-                                <div class="details">Family No.:</div>
-                                <input type="text" name="family_id" id="family_id" required>
-                            </div>
-
-                            <div class="col-4 input-box">
-                                <div class="details">Family Head:</div>
-                                <input type="text" name="family_head" id="family_head" required>
-                            </div>
-=======
                     </div>
                     <hr>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-6 input-box">
                             <div class="details">Family No.:</div>
-                            <input type="text" name="family_id" id="family_id" readonly>
+                            <input type="text" name="family_id" id="family_id" readonly required>
                         </div>
 
                         <div class="col-md-6 input-box">
                             <div class="details">Family Head:</div>
-                            <input type="text" name="family_head" id="family_head" readonly>
->>>>>>> origin/jkgerero_branch
+                            <input type="text" name="family_head" id="family_head" readonly required>
                         </div>
                     </div>
 
@@ -90,7 +76,7 @@
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Middle Name:</div>
-                            <input name="mname" type="text" placeholder="" required>
+                            <input name="mname" type="text" placeholder="">
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Last Name:</div>
@@ -102,41 +88,6 @@
                             <div class="details">Age:</div>
                             <input name="age" type="number" placeholder="" max="500" required>
                         </div>
-<<<<<<< HEAD
-                        <div class="d-flex flex-wrap identification row ">
-                            <div class="col-4 input-box">
-                                <div class="details">Sex:</div>
-                                <select class="gender" name="sex" required>
-                                <option selected>Select</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                </select>
-                            </div>
-                            <div class="col-4 input-box">
-                                <div class="details">Civil Status:</div>
-                                <select class="civil-status" name="civil_status" required>
-                                    <option selected>Select</option>
-                                    <option value="Single">Single</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Divorced">Divorced</option>
-                                    <option value="Widowed">Widowed</option>
-                                </select>
-                            </div>
-                            <div class="col-4 input-box">
-                                <div class="details">Contact Number:</div>
-                                <input name="mobile" type="number" placeholder="" required>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-wrap identification row ">
-                            <div class="col-6 input-box">
-                                <div class="details">PhilHealth ID No:</div>
-                                <input name="phil_health_id" type="text" placeholder="Leave blank if not applicable" pattern="[0-9]{12}" title="Unique 12-digit numbers" minlength="12" maxlength="12">
-                            </div>
-                            <div class="col-6 input-box">
-                                <div class="details">4PS ID No:</div>
-                                <input name="id_4ps" type="text" placeholder="Leave blank if not applicable" pattern="[0-9]" title="Unique numbers">
-                            </div>
-=======
                         <div class="col-md-4 input-box">
                             <div class="details">Birthdate:</div>
                             <input name="bdate" type="date" class="date" placeholder="" required>
@@ -149,16 +100,16 @@
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-4 input-box">
                             <div class="details">Sex:</div>
-                            <select class="gender" name="sex">
-                                <option selected>Select</option>'
+                            <select class="gender required" name="sex">
+                                <option selected>Select</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Civil Status:</div>
-                            <select class="civil-status" name="civil_status">
-                                <option selected>Select</option>'
+                            <select class="civil-status required" name="civil_status">
+                                <option selected>Select</option>
                                 <option value="Single">Single</option>
                                 <option value="Married">Married</option>
                                 <option value="Divorced">Divorced</option>
@@ -166,19 +117,23 @@
                             </select>
                         </div>
                         <div class="col-md-4 input-box">
-                            <div class="details">Contact Number:</div>
-                            <input name="mobile" type="text" placeholder="" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11">
->>>>>>> origin/jkgerero_branch
+                            <label class="details" for="mobile">Mobile Number:</label>
+                            <input type="tel" class="form-control" id="mobile" name="mobile" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11" title="Input valid mobile number." required>
+                            <span class="invalid-feedback" role="alert" for="mobile">
+                                <strong></strong>
+                            </span>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-6 input-box">
                             <div class="details">PhilHealth ID No:</div>
-                            <input name="phil_health_id" type="text" pattern="[0-9]{12}" placeholder="000000000000" maxlength="12"  >
+                            <input name="phil_health_id" type="text" pattern="[0-9]{12}" placeholder="" maxlength="12">
+                            <p style="text-align: center;">Leave it blank if not applicable</p>
                         </div>
                         <div class="col-md-6 input-box">
                             <div class="details">4PS ID No:</div>
-                            <input name="id_4ps" type="text" placeholder="000000000000000000"  pattern="[0-9]{18}" maxlength="18">
+                            <input name="id_4ps" type="text" placeholder=""  pattern="[0-9]{18}" maxlength="18">
+                            <p style="text-align: center;">Leave it blank if not applicable</p>
                         </div>
                     </div>
                 </div>

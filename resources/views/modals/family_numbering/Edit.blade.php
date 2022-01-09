@@ -14,29 +14,26 @@
     }
 
     .select2-dropdown--below {
-<<<<<<< HEAD
     border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     font-size: 13px;
     }
 
-    #editfamilynumber .details{
-        font-weight: 600;
-    }
+    #editfamilynumber .details {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 3px;
+    color: rgb(90, 90, 90);
+}
 
     #editfamilynumber .modal-header{
     background-color: #ffc107;
     color: #ffffff;
     }
 
-=======
-        border-top: none;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        font-size: 13px;
-    }
->>>>>>> origin/jkgerero_branch
+
+
 </style>
 
 <div class="consul-show modal fade" id="editfamilynumber" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -72,19 +69,11 @@
                             <div class="details">Last Name:</div>
                             <input name="El_name" id="El_name" type="text" placeholder="" required>
                         </div>
-<<<<<<< HEAD
                     
                         <div class="input-box  mt-2" style="width: 50%">
                             <div class="details">Purok No.:</div>
                             <select class="purok" name="Epurok" id="Epurok" class="required">
                                 <option value="" selected>Select</option>
-=======
-
-                        <div class="input-box">
-                            <div class="details">Purok No.:</div>
-                            <select class="purok" name="Epurok" id="Epurok">
-                                <option selected>Select</option>
->>>>>>> origin/jkgerero_branch
                                 <option value="1">UNO</option>
                                 <option value="2">DOS</option>
                                 <option value="3">TRES</option>

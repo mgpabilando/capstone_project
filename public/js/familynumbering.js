@@ -12,7 +12,7 @@ $('#editfamilynumber').on('hidden.bs.modal', function () {
     var purok = button.data('purok')
 
     var modal = $(this)
-    modal.find('.modal-title').text('Update Record');
+    modal.find('.modal-title').text('View Record');
     modal.find('.modal-body #Vfamilynumber_id').val(familynumber_id);
     modal.find('.modal-body #Vf_name').val(f_name);
     modal.find('.modal-body #Vm_name').val(m_name);

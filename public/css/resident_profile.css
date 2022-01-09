@@ -116,6 +116,22 @@ line-height: 1.75;
   color: rgb(90, 90, 90);
 }
 
+#editResidentModal .details {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+  text-align: start;
+}
+
+#viewResidentModal .details {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 3px;
+  color: rgb(90, 90, 90);
+  text-align: start;
+}
+
 
 /*****************************************
 //Modal Design for View Resident Profile

@@ -13,13 +13,14 @@
             <div class="col-md-12">
                 <div class="consultation-list container bhms-box-shadow">
                     <div class="title-and-button d-flex justify-content-between align-items-center">
-                        <h4 class="consulttable-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Family Numbering</h4>
+                        <h4 class="fw-bold consulttable-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">Family Numbering</h4>
                         @if(request()->has('view_deleted'))
                         <a href="{{ route('familynumbering.index') }}" class="btn btn-primary">View All</a>
                         @else
                         <button type="submit" class="btn btn-add me-2" title="Add Family Number" data-bs-toggle="modal" data-bs-target="#addfamilynumber">
                             <i class="fas fa-user-plus"></i> Add</button>
                         @include('modals.family_numbering.Add')
+                        
                         <a href="{{ route('familynumbering.index', ['view_deleted' => 'DeletedRecords']) }}" class="btn btn-danger"><i class="fas fa-trash"></i> Trash</a>
                         @endif
                     </div>
@@ -28,10 +29,10 @@
                         <table id="familynumbering-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                             <thead>
                                 <tr role="row">
-                                    <th class="text-center" scope="col">Family_Number</th>
+                                    <th class="text-center" scope="col">Family Number</th>
                                     <th class="text-center" scope="col">Family Head</th>
                                     <th class="text-center" scope="col">Purok</th>
-                                    <th class="text-center" scope="col">Actions</th>
+                                    <th class="text-center col-md-2" scope="col">Actions</th>
                                 </tr>
                             </thead>
 

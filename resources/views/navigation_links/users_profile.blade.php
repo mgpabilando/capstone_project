@@ -29,7 +29,6 @@
 
       {{-- User Profile/Information --}}
       <div class="user-info col-md-8 m-2 text-center">
-
         <ul class="nav nav-tabs justify-content-center" id="tab-next-prev" role="tablist">
           <li class="nav-item col-md-6">
             <a class="nav-link active" data-bs-toggle="tab" href="#personal_info">Personal Information</a>
@@ -171,10 +170,9 @@
           </div><!--ACCOUNT INFO-->
 
 
-          </div><!---tab-content-->
+        </div><!---tab-content-->
         
       </div><!--/user-info-->
-    </div>
     </div>
   </div>
 </div>

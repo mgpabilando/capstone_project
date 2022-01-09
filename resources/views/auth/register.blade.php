@@ -1,170 +1,8 @@
-<style>
-    .modal-content {
-        margin: 25px auto;
-        /* 5% from the top, 15% from the bottom and centered */
-        border: 2px solid #888;
-        /* Could be more or less, depending on screen size */
-        font-size: 12px;
-        border-radius: 10px;
-        width: 80%;
-
-    }
-
-    .modal .modal-title {
-        position: absolute;
-        margin: 10px;
-        width: 90%;
-    }
-
-    .modal-body {
-        margin: 0px 20px;
-        position: relative;
-
-    }
-
-    /* Full-width input fields */
-    .modal input[type=text],
-    .modal input[type=number] {
-        width: 100%;
-        padding: 5px;
-        margin: 5px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        font-size: 10px;
-        border-radius: 10px;
-        text-transform: capitalize;
-    }
-
-    .modal input[type=password],
-    .modal input[type=email],
-    .modal input[type=number] {
-        width: 100%;
-        padding-left: 8px;
-        margin: 5px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        font-size: 10px;
-        border-radius: 10px;
-        text-transform: lowercase;
-    }
-
-    .modal input[type=date] {
-        width: 100%;
-        padding-left: 8px;
-        margin: 5px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        font-size: 10px;
-        border-radius: 10px;
-        text-transform: uppercase;
-    }
-
-    /* Set a style for all buttons */
-    .modal .modal-content .signUp-btn {
-        border-radius: 10px;
-        color: white;
-        text-align:center;
-        cursor: pointer;
-        width: 40%;
-        height: 30px;
-    }
-
-    .modal .modal-content .signUp-cancel {
-        background-color:#ffff;
-        border-radius: 10px;
-        text-align: center;
-        cursor: pointer;
-        width: 40%;
-        height: 30px;
-        transition: 0.5sec;
-    }
-
-    .modal .modal-content .signUp-cancel:hover {
-        background-color: red;
-        color: #ffff;
-    }
-
-    .modal-content .modal-body select {
-        border-radius: 10px;
-        padding: 5px 20px;
-        margin: 0px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        font-size: 14px;
-    }
-
-    .modal .modal-content .control-label {
-        color: #000000;
-
-    }
-
-    . {
-        justify-content: space-between;
-    }
-
-
-    .modal .modal-content .info-head {
-        position: absolute;
-        transform: rotate(-90deg) translateX(-70px) translateY(-120px);
-        background-color: #2ae88a;
-        padding: 8px 10px;
-        border-radius: 5px;
-        color: #ffffff;
-    }
-
-    /* The message box is shown when the user clicks on the password field */
-    #message {
-        display: none;
-        color: #000;
-        position: relative;
-
-    }
-
-    #message p {
-        font-size: 12px;
-        margin-bottom: 5px;
-
-        padding: 0px 35px;
-    }
-
-    /* Add a green text color and a checkmark when the requirements are right */
-    .valid {
-        color: green;
-    }
-
-    .valid:before {
-        position: relative;
-        left: -35px;
-        content: "✔";
-    }
-
-    /* Add a red text color and an "x" when the requirements are wrong */
-    .invalid {
-        color: red;
-    }
-
-    .invalid:before {
-        position: relative;
-        left: -35px;
-        content: "✖";
-    }
-
-    #contact-error,
-    #email-error {
-        color: red;
-        font-weight: 500;
-    }
-</style>
-
 <div class="modal fade" id="registerModal" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog modal-fullscreen-sm-down" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
-                <h5 class="modal-title" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="registerModal">{{ __('CREATE ACCOUNT') }}</h5>
             </div>
             <form method="POST" action="register" id="registerForm">
                 @csrf
@@ -201,7 +39,7 @@
 
                             <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="contact">Contact Number:</label>
-                                <input type="text" class="form-control" id="contact" name="contact" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11" title="Input 11 digit of mobile number." required>
+                                <input type="text" class="form-control" id="contact" name="contact" pattern="[0-9]{11}" placeholder="09123456789" maxlength="11" title="Input valid mobile number." required>
                                 <span class="invalid-feedback" role="alert" for="contact">
                                     <strong></strong>
                                 </span>
@@ -283,8 +121,32 @@
                 </div>
 
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="signUp-cancel btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="signUp-btn btn-success">SIGN UP</button>
+                    <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">SIGN UP</button>
+                <style>
+                .btn-outline-success {
+                    color: #15c5c4;
+                    border-color: #15c5c4;
+                }
+                .btn-outline-success:hover {
+                    color: #fff;
+                    background-color: #15c5c4;
+                    border-color: #15c5c4;
+                }
+                .btn-success{
+                    color: #fff;
+                    background-color: #15c5c4;
+                    border-color: #15c5c4;
+                }
+
+                .btn-success:hover {
+                    color: #fff;
+                    background-color: #13afaf;
+                    border-color: #15c5c4;
+                }
+                
+                </style>
+                
                 </div>
             </form>
         </div>

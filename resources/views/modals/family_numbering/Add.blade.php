@@ -21,8 +21,16 @@
     font-size: 13px;
     }
 
-    #addfamilynumber .details{
-        font-weight: 600;
+    #addfamilynumber .details {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 3px;
+    color: rgb(90, 90, 90);
+}
+
+    #addfamilynumber .modal-header {
+    background-color: #2ae88a;
+    color: #ffffff;
     }
 
 
@@ -55,8 +63,6 @@
                     </div>
 
                     <div class="d-flex identification row">
-
-
                         <div class="input-box col-md-12 mt-2">
                             <div class="details">Purok No.:</div>
                             <select class="purok" name="purok" id="purok" class="required">
@@ -75,7 +81,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success">SAVE AS FAMILY HEAD</button>
+                    <button type="submit" class="btn btn-success">Save as Family head</button>
                 </div>
             </form>
         </div>
