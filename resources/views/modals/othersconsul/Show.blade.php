@@ -1,4 +1,4 @@
-<div class="consul-show modal fade" id="viewotherconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="consul-show res-view modal fade" id="viewotherconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,11 +15,11 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="input-box col-6 pb-3">
-                            <div class="details">Other Service Rendered:</div>
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Service Rendered:</div>
                             <input type="text" id="Votherservice" name="Votherservice" placeholder="" required readonly>
                         </div>
-                        <div class="input-box col-6 pb-3">
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Date:</div>
                             <input type="date" id="Vdaterec" name="Vdaterec" placeholder="" required readonly>
                         </div>

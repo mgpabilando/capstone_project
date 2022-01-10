@@ -21,11 +21,11 @@
                   <table id="" class="purok table table-bordered table-striped" style="padding: 10px">
                       <thead>
                         <tr role="row">
-                            <th class="text-center" scope="col">Purok</th>
-                            <th class="text-center" scope="col">Family ID No.</th>
+                            <th  scope="col">Purok</th>
+                            <th  scope="col">Family ID No.</th>
                             <th class="text-center col-3" scope="col">Family Head</th>
-                            <th class="text-center" scope="col">Resident Name</th>
-                            <th class="text-center" scope="col">Action</th>
+                            <th  scope="col">Resident Name</th>
+                            <th  scope="col">Action</th>
                             
                         </tr>
                       </thead>
@@ -34,11 +34,11 @@
                         @if ($residentprofile)
                         @foreach ( $residentprofile as $row)
                         <tr>
-                          <th class="text-center">{{ $row->familyNumbering->purok }}</th>
-                          <td class="text-center">{{ $row->family_id }}</td>
-                          <td class="text-center">{{ $row->family_head}}</td>
-                          <td class="text-center">{{ $row->fname }} {{ $row->mname }} {{ $row->lname }}</td>
-                          <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
+                          <td data-label="Purok" >{{ $row->familyNumbering->purok }}</td>
+                          <td data-label="Family ID" >{{ $row->family_id }}</td>
+                          <td data-label="Family Head" >{{ $row->family_head}}</td>
+                          <td data-label="Resident Name" >{{ $row->fname }} {{ $row->mname }} {{ $row->lname }}</td>
+                          <td  style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                             {{-----***************************** SHOW BUTTON *******************************------}}
                               <a data-bs-toggle="modal" type="button" class="btn btn-primary resview"  
                                 data-resident_id="{{$row->id}}" data-purok="{{$row->familyNumbering->purok}}" data-fname="{{$row->fname}}"

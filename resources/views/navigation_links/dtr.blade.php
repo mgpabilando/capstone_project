@@ -34,10 +34,11 @@
               </a>
               {{-- DAILY TIME RECORD --}}
               <div class="table-responsive mt-3">
-                <table id="DTR-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
+                <table id="DTR-datatable" class="table table-bordered table-hover" style="padding: 10px">
                     <thead>
                         <tr role="row">
                             <th class="text-center" scope="col">Date</th>
+                            <th class="text-center" scope="col">Created At</th>
                             <th class="text-center" scope="col">Arrival</th>
                             <th class="text-center" scope="col">Departure</th>
                             <th class="text-center" scope="col">Inverval</th>
@@ -46,7 +47,8 @@
                     <tbody>
                         @foreach ($morning as $morningrecord )
                         <tr data-morning-id="{{ $morningrecord->id }}">
-                          <th class="text-center" style="text-transform: uppercase">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                          <th class="text-center" style="text-transform: uppercase;">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                          <td>{{ $morningrecord->created_at }}</td>
                           <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Arrival)->format('g:i:s A')}}</td>
                           <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Departure)->format('g:i:s A')}}</td>
                           <td class="text-center">{{ gmdate("H:i:s", $morningrecord->total_time) }}</td>

@@ -2,19 +2,19 @@
 <div id="printcontent">
   <div class="container-fluid p-0" id="mreport">
     <nav class="navbar sticky-top navbar-dark bg-primary">
-      <div class="container-fluid p-2">
+      <div class="container-fluid pb-0">
         <a class="{{ Request::is('reports') ? 'active' : '' }}" href="reports"><i class="fas fa-arrow-left" style="color: #ffff;"></i></a>
         <p class="fw-bold m-0 p-0 report-tilte" style="color: #ffff;">MONTHLY ACCOMPLISHED REPORT</p>
         {{-- <button id="MARbtnPrint" type="button" class="btn btn-primary"><i class="fas fa-print"></i> PRINT</button> --}}
-        <button onclick="printpage()"><i class="fas fa-print"></i> PRINT</button>
+        <button onclick="printpage()" ><i class="fas fa-print"></i> PRINT</button>
       </div>
     </nav>
 
     <div class="col-md-12 p-3">
       <div class="d-flex justify-content-center flex-column mar-report">
-        <p class="text-center">Republic of the Philippines</p>
-        <p class="text-center">Province of Sorsogon</p>
-        <p class="text-center">Municipality of Irosin</p>
+        <p class="text-center mb-2">Republic of the Philippines</p>
+        <p class="text-center mb-2">Province of Sorsogon</p>
+        <p class="text-center mb-2">Municipality of Irosin</p>
         <p class="text-center fw-bold">MUNICIPALITY HEALTH OFFICE</p>
         <p class="text-center fw-bold">MONTHLY ACCOMPLISHED REPORT OF BARANGAY HEALTH WORKERS</p>
 

@@ -21,7 +21,7 @@
     }
 </style>
 
-<div class="consul-show modal fade" id="viewdeliveriesconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="consul-show modal res-view fade" id="viewdeliveriesconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -50,24 +50,24 @@
                     <hr>
 
                     <div class="row">
-                        <div class="input-box col pb-3">
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Age:</div>
                             <input type="number" name="Vage" id="Vage" placeholder="">
                         </div>
-                        <div class="input-box col pb-3">
-                            <div class="details">Date Delivered:</div>
-                            <input type="date" id="Vdate_delivered" name="Vdate_delivered" placeholder="" required>
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Place:</div>
+                            <input type="text" id="Vplace" name="Vplace" placeholder="" required>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-box col pb-3">
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Date Delivered:</div>
+                            <input type="date" id="Vdate_delivered" name="Vdate_delivered" placeholder="" required>
+                        </div>
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Outcome:</div>
                             <input type="text" id="Voutcome" name="Voutcome" placeholder="" required>
-                        </div>
-                        <div class="input-box col pb-3">
-                            <div class="details">Place:</div>
-                            <input type="text" id="Vplace" name="Vplace" placeholder="" required>
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
                                 @include('modals.residentprofile.Add')
 
                                 <a href="{{ route('residentprofile.index', ['view_deleted' => 'DeletedRecords']) }}"
-                                class="btn btn-danger">Trash </a>
+                                class="btn btn-danger"><i class="fas fa-trash"></i> Trash </a>
                             @endif
                     </div>
 

@@ -1,15 +1,7 @@
-/* .purok-month {
-  margin-top: 5px;
+#mreport td, th{
+  border: 1px solid #000 !important;
+  color: #000;
 }
-
-.purok-month p{
-  margin: 5px;
-}
-
-table{
-  margin: 0px;
-}
-
 .mar-report .text-center{
   margin: 0px 0px 3px 0px;
 }
@@ -25,7 +17,21 @@ table{
 .noted-sign-cap{
   margin-left: 100px;
 }
- */
+
+#mreport button{
+  width: 100px;
+  height: 35px;
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+#mreport button:hover{
+  background-color: #fff;
+  color: blue;
+}
 
 
 /*for printing*/
@@ -40,8 +46,8 @@ table{
         width: 100%;
       }
 
-      #mreport .navbar p{
-        display: none;
+      #report-title{
+        color: #fff;
       }
 
       body {

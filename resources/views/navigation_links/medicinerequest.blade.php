@@ -27,10 +27,10 @@
                         <table id="medRequest-datatable" class="table table-bordered table-striped datatable-hover">
                             <thead>
                                 <tr role="row">
-                                    <th class="text-center"scope="col">ID No.</th>
-                                    <th class="text-center"scope="col">Medicine Name</th>
-                                    <th class="text-center"scope="col">Quantity</th>
-                                    <th class="text-center"scope="col">Actions</th>
+                                    <th scope="col">ID No.</th>
+                                    <th scope="col">Medicine Name</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Actions</th>
 
                                 </tr>
                             </thead>
@@ -38,9 +38,9 @@
                                 @if($medicine_requests)
                                     @foreach($medicine_requests as $medrequest)
                                     <tr>
-                                        <th class="text-center">{{$medrequest->id}}</th>
-                                        <td class="text-center">{{$medrequest->medicine_name}}</td>
-                                        <td class="text-center">{{$medrequest->med_quantity}}</td>
+                                        <td data-label="ID">{{$medrequest->id}}</td>
+                                        <td data-label="Medicine Name">{{$medrequest->medicine_name}}</td>
+                                        <td data-label="Quantity">{{$medrequest->med_quantity}}</td>
                                         <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                             {{-----***************************** SHOW BUTTON *******************************------}}
                                             <a data-bs-toggle="modal" type="button" class="btn btn-primary"

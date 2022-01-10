@@ -40,8 +40,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Add Resident</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="staticBackdropLabel">Add Resident</h5> 
             </div>
             <form class="add-resident" action="{{route ('residentprofile.store')}}" method="POST">
                 @csrf
@@ -128,17 +127,17 @@
                         <div class="col-md-6 input-box">
                             <div class="details">PhilHealth ID No:</div>
                             <input name="phil_health_id" type="text" pattern="[0-9]{12}" placeholder="" maxlength="12">
-                            <p style="text-align: center;">Leave it blank if not applicable</p>
+                            <p class="text-start">Leave it blank if not applicable</p>
                         </div>
                         <div class="col-md-6 input-box">
                             <div class="details">4PS ID No:</div>
                             <input name="id_4ps" type="text" placeholder=""  pattern="[0-9]{18}" maxlength="18">
-                            <p style="text-align: center;">Leave it blank if not applicable</p>
+                            <p class="text-start">Leave it blank if not applicable</p>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-success waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-success">Add Resident</button>
                 </div>
             </form>

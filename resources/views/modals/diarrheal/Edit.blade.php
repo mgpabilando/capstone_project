@@ -25,8 +25,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5> 
             </div>
             <form class="edit-consult" action="{{route('diarrheal.update', 'id')}}" method="POST">
                 @csrf
@@ -51,7 +50,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-box col-md-6 pb-3">
+                        <div class="input-box col-md-12 pb-3">
                             <div class="details">Age:</div>
                             <input type="number" name="Eage" id="Eage" placeholder="">
                         </div>
@@ -59,7 +58,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-warning waves-effect" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-warning">Update</button>
                 </div>
             </form>

@@ -1,10 +1,9 @@
         <!--**************************------------------- DELETE pregconsul MODAL -------------------****************************---------->
-        <div class="consul-delete modal fade" id="deletedeliveriesconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletedeliveriesconsul" aria-hidden="true">
+        <div class="consul-delete res-delete modal fade" id="deletedeliveriesconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletedeliveriesconsul" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Delete Deliveries Record</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="staticBackdropLabel">Delete Deliveries Record</h5> 
                     </div>
                     <form class="deleteconsul-modal"  class="delete_deliveriesconsul" action="{{route ('deliveries.destroy', 'id')}}" method="POST">
                         @csrf

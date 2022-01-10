@@ -4,8 +4,7 @@
         <div class="modal-content">
             <div class="modal-header text-center" style=" background-color: #ffc107;
             color: #ffffff;">
-                <h5 class="modal-title" id="editbhw">{{ __('Edit') }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="editbhw">{{ __('Edit') }}</h5> 
                 </button>
             </div>
             <form class="bhw-modal" method="POST" action=" {{route('bhw.update', 'edituser_id')}}">

@@ -3,8 +3,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Delete Resident Profile</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="staticBackdropLabel">Delete Resident Profile</h5> 
             </div>
             <form class="delete-resident" action="{{route ('residentprofile.destroy', 'resident_id')}}" method="POST">
                 @csrf

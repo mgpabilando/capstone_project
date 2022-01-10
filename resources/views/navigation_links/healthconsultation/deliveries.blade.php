@@ -24,7 +24,7 @@
                         @include('modals.deliveries.Add')
 
                       <a href="{{ route('deliveries.index', ['view_deleted' => 'DeletedRecords']) }}"
-                      class="btn btn-danger">Trash</a>
+                      class="btn btn-danger"><i class="manage fas fa-trash"></i> Trash</a>
                 @endif
               @endif
             </div>
@@ -33,12 +33,12 @@
                   <table id="deliveries-datatable" class="table table-bordered table-striped table-hover" style="padding: 10px">
                       <thead>
                           <tr role="row">
-                              <th class="text-center" scope="col">Patient_ID</th> 
-                              <th class="text-center" scope="col">Name</th>
-                              <th class="text-center" scope="col">Age</th> 
-                              <th class="text-center" scope="col">Date Added</th>
-                              <th class="text-center" scope="col">Date Updated</th>
-                              <th class="text-center" scope="col">Actions</th>
+                              <th  scope="col">Patient_ID</th> 
+                              <th  scope="col">Name</th>
+                              <th  scope="col">Age</th> 
+                              <th  scope="col">Date Added</th>
+                              <th  scope="col">Date Updated</th>
+                              <th  scope="col">Actions</th>
 
                           </tr>
                       </thead>
@@ -46,11 +46,11 @@
                         @if ($deliverconsulrecord)
                           @foreach ($deliverconsulrecord as $deliveriesRec)
                           <tr>
-                            <th data-label="Patient ID" class="text-center">{{ $deliveriesRec->id }}</th> 
-                            <td data-label="Name" class="text-center">{{ $deliveriesRec->name }}</td>
-                            <td data-label="Age" class="text-center">{{ $deliveriesRec->age }}</td> 
-                            <td data-label="Date Added" class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['created_at'])) }}</td>
-                            <td data-label="Date Updated" class="text-center" style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['updated_at'])) }}</td>
+                            <td data-label="Patient ID" >{{ $deliveriesRec->id }}</td> 
+                            <td data-label="Name" >{{ $deliveriesRec->name }}</td>
+                            <td data-label="Age" >{{ $deliveriesRec->age }}</td> 
+                            <td data-label="Date Added"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['created_at'])) }}</td>
+                            <td data-label="Date Updated"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($deliveriesRec['updated_at'])) }}</td>
                             <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                               @if (request()->has('view_deleted'))
                                 <a href="{{ route('deliveries.restore', $deliveriesRec->id) }}" class="btn btn-success">Restore</a>

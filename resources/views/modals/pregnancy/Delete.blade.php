@@ -1,10 +1,9 @@
         <!--**************************------------------- DELETE pregconsul MODAL -------------------****************************---------->
-        <div class="pregconsul-delete modal fade" id="deletepregconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletepregconsul" aria-hidden="true">
+        <div class="pregconsul-delete res-delete modal fade" id="deletepregconsul" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deletepregconsul" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Delete Pregnancy Record</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="staticBackdropLabel">Delete Pregnancy Record</h5> 
                     </div>
                     <form class="pregconsul-modal"  class="delete_pregconsul" action="{{route ('pregnancy.destroy', 'id')}}" method="POST">
                         @csrf

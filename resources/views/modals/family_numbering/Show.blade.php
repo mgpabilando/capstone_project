@@ -36,7 +36,7 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color: #007bff; color: #ffffff;">
                 <h5 class="modal-title" id="staticBackdropLabel">HEALTH CONSULTATION INFORMATION</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
             </div>
             <form class="show-consult" method="GET" action=" {{route('familynumbering.show', 'id')}}">
                 @csrf

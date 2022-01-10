@@ -116,5 +116,15 @@ $('#medRequest-datatable').DataTable
 
 $('#DTR-datatable').DataTable
 ({
-    "order": [[ 1, 'desc' ]]
+    "columnDefs": [
+        {
+            "targets": [ 1 ],
+            "visible": false,
+            "searchable": false
+        }
+    ],
+
+    "order": [1, 'desc']
+
+    
 });
