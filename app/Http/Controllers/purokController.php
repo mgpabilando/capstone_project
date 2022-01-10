@@ -19,11 +19,11 @@ class purokController extends Controller
 
     }
 
-    public function view($id)
-    {
-        $residentprofile = Residents::find($id)->where('family_id', '=', );
-        echo "<pre>"; print_r($residentprofile); die; 
-        return view('navigation_links.residentprofile')->with($residentprofile, $id);
+    // public function view($id)
+    // {
+    //     $residentprofile = Residents::find($id)->where('family_id', '=', );
+    //     echo "<pre>"; print_r($residentprofile); die; 
+    //     return view('navigation_links.residentprofile')->with($residentprofile, $id);
 
-    }
+    // }
 }

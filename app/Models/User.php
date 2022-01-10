@@ -74,24 +74,14 @@ class User extends Authenticatable
         }
     }
 
-
-        public function timeEntries()
-    {
-        return $this->hasMany(TimeEntry::class);
-    }
-
     public function morningrecord()
     {
         return $this->hasMany(MorningDtr::class);
     }
 
-    public function afternoonrecord()
+    public function role()
     {
-        return $this->hasMany(afternoonDtr::class);
+        return $this->hasMany(Role::class);
     }
 
-    public function undertimerecord()
-    {
-        return $this->hasMany(undertimeDtr::class);
-    }
 }
