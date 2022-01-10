@@ -14,7 +14,7 @@
       <div class="chooseprofile col-md-4 m-2 justify-content-center">       
         <div class="text-center">
           @if(Auth::User()->profile_image)
-          <img class="image rounded-circle admin_picture" src="{{asset('/storage/images/'.Auth::User()->profile_image)}}" alt="profile_image">
+          <img class="image rounded-circle admin_picture" src="{{asset('/uploads/avatars/'.Auth::User()->profile_image)}}" alt="profile_image">
           @endif
           <h3 class="profile-username text-center admin_name" style="color: #2e2d2d">{{Auth::User()->fname}}</h3>
           @if (Auth::User()->hasRole('admin_nurse'))

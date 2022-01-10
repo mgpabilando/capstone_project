@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
 
     public function updatePicture(Request $request){
-        $path = 'storage/images/';
+        $path = 'uploads/avatars/';
         $file = $request->file('admin_image');
         $new_name = 'UIMG_'.date('Ymd').uniqid().'.jpg';
 
