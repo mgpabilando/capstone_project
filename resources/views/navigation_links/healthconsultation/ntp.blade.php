@@ -21,7 +21,7 @@
                                 @else
                                     <button type="submit" class="btn btn-add me-2" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addntpconsul">
                                     <i class="fas fa-file-medical"></i> Add</button>
-                                    @include('modals.ntp.Add')
+                                    @include('modals.NTP.Add')
 
                                     <a href="{{ route('ntp.index', ['view_deleted' => 'DeletedRecords']) }}"
                                         class="btn btn-danger"><i class="manage fas fa-trash"></i> Trash</a>
@@ -56,7 +56,7 @@
                                                 <a type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#deleteModal"  data-ntp_id="{{$ntpRec->id}}">Delete
                                                 </a>
-                                                @include('modals.ntp.PermanentDelete')
+                                                @include('modals.NTP.PermanentDelete')
 
                                                 @else
                                                     {{-----***************************** SHOW BUTTON *******************************------}}
@@ -64,7 +64,7 @@
                                                         data-ntp_id="{{ $ntpRec->id }}" data-resident_id = "{{ $ntpRec->resident_id }}" data-name = "{{ $ntpRec->name }}"
                                                         data-age="{{ $ntpRec->age }}">
                                                         <i class="manage fas fa-eye"></i></a>
-                                                        @include('modals.ntp.Show')
+                                                        @include('modals.NTP.Show')
                                             
                                                     @if (Auth::user()->hasRole('admin_nurse'))
                                                         {{-----***************************** EDIT BUTTON *******************************------}}
@@ -73,14 +73,14 @@
                                                         data-age="{{ $ntpRec->age }}">                                    
                                                         <i class="manage fas fa-edit"></i>
                                                         </a>
-                                                        @include('modals.ntp.Edit')
+                                                        @include('modals.NTP.Edit')
                                                     
                                                         {{-----***************************** DELETE BUTTON *******************************------}}
                                                         <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletentpconsul"
                                                         data-ntp_id="{{ $ntpRec->id }}">
                                                         <i class="manage fas fa-trash"></i>
                                                         </a>
-                                                        @include('modals.ntp.Delete')
+                                                        @include('modals.NTP.Delete')
                                                     @endif
                                             @endif
                                         </td>

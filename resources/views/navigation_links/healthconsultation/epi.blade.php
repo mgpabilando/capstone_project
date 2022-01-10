@@ -21,7 +21,7 @@
                   @else
                       <button type="submit" class="btn btn-add me-2" title="Add Consultation" data-bs-toggle="modal" data-bs-target="#addepiconsul">
                         <i class="fas fa-file-medical"></i> Add</button>
-                        @include('modals.epi.Add')
+                        @include('modals.EPI.Add')
 
                       <a href="{{ route('epi.index', ['view_deleted' => 'DeletedRecords']) }}"
                       class="btn btn-danger"><i class="manage fas fa-trash"></i> Trash</a>
@@ -56,7 +56,7 @@
                                     <a type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal"  data-epi_id="{{$epiRec->id}}">Delete
                                     </a>
-                                    @include('modals.epi.Permanentdelete')
+                                    @include('modals.EPI.Permanentdelete')
 
                                     @else  
                                       {{-----***************************** SHOW BUTTON *******************************------}}
@@ -64,7 +64,7 @@
                                         data-epi_id="{{ $epiRec->id }}" data-resident_id = "{{ $epiRec->resident_id }}" data-name = "{{ $epiRec->name }}"
                                         data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->birthdate }}">
                                         <i class="manage fas fa-eye"></i></a>
-                                        @include('modals.epi.Show')
+                                        @include('modals.EPI.Show')
                                 
                                       @if (Auth::user()->hasRole('admin_nurse'))
                                       {{-----***************************** EDIT BUTTON *******************************------}}
@@ -73,14 +73,14 @@
                                       data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->birthdate }}">
                                       <i class="manage fas fa-edit"></i>
                                       </a>
-                                      @include('modals.epi.Edit')
+                                      @include('modals.EPI.Edit')
                                   
                                       {{-----***************************** DELETE BUTTON *******************************------}}
                                       <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deleteepiconsul"
                                       data-epi_id="{{ $epiRec->id }}">
                                       <i class="manage fas fa-trash"></i>
                                       </a>
-                                      @include('modals.epi.Delete')
+                                      @include('modals.EPI.Delete')
                                     @endif
                                   @endif
                                 </td>
