@@ -46,10 +46,7 @@ use App\Http\Controllers\SearchResidentByFamilyNumber;
 use App\Http\Controllers\FamilyNumbering_DeleteController;
 use App\Http\Controllers\FamilyNumbering_RestoreController;
 use App\Http\Controllers\MorningDtrController;
-use App\Http\Controllers\AfternoonDtrController;
-use App\Http\Controllers\UndertimeDtrController;
 use App\Http\Controllers\dailyrecordController; 
-use App\Http\Controllers\Dtr_ReportController;
 use App\Http\Controllers\MedRequest_ReportController;
 use App\Http\Controllers\MonthlyAccomplished_ReportController;
 use App\Http\Controllers\MonthlyVisitor_ReportController;
@@ -195,6 +192,5 @@ Route::group([ 'middleware' => ['auth']], function () {
 //Routes for Reports Page //
     Route::get('/monthly_accomplished', [MonthlyAccomplished_ReportController::class, 'index'])->name('report.monthly_accomplished');
     Route::get('/monthly_visitor', [MonthlyVisitor_ReportController::class, 'index'])->name('report.monthly_visitor');
-   // Route::get('/daily_timerec', [Dtr_ReportController::class, 'index'])->name('report.daily_timerec');
     Route::get('/med_request', [MedRequest_ReportController::class, 'index'])->name('report.med_request');
 });

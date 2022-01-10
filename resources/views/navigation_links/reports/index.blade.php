@@ -8,8 +8,8 @@
     <link rel="icon" href="{{ asset ('images\macawayan logo.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/reports.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>BHMS</title>
 </head>
 
@@ -39,22 +39,24 @@
 
                 <form id="table-mar" class="d-flex justify-content-center mt-4">
 
-                    <table id="DTR-datatable" class="table table-bordered table-hover" style="width: 95%;">
+                    <table id="DTR" class="table table-bordered table-hover" style="width: 95%;">
                         <thead>
                             <tr role="row">
-                                <th  scope="col">Date</th>
-                                <th  scope="col">Arrival</th>
-                                <th  scope="col">Departure</th>
-                                <th  scope="col">Interval</th>
+                                <th  class="text-center" scope="col">Date</th>
+                                <th  class="text-center" scope="col">Arrival</th>
+                                <th  class="text-center" scope="col">Departure</th>
+                                <th  class="text-center" scope="col">Interval</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-morning-id="">
-                              <th  style="text-transform: uppercase;"> </th>
-                              <td> </td>
-                              <td > </td>
-                              <td > </td>
-                            </tr>
+                            @foreach ($morning as $morningrecord )
+                                <tr data-morning_id="{{ $morningrecord->id }}">
+                                <th class="text-center" style="text-transform: uppercase;">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
+                                <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Arrival)->format('g:i:s A')}}</td>
+                                <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Departure)->format('g:i:s A')}}</td>
+                                <td class="text-center">{{ gmdate("H:i:s", $morningrecord->total_time) }}</td>
+                                </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </form>
@@ -79,6 +81,25 @@
             window.print();
         }
     </script>
+
+    @section('scripts')
+    <script>
+        $('#DTR').DataTable
+        ({
+            "columnDefs": [
+                {
+                    "targets": [ 1 ],
+                    "visible": false,
+                    "searchable": false
+                }
+            ],
+
+            "order": [1, 'desc']
+
+            
+        });
+    </script>
+    @endsection
 
 </body>
 
