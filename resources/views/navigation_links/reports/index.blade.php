@@ -33,7 +33,8 @@
                 <p class="text-center fw-bold">DAILY TIME RECORD</p>
 
                 <div class="justify-content-center mt-4 d-flex">
-                    <input type="text" style="border-left: 0px; border-right: 0px; border-top: 0px; width: 25%;">
+                    <input type="text" style="border-left: 0px; border-right: 0px; border-top: 0px; width: 25%; text-align:center;" 
+                    value="{{ Auth::user()->fname }} {{ Auth::user()->lname }}">
                 </div>
                     <p class="fw-bold text-center">NAME</p>
 
