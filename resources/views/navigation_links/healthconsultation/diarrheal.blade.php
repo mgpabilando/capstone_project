@@ -34,7 +34,7 @@
                             <thead>
                             <tr role="row">
                                 <th scope="col">Patient ID</th> 
-                                <th scope="col">Name</th> 
+                                <th scope="col">Resident Name</th> 
                                 <th scope="col">Date Added</th>
                                 <th scope="col">Date Updated</th>
                                 <th scope="col">Actions</th>
