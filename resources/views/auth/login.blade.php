@@ -3,22 +3,22 @@
 @section('content')
     <section class="Login_Section">
         <div class="container log_content">
-            <div class="row d-flex justify-content-center">           
+            <div class="row d-flex justify-content-center">
                 <div class="hms-display col-md-6 d-flex align-items-center justify-content-center">
                     <h3 class="title-hms">BRGY HEALTH MANAGEMENT SYSTEM</h3>
                     <div class="d-flex align-items-center justify-content-center" id="overlay">
-                        <img class="logo" src="images/HMS1.png" alt=""> 
-                    </div>   
+                        <img class="logo" src="images/HMS1.png" alt="">
+                    </div>
                 </div>
-                
+
                 <div class="hms-login col-md-6 d-flex align-items-center">
                     <div class="form-login p-2 d-flex justify-content-center">
-                        <form method="POST" action="{{ route('customlogin') }}">   
+                        <form method="POST" action="{{ route('customlogin') }}">
                             @csrf
                             <div class="brgy-logo d-flex align-items-start justify-content-center">
                                 <img class="login-user-logo" src="images/macawayan logo.png" alt="Login" width="150" height="150">
                             </div>
-                            
+
                             <div class= "input-group">
                                 <i class="fa fa-user icon"></i>
                                 <input type="email" class= "form-control" name="email" placeholder="Enter Email" value="{{ old('email') }}" autocomplete="email" required>
@@ -27,7 +27,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    
+
                             </div>
 
                             <div class= "input-group">
@@ -53,26 +53,26 @@
                             </div>
 
                             <button type="submit" class="btn">
-                                LOGIN
+                                LOG IN
                             </button>
 
-                            <p>Not a Member? 
+                            <p>Not a Member?
                                 <a class="form-signup"
                                     style="cursor: pointer"
-                                    data-bs-toggle="modal" 
+                                    data-bs-toggle="modal"
                                     data-bs-target="#registerModal">{{ __('Register here.') }}
-                                </a>                            
+                                </a>
                             </p>
                         </form>
-                   
+
                     </div>                       <!-- Button trigger modal -->
-                
-            </div>  
+
+            </div>
         </div>
     </div>
-    </section> 
-    
-    @include('auth.register')       
+    </section>
+
+    @include('auth.register')
 @endsection
 
 
