@@ -41,7 +41,7 @@
                             <th class="text-center" scope="col">Created At</th>
                             <th class="text-center" scope="col">Arrival</th>
                             <th class="text-center" scope="col">Departure</th>
-                            <th class="text-center" scope="col">Inverval</th>
+                            <th class="text-center" scope="col">Interval</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,17 +52,17 @@
                           <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Arrival)->format('g:i:s A')}}</td>
                           <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Departure)->format('g:i:s A')}}</td>
                           <td class="text-center">{{ gmdate("H:i:s", $morningrecord->total_time) }}</td>
-                        </tr>  
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
               </div>
           </div>
-        </div>                 
+        </div>
       </div>
     </div>
-</div>        
-        
+</div>
+
 @endsection
 @section('scripts')
   <script>
@@ -94,7 +94,7 @@
               },
               url: "{{ route('dtr.updatemorning') }}",
               data: {
-                _token : $('meta[name="csrf-token"]').attr('content'), 
+                _token : $('meta[name="csrf-token"]').attr('content'),
               },
               success: (data) => switchWorkStatus(data),
               error: () => window.location.reload()
