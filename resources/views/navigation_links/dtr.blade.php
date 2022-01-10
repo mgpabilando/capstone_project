@@ -38,7 +38,7 @@
                     <thead>
                         <tr role="row">
                             <th class="text-center" scope="col">Date</th>
-                            {{-- <th class="text-center" scope="col">ID</th> --}}
+                            <th class="text-center" scope="col">Created At</th>
                             <th class="text-center" scope="col">Arrival</th>
                             <th class="text-center" scope="col">Departure</th>
                             <th class="text-center" scope="col">Inverval</th>
@@ -48,7 +48,7 @@
                         @foreach ($morning as $morningrecord )
                         <tr data-morning-id="{{ $morningrecord->id }}">
                           <th class="text-center" style="text-transform: uppercase;">{{Carbon\Carbon::parse($morningrecord->created_at)->format('d-m-Y') ?? '' }}</th>
-                          {{-- <td>{{ $morningrecord->user_id }}</td> --}}
+                          <td>{{ $morningrecord->created_at }}</td>
                           <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Arrival)->format('g:i:s A')}}</td>
                           <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Departure)->format('g:i:s A')}}</td>
                           <td class="text-center">{{ gmdate("H:i:s", $morningrecord->total_time) }}</td>
