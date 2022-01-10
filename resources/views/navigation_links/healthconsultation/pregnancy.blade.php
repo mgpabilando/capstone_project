@@ -33,7 +33,7 @@
                 <table id="pregnancy-datatable" class="table table-bordered table-striped table-hover">
                       <thead>
                           <tr role="row">
-                          <th scope="col">Patient_ID</th> 
+                          <th scope="col">Patient ID</th> 
                             <th scope="col">Name</th> 
                             <th scope="col">Age</th>
                             <th scope="col">Date Added</th>

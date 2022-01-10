@@ -27,7 +27,7 @@ $('#residentprofile-datatable').DataTable
     $('#deliveries-datatable').DataTable
     ({
         columnDefs: 
-        [{ orderable: false, targets: 9 }]
+        [{ orderable: false, targets: 5 }]
     });
     //END____DELIVERIES-DATATABLE //
 
@@ -35,7 +35,7 @@ $('#residentprofile-datatable').DataTable
     $('#EPI-datatable').DataTable
     ({
         columnDefs: 
-        [{ orderable: false, targets: 7 }]
+        [{ orderable: false, targets: 4 }]
     });
     //END____EPI-DATATABLE //
 
@@ -43,7 +43,7 @@ $('#residentprofile-datatable').DataTable
     $('#NTP-datatable').DataTable
     ({
         columnDefs: 
-        [{ orderable: false, targets: 6 }]
+        [{ orderable: false, targets: 4 }]
     });
     //END____NTP-DATATABLE //
 
@@ -51,7 +51,7 @@ $('#residentprofile-datatable').DataTable
     $('#familyplanning-datatable').DataTable
     ({
         columnDefs: 
-        [{ orderable: false, targets: 6 }]
+        [{ orderable: false, targets: 3 }]
     });
     //END____FAMILY PLANNING-DATATABLE //
 
@@ -59,7 +59,7 @@ $('#residentprofile-datatable').DataTable
     $('#diarrheal-datatable').DataTable
     ({
         columnDefs: 
-        [{ orderable: false, targets: 6 }]
+        [{ orderable: false, targets: 4 }]
     });
     //END____DIARRHEAL PROBLEMS-DATATABLE //
 
