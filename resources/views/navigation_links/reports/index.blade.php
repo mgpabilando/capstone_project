@@ -47,6 +47,7 @@
                                 <th  class="text-center" scope="col">Arrival</th>
                                 <th  class="text-center" scope="col">Departure</th>
                                 <th  class="text-center" scope="col">Interval</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -57,19 +58,21 @@
                                 <td class="text-center">{{ Carbon\Carbon::parse($morningrecord->Departure)->format('g:i:s A')}}</td>
                                 <td class="text-center">{{ gmdate("H:i:s", $morningrecord->total_time) }}</td>
                                 </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </form>
 
                 <div class="signature-by ms-5">
-
+                    
                     <div class="d-flex justify-content-end bhw-signature">
                         <div class="submitted-by me-5">
                             <input type="text" name="med" id="med"  >
                             <p class="fw-bold text-center worker-type">Signature Over Printed Name</p>
                         </div>
                     </div>
+
+                    
 
 
             </div>
@@ -82,25 +85,6 @@
             window.print();
         }
     </script>
-
-    @section('scripts')
-    <script>
-        $('#DTR').DataTable
-        ({
-            "columnDefs": [
-                {
-                    "targets": [ 1 ],
-                    "visible": false,
-                    "searchable": false
-                }
-            ],
-
-            "order": [1, 'desc']
-
-            
-        });
-    </script>
-    @endsection
 
 </body>
 
