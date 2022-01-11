@@ -60,7 +60,7 @@ class usersController extends Controller
         $request->validate([
             'fname' => 'required', 'string', 'max:255',
             'lname' => 'required', 'string', 'max:255',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users, email',
             'age' => 'required', 'integer', 'max:3',
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
