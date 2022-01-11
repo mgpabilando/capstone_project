@@ -48,7 +48,7 @@ class RegisteredUsersController extends Controller
             'contact' => 'required', 'string', 'max:11',
             'password' => 'required', 'min:6', 'max:8', 
             'password_confirmation' => 'required',
-            'role_id' => 'required',
+            //'role_id' => 'required',
         ]);
 
         if ($validator->fails()) {
