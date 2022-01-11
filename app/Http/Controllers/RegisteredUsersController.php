@@ -47,11 +47,12 @@ class RegisteredUsersController extends Controller
             'bdate' => 'required', 'date',
             'contact' => 'required', 'string', 'max:11',
             'password' => 'required', 'min:6', 'max:8', 
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required',
+            'role_id' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors('Some fields are empty')->withInput();
+            return redirect()->back()->withErrors('Required field is empty')->withInput();
         }
 
         Auth::login($user = User::create([
