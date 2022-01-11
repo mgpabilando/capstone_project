@@ -110,7 +110,7 @@
                         <div class="row d-flex flex-wrap col-12">
                             <div class="">
                                 <label class="control-label" for="role-id">Register as:</label>
-                                <select name="role_id">
+                                <select name="role_id" class="required">
                                     <option selected>Choose...</option>
                                     <option value="admin_nurse">Nurse</option>
                                     <option value="bhw">Barangay Health Worker</option>
