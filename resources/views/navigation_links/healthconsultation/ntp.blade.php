@@ -14,7 +14,7 @@
             <div class="col-md-12">
                 <div class="consultation-list container bhms-box-shadow">
                     <div class="title-and-button d-flex justify-content-between align-items-center">
-                        <h4 class="consulttable-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">List of NTP</h4>
+                        <h4 class="consulttable-title pt-2 ps-2 mb-0 me-auto" style="text-align: center">National Tuberculosis Control Program (NTP)</h4>
                         @if (Auth::user()->hasRole('admin_nurse'))
                             @if(request()->has('view_deleted'))
                             <a href="{{ route('ntp.index') }}" class="btn btn-primary">View All</a>
