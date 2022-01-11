@@ -79,9 +79,5 @@ class User extends Authenticatable
         return $this->hasMany(MorningDtr::class);
     }
 
-    public function role()
-    {
-        return $this->hasMany(Role::class);
-    }
 
 }
