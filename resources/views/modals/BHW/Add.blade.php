@@ -97,17 +97,17 @@
                         </div>
 
                         <div class="row row-space">
-                            <div class="col-md-6">
-                                <label class="control-label" for="bdate">Birthdate:
-                                    <input type="date" class="form-control" name="bdate"></label>
-                                <span class="invalid-feedback" role="alert" id="bdateError">
-                                    <strong></strong>
-                                </span>
+                            <div class=" d-flex flex-wrap col-md-6">
+                                    <label class="control-label" for="bdate">Birthdate:</label>
+                                    <input type="date" class="form-control" id="bdate" name="bdate" onchange="calculateAge()">
+                                    <span class="invalid-feedback" role="alert" id="bdateError">
+                                        <strong></strong>
+                                    </span>
                             </div>
 
-                            <div class="form-group col-md-6">
+                            <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="age">Age:</label>
-                                <input type="number" class="form-control" name="age">
+                                <input type="text" class="form-control" id="age" name="age" value="">
                                 <span class="invalid-feedback" role="alert" id="ageError">
                                     <strong></strong>
                                 </span>
@@ -287,5 +287,49 @@
     $(document).ready(function() {
         $("#bhwPassword_confirmation").keyup(CheckPasswordMatch);
     });
+</script>
+
+{{-- CALCULATE AGE --}}
+<script>
+    function calculateAge() {
+    var birth_date = new Date(document.getElementById("bdate").value);
+    var birth_date_day = birth_date.getDate();
+    var birth_date_month = birth_date.getMonth()
+    var birth_date_year = birth_date.getFullYear();
+
+    var today_date = new Date();
+    var today_day = today_date.getDate();
+    var today_month = today_date.getMonth();
+    var today_year = today_date.getFullYear();
+
+    var calculated_age = 0;
+
+    if (today_month > birth_date_month) {
+        calculated_age = today_year - birth_date_year;
+    }
+    else if (today_month == birth_date_month)
+    {
+        if (today_day >= birth_date_day) {
+            calculated_age = today_year - birth_date_year;
+        }
+        else {
+            calculated_age = today_year - birth_date_year - 1;
+        }
+    }
+
+    else {
+        calculated_age = today_year - birth_date_year - 1;
+    }
+
+    var output_value = calculated_age;
+
+    if(output_value <= 0){
+        calculated_age = 0;
+    }
+    else{
+        calculated_age = output_value;
+    }
+    document.getElementById('age').value = calculated_age;
+    }
 </script>
 @endsection

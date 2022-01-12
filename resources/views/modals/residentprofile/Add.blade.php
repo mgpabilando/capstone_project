@@ -84,12 +84,12 @@
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-4 input-box">
-                            <div class="details">Age:</div>
-                            <input name="age" type="number" placeholder="" max="500" required>
+                            <label class="details">Birthdate:</label>
+                            <input type="date" class="form-control" id="bdate" name="bdate" onchange="calculateAge()">
                         </div>
                         <div class="col-md-4 input-box">
-                            <div class="details">Birthdate:</div>
-                            <input name="bdate" type="date" class="date" placeholder="" required>
+                            <label class="details">Age:</label>
+                            <input type="text" class="form-control" id="age" name="age" value="">
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Place of Birth:</div>
@@ -181,5 +181,48 @@
             }
         );
     });
+</script>
+
+<script>
+    function calculateAge() {
+     var birth_date = new Date(document.getElementById("bdate").value);
+     var birth_date_day = birth_date.getDate();
+     var birth_date_month = birth_date.getMonth()
+     var birth_date_year = birth_date.getFullYear();
+
+     var today_date = new Date();
+     var today_day = today_date.getDate();
+     var today_month = today_date.getMonth();
+     var today_year = today_date.getFullYear();
+
+     var calculated_age = 0;
+
+     if (today_month > birth_date_month) {
+         calculated_age = today_year - birth_date_year;
+     }
+     else if (today_month == birth_date_month)
+     {
+         if (today_day >= birth_date_day) {
+             calculated_age = today_year - birth_date_year;
+         }
+         else {
+             calculated_age = today_year - birth_date_year - 1;
+         }
+     }
+
+     else {
+         calculated_age = today_year - birth_date_year - 1;
+     }
+
+     var output_value = calculated_age;
+
+     if(output_value <= 0){
+         calculated_age = 0;
+     }
+     else{
+         calculated_age = output_value;
+     }
+     document.getElementById('age').value = calculated_age;
+    }
 </script>
 @endsection
