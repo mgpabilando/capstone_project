@@ -29,7 +29,7 @@
         <p class="text-center">Province of Sorsogon</p>
         <p class="text-center">Municipality of Irosin</p>
         <p class="text-center fw-bold">MUNICIPALITY HEALTH OFFICE</p>
-        <p class="text-center fw-bold">MONTHLY ACCOMPLISHED REPORT OF BARANGAY HEALTH WORKERS</p>
+        <p class="text-center fw-bold">MONTHLY VISITORS REPORT OF BARANGAY HEALTH WORKERS</p>
 
         <div class="d-flex justify-content-center">
           <div class="purok-month">
