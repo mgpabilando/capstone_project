@@ -89,7 +89,7 @@
                         </div>
                         <div class="col-md-4 input-box">
                             <label class="details">Age:</label>
-                            <input type="text" class="form-control" id="age" name="age" value="">
+                            <input type="text" class="form-control" id="age" name="age" value="" readonly>
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details">Place of Birth:</div>
@@ -224,5 +224,5 @@
      }
      document.getElementById('age').value = calculated_age;
     }
-</script>
+</script>               
 @endsection

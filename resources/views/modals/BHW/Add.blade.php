@@ -107,7 +107,7 @@
 
                             <div class=" d-flex flex-wrap col-md-6">
                                 <label class="control-label" for="age">Age:</label>
-                                <input type="text" class="form-control" id="age" name="age" value="">
+                                <input type="text" class="form-control" id="age" name="age" value="" readonly>
                                 <span class="invalid-feedback" role="alert" id="ageError">
                                     <strong></strong>
                                 </span>

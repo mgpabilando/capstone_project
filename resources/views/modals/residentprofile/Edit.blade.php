@@ -40,12 +40,12 @@
                     </div>
                     <div class="d-flex flex-wrap identification row ">
                         <div class="col-md-4 input-box">
-                            <div class="details mt-2">Age:</div>
-                            <input name="Eage" id="Eage" type="number" placeholder="" max="500" required>
+                            <label class="details">Birthdate:</label><br>
+                            <input type="date" class="form-control" id="Ebdate" name="bdate" onchange="EditAge()">
                         </div>
                         <div class="col-md-4 input-box">
-                            <div class="details mt-2">Birthdate:</div>
-                            <input name="Ebdate" id="Ebdate" type="date" class="date" placeholder="" required>
+                            <label class="details">Age:</label><br>
+                            <input type="text" class="form-control" id="Eage" name="age" value="" readonly>
                         </div>
                         <div class="col-md-4 input-box">
                             <div class="details mt-2">Place of Birth:</div>
@@ -98,4 +98,5 @@
         </div>
     </div>
 </div>
+
 <!--**************************------------------- EDIT MODAL ENDS HERE-------------------****************************---------->

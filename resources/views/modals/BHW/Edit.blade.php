@@ -55,7 +55,7 @@
                         <div class="row row-space">
                             <div class=" d-flex flex-wrap col-md-6">
                                     <label class="control-label" for="editbdate">Birthdate:</label>
-                                    <input type="date" class="editbdate form-control" name="editbdate" onchange="calculateAge()">
+                                    <input type="date" class="editbdate form-control" name="editbdate" onchange="bhwAge()">
                                     <span class="invalid-feedback" role="alert" id="bdateError">
                                         <strong></strong>
                                     </span>
@@ -63,7 +63,7 @@
 
                             <div class="form-group col-md-6">
                                 <label class="control-label" for="editage">Age:</label><br>
-                                <input type="number" class="editage form-control" name="editage">
+                                <input type="number" class="editage form-control" name="editage" readonly>
                                 <span class="invalid-feedback" role="alert" id="bhwageError">
                                     <strong></strong>
                                 </span>
@@ -93,48 +93,5 @@
     </div>
 </div>
 
-    {{-- CALCULATE AGE --}}
-<script>
-    function calculateAge() {
-    var birth_date = new Date(document.getElementsByClassName("editbdate").value);
-    var requiredBdate = birth_date[0];
-    var birth_date_day = requiredBdate.getDate();
-    var birth_date_month = requiredBdate.getMonth()
-    var birth_date_year = requiredBdate.getFullYear();
 
-    var today_date = new Date();
-    var today_day = today_date.getDate();
-    var today_month = today_date.getMonth();
-    var today_year = today_date.getFullYear();
-
-    var calculated_age = 0;
-
-    if (today_month > birth_date_month) {
-        calculated_age = today_year - birth_date_year;
-    }
-    else if (today_month == birth_date_month)
-    {
-        if (today_day >= birth_date_day) {
-            calculated_age = today_year - birth_date_year;
-        }
-        else {
-            calculated_age = today_year - birth_date_year - 1;
-        }
-    }
-
-    else {
-        calculated_age = today_year - birth_date_year - 1;
-    }
-
-    var output_value = calculated_age;
-
-    if(output_value <= 0){
-        calculated_age = 0;
-    }
-    else{
-        calculated_age = output_value;
-    }
-    var output = document.getElementsByClassName('editage').value = calculated_age;
-    }
-</script>
 <!--**************************------------------- EDIT MODAL ENDS HERE-------------------****************************---------->
