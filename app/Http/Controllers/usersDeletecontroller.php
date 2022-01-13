@@ -12,4 +12,11 @@ class usersDeletecontroller extends Controller
         $deleteuser->forceDelete();
         return back()->with('success', 'Removed Permanently.');
     }
+
+    public function delete(Request $bhws)  
+    {
+        $deleteuser = User::withTrashed()->findOrFail($bhws->user_id);
+        $deleteuser->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+    }
 }

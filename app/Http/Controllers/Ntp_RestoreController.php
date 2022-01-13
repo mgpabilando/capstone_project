@@ -11,4 +11,10 @@ class Ntp_RestoreController extends Controller
         ntp::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }
+
+    public function restore($id)  
+    {
+        ntp::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 }

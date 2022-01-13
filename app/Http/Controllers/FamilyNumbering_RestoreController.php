@@ -12,4 +12,10 @@ class FamilyNumbering_RestoreController extends Controller
         FamilyNumbering::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }
+
+    public function restore($id)  
+    {
+        FamilyNumbering::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 }

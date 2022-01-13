@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\epi;
 use Illuminate\Http\Request;
-
+use App\Models\Residents;
 class EpiController extends Controller
 {
     /**
@@ -47,10 +47,14 @@ class EpiController extends Controller
             'meds_given' => 'required',
         ]);
 
+        $id = $request->resID;
+        $birthdate = Residents::where('id', $id)->value('bdate');
+        
         $epis = epi::create([
             'resident_id' => $request['resID'],
             'name' => $request['resname'],
             'meds_given'	=> $request['meds_given'],
+            'birthdate' => $birthdate,
         ]);
         
         // return dd($deliveries);

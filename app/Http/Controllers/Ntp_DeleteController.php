@@ -12,4 +12,11 @@ class Ntp_DeleteController extends Controller
         $deleteuser->forceDelete();
         return back()->with('success', 'Removed Permanently.');
     }
+
+    public function delete(Request $ntpconsulrecord)  
+    {
+        $deleteuser = ntp::withTrashed()->findOrFail($ntpconsulrecord->Dntp_id);
+        $deleteuser->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+    }
 }

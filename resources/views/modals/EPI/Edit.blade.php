@@ -52,7 +52,7 @@
                     <div class="row">
                         <div class="input-box col-md-12 pb-3">
                             <div class="details">Birthdate:</div>
-                            <input type="date" name="Ebirthdate" id="Ebirthdate" placeholder="">
+                            <input type="date" name="Ebirthdate" id="Ebirthdate" placeholder="" readonly>
                         </div>
                         <div class="input-box col-md-12 pb-3">
                             <div class="details">Medicine Given:</div>

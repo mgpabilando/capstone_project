@@ -61,7 +61,7 @@
                                       {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewepiconsul"
                                         data-epi_id="{{ $epiRec->id }}" data-resident_id = "{{ $epiRec->resident_id }}" data-name = "{{ $epiRec->name }}"
-                                        data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->residents->bdate }}">
+                                        data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->residents->bdate }}" data-age="{{ $epiRec->residents->age }}">
                                         <i class="manage fas fa-eye"></i></a>
                                         @include('modals.EPI.Show')
                                 

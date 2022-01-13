@@ -11,4 +11,10 @@ class Other_RestoreController extends Controller
         other::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }
+
+    public function restore($id)  
+    {
+        other::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 }

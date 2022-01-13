@@ -145,6 +145,7 @@
         var resident_id = button.data('resident_id')
         var name = button.data('name')
         var birthdate = button.data('birthdate')
+        var age = button.data('age')
         var meds_given = button.data('meds_given')
 
         var modal = $(this)
@@ -153,6 +154,7 @@
         modal.find('.modal-body #VresID').val(resident_id);
         modal.find('.modal-body #Vresname').val(name);
         modal.find('.modal-body #Vbirthdate').val(birthdate);
+        modal.find('.modal-body #Vage').val(age);
         modal.find('.modal-body #Vmeds_given').val(meds_given);
     });
 

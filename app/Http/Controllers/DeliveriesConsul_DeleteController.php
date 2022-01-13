@@ -12,4 +12,11 @@ class DeliveriesConsul_DeleteController extends Controller
         $deleteuser->forceDelete();
         return back()->with('success', 'Removed Permanently.');
     }
+
+    public function delete(Request $deliverconsulrecord)  
+    {
+        $deleteuser = Deliveries::withTrashed()->findOrFail($deliverconsulrecord->Ddeliveries_id);
+        $deleteuser->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+    }
 }

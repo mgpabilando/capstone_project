@@ -12,4 +12,11 @@ class Familyplanning_DeleteController extends Controller
         $deleteuser->forceDelete();
         return back()->with('success', 'Removed Permanently.');
     }
+
+    public function delete(Request $familyplanningconsulrecord)  
+    {
+        $deleteuser = familyplanning::withTrashed()->findOrFail($familyplanningconsulrecord->Dfamilyplanning_id);
+        $deleteuser->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+    }
 }

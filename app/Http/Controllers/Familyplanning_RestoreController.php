@@ -11,4 +11,10 @@ class Familyplanning_RestoreController extends Controller
         familyplanning::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }
+    
+    public function restore($id)  
+    {
+        familyplanning::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 }

@@ -12,4 +12,10 @@ class DeliveriesConsul_RestoreController extends Controller
         return back()->with('success', 'Restored Successfully.');
     }
 
+    public function restore($id)  
+    {
+        Deliveries::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
+
 }

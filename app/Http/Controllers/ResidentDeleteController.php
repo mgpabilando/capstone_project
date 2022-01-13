@@ -12,6 +12,12 @@ class ResidentDeleteController extends Controller
         $deleteresident = Residents::withTrashed()->findOrFail($residentprofile->resident_id);
         $deleteresident->forceDelete();
         return back()->with('success', 'Removed Permanently.');
+    }
 
+    public function delete(Request $residentprofile)  
+    {
+        $deleteresident = Residents::withTrashed()->findOrFail($residentprofile->resident_id);
+        $deleteresident->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
     }
 }

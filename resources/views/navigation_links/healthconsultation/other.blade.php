@@ -54,7 +54,7 @@
                                                     <a type="button" class="btn btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#deleteModal"  data-other_id="{{$otherRec->id}}">Delete
                                                     </a>
-                                                    @include('modals.other.PermanentDelete')
+                                                    @include('modals.othersconsul.PermanentDelete')
                                                     
                                                     @else
                                                         {{-----***************************** SHOW BUTTON *******************************------}}

@@ -9,11 +9,12 @@ class restoreController extends Controller
 {
     public function __invoke($id)  
     {
-        // $residentprofile = Residents::all();
+        Residents::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 
-        // if ($request->has('view_deleted')) {
-        //     $residentprofile = Residents::onlyTrashed()->get();
-        // }  
+    public function restore($id)  
+    {
         Residents::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }

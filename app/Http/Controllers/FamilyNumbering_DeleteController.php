@@ -14,4 +14,12 @@ class FamilyNumbering_DeleteController extends Controller
         return back()->with('success', 'Removed Permanently.');
 
     }
+
+    public function delete(Request $familynumberRec)  
+    {
+        $deleteFamilyHead = FamilyNumbering::withTrashed()->findOrFail($familynumberRec->familyhead_id);
+        $deleteFamilyHead->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+
+    }
 }

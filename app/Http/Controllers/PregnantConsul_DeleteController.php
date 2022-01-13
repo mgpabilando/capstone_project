@@ -12,4 +12,11 @@ class PregnantConsul_DeleteController extends Controller
         $deleteuser->forceDelete();
         return back()->with('success', 'Removed Permanently.');
     }
+
+    public function delete(Request $pregconsultationrecord)  
+    {
+        $deleteuser = pregnants::withTrashed()->findOrFail($pregconsultationrecord->Dpregnant_id);
+        $deleteuser->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+    }
 }

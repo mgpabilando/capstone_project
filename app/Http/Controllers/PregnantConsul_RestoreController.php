@@ -12,4 +12,10 @@ class PregnantConsul_RestoreController extends Controller
         pregnants::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }
+
+    public function restore($id)  
+    {
+        pregnants::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 }

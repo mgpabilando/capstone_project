@@ -12,4 +12,11 @@ class Other_DeleteController extends Controller
         $deleteuser->forceDelete();
         return back()->with('success', 'Removed Permanently.');
     }
+
+    public function delete(Request $otherconsulrecord)  
+    {
+        $deleteuser = other::withTrashed()->findOrFail($otherconsulrecord->Dother_id);
+        $deleteuser->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+    }
 }
