@@ -11,4 +11,10 @@ class Epi_RestoreController extends Controller
         epi::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }
+
+    public function restore($id)  
+    {
+        epi::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 }

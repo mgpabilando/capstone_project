@@ -14,7 +14,9 @@ class EpiController extends Controller
      */
     public function index(Request $request)
     {
-        $epiconsulrecord = epi::all();
+        $epiconsulrecord = epi::with('residents')->get();
+
+        //dd($epiconsulrecord);
         if ($request->has('view_deleted')) {
             $epiconsulrecord = epi::onlyTrashed()->get();
         } 
@@ -42,14 +44,12 @@ class EpiController extends Controller
         $request->validate([
             'resID' => 'required',
             'resname' => 'required',
-            'birthdate'=> 'required',
             'meds_given' => 'required',
         ]);
 
         $epis = epi::create([
             'resident_id' => $request['resID'],
             'name' => $request['resname'],
-            'birthdate' => $request['birthdate'],
             'meds_given'	=> $request['meds_given'],
         ]);
         
@@ -96,12 +96,10 @@ class EpiController extends Controller
         $request->validate([
             'EresID' => 'required',
             'Eresname' => 'required',
-            'Ebirthdate'=> 'required',
             'Emeds_given' => 'required',
         ]);
 
         $epiconsulrecord = array (
-            'birthdate' =>  $request->Ebirthdate,
             'meds_given' => $request->Emeds_given,
         );
 

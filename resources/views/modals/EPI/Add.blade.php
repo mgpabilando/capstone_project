@@ -45,13 +45,14 @@
                         </div>
                         <hr>
                     </div>
-
+{{-- 
                     <div class="row">
                         <div class="input-box col-md-12 pb-3">
                             <div class="details">Birthdate:</div>
                             <input type="date" name="birthdate" id="birthdate" placeholder="">
                         </div>
-                    </div>
+                    </div> --}}
+                    
                  <div class="row">
                         <div class="input-box col-md-12 pb-3">
                             <div class="details">Medicine Given:</div>

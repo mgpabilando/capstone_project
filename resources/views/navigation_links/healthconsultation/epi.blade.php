@@ -46,23 +46,22 @@
                               @foreach ($epiconsulrecord as $epiRec)
                               <tr>
                                 <td data-label="ID" >{{ $epiRec->id }}</td> 
-                                <td data-label="Name" >{{ $epiRec->name }}</td>  
+                                <td data-label="Name" >{{ $epiRec->name }}</td>
                                 <td data-label="Date Added"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($epiRec['created_at'])) }}</td>
                                 <td data-label="Date Updated"  style="text-transform: uppercase">{{ date('F d, Y h:i:s a',strtotime($epiRec['updated_at'])) }}</td>
                                 <td style="white-space:nowrap; text-align:center; border-bottom: 1px solid black; border-top: 1px solid black;">
                                   @if (request()->has('view_deleted'))
-                                    <a href="{{ route('epi.restore', $epiRec->id) }}" class="btn btn-success">Restore</a>
-                                    
-                                    <a type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#deleteModal"  data-epi_id="{{$epiRec->id}}">Delete
-                                    </a>
-                                    @include('modals.EPI.Permanentdelete')
-
-                                    @else  
+                                  <a href="{{ route('epi.restore', $epiRec->id) }}" class="btn btn-success">Restore</a>
+                                  
+                                  <a type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                  data-bs-target="#deleteModal"  data-epi_id="{{$epiRec->id}}">Delete
+                                  </a>
+                                  @include('modals.EPI.PermanentDelete')
+                                  @else 
                                       {{-----***************************** SHOW BUTTON *******************************------}}
                                         <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewepiconsul"
                                         data-epi_id="{{ $epiRec->id }}" data-resident_id = "{{ $epiRec->resident_id }}" data-name = "{{ $epiRec->name }}"
-                                        data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->birthdate }}">
+                                        data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->residents->bdate }}">
                                         <i class="manage fas fa-eye"></i></a>
                                         @include('modals.EPI.Show')
                                 
@@ -70,7 +69,7 @@
                                       {{-----***************************** EDIT BUTTON *******************************------}}
                                       <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editepiconsul"
                                       data-epi_id="{{ $epiRec->id }}" data-resident_id = "{{ $epiRec->resident_id }}" data-name = "{{ $epiRec->name }}"
-                                      data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->birthdate }}">
+                                      data-meds_given="{{ $epiRec->meds_given }}" data-birthdate="{{ $epiRec->residents->bdate }}">
                                       <i class="manage fas fa-edit"></i>
                                       </a>
                                       @include('modals.EPI.Edit')

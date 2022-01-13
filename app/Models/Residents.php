@@ -33,6 +33,11 @@ class Residents extends Model
         return $this->hasMany(pregnants::class, 'resident_id');
     }
 
+    public function epi()
+    {
+        return $this->hasMany(epi::class, 'resident_id');
+    }
+
     public function familyNumbering()
     {
         return $this->belongsTo(FamilyNumbering::class, 'family_id', 'id');

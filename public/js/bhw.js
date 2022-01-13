@@ -41,7 +41,6 @@
         var modal = $(this)
         modal.find('.modal-title').text(' Delete Profile');
         modal.find('.modal-body .deleteuser_id').val(user_id);
-        p
     });
 
     $('#viewbhw').on('show.bs.modal', function(event) {

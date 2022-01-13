@@ -3,16 +3,16 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Delete Family Head Profile</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Delete EPI Record</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="delete-familyhead" action="{{route ('epi.permanentdelete', 'epi_id')}}" method="GET">
+            <form class="delete" action="{{route ('epi.permanentdelete', 'epi_id')}}" method="GET">
                 @csrf
                 <div class="modal-body">
                     <div class="input-box">
                         <input name="Depi_id" id="Depi_id" type="hidden" placeholder="">
                     </div>
-                    <h5>This will be removed permanently. Do you want to continue?</h5>
+                    <p style="font-size: 15px;">This will be removed permanently. Do you want to continue?</p>
                 </div>
 
                 <div class="modal-footer">

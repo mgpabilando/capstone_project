@@ -16,4 +16,11 @@ class epi extends Model
     protected $fillable = [
         'resident_id', 'name', 'birthdate', 'meds_given',
     ];
+
+    public function residents()
+    {
+        return $this->belongsTo(Residents::class, 'resident_id');
+    }
+
+
 }

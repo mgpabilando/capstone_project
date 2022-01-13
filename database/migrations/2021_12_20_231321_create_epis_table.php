@@ -17,7 +17,6 @@ class CreateEpisTable extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('resident_id');
             $table->string('name');
-            $table->string('birthdate');
             $table->string('meds_given');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

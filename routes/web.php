@@ -121,8 +121,8 @@ Route::group([ 'middleware' => ['auth']], function () {
 
     // Routes for EPI Consultation Page
     Route::resource('/epi', EpiController::class);
-    Route::get('/epi/restore/{id}', [[Epi_RestoreController::class, 'restore']])->name('epi.restore');
-    Route::get('/epi/permanentdelete/{id}', [[Epi_DeleteController::class, 'delete']])->name('epi.permanentdelete');
+    Route::get('/epi/restore/{id}', [Epi_RestoreController::class, 'restore'])->name('epi.restore');
+    Route::get('/epi/permanentdelete/{id}', [Epi_DeleteController::class, 'delete'])->name('epi.permanentdelete');
 
     // Routes for NTP Consultation Page
     Route::resource('/ntp', NtpController::class);
