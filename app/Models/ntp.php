@@ -16,4 +16,10 @@ class ntp extends Model
     protected $fillable = [
         'resident_id', 'name', 'age',
     ];
+
+    public function residents()
+    {
+        return $this->belongsTo(Residents::class, 'resident_id');
+    }
+
 }

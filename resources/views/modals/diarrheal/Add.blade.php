@@ -46,13 +46,6 @@
                         <hr>
                     </div>
 
-                    <div class="row">
-                        <div class="input-box col-md-12 pb-3">
-                            <div class="details text-center">Age:</div>
-                            <input type="number" name="age" pattern="[0-9]" id="age" placeholder="">
-                        </div>
-                    </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>

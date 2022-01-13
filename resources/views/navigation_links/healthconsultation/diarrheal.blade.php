@@ -65,14 +65,14 @@
                                                     @include('modals.diarrheal.Show')
 
                                                     @if (Auth::user()->hasRole('admin_nurse'))
-                                                        {{-----***************************** EDIT BUTTON *******************************------}}
+                                                        {{-- ---***************************** EDIT BUTTON *******************************----
                                                         <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editdiarrhealconsul"
                                                         data-diarrheal_id="{{ $diarrhealRec->id }}" data-resident_id = "{{ $diarrhealRec->resident_id }}" data-name = "{{ $diarrhealRec->name }}"
                                                         data-age="{{ $diarrhealRec->age }}">
                                                         <i class="manage fas fa-edit"></i>
                                                         </a>
                                                         @include('modals.diarrheal.Edit')
-
+ --}}
                                                         {{-----***************************** DELETE BUTTON *******************************------}}
                                                         <a data-bs-toggle="modal" type="button" class="btn btn-danger" data-bs-target="#deletediarrhealconsul"
                                                         data-diarrheal_id="{{ $diarrhealRec->id }}">

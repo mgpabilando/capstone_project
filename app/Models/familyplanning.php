@@ -16,4 +16,10 @@ class familyplanning extends Model
     protected $fillable = [
         'resident_id', 'name', 'age', 'method_used',
     ];
+
+    public function residents()
+    {
+        return $this->belongsTo(Residents::class, 'resident_id');
+    }
+
 }

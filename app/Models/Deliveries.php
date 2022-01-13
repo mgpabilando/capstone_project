@@ -16,4 +16,11 @@ class Deliveries extends Model
     protected $fillable = [
         'resident_id', 'name', 'date_delivered', 'outcome', 'age', 'place',
     ];
+
+
+    public function residents()
+    {
+        return $this->belongsTo(Residents::class, 'resident_id');
+    }
+
 }

@@ -38,6 +38,28 @@ class Residents extends Model
         return $this->hasMany(epi::class, 'resident_id');
     }
 
+    public function diarrheal()
+    {
+        return $this->hasMany(diarrheal::class, 'resident_id');
+    }
+
+    public function ntp()
+    {
+        return $this->hasMany(ntp::class, 'resident_id');
+    }
+
+    public function deliveries()
+    {
+        return $this->hasMany(Deliveries::class, 'resident_id');
+    }
+
+    public function familyplanning()
+    {
+        return $this->hasMany(familyplanning::class, 'resident_id');
+    }
+
+
+
     public function familyNumbering()
     {
         return $this->belongsTo(FamilyNumbering::class, 'family_id', 'id');

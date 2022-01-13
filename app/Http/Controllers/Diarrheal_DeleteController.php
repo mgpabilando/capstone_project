@@ -12,4 +12,11 @@ class Diarrheal_DeleteController extends Controller
         $deleteuser->forceDelete();
         return back()->with('success', 'Removed Permanently.');
     }
+
+    public function delete(Request $diarrhealconsulrecord)  
+    {
+        $deleteuser = diarrheal::withTrashed()->findOrFail($diarrhealconsulrecord->Ddiarrheal_id);
+        $deleteuser->forceDelete();
+        return back()->with('success', 'Removed Permanently.');
+    }
 }

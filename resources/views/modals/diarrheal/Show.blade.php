@@ -35,9 +35,9 @@
                         <div class="input-box">
                             <input name="Vdiarrheal_id" id="Vdiarrheal_id" type="block" placeholder="" hidden>
                         </div>
-                        <div class="input-box col-md-6 pb-3 align-self-center">
+                        <div class="input-box col-md-6">
                             <div class="details">Resident ID:</div>
-                            <input type="text" name="VresID" id="VresID" placeholder="" required style="width:auto" readonly>
+                            <input type="text" name="VresID" id="VresID" placeholder="" required readonly>
                         </div>
                     </div>
                     <hr>

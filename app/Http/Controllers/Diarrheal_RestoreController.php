@@ -11,4 +11,10 @@ class Diarrheal_RestoreController extends Controller
         diarrheal::withTrashed()->find($id)->restore();
         return back()->with('success', 'Restored Successfully.');
     }
+
+    public function restore($id)  
+    {
+        diarrheal::withTrashed()->find($id)->restore();
+        return back()->with('success', 'Restored Successfully.');
+    }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\diarrheal;
 use Illuminate\Http\Request;
-
+use App\Models\Residents;
 class DiarrhealController extends Controller
 {
     /**
@@ -14,7 +14,7 @@ class DiarrhealController extends Controller
      */
     public function index(Request $request)
     {
-        $diarrhealconsulrecord = diarrheal::all();
+        $diarrhealconsulrecord = diarrheal::get();
         if ($request->has('view_deleted')) {
             $diarrhealconsulrecord = diarrheal::onlyTrashed()->get();
         } 
@@ -43,13 +43,13 @@ class DiarrhealController extends Controller
         $request->validate([
             'resID' => 'required',
             'resname' => 'required',
-            'age'=> 'required',
         ]);
-
+        $id = $request->resID;
+        $age = Residents::where('id', $id)->value('age');
         $diarrheals = diarrheal::create([
             'resident_id' => $request['resID'],
             'name' => $request['resname'],
-            'age' => $request['age'],
+            'age' => $age,
         ]);
         
         // return dd($deliveries);
@@ -94,7 +94,6 @@ class DiarrhealController extends Controller
         $request->validate([
             'EresID' => 'required',
             'Eresname' => 'required',
-            'Eage'=> 'required',
         ]);
 
         $diarrhealconsulrecord = array (
