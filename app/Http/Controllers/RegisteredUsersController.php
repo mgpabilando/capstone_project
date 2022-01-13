@@ -41,7 +41,6 @@ class RegisteredUsersController extends Controller
         $validator = Validator::make($request->all(), [
             'fname' => 'required', 'string', 'max:255',
             'lname' => 'required', 'string', 'max:255',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:users, email',
             'age' => 'required', 'integer',
             'address' => 'required', 'string', 'max:255',
             'bdate' => 'required', 'date',
