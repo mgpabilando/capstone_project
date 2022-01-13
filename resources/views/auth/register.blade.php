@@ -70,7 +70,7 @@
                         <p class="info-head text-center fw-bold">Account Information</p>
                         <div class=" d-flex flex-wrap col-12">
                             <label class="control-label" for="email">Email Address:</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">

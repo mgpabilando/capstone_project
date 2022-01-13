@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Delete Family Head Profile</h5> 
             </div>
-            <form class="delete-familyhead" action="{{route ('familyhead.permanentdelete', 'familyhead_id')}}" method="GET">
+            <form class="delete-familyhead" action="{{route ('familyhead.permanentdelete', 'id')}}" method="GET">
                 @csrf
                 <div class="modal-body">
                     <div class="input-box">
