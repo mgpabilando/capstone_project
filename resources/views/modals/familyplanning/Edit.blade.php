@@ -62,6 +62,18 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="Etemp" id="Etemp" placeholder="" required style="width:auto">
+                        </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="Ebp" id="Ebp" placeholder="" required style="width:auto">
+                        </div>
+                    </div>
+                    <hr>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger waves-effect" data-bs-dismiss="modal">Cancel</button>

@@ -14,7 +14,7 @@ class ntp extends Model
     protected $dates = ['deleted_at'];
     
     protected $fillable = [
-        'resident_id', 'name', 'age',
+        'resident_id', 'name', 'age', 'bp', 'temp',
     ];
 
     public function residents()

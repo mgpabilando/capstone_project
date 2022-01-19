@@ -58,6 +58,8 @@ class DeliveriesConsulController extends Controller
             'date_delivered'	=> $request['date_delivered'],
             'outcome' => $request['outcome'],
             'place' => $request['place'],
+            'bp' => $request['bp'],
+            'temp' => $request['temp'],
         ]);
         
         // return dd($deliveries);

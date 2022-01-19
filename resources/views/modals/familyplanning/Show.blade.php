@@ -55,13 +55,25 @@
                     <div class="row">
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Age:</div>
-                            <input type="number" name="Vage" id="Vage" placeholder="">
+                            <input type="number" name="Vage" id="Vage" placeholder="" readonly>
                         </div>
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Method Used:</div>
-                            <input type="text" name="Vmethod_used" id="Vmethod_used" placeholder="">
+                            <input type="text" name="Vmethod_used" id="Vmethod_used" placeholder="" readonly>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="Vtemp" id="Vtemp" placeholder="" required style="width:auto" readonly>
+                        </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="Vbp" id="Vbp" placeholder="" required style="width:auto" readonly>
+                        </div>
+                    </div>
+                    <hr>
                 </div>
                 <div class="modal-footer">
                 </div>

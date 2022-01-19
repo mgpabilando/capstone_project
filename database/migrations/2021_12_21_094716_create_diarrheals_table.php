@@ -18,6 +18,8 @@ class CreateDiarrhealsTable extends Migration
             $table->unsignedBigInteger('resident_id');
             $table->string('name');
             $table->integer('age');
+            $table->string('temp')->nullable();
+            $table->string('bp')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 

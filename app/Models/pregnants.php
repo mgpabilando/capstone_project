@@ -14,7 +14,7 @@ class pregnants extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'resident_id', 'name', 'height_cm', 'weight_kg', 'age', 'lmp', 'pregnancyorder',
+        'resident_id', 'name', 'height_cm', 'weight_kg', 'age', 'lmp', 'pregnancyorder', 'bp', 'temp',
     ];
 
     public function residents()

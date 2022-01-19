@@ -43,7 +43,21 @@
                             <input type="text" name="resID" id="resID" placeholder="" required style="width:auto" readonly>
                             <input type="text" name="resname" id="resname" hidden>
                         </div>
-                        <hr>
+                        <div class="input-box col-md-4 pb-3">
+                            <div class="details">Age:</div>
+                            <input type="number" name="age" id="age"  placeholder="" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="temp" id="temp" placeholder="" required style="width:auto">
+                        </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="bp" id="bp" placeholder="" required style="width:auto">
+                        </div>
                     </div>
 
                     <div class="row">
@@ -58,15 +72,11 @@
                     </div>
 
                     <div class="row pregnancy-info">
-                        <div class="input-box col-md-4 pb-3">
-                            <div class="details">Age:</div>
-                            <input type="number" name="age" id="age"  placeholder="" required>
-                        </div>
-                        <div class="input-box col-md-4 pb-3">
-                            <div class="details">LMP:</div>
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Last Menstrual Period (LMP):</div>
                             <input type="date" name="lmp" id="lmp" placeholder="" required>
                         </div>
-                        <div class="input-box col-md-4 pb-3">
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Pregnancy Order:</div>
                             <input type="number" name="pregnancyorder" id="pregnancyorder"  placeholder="" required>
                         </div>

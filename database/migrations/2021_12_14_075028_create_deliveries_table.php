@@ -19,6 +19,8 @@ class CreateDeliveriesTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->string('date_delivered');
+            $table->string('temp')->nullable();
+            $table->string('bp')->nullable();
             $table->string('outcome');
             $table->string('place');
             $table->timestamps();

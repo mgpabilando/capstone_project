@@ -44,20 +44,30 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="res_prof justify-content-center" id="details">  
-                        <div class="input-box col-md-12">
+                    <div class="row">  
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Name:</div>
                             <input type="text" name="Vresname" id="Vresname" placeholder="" required readonly>
+                        </div>
+
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Age:</div>
+                            <input type="number" name="Vage" id="Vage" placeholder="" readonly>
                         </div>
                     </div>
                     <hr>
 
                     <div class="row">
-                        <div class="input-box col-md-12 pb-3">
-                            <div class="details">Age:</div>
-                            <input type="number" name="Vage" id="Vage" placeholder="" readonly>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="Vtemp" id="Vtemp" placeholder="" required style="width:auto" readonly>
+                        </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="Vbp" id="Vbp" placeholder="" required style="width:auto" readonly>
                         </div>
                     </div>
+                    <hr>
                 </div>
                 <div class="modal-footer">
                 </div>

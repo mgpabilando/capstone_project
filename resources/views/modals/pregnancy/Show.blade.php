@@ -34,23 +34,31 @@
             <form class="show-consult" method="GET" action=" {{route('pregnancy.show', 'id')}}">
                 @csrf
                 <div class="modal-body">
-                    <div class="res_prof row justify-content-center" id="details">  
-                        <div class="input-box">
-                            <input name="Vpregnant_id" id="Vpregnant_id" type="block" placeholder="" hidden>
-                        </div>
-                        <div class="input-box col-6 pb-3 align-self-center">
+                    <div class="res_prof d-flex">  
+                        <div class="input-box pb-3 col-md-6">
                             <div class="details">Resident ID:</div>
                             <input type="text" name="Vresident_id" id="Vresident_id" placeholder="" required style="width:auto" readonly>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="res_prof justify-content-center" id="details">  
-                        <div class="input-box pb-3">
+
+                        <div class="input-box pb-3 col-md-6">
                             <div class="details">Name:</div>
                             <input type="text" name="Vname" id="Vname" placeholder="" required readonly>
                         </div>
                     </div>
                     <hr>
+
+                    <div class="row">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="Vtemp" id="Vtemp" placeholder="" required style="width:auto" readonly>
+                        </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="Vbp" id="Vbp" placeholder="" required style="width:auto" readonly>
+                        </div>
+                    </div>
+                    <hr>
+                    
                     <div class="row">
                         <div class="input-box col pb-3">
                             <div class="details">Weight(kg):</div>

@@ -62,7 +62,7 @@
                                   <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewpregconsul"
                                     data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-name = "{{ $pregpatient->name }}" 
                                     data-height_cm = "{{ $pregpatient->height_cm }}" data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" 
-                                    data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
+                                    data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}" data-bp="{{ $pregpatient->bp }}" data-temp="{{ $pregpatient->temp }}"
                                     data-lmp = "{{ $pregpatient->lmp }}">
                                   <i class="manage fas fa-eye"></i></a>
                                   @include('modals.pregnancy.Show')
@@ -72,7 +72,7 @@
                                     <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editpregconsul"
                                       data-pregnant_id="{{ $pregpatient->id }}" data-resident_id = "{{ $pregpatient->resident_id }}" data-name = "{{ $pregpatient->name }}" 
                                       data-height_cm = "{{ $pregpatient->height_cm }}" data-weight_kg = "{{ $pregpatient->weight_kg }}" data-age = "{{ $pregpatient->age }}" 
-                                      data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}"
+                                      data-pregnancyorder = "{{ $pregpatient->pregnancyorder }}" data-bp="{{ $pregpatient->bp }}" data-temp="{{ $pregpatient->temp }}"
                                       data-lmp = "{{ $pregpatient->lmp }}">
                                     <i class="manage fas fa-edit"></i>
                                     </a>

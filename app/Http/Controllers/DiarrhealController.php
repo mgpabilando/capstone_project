@@ -50,6 +50,10 @@ class DiarrhealController extends Controller
             'resident_id' => $request['resID'],
             'name' => $request['resname'],
             'age' => $age,
+            'bp' => $request['bp'],
+            'temp' => $request['temp'],
+            'bp' => $request['bp'],
+            'temp' => $request['temp'],
         ]);
         
         // return dd($deliveries);

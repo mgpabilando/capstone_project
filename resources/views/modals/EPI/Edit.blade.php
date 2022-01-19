@@ -42,18 +42,30 @@
                         <hr>
                     </div>
                     <div class="res_prof row justify-content-center" id="details">
-                        <div class="input-box col-md-12 pb-3">
+                        <div class="input-box col-md-6 pb-3">
                             <div class="details">Name:</div>
                             <input type="text" name="Eresname" id="Eresname" placeholder="" required readonly>
+                        </div>
+                        <div class="input-box col-md-6 pb-3">
+                            <div class="details">Birthdate:</div>
+                            <input type="date" name="Ebirthdate" id="Ebirthdate" placeholder="" readonly>
                         </div>
                         <hr>
                     </div>
 
                     <div class="row">
-                        <div class="input-box col-md-12 pb-3">
-                            <div class="details">Birthdate:</div>
-                            <input type="date" name="Ebirthdate" id="Ebirthdate" placeholder="" readonly>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="Etemp" id="Etemp" placeholder="" required style="width:auto">
                         </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="Ebp" id="Ebp" placeholder="" required style="width:auto">
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
                         <div class="input-box col-md-12 pb-3">
                             <div class="details">Medicine Given:</div>
                             <textarea id="Emeds_given" name="Emeds_given" style="width:100%; height: 100px; padding: 5px; "></textarea>

@@ -55,6 +55,8 @@ class EpiController extends Controller
             'name' => $request['resname'],
             'meds_given'	=> $request['meds_given'],
             'birthdate' => $birthdate,
+            'bp' => $request['bp'],
+            'temp' => $request['temp'],
         ]);
         
         // return dd($deliveries);

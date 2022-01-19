@@ -62,6 +62,8 @@ class PregnantConsulController extends Controller
             'weight_kg' => $request['weight'],
             'lmp' => $request['lmp'],
             'pregnancyorder' => $request['pregnancyorder'],
+            'bp' => $request['bp'],
+            'temp' => $request['temp'],
         ]);
         
         // return dd($pregnants);

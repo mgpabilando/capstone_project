@@ -51,6 +51,18 @@
                     </div>
 
                     <div class="row">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="Etemp" id="Etemp" placeholder="" required style="width:auto">
+                        </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="Ebp" id="Ebp" placeholder="" required style="width:auto">
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
                         <div class="input-box col-md-6 pb-3">
                             <div class="details">Age:</div>
                             <input type="number" name="Eage" id="Eage" placeholder="">

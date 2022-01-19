@@ -39,19 +39,32 @@
                     </div>
                     <hr>
                     <div class="res_prof row justify-content-center" id="details">
-                            <div class="details text-center">Resident ID:</div>
-                            <div class="input-box d-flex justify-content-center col-md-12 pb-3 align-self-center">
+                            <div class="input-box col-md-6 pb-3">
+                                <div class="details">Resident ID:</div>
                                 <input type="text" name="resID" id="resID" placeholder="" required style="width:auto" readonly>
                                 <input type="text" name="resname" id="resname" hidden>
+                            </div>
+                            <div class="input-box col-md-6 pb-3">
+                                <div class="details">Age:</div>
+                                <input type="number" name="age" id="age" placeholder="">
                             </div>
                         <hr>
                     </div>
 
                     <div class="row">
-                        <div class="input-box col-md-12 pb-3">
-                            <div class="details tex-center">Age:</div>
-                            <input type="number" name="age" id="age" placeholder="">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="temp" id="temp" placeholder="" required style="width:auto">
                         </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="bp" id="bp" placeholder="" required style="width:auto">
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        
                     </div>
 
                 </div>

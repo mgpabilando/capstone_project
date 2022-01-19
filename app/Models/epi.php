@@ -14,7 +14,7 @@ class epi extends Model
     protected $dates = ['deleted_at'];
     
     protected $fillable = [
-        'resident_id', 'name', 'birthdate', 'meds_given',
+        'resident_id', 'name', 'birthdate', 'meds_given', 'bp', 'temp',
     ];
 
     public function residents()

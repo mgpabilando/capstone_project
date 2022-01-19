@@ -10,6 +10,8 @@
         var age = button.data('age')
         var lmp = button.data('lmp')
         var pregnancyorder = button.data('pregnancyorder')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('View Consultation Record');
@@ -21,6 +23,8 @@
         modal.find('.modal-body #Vage').val(age);
         modal.find('.modal-body #Vlmp').val(lmp);
         modal.find('.modal-body #Vpregnancyorder').val(pregnancyorder);
+        modal.find('.modal-body #Vbp').val(bp);
+        modal.find('.modal-body #Vtemp').val(temp);
     });
 
     //{{-----------------------------EDIT PREGNANCY RECORD SCRIPT--------------------------------}}
@@ -34,6 +38,8 @@
         var age = button.data('age')
         var lmp = button.data('lmp')
         var pregnancyorder = button.data('pregnancyorder')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('Update Consultation Record');
@@ -45,6 +51,8 @@
         modal.find('.modal-body #Eage').val(age);
         modal.find('.modal-body #Elmp').val(lmp);
         modal.find('.modal-body #Epregnancyorder').val(pregnancyorder);
+        modal.find('.modal-body #Ebp').val(bp);
+        modal.find('.modal-body #Etemp').val(temp);
         });
 
     //{{-----------------------------DELETE PREGNANCY SCRIPT--------------------------------}}
@@ -81,7 +89,8 @@
         var date_delivered = button.data('date_delivered')
         var outcome = button.data('outcome')
         var place = button.data('place')
-
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('View Consultation Record');
@@ -92,6 +101,8 @@
         modal.find('.modal-body #Vdate_delivered').val(date_delivered);
         modal.find('.modal-body #Voutcome').val(outcome);
         modal.find('.modal-body #Vplace').val(place);
+        modal.find('.modal-body #Vbp').val(bp);
+        modal.find('.modal-body #Vtemp').val(temp);
     });
 
     //{{-----------------------------EDIT DELIVERIES RECORD SCRIPT--------------------------------}}
@@ -104,6 +115,8 @@
         var date_delivered = button.data('date_delivered')
         var outcome = button.data('outcome')
         var place = button.data('place')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('Update Consultation Record');
@@ -114,6 +127,8 @@
         modal.find('.modal-body #Edate_delivered').val(date_delivered);
         modal.find('.modal-body #Eoutcome').val(outcome);
         modal.find('.modal-body #Eplace').val(place);
+        modal.find('.modal-body #Ebp').val(bp);
+        modal.find('.modal-body #Etemp').val(temp);
         });
 
     //{{-----------------------------DELETE DELIVERIES SCRIPT--------------------------------}}
@@ -147,6 +162,8 @@
         var birthdate = button.data('birthdate')
         var age = button.data('age')
         var meds_given = button.data('meds_given')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('View Consultation Record');
@@ -156,6 +173,9 @@
         modal.find('.modal-body #Vbirthdate').val(birthdate);
         modal.find('.modal-body #Vage').val(age);
         modal.find('.modal-body #Vmeds_given').val(meds_given);
+        modal.find('.modal-body #Vbp').val(bp);
+        modal.find('.modal-body #Vtemp').val(temp);
+
     });
 
     //{{-----------------------------EDIT EPI RECORD SCRIPT--------------------------------}}
@@ -166,6 +186,8 @@
         var name = button.data('name')
         var birthdate = button.data('birthdate')
         var meds_given = button.data('meds_given')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('Update Consultation Record');
@@ -174,6 +196,9 @@
         modal.find('.modal-body #Eresname').val(name);
         modal.find('.modal-body #Ebirthdate').val(birthdate);
         modal.find('.modal-body #Emeds_given').val(meds_given);
+        modal.find('.modal-body #Ebp').val(bp);
+        modal.find('.modal-body #Etemp').val(temp);
+
         });
 
     //{{-----------------------------DELETE EPI SCRIPT--------------------------------}}
@@ -206,14 +231,20 @@
         var name = button.data('name')
         var birthdate = button.data('birthdate')
         var meds_given = button.data('meds_given')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
+        var age = button.data('age')
 
         var modal = $(this)
         modal.find('.modal-title').text('View Consultation Record');
         modal.find('.modal-body #Vepi_id').val(epi_id);
         modal.find('.modal-body #VresID').val(resident_id);
         modal.find('.modal-body #Vresname').val(name);
-        modal.find('.modal-body #Vbirthdate').val(birthdate);
+        modal.find('.modal-body #Vage').val(age);
         modal.find('.modal-body #Vmeds_given').val(meds_given);
+        modal.find('.modal-body #Vbp').val(bp);
+        modal.find('.modal-body #Vtemp').val(temp);
+
     });
   //{{-----------------------------EDIT NTP RECORD SCRIPT--------------------------------}}
     $('#editntpconsul').on('show.bs.modal', function(event) {
@@ -221,16 +252,21 @@
         var epi_id = button.data('epi_id')
         var resident_id = button.data('resident_id')
         var name = button.data('name')
-        var birthdate = button.data('birthdate')
+        var age = button.data('age')
         var meds_given = button.data('meds_given')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('Update Consultation Record');
         modal.find('.modal-body #Eepi_id').val(epi_id);
         modal.find('.modal-body #EresID').val(resident_id);
         modal.find('.modal-body #Eresname').val(name);
-        modal.find('.modal-body #Ebirthdate').val(birthdate);
+        modal.find('.modal-body #Eage').val(age);
         modal.find('.modal-body #Emeds_given').val(meds_given);
+        modal.find('.modal-body #Ebp').val(bp);
+        modal.find('.modal-body #Etemp').val(temp);
+
         });
 
     //{{-----------------------------DELETE NTP SCRIPT--------------------------------}}
@@ -263,6 +299,8 @@
         var name = button.data('name')
         var age = button.data('age')
         var method_used = button.data('method_used')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('View Consultation Record');
@@ -271,6 +309,9 @@
         modal.find('.modal-body #Vresname').val(name);
         modal.find('.modal-body #Vage').val(age);
         modal.find('.modal-body #Vmethod_used').val(method_used);
+        modal.find('.modal-body #Vbp').val(bp);
+        modal.find('.modal-body #Vtemp').val(temp);
+
     });
   //{{-----------------------------EDIT  FAMILY PLANNING RECORD SCRIPT--------------------------------}}
     $('#editfpconsul').on('show.bs.modal', function(event) {
@@ -280,6 +321,8 @@
         var name = button.data('name')
         var age = button.data('age')
         var method_used = button.data('method_used')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('Update Consultation Record');
@@ -288,6 +331,9 @@
         modal.find('.modal-body #Eresname').val(name);
         modal.find('.modal-body #Eage').val(age);
         modal.find('.modal-body #Emethod_used').val(method_used);
+        modal.find('.modal-body #Ebp').val(bp);
+        modal.find('.modal-body #Etemp').val(temp);
+
     });
     //{{-----------------------------DELETE FAMILY PLANNING SCRIPT--------------------------------}}
     $('#deletefpconsul').on('show.bs.modal', function(event) {
@@ -318,6 +364,8 @@
         var resident_id = button.data('resident_id')
         var name = button.data('name')
         var age = button.data('age')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('View Consultation Record');
@@ -325,6 +373,9 @@
         modal.find('.modal-body #VresID').val(resident_id);
         modal.find('.modal-body #Vresname').val(name);
         modal.find('.modal-body #Vage').val(age);
+        modal.find('.modal-body #Vbp').val(bp);
+        modal.find('.modal-body #Vtemp').val(temp);
+
     });
     //{{-----------------------------EDIT  CONTROL OF DIARRHEAL PROBLEM RECORD SCRIPT--------------------------------}}
     $('#editdiarrhealconsul').on('show.bs.modal', function(event) {
@@ -333,6 +384,8 @@
         var resident_id = button.data('resident_id')
         var name = button.data('name')
         var age = button.data('age')
+        var bp = button.data('bp')
+        var temp = button.data('temp')
 
         var modal = $(this)
         modal.find('.modal-title').text('Update Consultation Record');
@@ -340,6 +393,9 @@
         modal.find('.modal-body #EresID').val(resident_id);
         modal.find('.modal-body #Eresname').val(name);
         modal.find('.modal-body #Eage').val(age);
+        modal.find('.modal-body #Ebp').val(bp);
+        modal.find('.modal-body #Etemp').val(temp);
+
         });
     //{{-----------------------------DELETE CONTROL OF DIARRHEAL PROBLEM SCRIPT--------------------------------}}
     $('#deletediarrhealconsul').on('show.bs.modal', function(event) {

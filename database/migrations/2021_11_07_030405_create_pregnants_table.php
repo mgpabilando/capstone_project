@@ -20,6 +20,8 @@ class CreatePregnantsTable extends Migration
             $table->integer('age');
             $table->float('height_cm');
             $table->float('weight_kg');
+            $table->string('temp')->nullable();
+            $table->string('bp')->nullable();
             $table->string('lmp');
             $table->string('pregnancyorder');
             $table->timestamps();

@@ -19,6 +19,8 @@ class CreateFamilyplanningsTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->string('method_used');
+            $table->string('temp')->nullable();
+            $table->string('bp')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 

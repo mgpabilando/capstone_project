@@ -49,6 +49,8 @@ class FamilyplanningController extends Controller
             'name' => $request['resname'],
             'age' => $request['age'],
             'method_used' => $request['method_used'],
+            'bp' => $request['bp'],
+            'temp' => $request['temp'],
         ]);
         
         $familyplanning->save();

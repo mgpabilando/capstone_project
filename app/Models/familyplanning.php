@@ -14,7 +14,7 @@ class familyplanning extends Model
     protected $dates = ['deleted_at'];
     
     protected $fillable = [
-        'resident_id', 'name', 'age', 'method_used',
+        'resident_id', 'name', 'age', 'method_used', 'bp', 'temp',
     ];
 
     public function residents()

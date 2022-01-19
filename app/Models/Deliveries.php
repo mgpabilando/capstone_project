@@ -14,7 +14,7 @@ class Deliveries extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'resident_id', 'name', 'date_delivered', 'outcome', 'age', 'place',
+        'resident_id', 'name', 'date_delivered', 'outcome', 'age', 'place', 'bp', 'temp',
     ];
 
 

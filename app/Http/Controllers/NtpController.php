@@ -50,6 +50,8 @@ class NtpController extends Controller
             'resident_id' => $request['resID'],
             'name' => $request['resname'],
             'age' => $request['age'],
+            'bp' => $request['bp'],
+            'temp' => $request['temp'],
         ]);
         
         // return dd($deliveries);

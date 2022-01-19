@@ -41,15 +41,25 @@
                             <div class="details">Resident ID:</div>
                             <input type="text" name="Eresident_id" id="Eresident_id" placeholder="" required style="width:auto" readonly>
                         </div>
-                        <hr>
-                    </div>
-                    <div class="res_prof row justify-content-center" id="details">  
-                        <div class="input-box pb-3">
+
+                        <div class="input-box pb-3 col-md-6">
                             <div class="details">Name:</div>
                             <input type="text" name="Ename" id="Ename" placeholder="" required readonly>
                         </div>
-                        <hr>
                     </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Temperature:</div>
+                            <input type="text" name="Etemp" id="Etemp" placeholder="" required style="width:auto">
+                        </div>
+                        <div class="input-box col-md-6 pb-3 align-self-center">
+                            <div class="details">Blood Pressure:</div>
+                            <input type="text" name="Ebp" id="Ebp" placeholder="" required style="width:auto">
+                        </div>
+                    </div>
+                    <hr>
 
                     <div class="row">
                         <div class="input-box col pb-3">

@@ -9,8 +9,6 @@
 
     <title>BHMS</title>
 
-    {{-- <script language="JavaScript" type="text/javascript" src="{{ asset ('js/app.js') }}" defer></script>  --}}
-
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{asset ('bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('bootstrap/bootstrap.css') }}">
@@ -33,8 +31,10 @@
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script language="JavaScript" type="text/javascript" src="{{asset('/js/bootstrap.js') }}"></script>
-@include('sweetalert::alert')
-@yield('scripts')
+
+    @include('sweetalert::alert')
+
+    @yield('scripts')
 
 </body>
 </html>

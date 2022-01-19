@@ -57,7 +57,7 @@
                                                     {{-----***************************** SHOW BUTTON *******************************------}}
                                                         <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewfpconsul"
                                                         data-familyplanning_id="{{ $familyplanningRec->id }}" data-resident_id = "{{ $familyplanningRec->resident_id }}" data-name = "{{ $familyplanningRec->name }}"
-                                                        data-age="{{ $familyplanningRec->age }}" data-method_used="{{ $familyplanningRec->method_used }}">
+                                                        data-age="{{ $familyplanningRec->age }}" data-method_used="{{ $familyplanningRec->method_used }}" data-bp="{{ $familyplanningRec->bp }}" data-temp="{{ $familyplanningRec->temp }}">
                                                         <i class="manage fas fa-eye"></i></a>
                                                         @include('modals.familyplanning.Show')
                                                         
@@ -65,7 +65,7 @@
                                                             {{-----***************************** EDIT BUTTON *******************************------}}
                                                             <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editfpconsul"
                                                             data-familyplanning_id="{{ $familyplanningRec->id }}" data-resident_id = "{{ $familyplanningRec->resident_id }}" data-name = "{{ $familyplanningRec->name }}"
-                                                            data-age="{{ $familyplanningRec->age }}" data-method_used="{{ $familyplanningRec->method_used }}">
+                                                            data-age="{{ $familyplanningRec->age }}" data-method_used="{{ $familyplanningRec->method_used }}" data-bp="{{ $familyplanningRec->bp }}" data-temp="{{ $familyplanningRec->temp }}">
                                                             <i class="manage fas fa-edit"></i>
                                                             </a>
                                                             @include('modals.familyplanning.Edit')

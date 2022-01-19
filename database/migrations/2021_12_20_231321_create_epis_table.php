@@ -19,6 +19,8 @@ class CreateEpisTable extends Migration
             $table->string('name');
             $table->string('meds_given');
             $table->string('birthdate');
+            $table->string('temp')->nullable();
+            $table->string('bp')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
             

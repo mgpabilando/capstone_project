@@ -62,7 +62,7 @@
                                                     {{-----***************************** SHOW BUTTON *******************************------}}
                                                         <a data-bs-toggle="modal" type="button" class="btn btn-primary" data-bs-target="#viewntpconsul"
                                                         data-ntp_id="{{ $ntpRec->id }}" data-resident_id = "{{ $ntpRec->resident_id }}" data-name = "{{ $ntpRec->name }}"
-                                                        data-age="{{ $ntpRec->age }}">
+                                                        data-age="{{ $ntpRec->age }}" data-bp="{{ $ntpRec->bp }}" data-temp="{{ $ntpRec->temp }}">
                                                         <i class="manage fas fa-eye"></i></a>
                                                         @include('modals.NTP.Show')
                                             
@@ -70,7 +70,7 @@
                                                         {{-----***************************** EDIT BUTTON *******************************------}}
                                                         <a data-bs-toggle="modal" type="button" class="btn btn-warning" data-bs-target="#editntpconsul"
                                                         data-ntp_id="{{ $ntpRec->id }}" data-resident_id = "{{ $ntpRec->resident_id }}" data-name = "{{ $ntpRec->name }}"
-                                                        data-age="{{ $ntpRec->age }}">                                    
+                                                        data-age="{{ $ntpRec->age }}" data-bp="{{ $ntpRec->bp }}" data-temp="{{ $ntpRec->temp }}">                                    
                                                         <i class="manage fas fa-edit"></i>
                                                         </a>
                                                         @include('modals.NTP.Edit')
